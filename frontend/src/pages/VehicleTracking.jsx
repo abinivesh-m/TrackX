@@ -13,8 +13,8 @@ export default function VehicleTracking() {
 
   const fetchVehicles = async () => {
     try {
-      const response = await apiClient.get('/vehicles/')
-      setVehicles(response.data.items || [])
+      const response = await apiClient.get('/api/v1/vehicles')
+      setVehicles(response.data.vehicles || [])
       setLoading(false)
     } catch (error) {
       console.error('Failed to fetch vehicles:', error)

@@ -12,8 +12,8 @@ export default function Alerts() {
 
   const fetchAlerts = async () => {
     try {
-      const response = await apiClient.get('/alerts/')
-      setAlerts(response.data.items || [])
+      const response = await apiClient.get('/api/v1/alerts')
+      setAlerts(response.data.alerts || [])
       setLoading(false)
     } catch (error) {
       console.error('Failed to fetch alerts:', error)

@@ -12,7 +12,7 @@ export default function Dashboard() {
 
   const fetchStats = async () => {
     try {
-      const response = await apiClient.get('/analytics/summary')
+      const response = await apiClient.get('/api/v1/analytics/stats')
       setStats(response.data)
       setLoading(false)
     } catch (error) {
