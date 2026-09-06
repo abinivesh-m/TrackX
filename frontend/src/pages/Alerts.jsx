@@ -43,6 +43,10 @@ export default function Alerts() {
     }
   }
 
+  // Calculate active and resolved counts
+  const activeCount = alerts.filter(a => a.status === 'active').length
+  const resolvedCount = alerts.filter(a => a.status === 'resolved').length
+
   return (
     <div className="space-y-8">
       {/* Header */}
@@ -57,7 +61,7 @@ export default function Alerts() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-400 text-sm mb-2">Active Alerts</p>
-              <p className="text-3xl font-bold text-red-400">0</p>
+              <p className="text-3xl font-bold text-red-400">{activeCount}</p>
             </div>
             <AlertCircle className="w-8 h-8 text-red-500" />
           </div>
@@ -67,7 +71,7 @@ export default function Alerts() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-400 text-sm mb-2">Resolved</p>
-              <p className="text-3xl font-bold text-green-400">0</p>
+              <p className="text-3xl font-bold text-green-400">{resolvedCount}</p>
             </div>
             <CheckCircle className="w-8 h-8 text-green-500" />
           </div>

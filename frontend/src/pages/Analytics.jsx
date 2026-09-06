@@ -4,6 +4,7 @@ import { TrendingUp, BarChart3, Activity, Clock } from 'lucide-react'
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 
 export default function Analytics() {
+  // Fetches analytics data including routes and camera performance from Coimbatore
   const [hourlyData, setHourlyData] = useState([])
   const [stats, setStats] = useState(null)
   const [routeData, setRouteData] = useState([])
@@ -162,24 +163,36 @@ export default function Analytics() {
         <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-lg p-8">
           <h2 className="text-xl font-bold text-white mb-4">Top Routes</h2>
           <div className="space-y-3">
-            {routeData.map((route, idx) => (
-              <div key={idx} className="flex justify-between items-center">
-                <span className="text-gray-300">{route.from_name} → {route.to_name}</span>
-                <span className="bg-blue-600 px-3 py-1 rounded-full text-sm font-semibold">{route.count}</span>
-              </div>
-            ))}
+            {loading ? (
+              <div className="text-gray-400">Loading routes...</div>
+            ) : routeData.length > 0 ? (
+              routeData.map((route, idx) => (
+                <div key={idx} className="flex justify-between items-center">
+                  <span className="text-gray-300">{route.from_name} → {route.to_name}</span>
+                  <span className="bg-blue-600 px-3 py-1 rounded-full text-sm font-semibold">{route.count}</span>
+                </div>
+              ))
+            ) : (
+              <div className="text-gray-400">No route data available</div>
+            )}
           </div>
         </div>
 
         <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-lg p-8">
           <h2 className="text-xl font-bold text-white mb-4">Camera Performance</h2>
           <div className="space-y-3">
-            {cameraPerformance.map((cam, idx) => (
-              <div key={idx} className="flex justify-between items-center">
-                <span className="text-gray-300">{cam.name}</span>
-                <span className="text-green-400 font-semibold">{cam.accuracy}%</span>
-              </div>
-            ))}
+            {loading ? (
+              <div className="text-gray-400">Loading cameras...</div>
+            ) : cameraPerformance.length > 0 ? (
+              cameraPerformance.map((cam, idx) => (
+                <div key={idx} className="flex justify-between items-center">
+                  <span className="text-gray-300">{cam.name}</span>
+                  <span className="text-green-400 font-semibold">{cam.accuracy}%</span>
+                </div>
+              ))
+            ) : (
+              <div className="text-gray-400">No camera data available</div>
+            )}
           </div>
         </div>
       </div>
