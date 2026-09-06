@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { apiClient } from '../App'
 import { MapPin, Zap, Database } from 'lucide-react'
+import MapView from '../components/MapView'
 
 export default function VehicleTracking() {
   const [vehicles, setVehicles] = useState([])
   const [loading, setLoading] = useState(true)
   const [filter, setFilter] = useState('')
+  const [selectedPlate, setSelectedPlate] = useState(null)
 
   useEffect(() => {
     fetchVehicles()
@@ -38,12 +40,26 @@ export default function VehicleTracking() {
       <div>
         <input
           type="text"
-          placeholder="Search by plate number..."
+          placeholder="Search by plate number... (e.g., TN09CX7134)"
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
           className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
+
+      {/* Map showing trajectory */}
+      {selectedPlate && (
+        <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-lg p-6">
+          <h2 className="text-xl font-bold text-white mb-4">Vehicle Trajectory: {selectedPlate}</h2>
+          <MapView searchPlate={selectedPlate} />
+          <button
+            onClick={() => setSelectedPlate(null)}
+            className="mt-4 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
+          >
+            Clear Selection
+          </button>
+        </div>
+      )}
 
       {/* Vehicles Table */}
       <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-lg overflow-hidden">
@@ -73,7 +89,11 @@ export default function VehicleTracking() {
                 </tr>
               ) : (
                 filteredVehicles.slice(0, 20).map((vehicle, idx) => (
-                  <tr key={idx} className="border-b border-slate-700 hover:bg-slate-800/50 transition-colors">
+                  <tr 
+                    key={idx} 
+                    className="border-b border-slate-700 hover:bg-slate-800/50 transition-colors cursor-pointer"
+                    onClick={() => setSelectedPlate(vehicle.plate_text)}
+                  >
                     <td className="px-6 py-4">
                       <span className="font-mono font-bold text-blue-400">
                         {vehicle.plate_text}

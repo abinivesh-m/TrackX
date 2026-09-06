@@ -23,6 +23,7 @@ const cameraIcon = new L.Icon({
 export default function MapView({ searchPlate = null }) {
   const [cameras, setCameras] = useState([])
   const [vehicles, setVehicles] = useState([])
+  const [trajectories, setTrajectories] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -37,6 +38,19 @@ export default function MapView({ searchPlate = null }) {
       ])
       setCameras(camerasRes.data.cameras || [])
       setVehicles(vehiclesRes.data.vehicles || [])
+      
+      // Fetch trajectory if searching for a specific plate
+      if (searchPlate) {
+        const trajRes = await apiClient.get(`/api/v1/vehicles/${searchPlate}/trajectory`)
+        if (trajRes.data.trajectory && trajRes.data.trajectory.length > 1) {
+          setTrajectories([{
+            positions: trajRes.data.trajectory.map(point => [point.latitude, point.longitude]),
+            color: '#3b82f6',
+            plate: searchPlate
+          }])
+        }
+      }
+      
       setLoading(false)
     } catch (error) {
       console.error('Failed to fetch map data:', error)
@@ -46,29 +60,16 @@ export default function MapView({ searchPlate = null }) {
 
   // Calculate map center from cameras
   const getMapCenter = () => {
-    if (cameras.length === 0) return [12.9716, 77.5946] // Default to Bangalore
-    const avgLat = cameras.reduce((sum, cam) => sum + (cam.latitude || 12.9716), 0) / cameras.length
-    const avgLng = cameras.reduce((sum, cam) => sum + (cam.longitude || 77.5946), 0) / cameras.length
+    if (cameras.length === 0) return [11.0168, 76.9558] // Coimbatore center
+    const avgLat = cameras.reduce((sum, cam) => sum + (cam.latitude || 11.0168), 0) / cameras.length
+    const avgLng = cameras.reduce((sum, cam) => sum + (cam.longitude || 76.9558), 0) / cameras.length
     return [avgLat, avgLng]
-  }
-
-  // Generate trajectory lines for vehicles
-  const getVehicleTrajectories = () => {
-    if (!searchPlate) return []
-    const vehicle = vehicles.find(v => v.plate_text === searchPlate)
-    if (!vehicle) return []
-    
-    // Mock trajectory data - in real app, fetch from backend
-    return [{
-      positions: cameras.slice(0, 3).map(c => [c.latitude, c.longitude]),
-      color: '#3b82f6'
-    }]
   }
 
   // Generate heatmap circles for traffic density
   const getTrafficHeatmap = () => {
     return cameras.map((cam, idx) => ({
-      center: [cam.latitude || 12.9716, cam.longitude || 77.5946],
+      center: [cam.latitude || 11.0168, cam.longitude || 76.9558],
       radius: Math.random() * 300 + 100, // Mock data
       intensity: Math.random()
     }))
@@ -99,7 +100,7 @@ export default function MapView({ searchPlate = null }) {
         {cameras.map((camera) => (
           <Marker
             key={camera.id}
-            position={[camera.latitude || 12.9716, camera.longitude || 77.5946]}
+            position={[camera.latitude || 11.0168, camera.longitude || 76.9558]}
             icon={cameraIcon}
           >
             <Popup>
@@ -127,16 +128,23 @@ export default function MapView({ searchPlate = null }) {
         ))}
 
         {/* Vehicle trajectory lines */}
-        {getVehicleTrajectories().map((traj, idx) => (
+        {trajectories.map((traj, idx) => (
           <Polyline
             key={`traj-${idx}`}
             positions={traj.positions}
             pathOptions={{
               color: traj.color,
-              weight: 3,
-              opacity: 0.7
+              weight: 4,
+              opacity: 0.8
             }}
-          />
+          >
+            <Popup>
+              <div className="text-sm">
+                <p className="font-bold">Vehicle: {traj.plate || searchPlate}</p>
+                <p className="text-gray-600">{traj.positions.length} cameras</p>
+              </div>
+            </Popup>
+          </Polyline>
         ))}
       </MapContainer>
     </div>
