@@ -1,0 +1,67 @@
+{
+  "metrics": {
+    "timestamp": "2026-09-04T19:04:12.914385",
+    "total_pairs": 25,
+    "same_vehicle_pairs": 10,
+    "different_vehicle_pairs": 15,
+    "true_positives": 10,
+    "true_positive_rate": 1.0,
+    "avg_same_vehicle_similarity": 0.999,
+    "false_positives": 0,
+    "false_positive_rate": 0.0,
+    "avg_different_vehicle_similarity": 0.0069,
+    "idf1": 1.0,
+    "id_precision": 1.0,
+    "id_recall": 1.0,
+    "optimal_threshold": 0.1,
+    "threshold_analysis": {
+      "threshold_0.5": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "threshold_0.6": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "threshold_0.7": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "threshold_0.75": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "threshold_0.8": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "threshold_0.85": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "threshold_0.9": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    }
+  },
+  "evaluation_summary": {
+    "total_evaluated_pairs": 25,
+    "same_vehicle_accuracy": "100.0%",
+    "different_vehicle_false_match_rate": "0.0%",
+    "idf1_score": "100.0%",
+    "optimal_threshold": 0.1,
+    "recommendation": "Excellent Re-ID performance - suitable for production use"
+  },
+  "data_quality": {
+    "appearance_module_available": false,
+    "similarity_threshold_used": 0.75
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "measurement_timestamp": "2026-09-05T13:23:35.781165",
+  "summary": {
+    "runs": 3,
+    "average_latency_seconds": 0.006,
+    "min_latency_seconds": 0.004,
+    "max_latency_seconds": 0.009,
+    "variance_seconds": 0.005,
+    "all_measurements": [
+      {
+        "timestamp": "2026-09-05T13:23:35.786346",
+        "observation_count": 102,
+        "trajectory_count": 9,
+        "load_time_seconds": 0.005,
+        "trajectory_time_seconds": 0.0,
+        "per_observation_latency_ms": 0.0,
+        "total_latency_seconds": 0.005
+      },
+      {
+        "timestamp": "2026-09-05T13:23:36.825518",
+        "observation_count": 102,
+        "trajectory_count": 9,
+        "load_time_seconds": 0.009,
+        "trajectory_time_seconds": 0.0,
+        "per_observation_latency_ms": 0.0,
+        "total_latency_seconds": 0.009
+      },
+      {
+        "timestamp": "2026-09-05T13:23:37.830801",
+        "observation_count": 102,
+        "trajectory_count": 9,
+        "load_time_seconds": 0.003,
+        "trajectory_time_seconds": 0.0,
+        "per_observation_latency_ms": 0.0,
+        "total_latency_seconds": 0.004
+      }
+    ]
+  },
+  "individual_measurements": [
+    {
+      "timestamp": "2026-09-05T13:23:32.760496",
+      "observation_count": 102,
+      "trajectory_count": 9,
+      "load_time_seconds": 0.003,
+      "trajectory_time_seconds": 0.0,
+      "per_observation_latency_ms": 0.0,
+      "total_latency_seconds": 0.003
+    },
+    {
+      "timestamp": "2026-09-05T13:23:33.774497",
+      "observation_count": 102,
+      "trajectory_count": 9,
+      "load_time_seconds": 0.006,
+      "trajectory_time_seconds": 0.0,
+      "per_observation_latency_ms": 0.0,
+      "total_latency_seconds": 0.007
+    },
+    {
+      "timestamp": "2026-09-05T13:23:34.778698",
+      "observation_count": 102,
+      "trajectory_count": 9,
+      "load_time_seconds": 0.003,
+      "trajectory_time_seconds": 0.0,
+      "per_observation_latency_ms": 0.0,
+      "total_latency_seconds": 0.003
+    },
+    {
+      "timestamp": "2026-09-05T13:23:35.786346",
+      "observation_count": 102,
+      "trajectory_count": 9,
+      "load_time_seconds": 0.005,
+      "trajectory_time_seconds": 0.0,
+      "per_observation_latency_ms": 0.0,
+      "total_latency_seconds": 0.005
+    },
+    {
+      "timestamp": "2026-09-05T13:23:36.825518",
+      "observation_count": 102,
+      "trajectory_count": 9,
+      "load_time_seconds": 0.009,
+      "trajectory_time_seconds": 0.0,
+      "per_observation_latency_ms": 0.0,
+      "total_latency_seconds": 0.009
+    },
+    {
+      "timestamp": "2026-09-05T13:23:37.830801",
+      "observation_count": 102,
+      "trajectory_count": 9,
+      "load_time_seconds": 0.003,
+      "trajectory_time_seconds": 0.0,
+      "per_observation_latency_ms": 0.0,
+      "total_latency_seconds": 0.004
+    }
+  ]
+}

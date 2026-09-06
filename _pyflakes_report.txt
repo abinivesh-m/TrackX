@@ -1,0 +1,266 @@
+﻿C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_blocking_errors.py:7:1: 'sys' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_blocking_errors.py:32:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_blocking_errors.py:42:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_blocking_errors.py:56:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_blocking_errors.py:78:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_blocking_errors.py:96:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_blocking_errors.py:100:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_blocking_errors.py:105:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_blocking_errors.py:120:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_blocking_errors.py:140:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_blocking_errors.py:148:15: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_blocking_errors.py:153:15: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_blocking_errors.py:159:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_blocking_errors.py:170:15: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_blocking_errors.py:174:15: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_errors.py:6:1: 'sys' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_errors.py:8:1: 'collections.defaultdict' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_errors.py:30:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_errors.py:84:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_errors.py:100:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_errors.py:104:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_errors.py:117:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_errors.py:121:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_errors.py:129:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_errors.py:162:15: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_errors.py:166:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_errors.py:176:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_errors.py:180:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_ocr_errors.py:72:7: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_ocr_errors.py:76:7: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_ocr_errors.py:80:7: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_ocr_errors.py:84:7: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_ocr_errors.py:88:7: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analyze_ocr_errors.py:101:7: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\audit_dataset.py:3:1: 'pathlib.Path' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\audit_ocr_dataset_quality.py:9:1: 'pathlib.Path' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\audit_ocr_dataset_quality.py:86:5: local variable 'e' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\audit_ocr_dataset_quality.py:137:7: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\benchmark_20_images.py:13:1: 'pathlib.Path' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\benchmark_20_images.py:127:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\build_clean_ocr_dataset.py:15:1: 'pathlib.Path' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\build_improved_ocr_dataset.py:206:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\build_improved_ocr_dataset.py:219:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\build_ocr_eval_dataset.py:15:1: 'pathlib.Path' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\build_ocr_eval_dataset.py:201:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\build_ocr_eval_dataset.py:214:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\build_real_only_ocr_dataset.py:123:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\build_real_only_ocr_dataset.py:125:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\build_real_only_ocr_dataset.py:136:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\build_real_only_ocr_dataset.py:146:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\build_real_only_ocr_dataset.py:167:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\check_dataset_overlaps.py:7:1: 'collections.defaultdict' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\check_dataset_usage.py:5:1: 'os' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\check_dataset_usage.py:6:1: 're' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\check_trajectory.py:46:7: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\check_trajectory.py:48:7: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\comprehensive_ocr_audit.py:10:1: 'collections.defaultdict' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\comprehensive_ocr_audit.py:31:9: local variable 'e' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\count_external_images.py:3:1: 'pathlib.Path' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\count_external_images.py:80:13: local variable 'e' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\count_external_images.py:95:7: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\create_clean_evaluation_split.py:48:5: local variable 'train_gts' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\evaluate_improved_ocr.py:8:1: 'os' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\evaluate_improved_ocr.py:13:1: 'typing.Tuple' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\evaluate_improved_ocr.py:14:1: 'numpy as np' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\evaluate_improved_ocr.py:20:1: 'recognition.ocr_reader.PlateOCR' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\evaluate_improved_ocr.py:20:1: 'recognition.ocr_reader.try_init_ocr' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\evaluate_improved_ocr.py:42:13: redefinition of unused 'PlateOCR' from line 20
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\evaluate_improved_ocr.py:247:15: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\evaluate_improved_ocr.py:251:15: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\evaluate_improved_ocr.py:253:15: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\evaluate_improved_ocr.py:254:15: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\evaluate_improved_ocr.py:286:9: local variable 'report' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\evaluate_precropped.py:11:1: 'pathlib.Path' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\extract_plate_crops.py:13:1: 'pathlib.Path' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\extract_plate_crops.py:280:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\pipeline.py:31:1: 'recognition.plate_matcher.normalize_plate' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\pipeline.py:105:23: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\run_demo.py:32:1: 'datetime.datetime' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\run_demo.py:176:27: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\run_demo.py:193:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\run_demo.py:194:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\run_demo.py:195:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\update_dataset_references.py:8:1: 'json' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\verify_alerts.py:102:15: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\verify_alerts.py:109:15: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\verify_alerts.py:116:15: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\verify_alerts.py:131:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\verify_analytics.py:111:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\verify_analytics.py:126:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\verify_database.py:2:1: 'json' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\verify_database.py:16:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\verify_multi_camera.py:131:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\_scan_syntax.py:4:1: 're' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\_scan_syntax.py:5:1: 'sys' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analytics\analytics.py:18:1: 'network.camera_network.ROAD_GRAPH' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analytics\analytics.py:146:5: local variable 'e' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\analytics\analytics.py:360:9: local variable 'avg_density' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\seed_db.py:26:1: redefinition of unused 'os' from line 16
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\alembic\env.py:15:1: 'app.models.user' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\alembic\versions\005_add_postgis_extensions.py:11:1: 'sqlalchemy as sa' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\main.py:21:1: 'fastapi.staticfiles.StaticFiles' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\main.py:25:1: 'json' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\api\deps.py:6:1: 'typing.Generator' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\api\deps.py:7:1: 'fastapi.HTTPException' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\api\deps.py:7:1: 'fastapi.status' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\api\deps.py:22:18: undefined name 'get_current_user'
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\api\v1\admin.py:8:1: 'typing.List' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\api\v1\admin.py:13:1: 'app.schemas.user.UserInDBAdmin' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\api\v1\cameras.py:7:1: 'typing.List' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\api\v1\cameras.py:8:1: 'datetime.datetime' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\api\v1\deps.py:6:1: 'typing.Optional' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\api\v1\observations.py:7:1: 'typing.List' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\api\v1\observations.py:13:1: 'app.schemas.observation.ObservationResponse' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\api\v1\vehicles.py:7:1: 'typing.List' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\core\config.py:20:1: 'typing.Optional' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\core\config.py:20:1: 'typing.Union' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\core\config.py:23:1: 'os' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\core\database.py:11:1: 'sqlalchemy.pool.NullPool' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\core\database.py:42:9: 'geoalchemy2.Geometry' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\core\database.py:43:9: 'sqlalchemy.engine.url.make_url' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\core\security.py:11:1: 'os' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\models\alert.py:6:1: 'sqlalchemy.Boolean' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\models\audit_log.py:6:1: 'sqlalchemy.Float' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\models\audit_log.py:6:1: 'sqlalchemy.Boolean' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\models\observation.py:6:1: 'sqlalchemy.Boolean' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\models\vehicle.py:6:1: 'sqlalchemy.Float' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\models\vehicle.py:6:1: 'sqlalchemy.Boolean' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\schemas\observation.py:6:1: 'pydantic.Field' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\schemas\observation.py:7:1: 'typing.Dict' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\schemas\observation.py:7:1: 'typing.Any' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\schemas\vehicle.py:7:1: 'typing.Dict' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\schemas\vehicle.py:7:1: 'typing.Any' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\services\alert_service.py:8:1: 'sqlalchemy.or_' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\services\alert_service.py:14:1: 'app.models.camera.Camera' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\services\analytics_service.py:8:1: 'sqlalchemy.and_' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\services\analytics_service.py:8:1: 'sqlalchemy.or_' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\services\analytics_service.py:13:1: 'app.models.vehicle.Vehicle' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\services\analytics_service.py:60:9: 'sqlalchemy.cast' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\services\analytics_service.py:60:9: 'sqlalchemy.Date' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\services\analytics_service.py:60:9: 'sqlalchemy.Time' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\services\camera_service.py:10:1: 'sqlalchemy.update' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\services\vehicle_service.py:7:1: 'datetime.timedelta' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\services\vehicle_service.py:7:1: 'datetime.timezone' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\services\vehicle_service.py:8:1: 'sqlalchemy.func' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\services\vehicle_service.py:8:1: 'sqlalchemy.and_' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\services\vehicle_service.py:15:1: 'app.schemas.vehicle.VehicleCreate' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\services\vehicle_service.py:15:1: 'app.schemas.vehicle.VehicleUpdate' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\app\services\vehicle_service.py:15:1: 'app.schemas.vehicle.VehicleSearchResponse' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\tests\conftest.py:5:1: 'asyncio' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\tests\test_alerts.py:4:1: 'datetime.datetime' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\tests\test_alerts.py:6:1: 'app.models.alert.Alert' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\tests\test_vehicles.py:4:1: 'datetime.datetime' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\tests\test_vehicles.py:4:1: 'datetime.timedelta' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\tests\test_vehicles.py:5:1: 'app.models.observation.Observation' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\backend\tests\test_vehicles.py:6:1: 'app.models.camera.Camera' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\dashboard\dashboard.py:27:1: 'json' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\dashboard\dashboard.py:53:1: 'analytics.analytics.busiest_camera' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\dashboard\dashboard.py:53:1: 'analytics.analytics.repeated_camera_sightings' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\dashboard\dashboard.py:359:21: redefinition of unused 'datetime' from line 15
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\dashboard\dashboard.py:973:42: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\dashboard\dashboard.py:1287:13: 'torch' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\dashboard\dashboard.py:1476:13: redefinition of unused 'RESULTS_DIR' from line 60
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\dashboard\system_health.py:23:1: 'config.PROJECT_ROOT' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\dashboard\system_health.py:67:9: 'torch' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\database\backup_manager.py:13:1: 'pathlib.Path' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\demo\run_alert_demo.py:32:1: 'datetime.datetime' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\demo\seed_alert_demo.py:23:1: 'json' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\demo\seed_demo_data.py:58:1: 'sys' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\demo\visual_pipeline.py:432:15: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\detection\train_yolo.py:78:15: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\integration_tests\test_multi_frame_tracking.py:21:1: local variable 'e' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\integration_tests\test_real_ocr.py:16:1: 'pathlib.Path' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\integration_tests\test_sample_png.py:14:1: 'cv2' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\anomaly_scoring.py:22:1: 'typing.Tuple' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\anomaly_scoring.py:22:1: 'typing.Literal' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\anomaly_scoring.py:25:1: 'intelligence.spatio_temporal.SpatioTemporalResult' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\anomaly_scoring.py:29:1: 'intelligence.fusion.global_match_score' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\anomaly_scoring.py:31:1: 'network.camera_network.CAMERA_RELIABILITY' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\anomaly_scoring.py:421:5: redefinition of unused 'datetime' from line 21
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\anomaly_scoring.py:421:5: redefinition of unused 'timedelta' from line 21
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\route_hypothesis.py:21:1: 'typing.Tuple' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\route_hypothesis.py:24:1: 'intelligence.spatio_temporal.calculate_spatial_temporal_plausibility' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\route_hypothesis.py:30:1: 'network.camera_network.CAMERAS' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\route_hypothesis.py:30:1: 'network.camera_network.ROAD_GRAPH' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\route_hypothesis.py:30:1: 'network.camera_network.is_spatially_connected' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\route_hypothesis.py:354:5: redefinition of unused 'datetime' from line 20
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\route_hypothesis.py:354:5: redefinition of unused 'timedelta' from line 20
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\spatio_temporal.py:21:1: 'typing.Tuple' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\spatio_temporal.py:21:1: 'typing.Literal' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\spatio_temporal.py:22:1: 'math' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\spatio_temporal.py:24:1: 'network.camera_network.ROAD_GRAPH' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\spatio_temporal.py:24:1: 'network.camera_network.is_temporally_feasible' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\spatio_temporal.py:355:5: redefinition of unused 'datetime' from line 20
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\spatio_temporal.py:355:5: redefinition of unused 'timedelta' from line 20
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\what_if_simulator.py:27:1: 'typing.Tuple' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\what_if_simulator.py:28:1: 'json' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\what_if_simulator.py:371:5: local variable 'scenario' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\what_if_simulator.py:444:5: redefinition of unused 'datetime' from line 26
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\intelligence\what_if_simulator.py:444:5: redefinition of unused 'timedelta' from line 26
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\network\camera_network.py:450:13: local variable 'e' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\recognition\anpr_lab.py:19:1: 'numpy as np' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\recognition\anpr_lab.py:20:1: 'typing.Tuple' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\recognition\anpr_lab.py:27:5: 'recognition.ocr_reader.PlateOCR' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\recognition\anpr_lab.py:33:5: 'recognition.lprnet_ocr.LPRNetOCR' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\recognition\lprnet_ocr.py:18:1: 'typing.List' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\recognition\ocr_evaluation.py:12:1: 'csv' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\recognition\ocr_evaluation.py:13:1: 'pathlib.Path' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\recognition\ocr_evaluation.py:15:1: 'typing.Tuple' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\recognition\ocr_evaluation.py:18:1: 'numpy as np' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\recognition\ocr_evaluation.py:20:1: 'recognition.ocr_reader.PlateOCR' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\recognition\ocr_evaluation.py:330:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\recognition\ocr_reader.py:268:27: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\recognition\ocr_reader.py:279:23: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\recognition\ocr_reader.py:291:23: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\recognition\ocr_reader.py:303:23: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\recognition\ocr_reader.py:584:15: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\recognition\ocr_reader.py:612:5: redefinition of unused 'cv2' from line 2
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\recognition\reid_evaluation.py:17:1: 'typing.Tuple' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\recognition\reid_evaluation.py:338:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\generate_7_camera_videos.py:19:1: 'datetime.timedelta' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\generate_multi_camera_demo.py:15:1: 'os' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\generate_multi_camera_demo.py:144:13: local variable 'camera_name' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\import_vehicle_dataset.py:54:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\import_vehicle_dataset.py:62:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\import_vehicle_dataset.py:71:15: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\import_vehicle_dataset.py:75:15: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\import_vehicle_dataset.py:114:9: local variable 'results' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\import_vehicle_dataset.py:115:15: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\run_7_camera_demo.py:23:1: 'detection.vehicle_detector.VehicleDetector' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\run_7_camera_demo.py:24:1: 'detection.detect_plates.PlateDetector' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\run_7_camera_demo.py:25:1: 'recognition.ocr_reader.try_init_ocr' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\run_7_camera_demo.py:28:1: 'analytics.analytics.cross_camera_route_frequency' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\run_7_camera_demo.py:140:25: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\run_7_camera_demo.py:170:9: local variable 'start_camera' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\run_7_camera_demo.py:236:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\run_7_camera_demo.py:261:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\run_7_camera_demo.py:276:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\run_7_camera_demo.py:281:15: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\run_7_camera_demo.py:289:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\run_7_camera_demo.py:293:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\run_7_camera_demo.py:301:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\run_7_camera_demo.py:304:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\run_7_camera_demo.py:307:11: f-string is missing placeholders
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\run_real_pipeline.py:22:1: 'datetime.timedelta' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\run_real_pipeline.py:52:1: 'recognition.plate_matcher.plate_similarity' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\run_real_pipeline.py:200:9: local variable 'fps' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\run_real_pipeline.py:201:9: local variable 'total_frames' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\run_real_pipeline.py:493:5: local variable 'results' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\verify_real_data.py:18:1: 'json' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\scripts\verify_real_data.py:19:1: 'datetime.datetime' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\tests\test_7_camera_network.py:195:9: local variable 'base_time' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\tests\test_analytics_enhancements.py:8:1: 'datetime.datetime' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\tests\test_analytics_enhancements.py:8:1: 'datetime.timedelta' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\tests\test_anomaly_scoring.py:19:1: 'intelligence.anomaly_scoring.AnomalyResult' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\tests\test_day1_visual_pipeline.py:126:13: local variable 'sentinel' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\tests\test_day1_visual_pipeline.py:448:9: local variable 'crop' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\tests\test_day3_improvements.py:149:9: 'demo.visual_pipeline as vp' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\tests\test_day4_plate_crop.py:26:1: 'json' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\tests\test_day4_plate_crop.py:444:9: local variable 'vehicle_crop' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\tests\test_day4_plate_crop.py:461:9: local variable 'vehicle_crop' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\tests\test_day4_plate_crop.py:503:9: local variable 'vehicle_crop' is assigned to but never used
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\tests\test_ocr_evaluation.py:11:1: 'pathlib.Path' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\tests\test_ocr_evaluation.py:15:1: 'recognition.ocr_evaluation.OCREvaluationReport' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\tests\test_route_hypothesis.py:20:1: 'intelligence.route_hypothesis.RouteHypothesis' imported but unused
+C:\Users\abini\OneDrive\Desktop\sih26127\TrackX\tests\test_spatio_temporal.py:18:1: 'intelligence.spatio_temporal.SpatioTemporalResult' imported but unused

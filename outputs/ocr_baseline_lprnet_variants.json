@@ -1,0 +1,5122 @@
+{
+ "engine": "lprnet_variants",
+ "rows": [
+  {
+   "file": "AN_AN1_crop.jpg",
+   "gt": "AN01P9687",
+   "pred": "AN01P9687",
+   "ok": true,
+   "conf": 0.9898067116737366
+  },
+  {
+   "file": "AN_AN10_crop.jpg",
+   "gt": "AN01K9412",
+   "pred": "AN01K9412",
+   "ok": true,
+   "conf": 0.9687363174226549
+  },
+  {
+   "file": "AN_AN2_crop.jpg",
+   "gt": "AN01D4163",
+   "pred": "KN01D4363",
+   "ok": false,
+   "conf": 0.920491615931193
+  },
+  {
+   "file": "AN_AN5_crop.jpg",
+   "gt": "AN01L6155",
+   "pred": "AN0C6153",
+   "ok": false,
+   "conf": 0.8374304903878106
+  },
+  {
+   "file": "AN_AN6_crop.jpg",
+   "gt": "AN01H1689",
+   "pred": "KN01H1689",
+   "ok": false,
+   "conf": 0.9496365547180176
+  },
+  {
+   "file": "AN_AN7_crop.jpg",
+   "gt": "AN01H0908",
+   "pred": "KR01M0908",
+   "ok": false,
+   "conf": 0.9284013708432516
+  },
+  {
+   "file": "AP_AP1_crop.jpg",
+   "gt": "AP05BY7799",
+   "pred": "AP058Y779",
+   "ok": false,
+   "conf": 0.9660817980766296
+  },
+  {
+   "file": "AP_AP10_crop.jpg",
+   "gt": "AP39E1493",
+   "pred": "AP39E1493",
+   "ok": true,
+   "conf": 0.9996946189138625
+  },
+  {
+   "file": "AP_AP12_crop.jpg",
+   "gt": "AP310U7562",
+   "pred": "KA310G020",
+   "ok": false,
+   "conf": 0.8811832533942329
+  },
+  {
+   "file": "AP_AP13_crop.jpg",
+   "gt": "AP39JJ5441",
+   "pred": "GP39JJ5440",
+   "ok": false,
+   "conf": 0.9622515559196472
+  },
+  {
+   "file": "AP_AP14_crop.jpg",
+   "gt": "AP10AS3445",
+   "pred": "AP10AS3445",
+   "ok": true,
+   "conf": 0.9961737215518951
+  },
+  {
+   "file": "AP_AP15_crop.jpg",
+   "gt": "AP28AT5333",
+   "pred": "AP28A633",
+   "ok": false,
+   "conf": 0.9455322697758675
+  },
+  {
+   "file": "AP_AP16_crop.jpg",
+   "gt": "AP39GR3492",
+   "pred": "AP396R9492",
+   "ok": false,
+   "conf": 0.9914120316505433
+  },
+  {
+   "file": "AP_AP17_crop.jpg",
+   "gt": "AP31TP2282",
+   "pred": "AP3172282",
+   "ok": false,
+   "conf": 0.9466287427478366
+  },
+  {
+   "file": "AP_AP18_crop.jpg",
+   "gt": "AP16BS4500",
+   "pred": "MH16BS450",
+   "ok": false,
+   "conf": 0.9886147512329949
+  },
+  {
+   "file": "AP_AP19_crop.jpg",
+   "gt": "AP04M7627",
+   "pred": "AP04M7627",
+   "ok": true,
+   "conf": 0.9611245195070902
+  },
+  {
+   "file": "AP_AP2_crop.jpg",
+   "gt": "AP07AN3915",
+   "pred": "AS07AN7915",
+   "ok": false,
+   "conf": 0.9660721957683563
+  },
+  {
+   "file": "AP_AP20_crop.jpg",
+   "gt": "AP04AS8753",
+   "pred": "UB6A8750",
+   "ok": false,
+   "conf": 0.8644320592284203
+  },
+  {
+   "file": "AP_AP21_crop.jpg",
+   "gt": "AP31AT5064",
+   "pred": "AP31AT5064",
+   "ok": true,
+   "conf": 0.9447609484195709
+  },
+  {
+   "file": "AP_AP22_crop.jpg",
+   "gt": "AP16CH9545",
+   "pred": "AP16CH9545",
+   "ok": true,
+   "conf": 0.9962543547153473
+  },
+  {
+   "file": "AP_AP23_crop.jpg",
+   "gt": "AP39DL3537",
+   "pred": "AP39DL3537",
+   "ok": true,
+   "conf": 0.9869929373264312
+  },
+  {
+   "file": "AP_AP24_crop.jpg",
+   "gt": "AP07AD5555",
+   "pred": "AP07AD555",
+   "ok": false,
+   "conf": 0.9985302421781752
+  },
+  {
+   "file": "AP_AP25_crop.jpg",
+   "gt": "AP26AM1260",
+   "pred": "BP26AM1260",
+   "ok": false,
+   "conf": 0.964655190706253
+  },
+  {
+   "file": "AP_AP26_crop.jpg",
+   "gt": "AP31BR9501",
+   "pred": "AP318R901",
+   "ok": false,
+   "conf": 0.9820464319652982
+  },
+  {
+   "file": "AP_AP27_crop.jpg",
+   "gt": "AP31EF1155",
+   "pred": "AP31EF115",
+   "ok": false,
+   "conf": 0.9997539122899374
+  },
+  {
+   "file": "AP_AP29_crop.jpg",
+   "gt": "AP31DF2833",
+   "pred": "AP31DF8888",
+   "ok": false,
+   "conf": 0.9522502541542053
+  },
+  {
+   "file": "AP_AP3_crop.jpg",
+   "gt": "AP2D4014",
+   "pred": "H72312A2A2",
+   "ok": false,
+   "conf": 0.8538601577281952
+  },
+  {
+   "file": "AP_AP30_crop.jpg",
+   "gt": "AP31DT9378",
+   "pred": "AP31DT9378",
+   "ok": true,
+   "conf": 0.9929503977298737
+  },
+  {
+   "file": "AP_AP33_crop.jpg",
+   "gt": "AP31DA0020",
+   "pred": "AP31DA0028",
+   "ok": false,
+   "conf": 0.9063506782054901
+  },
+  {
+   "file": "AP_AP34_crop.jpg",
+   "gt": "AP37EJ2277",
+   "pred": "AP37J227",
+   "ok": false,
+   "conf": 0.9951468259096146
+  },
+  {
+   "file": "AP_AP39_crop.jpg",
+   "gt": "AP05DY3395",
+   "pred": "AP05DY3395",
+   "ok": true,
+   "conf": 0.9865769863128662
+  },
+  {
+   "file": "AP_AP4_crop.jpg",
+   "gt": "AP39HZ0087",
+   "pred": "AP29NZ0087",
+   "ok": false,
+   "conf": 0.963586688041687
+  },
+  {
+   "file": "AP_AP40_crop.jpg",
+   "gt": "AP04BA4464",
+   "pred": "AP04BA446",
+   "ok": false,
+   "conf": 0.9111047453350491
+  },
+  {
+   "file": "AP_AP41_crop.jpg",
+   "gt": "AP5CG6320",
+   "pred": "AP5C6320",
+   "ok": false,
+   "conf": 0.9457039013504982
+  },
+  {
+   "file": "AP_AP42_crop.jpg",
+   "gt": "AP31TV6847",
+   "pred": "AP317V647",
+   "ok": false,
+   "conf": 0.9119071165720621
+  },
+  {
+   "file": "AP_AP43_crop.jpg",
+   "gt": "AP31BG7827",
+   "pred": "AP31BG7827",
+   "ok": true,
+   "conf": 0.995283842086792
+  },
+  {
+   "file": "AP_AP44_crop.jpg",
+   "gt": "AP318L4935",
+   "pred": "AB81TL4935",
+   "ok": false,
+   "conf": 0.9571320593357087
+  },
+  {
+   "file": "AP_AP45_crop.jpg",
+   "gt": "AP31BL2833",
+   "pred": "AP318L2833",
+   "ok": false,
+   "conf": 0.9479760944843292
+  },
+  {
+   "file": "AP_AP46_crop.jpg",
+   "gt": "AP31CS2511",
+   "pred": "KP31C2511",
+   "ok": false,
+   "conf": 0.9563109676043192
+  },
+  {
+   "file": "AP_AP5_crop.jpg",
+   "gt": "AP39TP0211",
+   "pred": "AP391P0211",
+   "ok": false,
+   "conf": 0.9707867443561554
+  },
+  {
+   "file": "AP_AP6_crop.jpg",
+   "gt": "AP31TV7236",
+   "pred": "AP317Y7236",
+   "ok": false,
+   "conf": 0.9917342722415924
+  },
+  {
+   "file": "AP_AP7_crop.jpg",
+   "gt": "AP31BL8656",
+   "pred": "AP31BL8656",
+   "ok": true,
+   "conf": 0.9499605298042297
+  },
+  {
+   "file": "AP_AP8_crop.jpg",
+   "gt": "AP16DP7065",
+   "pred": "AP16DP7065",
+   "ok": true,
+   "conf": 0.9786182999610901
+  },
+  {
+   "file": "AR_AR1_crop.jpg",
+   "gt": "AR048395",
+   "pred": "AR0A8439",
+   "ok": false,
+   "conf": 0.959290724992752
+  },
+  {
+   "file": "AR_AR10_crop.jpg",
+   "gt": "AR152019",
+   "pred": "AR152079",
+   "ok": false,
+   "conf": 0.9971543699502945
+  },
+  {
+   "file": "AR_AR11_crop.jpg",
+   "gt": "AR01J0123",
+   "pred": "AR01J0123",
+   "ok": true,
+   "conf": 0.9864115781254239
+  },
+  {
+   "file": "AR_AR12_crop.jpg",
+   "gt": "AR118724",
+   "pred": "MR11B724",
+   "ok": false,
+   "conf": 0.9512649402022362
+  },
+  {
+   "file": "AR_AR13_crop.jpg",
+   "gt": "AR200692",
+   "pred": "AR200692",
+   "ok": true,
+   "conf": 0.9982536137104034
+  },
+  {
+   "file": "AR_AR2_crop.jpg",
+   "gt": "AR01F2523",
+   "pred": "AR01F2523",
+   "ok": true,
+   "conf": 0.9362082348929511
+  },
+  {
+   "file": "AR_AR3_crop.jpg",
+   "gt": "AR169723",
+   "pred": "MAH562972",
+   "ok": false,
+   "conf": 0.9831199513541328
+  },
+  {
+   "file": "AR_AR4_crop.jpg",
+   "gt": "AR01C5723",
+   "pred": "AR01C5723",
+   "ok": true,
+   "conf": 0.9977829390101962
+  },
+  {
+   "file": "AR_AR6_crop.jpg",
+   "gt": "AR168272",
+   "pred": "AR118Z72",
+   "ok": false,
+   "conf": 0.9828445017337799
+  },
+  {
+   "file": "AR_AR7_crop.jpg",
+   "gt": "AR02A7116",
+   "pred": "AR02A7116",
+   "ok": true,
+   "conf": 0.9983385668860542
+  },
+  {
+   "file": "AR_AR8_crop.jpg",
+   "gt": "AR08983",
+   "pred": "AR0B8983",
+   "ok": false,
+   "conf": 0.9098409786820412
+  },
+  {
+   "file": "AR_AR9_crop.jpg",
+   "gt": "AR01E1034",
+   "pred": "AR01E1034",
+   "ok": true,
+   "conf": 0.9668949643770853
+  },
+  {
+   "file": "AS_AS1_crop.jpg",
+   "gt": "AS23H2866",
+   "pred": "DAS23H286",
+   "ok": false,
+   "conf": 0.9404779076576233
+  },
+  {
+   "file": "AS_AS10_crop.jpg",
+   "gt": "AS01DG6002",
+   "pred": "AS01DG6002",
+   "ok": true,
+   "conf": 0.999657154083252
+  },
+  {
+   "file": "AS_AS11_crop.jpg",
+   "gt": "AS01DS7523",
+   "pred": "AS019S7523",
+   "ok": false,
+   "conf": 0.978207242488861
+  },
+  {
+   "file": "AS_AS13_crop.jpg",
+   "gt": "AS25S6858",
+   "pred": "AS25S6858",
+   "ok": true,
+   "conf": 0.998258736398485
+  },
+  {
+   "file": "AS_AS14_crop.jpg",
+   "gt": "AS018P2415",
+   "pred": "AS01BP2419",
+   "ok": false,
+   "conf": 0.9840886235237122
+  },
+  {
+   "file": "AS_AS15_crop.jpg",
+   "gt": "AS01BF9673",
+   "pred": "KA01BF9573",
+   "ok": false,
+   "conf": 0.9254345953464508
+  },
+  {
+   "file": "AS_AS16_crop.jpg",
+   "gt": "AS01AL3746",
+   "pred": "AS01AL3746",
+   "ok": true,
+   "conf": 0.9945324242115021
+  },
+  {
+   "file": "AS_AS17_crop.jpg",
+   "gt": "AS01AR1986",
+   "pred": "AS01AR1986",
+   "ok": true,
+   "conf": 0.9608187913894654
+  },
+  {
+   "file": "AS_AS18_crop.jpg",
+   "gt": "AS04P4549",
+   "pred": "AS0AP4549",
+   "ok": false,
+   "conf": 0.9980661074320475
+  },
+  {
+   "file": "AS_AS19_crop.jpg",
+   "gt": "AS06U1295",
+   "pred": "AS06U1295",
+   "ok": true,
+   "conf": 0.9964246418741014
+  },
+  {
+   "file": "AS_AS2_crop.jpg",
+   "gt": "AS07AC6653",
+   "pred": "AS07AC6653",
+   "ok": true,
+   "conf": 0.9949761688709259
+  },
+  {
+   "file": "AS_AS20_crop.jpg",
+   "gt": "AS01AT8119",
+   "pred": "KS01AT8119",
+   "ok": false,
+   "conf": 0.8508423404260115
+  },
+  {
+   "file": "AS_AS21_crop.jpg",
+   "gt": "AS23X5585",
+   "pred": "AS23N5585",
+   "ok": false,
+   "conf": 0.9688328438334994
+  },
+  {
+   "file": "AS_AS22_crop.jpg",
+   "gt": "AS01AN8668",
+   "pred": "AS01ANM8668",
+   "ok": false,
+   "conf": 0.9658286517316644
+  },
+  {
+   "file": "AS_AS23_crop.jpg",
+   "gt": "AS19D9919",
+   "pred": "AS19D9919",
+   "ok": true,
+   "conf": 0.9599495927492777
+  },
+  {
+   "file": "AS_AS24_crop.jpg",
+   "gt": "AS23G2612",
+   "pred": "AS236G2612",
+   "ok": false,
+   "conf": 0.9996314287185669
+  },
+  {
+   "file": "AS_AS25_crop.jpg",
+   "gt": "AS01BS4362",
+   "pred": "RS01BS4360",
+   "ok": false,
+   "conf": 0.9612370073795319
+  },
+  {
+   "file": "AS_AS26_crop.jpg",
+   "gt": "AS06Z0841",
+   "pred": "AS06Z0841",
+   "ok": true,
+   "conf": 0.9973594546318054
+  },
+  {
+   "file": "AS_AS3_crop.jpg",
+   "gt": "AS23E0596",
+   "pred": "AS23E0959",
+   "ok": false,
+   "conf": 0.9473377399974399
+  },
+  {
+   "file": "AS_AS5_crop.jpg",
+   "gt": "AS23H0770",
+   "pred": "AS23H0770",
+   "ok": true,
+   "conf": 0.9934983319706387
+  },
+  {
+   "file": "AS_AS6_crop.jpg",
+   "gt": "AS12S6951",
+   "pred": "AS12S6958",
+   "ok": false,
+   "conf": 0.9000119500690036
+  },
+  {
+   "file": "AS_AS7_crop.jpg",
+   "gt": "AS06Q4437",
+   "pred": "AS0604437",
+   "ok": false,
+   "conf": 0.9884173340267606
+  },
+  {
+   "file": "AS_AS8_crop.jpg",
+   "gt": "AS01AM1419",
+   "pred": "AS01AM6141",
+   "ok": false,
+   "conf": 0.9276078993623907
+  },
+  {
+   "file": "AS_AS9_crop.jpg",
+   "gt": "AS04X2780",
+   "pred": "AS04X2780",
+   "ok": true,
+   "conf": 0.9994365241792467
+  },
+  {
+   "file": "BR_BR10_crop.jpg",
+   "gt": "BR32PA6558",
+   "pred": "BR32PA6558",
+   "ok": true,
+   "conf": 0.9980112373828888
+  },
+  {
+   "file": "BR_BR11_crop.jpg",
+   "gt": "BR02AF7424",
+   "pred": "BR02AF7424",
+   "ok": true,
+   "conf": 0.9620624542236328
+  },
+  {
+   "file": "BR_BR12_crop.jpg",
+   "gt": "BR03PA3803",
+   "pred": "BR03PA3873",
+   "ok": false,
+   "conf": 0.9539908528327942
+  },
+  {
+   "file": "BR_BR13_crop.jpg",
+   "gt": "BR01PL7594",
+   "pred": "BR01PL7594",
+   "ok": true,
+   "conf": 0.9998924612998963
+  },
+  {
+   "file": "BR_BR14_crop.jpg",
+   "gt": "BR01BL6628",
+   "pred": "KA32B8252",
+   "ok": false,
+   "conf": 0.9097342073917389
+  },
+  {
+   "file": "BR_BR15_crop.jpg",
+   "gt": "BR01BR5435",
+   "pred": "KS0TBM140",
+   "ok": false,
+   "conf": 0.8919204009903802
+  },
+  {
+   "file": "BR_BR16_crop.jpg",
+   "gt": "BR33M0001",
+   "pred": "BR33M000",
+   "ok": false,
+   "conf": 0.9900404959917068
+  },
+  {
+   "file": "BR_BR17_crop.jpg",
+   "gt": "BF06P00006",
+   "pred": "BR06P0000",
+   "ok": false,
+   "conf": 0.975535225868225
+  },
+  {
+   "file": "BR_BR18_crop.jpg",
+   "gt": "BR01BD5042",
+   "pred": "BR01BD5049",
+   "ok": false,
+   "conf": 0.9664927959442139
+  },
+  {
+   "file": "BR_BR3_crop.jpg",
+   "gt": "BR01AZ6290",
+   "pred": "KX0X2042",
+   "ok": false,
+   "conf": 0.9007919496960111
+  },
+  {
+   "file": "BR_BR4_crop.jpg",
+   "gt": "BR06U2470",
+   "pred": "BR06U2479",
+   "ok": false,
+   "conf": 0.9785366257031759
+  },
+  {
+   "file": "BR_BR5_crop.jpg",
+   "gt": "BR01BE0777",
+   "pred": "BR01BE077",
+   "ok": false,
+   "conf": 0.9964386953247918
+  },
+  {
+   "file": "BR_BR6_crop.jpg",
+   "gt": "BR7P3952",
+   "pred": "BR7P9952",
+   "ok": false,
+   "conf": 0.9607336148619652
+  },
+  {
+   "file": "BR_BR7_crop.jpg",
+   "gt": "BR44E1206",
+   "pred": "BR1T410",
+   "ok": false,
+   "conf": 0.9462505578994751
+  },
+  {
+   "file": "BR_BR8_crop.jpg",
+   "gt": "BR01DG6692",
+   "pred": "BR010G6692",
+   "ok": false,
+   "conf": 0.9709909558296204
+  },
+  {
+   "file": "BR_BR9_crop.jpg",
+   "gt": "BR01AW1250",
+   "pred": "BR01AM1250",
+   "ok": false,
+   "conf": 0.9792215049266815
+  },
+  {
+   "file": "CG_CG1_crop.jpg",
+   "gt": "CG04HD6930",
+   "pred": "GA04HD6930",
+   "ok": false,
+   "conf": 0.9372974216938019
+  },
+  {
+   "file": "CG_CG10_crop.jpg",
+   "gt": "CG22H7740",
+   "pred": "GA22H7240",
+   "ok": false,
+   "conf": 0.8488939901192983
+  },
+  {
+   "file": "CG_CG11_crop.jpg",
+   "gt": "CG04HA4553",
+   "pred": "GP0NA1913",
+   "ok": false,
+   "conf": 0.7977923651536306
+  },
+  {
+   "file": "CG_CG12_crop.jpg",
+   "gt": "CG12AG1130",
+   "pred": "CG12AG1130",
+   "ok": true,
+   "conf": 0.9488357484340668
+  },
+  {
+   "file": "CG_CG13_crop.jpg",
+   "gt": "CG16B1802",
+   "pred": "CG16BHA802",
+   "ok": false,
+   "conf": 0.8178916960954666
+  },
+  {
+   "file": "CG_CG14_crop.jpg",
+   "gt": "CG09JA2359",
+   "pred": "AG991A3094",
+   "ok": false,
+   "conf": 0.8898935288190841
+  },
+  {
+   "file": "CG_CG15_crop.jpg",
+   "gt": "CG07BR3255",
+   "pred": "CG607BR325",
+   "ok": false,
+   "conf": 0.96732776761055
+  },
+  {
+   "file": "CG_CG16_crop.jpg",
+   "gt": "CG07R2684",
+   "pred": "MH7A2608",
+   "ok": false,
+   "conf": 0.9136918410658836
+  },
+  {
+   "file": "CG_CG17_crop.jpg",
+   "gt": "CG07MA2529",
+   "pred": "GC45AZ2590",
+   "ok": false,
+   "conf": 0.8336669233712283
+  },
+  {
+   "file": "CG_CG18_crop.jpg",
+   "gt": "CG07CA7784",
+   "pred": "GJ874A7789",
+   "ok": false,
+   "conf": 0.9348304063081742
+  },
+  {
+   "file": "CG_CG19_crop.jpg",
+   "gt": "CG07MA7848",
+   "pred": "CO7MA7848",
+   "ok": false,
+   "conf": 0.9284089869923062
+  },
+  {
+   "file": "CG_CG20_crop.jpg",
+   "gt": "CG251612",
+   "pred": "HG2S0161",
+   "ok": false,
+   "conf": 0.9212204615275065
+  },
+  {
+   "file": "CG_CG21_crop.jpg",
+   "gt": "CG04FJ5834",
+   "pred": "AF9J5894",
+   "ok": false,
+   "conf": 0.9156817956404253
+  },
+  {
+   "file": "CG_CG22_crop.jpg",
+   "gt": "CG13AE4060",
+   "pred": "CG13AE4060",
+   "ok": true,
+   "conf": 0.9946949064731598
+  },
+  {
+   "file": "CG_CG4_crop.jpg",
+   "gt": "CG04HV7009",
+   "pred": "G04HV7009",
+   "ok": false,
+   "conf": 0.9771547582414415
+  },
+  {
+   "file": "CG_CG6_crop.jpg",
+   "gt": "CG22AB1111",
+   "pred": "CG22A8110",
+   "ok": false,
+   "conf": 0.9657754831843905
+  },
+  {
+   "file": "CG_CG7_crop.jpg",
+   "gt": "CG08K2057",
+   "pred": "HC08KS5205",
+   "ok": false,
+   "conf": 0.8353588059544563
+  },
+  {
+   "file": "CG_CG8_crop.jpg",
+   "gt": "CG04H5060",
+   "pred": "AJ04H5060",
+   "ok": false,
+   "conf": 0.9289113349384732
+  },
+  {
+   "file": "CG_CG9_crop.jpg",
+   "gt": "CG04HC4887",
+   "pred": "CG04HC4887",
+   "ok": true,
+   "conf": 0.9594356000423432
+  },
+  {
+   "file": "CH_CH1_crop.jpg",
+   "gt": "CH01BQ5604",
+   "pred": "KH0B0085",
+   "ok": false,
+   "conf": 0.8677293747663498
+  },
+  {
+   "file": "CH_CH10_crop.jpg",
+   "gt": "CH01AB4559",
+   "pred": "RH402AB457",
+   "ok": false,
+   "conf": 0.7237251669168472
+  },
+  {
+   "file": "CH_CH2_crop.jpg",
+   "gt": "CH01BL3528",
+   "pred": "CH01BL3528",
+   "ok": true,
+   "conf": 0.9944847226142883
+  },
+  {
+   "file": "CH_CH3_crop.jpg",
+   "gt": "CH03K7672",
+   "pred": "CH03K7672",
+   "ok": true,
+   "conf": 0.9822739892535739
+  },
+  {
+   "file": "CH_CH4_crop.jpg",
+   "gt": "CH01AX9090",
+   "pred": "CH01AX9090",
+   "ok": true,
+   "conf": 0.9946656227111816
+  },
+  {
+   "file": "CH_CH5_crop.jpg",
+   "gt": "CH01AP4538",
+   "pred": "MH01AP4538",
+   "ok": false,
+   "conf": 0.9980163872241974
+  },
+  {
+   "file": "CH_CH6_crop.jpg",
+   "gt": "CH01AZ2642",
+   "pred": "CH01AZ2642",
+   "ok": true,
+   "conf": 0.982926321029663
+  },
+  {
+   "file": "CH_CH7_crop.jpg",
+   "gt": "CH01AL4920",
+   "pred": "CH01AL4920",
+   "ok": true,
+   "conf": 0.9885168075561523
+  },
+  {
+   "file": "CH_CH8_crop.jpg",
+   "gt": "CH01A09331",
+   "pred": "KH01A0931",
+   "ok": false,
+   "conf": 0.9335541725158691
+  },
+  {
+   "file": "CH_CH9_crop.jpg",
+   "gt": "CH01AF1382",
+   "pred": "HO1AF1382",
+   "ok": false,
+   "conf": 0.9286089241504669
+  },
+  {
+   "file": "DL_DL1_crop.jpg",
+   "gt": "DL6CJ8404",
+   "pred": "DL6CJ8404",
+   "ok": true,
+   "conf": 0.9995291100607978
+  },
+  {
+   "file": "DL_DL10_crop.jpg",
+   "gt": "DL9CAE1359",
+   "pred": "DL9CAE1359",
+   "ok": true,
+   "conf": 0.9959634900093078
+  },
+  {
+   "file": "DL_DL11_crop.jpg",
+   "gt": "DL9CAP8884",
+   "pred": "DL9CAP8884",
+   "ok": true,
+   "conf": 0.9971018195152282
+  },
+  {
+   "file": "DL_DL12_crop.jpg",
+   "gt": "DL5CH7599",
+   "pred": "DL5CH7599",
+   "ok": true,
+   "conf": 0.9999679459465874
+  },
+  {
+   "file": "DL_DL13_crop.jpg",
+   "gt": "DL12CJ9823",
+   "pred": "DL12CJ9823",
+   "ok": true,
+   "conf": 0.9999142348766327
+  },
+  {
+   "file": "DL_DL14_crop.jpg",
+   "gt": "DL9CAU4743",
+   "pred": "DL9CAU4743",
+   "ok": true,
+   "conf": 0.9988096177577972
+  },
+  {
+   "file": "DL_DL15_crop.jpg",
+   "gt": "DL8CZ7230",
+   "pred": "DL9CZ730",
+   "ok": false,
+   "conf": 0.9429853856563568
+  },
+  {
+   "file": "DL_DL16_crop.jpg",
+   "gt": "DL9CAV1739",
+   "pred": "DL9CAV1739",
+   "ok": true,
+   "conf": 0.9682190239429473
+  },
+  {
+   "file": "DL_DL18_crop.jpg",
+   "gt": "DL1CS8739",
+   "pred": "DL1CS8739",
+   "ok": true,
+   "conf": 0.9996411800384521
+  },
+  {
+   "file": "DL_DL19_crop.jpg",
+   "gt": "DL1CT2782",
+   "pred": "DL1CT2782",
+   "ok": true,
+   "conf": 0.9821376734309726
+  },
+  {
+   "file": "DL_DL2_crop.jpg",
+   "gt": "DL6CR7002",
+   "pred": "DL26CR7002",
+   "ok": false,
+   "conf": 0.990859842300415
+  },
+  {
+   "file": "DL_DL20_crop.jpg",
+   "gt": "DL12CL2555",
+   "pred": "DL12CL255",
+   "ok": false,
+   "conf": 0.9999563230408562
+  },
+  {
+   "file": "DL_DL21_crop.jpg",
+   "gt": "DL12CS7886",
+   "pred": "DL12CS7886",
+   "ok": true,
+   "conf": 0.997314167022705
+  },
+  {
+   "file": "DL_DL22_crop.jpg",
+   "gt": "DL6CL0457",
+   "pred": "DL6CLD4572",
+   "ok": false,
+   "conf": 0.935238265991211
+  },
+  {
+   "file": "DL_DL23_crop.jpg",
+   "gt": "DL2CAX2886",
+   "pred": "DL2CAX2880",
+   "ok": false,
+   "conf": 0.9682985723018647
+  },
+  {
+   "file": "DL_DL24_crop.jpg",
+   "gt": "DL3CCK8019",
+   "pred": "DL3CGK8019",
+   "ok": false,
+   "conf": 0.984044075012207
+  },
+  {
+   "file": "DL_DL25_crop.jpg",
+   "gt": "DL9C0S1537",
+   "pred": "LD9C0515",
+   "ok": false,
+   "conf": 0.8256108671426773
+  },
+  {
+   "file": "DL_DL26_crop.jpg",
+   "gt": "DL11CA4900",
+   "pred": "DL11CA490",
+   "ok": false,
+   "conf": 0.9979847537146674
+  },
+  {
+   "file": "DL_DL27_crop.jpg",
+   "gt": "DL10CA0986",
+   "pred": "DL10CAQ980",
+   "ok": false,
+   "conf": 0.9843039453029633
+  },
+  {
+   "file": "DL_DL28_crop.jpg",
+   "gt": "DL40NA7238",
+   "pred": "DL40NA723",
+   "ok": false,
+   "conf": 0.9777649309900072
+  },
+  {
+   "file": "DL_DL29_crop.jpg",
+   "gt": "DL8CAL4134",
+   "pred": "DL8CA4134",
+   "ok": false,
+   "conf": 0.9019341203901503
+  },
+  {
+   "file": "DL_DL3_crop.jpg",
+   "gt": "DL8CAU6883",
+   "pred": "DL8CAU6883",
+   "ok": true,
+   "conf": 0.9996343851089478
+  },
+  {
+   "file": "DL_DL30_crop.jpg",
+   "gt": "DL10C05520",
+   "pred": "BR10CD5520",
+   "ok": false,
+   "conf": 0.9598102033138275
+  },
+  {
+   "file": "DL_DL31_crop.jpg",
+   "gt": "DL8CNA1596",
+   "pred": "DLBCM43570",
+   "ok": false,
+   "conf": 0.8855053663253785
+  },
+  {
+   "file": "DL_DL32_crop.jpg",
+   "gt": "DL2CAR0108",
+   "pred": "DL2CAR0108",
+   "ok": true,
+   "conf": 0.9981120228767395
+  },
+  {
+   "file": "DL_DL33_crop.jpg",
+   "gt": "DL4CNA7231",
+   "pred": "DL4CNA7231",
+   "ok": true,
+   "conf": 0.9832575619220734
+  },
+  {
+   "file": "DL_DL34_crop.jpg",
+   "gt": "DL8CNA5085",
+   "pred": "DH60MA5605",
+   "ok": false,
+   "conf": 0.7323327481746673
+  },
+  {
+   "file": "DL_DL35_crop.jpg",
+   "gt": "DL3CBS5881",
+   "pred": "DL3CBS588",
+   "ok": false,
+   "conf": 0.986934138668908
+  },
+  {
+   "file": "DL_DL38_crop.jpg",
+   "gt": "DL4CAQ3231",
+   "pred": "DL4CA0323",
+   "ok": false,
+   "conf": 0.993654853105545
+  },
+  {
+   "file": "DL_DL4_crop.jpg",
+   "gt": "DL9CAU5573",
+   "pred": "DL9CAU5570",
+   "ok": false,
+   "conf": 0.982034420967102
+  },
+  {
+   "file": "DL_DL5_crop.jpg",
+   "gt": "DL12CN8660",
+   "pred": "DL12CM8660",
+   "ok": false,
+   "conf": 0.9884488940238952
+  },
+  {
+   "file": "DL_DL6_crop.jpg",
+   "gt": "DL4CAM9066",
+   "pred": "DL4CAM9060",
+   "ok": false,
+   "conf": 0.9783273041248322
+  },
+  {
+   "file": "DL_DL7_crop.jpg",
+   "gt": "DL12CK8643",
+   "pred": "DL12CK8643",
+   "ok": true,
+   "conf": 0.993730491399765
+  },
+  {
+   "file": "DL_DL8_crop.jpg",
+   "gt": "DL10CH1252",
+   "pred": "DL10CH1252",
+   "ok": true,
+   "conf": 0.989018726348877
+  },
+  {
+   "file": "DL_DL9_crop.jpg",
+   "gt": "DL2CH8634",
+   "pred": "DL2CH8934",
+   "ok": false,
+   "conf": 0.9188320106930203
+  },
+  {
+   "file": "DN_DN1_crop.jpg",
+   "gt": "DN09H2191",
+   "pred": "BH09H2191",
+   "ok": false,
+   "conf": 0.9484368364016215
+  },
+  {
+   "file": "DN_DN2_crop.jpg",
+   "gt": "DN09J1548",
+   "pred": "DN03J1548",
+   "ok": false,
+   "conf": 0.9831417865223355
+  },
+  {
+   "file": "DN_DN3_crop.jpg",
+   "gt": "DN09H0968",
+   "pred": "DN09H0968",
+   "ok": true,
+   "conf": 0.981931659910414
+  },
+  {
+   "file": "DN_DN4_crop.jpg",
+   "gt": "DN09J0032",
+   "pred": "DN09J032",
+   "ok": false,
+   "conf": 0.9772982150316238
+  },
+  {
+   "file": "DN_DN5_crop.jpg",
+   "gt": "DN09D2724",
+   "pred": "DN090224",
+   "ok": false,
+   "conf": 0.881653219461441
+  },
+  {
+   "file": "DN_DN6_crop.jpg",
+   "gt": "DN0901438",
+   "pred": "BN09D1438",
+   "ok": false,
+   "conf": 0.9574071168899536
+  },
+  {
+   "file": "DN_DN7_crop.jpg",
+   "gt": "DN0909704",
+   "pred": "DN0909704",
+   "ok": true,
+   "conf": 0.9819096790419685
+  },
+  {
+   "file": "DN_DN8_crop.jpg",
+   "gt": "DN09C0868",
+   "pred": "DN09C0868",
+   "ok": true,
+   "conf": 0.998804337448544
+  },
+  {
+   "file": "GA_GA1_crop.jpg",
+   "gt": "GA03R9230",
+   "pred": "CA03R9232",
+   "ok": false,
+   "conf": 0.9216889275444878
+  },
+  {
+   "file": "GA_GA10_crop.jpg",
+   "gt": "GA01R6315",
+   "pred": "KA01RE315",
+   "ok": false,
+   "conf": 0.9015238218837314
+  },
+  {
+   "file": "GA_GA11_crop.jpg",
+   "gt": "GA03P2839",
+   "pred": "KS0JP2832",
+   "ok": false,
+   "conf": 0.8798662543296814
+  },
+  {
+   "file": "GA_GA12_crop.jpg",
+   "gt": "GA03Y9512",
+   "pred": "CA03Y9512",
+   "ok": false,
+   "conf": 0.9767191807428995
+  },
+  {
+   "file": "GA_GA13_crop.jpg",
+   "gt": "GA07K6090",
+   "pred": "GA07K6090",
+   "ok": true,
+   "conf": 0.9942800866232978
+  },
+  {
+   "file": "GA_GA2_crop.jpg",
+   "gt": "GA08M0184",
+   "pred": "GA08M0184",
+   "ok": true,
+   "conf": 0.9498770700560676
+  },
+  {
+   "file": "GA_GA3_crop.jpg",
+   "gt": "GA01S5594",
+   "pred": "MA0J5656",
+   "ok": false,
+   "conf": 0.827197927236557
+  },
+  {
+   "file": "GA_GA4_crop.jpg",
+   "gt": "GA01C2098",
+   "pred": "MH01F330",
+   "ok": false,
+   "conf": 0.904939629137516
+  },
+  {
+   "file": "GA_GA5_crop.jpg",
+   "gt": "GA01E5947",
+   "pred": "GA01E9470",
+   "ok": false,
+   "conf": 0.9605344202783372
+  },
+  {
+   "file": "GA_GA6_crop.jpg",
+   "gt": "GA02J2129",
+   "pred": "GA12J2X29",
+   "ok": false,
+   "conf": 0.9153135087754991
+  },
+  {
+   "file": "GA_GA7_crop.jpg",
+   "gt": "GA07K7150",
+   "pred": "AQ7K7150",
+   "ok": false,
+   "conf": 0.895743477344513
+  },
+  {
+   "file": "GA_GA8_crop.jpg",
+   "gt": "GA05B5077",
+   "pred": "GA058B507",
+   "ok": false,
+   "conf": 0.9796087874306573
+  },
+  {
+   "file": "GA_GA9_crop.jpg",
+   "gt": "GA06E3855",
+   "pred": "BA06E3855",
+   "ok": false,
+   "conf": 0.9708808660507202
+  },
+  {
+   "file": "GJ_GJ1_crop.jpg",
+   "gt": "GJ7AG4373",
+   "pred": "GA74G4227",
+   "ok": false,
+   "conf": 0.8939096331596375
+  },
+  {
+   "file": "GJ_GJ10_crop.jpg",
+   "gt": "GJ01RA8370",
+   "pred": "GJ91RA0370",
+   "ok": false,
+   "conf": 0.934694904088974
+  },
+  {
+   "file": "GJ_GJ11_crop.jpg",
+   "gt": "GJ06HS1855",
+   "pred": "GJ06HS185",
+   "ok": false,
+   "conf": 0.9489430520269606
+  },
+  {
+   "file": "GJ_GJ12_crop.jpg",
+   "gt": "GJ06PA0097",
+   "pred": "GJ06PA0097",
+   "ok": true,
+   "conf": 0.9734354615211487
+  },
+  {
+   "file": "GJ_GJ13_crop.jpg",
+   "gt": "GJ06KP8508",
+   "pred": "GJ06KP8508",
+   "ok": true,
+   "conf": 0.9918996512889862
+  },
+  {
+   "file": "GJ_GJ14_crop.jpg",
+   "gt": "GJ06DG9355",
+   "pred": "GJ060G9350",
+   "ok": false,
+   "conf": 0.9598952412605286
+  },
+  {
+   "file": "GJ_GJ15_crop.jpg",
+   "gt": "GJ01HS1902",
+   "pred": "GJ01HS1902",
+   "ok": true,
+   "conf": 0.9790941059589386
+  },
+  {
+   "file": "GJ_GJ16_crop.jpg",
+   "gt": "GJ01KC9959",
+   "pred": "GJ01KC995",
+   "ok": false,
+   "conf": 0.9710115790367126
+  },
+  {
+   "file": "GJ_GJ17_crop.jpg",
+   "gt": "GJ06DQ3712",
+   "pred": "GJ06D0371",
+   "ok": false,
+   "conf": 0.9921839237213135
+  },
+  {
+   "file": "GJ_GJ18_crop.jpg",
+   "gt": "GJ01RN4259",
+   "pred": "GJ01R4259",
+   "ok": false,
+   "conf": 0.9858543740378486
+  },
+  {
+   "file": "GJ_GJ2_crop.jpg",
+   "gt": "GJ15CB3980",
+   "pred": "GJ15CB3980",
+   "ok": true,
+   "conf": 0.9817376136779785
+  },
+  {
+   "file": "GJ_GJ20_crop.jpg",
+   "gt": "GJ01RK2430",
+   "pred": "GJ01RK2430",
+   "ok": true,
+   "conf": 0.998094093799591
+  },
+  {
+   "file": "GJ_GJ21_crop.jpg",
+   "gt": "GJ12CG2526",
+   "pred": "GJ12CG2526",
+   "ok": true,
+   "conf": 0.9978450417518616
+  },
+  {
+   "file": "GJ_GJ22_crop.jpg",
+   "gt": "GJ18BD5216",
+   "pred": "GJ18805210",
+   "ok": false,
+   "conf": 0.9989325046539307
+  },
+  {
+   "file": "GJ_GJ23_crop.jpg",
+   "gt": "GJ01RS0198",
+   "pred": "BJ01HSA198",
+   "ok": false,
+   "conf": 0.9150057554244995
+  },
+  {
+   "file": "GJ_GJ24_crop.jpg",
+   "gt": "GJ23CC8798",
+   "pred": "GJ23CC8798",
+   "ok": true,
+   "conf": 0.969299441576004
+  },
+  {
+   "file": "GJ_GJ25_crop.jpg",
+   "gt": "GJ01HM5887",
+   "pred": "GJ01HM5887",
+   "ok": true,
+   "conf": 0.9961200892925263
+  },
+  {
+   "file": "GJ_GJ26_crop.jpg",
+   "gt": "GJ09AG8384",
+   "pred": "GJ09AG8384",
+   "ok": true,
+   "conf": 0.9991025507450104
+  },
+  {
+   "file": "GJ_GJ27_crop.jpg",
+   "gt": "GJ18BK6705",
+   "pred": "GJ18BK6705",
+   "ok": true,
+   "conf": 0.938256847858429
+  },
+  {
+   "file": "GJ_GJ28_crop.jpg",
+   "gt": "GJ05JB6589",
+   "pred": "GJ05JA6592",
+   "ok": false,
+   "conf": 0.9622322678565979
+  },
+  {
+   "file": "GJ_GJ29_crop.jpg",
+   "gt": "GJ01RM3413",
+   "pred": "GJ01BM3413",
+   "ok": false,
+   "conf": 0.9617367684841156
+  },
+  {
+   "file": "GJ_GJ4_crop.jpg",
+   "gt": "GJ06JE4788",
+   "pred": "GJ06J4788",
+   "ok": false,
+   "conf": 0.9998051325480143
+  },
+  {
+   "file": "GJ_GJ5_crop.jpg",
+   "gt": "GJ1SCG7928",
+   "pred": "GJ15CG7320",
+   "ok": false,
+   "conf": 0.9568610191345215
+  },
+  {
+   "file": "GJ_GJ6_crop.jpg",
+   "gt": "GJ06FK2977",
+   "pred": "GJ06FK297",
+   "ok": false,
+   "conf": 0.9963487784067789
+  },
+  {
+   "file": "GJ_GJ7_crop.jpg",
+   "gt": "GJ34B9811",
+   "pred": "GJ34B981",
+   "ok": false,
+   "conf": 0.971123144030571
+  },
+  {
+   "file": "GJ_GJ8_crop.jpg",
+   "gt": "GJ16CH9827",
+   "pred": "GJ16CH9827",
+   "ok": true,
+   "conf": 0.9887786149978638
+  },
+  {
+   "file": "GJ_GJ9_crop.jpg",
+   "gt": "GJ05RE8119",
+   "pred": "GJ05RE3119",
+   "ok": false,
+   "conf": 0.9718195676803589
+  },
+  {
+   "file": "HP_HP1_crop.jpg",
+   "gt": "HP12H1324",
+   "pred": "HP12M1324",
+   "ok": false,
+   "conf": 0.9827699595027499
+  },
+  {
+   "file": "HP_HP10_crop.jpg",
+   "gt": "HP52B5958",
+   "pred": "HRP5285958",
+   "ok": false,
+   "conf": 0.9857109248638153
+  },
+  {
+   "file": "HP_HP11_crop.jpg",
+   "gt": "HP12H7917",
+   "pred": "HP12H7917",
+   "ok": true,
+   "conf": 0.9995317260424296
+  },
+  {
+   "file": "HP_HP12_crop.jpg",
+   "gt": "HP36E3330",
+   "pred": "KL36CEJ230",
+   "ok": false,
+   "conf": 0.9049498558044433
+  },
+  {
+   "file": "HP_HP13_crop.jpg",
+   "gt": "HP34C8986",
+   "pred": "HP34C8986",
+   "ok": true,
+   "conf": 0.9993160896831088
+  },
+  {
+   "file": "HP_HP14_crop.jpg",
+   "gt": "HP3SG1539",
+   "pred": "KP3CS135",
+   "ok": false,
+   "conf": 0.7923440709710121
+  },
+  {
+   "file": "HP_HP15_crop.jpg",
+   "gt": "HP22E8000",
+   "pred": "MP22E8080",
+   "ok": false,
+   "conf": 0.9331260257297092
+  },
+  {
+   "file": "HP_HP16_crop.jpg",
+   "gt": "HP302165",
+   "pred": "N3023E0",
+   "ok": false,
+   "conf": 0.9310392907687596
+  },
+  {
+   "file": "HP_HP17_crop.jpg",
+   "gt": "HP20E3953",
+   "pred": "HP20E3953",
+   "ok": true,
+   "conf": 0.9975026713477241
+  },
+  {
+   "file": "HP_HP18_crop.jpg",
+   "gt": "HP24C8D32",
+   "pred": "HR26O8032",
+   "ok": false,
+   "conf": 0.9478967189788818
+  },
+  {
+   "file": "HP_HP19_crop.jpg",
+   "gt": "HP54C6564",
+   "pred": "HP54C6564",
+   "ok": true,
+   "conf": 0.9793754418691
+  },
+  {
+   "file": "HP_HP2_crop.jpg",
+   "gt": "HP16A2014",
+   "pred": "HP16A2019",
+   "ok": false,
+   "conf": 0.985864175690545
+  },
+  {
+   "file": "HP_HP21_crop.jpg",
+   "gt": "HP40B8992",
+   "pred": "BR48B8992",
+   "ok": false,
+   "conf": 0.9806649155086942
+  },
+  {
+   "file": "HP_HP22_crop.jpg",
+   "gt": "HP64B3380",
+   "pred": "HP64B3380",
+   "ok": true,
+   "conf": 0.997794164551629
+  },
+  {
+   "file": "HP_HP3_crop.jpg",
+   "gt": "HP666807",
+   "pred": "AP66J0307",
+   "ok": false,
+   "conf": 0.8982101413938735
+  },
+  {
+   "file": "HP_HP4_crop.jpg",
+   "gt": "HP48B2252",
+   "pred": "HP48B2C342",
+   "ok": false,
+   "conf": 0.8841709077358246
+  },
+  {
+   "file": "HP_HP5_crop.jpg",
+   "gt": "HP01N0304",
+   "pred": "HP01NO304",
+   "ok": false,
+   "conf": 0.958984997537401
+  },
+  {
+   "file": "HP_HP6_crop.jpg",
+   "gt": "HP01A7630",
+   "pred": "MR01N7600",
+   "ok": false,
+   "conf": 0.8700484302308824
+  },
+  {
+   "file": "HP_HP7_crop.jpg",
+   "gt": "HP12C3766",
+   "pred": "HP12C3766",
+   "ok": true,
+   "conf": 0.9938057859738668
+  },
+  {
+   "file": "HP_HP8_crop.jpg",
+   "gt": "HP719898",
+   "pred": "HP3I7198",
+   "ok": false,
+   "conf": 0.8828015029430389
+  },
+  {
+   "file": "HP_HP9_crop.jpg",
+   "gt": "HP23A6365",
+   "pred": "HR23A6736",
+   "ok": false,
+   "conf": 0.9626014113426209
+  },
+  {
+   "file": "HR_HR1_crop.jpg",
+   "gt": "HR26BQ8176",
+   "pred": "HR26BQ8176",
+   "ok": true,
+   "conf": 0.9967814683914185
+  },
+  {
+   "file": "HR_HR10_crop.jpg",
+   "gt": "HR26BY4812",
+   "pred": "HR26BY4812",
+   "ok": true,
+   "conf": 0.9995815813541412
+  },
+  {
+   "file": "HR_HR11_crop.jpg",
+   "gt": "HR01H4731",
+   "pred": "HR01M4731",
+   "ok": false,
+   "conf": 0.9985276639461518
+  },
+  {
+   "file": "HR_HR12_crop.jpg",
+   "gt": "HR29R9466",
+   "pred": "HR29R8480",
+   "ok": false,
+   "conf": 0.8946981032689413
+  },
+  {
+   "file": "HR_HR13_crop.jpg",
+   "gt": "HR51AQ0911",
+   "pred": "HR51A091",
+   "ok": false,
+   "conf": 0.9847870096564293
+  },
+  {
+   "file": "HR_HR14_crop.jpg",
+   "gt": "HR51BU8218",
+   "pred": "HR51BU8218",
+   "ok": true,
+   "conf": 0.9885953366756439
+  },
+  {
+   "file": "HR_HR15_crop.jpg",
+   "gt": "HR29K7840",
+   "pred": "MR29X7840",
+   "ok": false,
+   "conf": 0.9528959525956048
+  },
+  {
+   "file": "HR_HR16_crop.jpg",
+   "gt": "HR56B2626",
+   "pred": "HR5B2650",
+   "ok": false,
+   "conf": 0.8404253390100267
+  },
+  {
+   "file": "HR_HR17_crop.jpg",
+   "gt": "HR26BK8597",
+   "pred": "HR26BK8597",
+   "ok": true,
+   "conf": 0.9886659681797028
+  },
+  {
+   "file": "HR_HR18_crop.jpg",
+   "gt": "HR26DM2296",
+   "pred": "HR26DM2296",
+   "ok": true,
+   "conf": 0.9990605235099792
+  },
+  {
+   "file": "HR_HR19_crop.jpg",
+   "gt": "HR29AQ4939",
+   "pred": "HR29A0493",
+   "ok": false,
+   "conf": 0.9465856313705444
+  },
+  {
+   "file": "HR_HR2_crop.jpg",
+   "gt": "HR71F9259",
+   "pred": "HR71F9259",
+   "ok": true,
+   "conf": 0.9728862113422818
+  },
+  {
+   "file": "HR_HR20_crop.jpg",
+   "gt": "HR26EJ7668",
+   "pred": "HR26EJ7668",
+   "ok": true,
+   "conf": 0.9889808237552643
+  },
+  {
+   "file": "HR_HR21_crop.jpg",
+   "gt": "HR4281329",
+   "pred": "HR142B129",
+   "ok": false,
+   "conf": 0.99384605884552
+  },
+  {
+   "file": "HR_HR22_crop.jpg",
+   "gt": "HR09G8378",
+   "pred": "BR09G8378",
+   "ok": false,
+   "conf": 0.8921690384546915
+  },
+  {
+   "file": "HR_HR3_crop.jpg",
+   "gt": "HR29W8286",
+   "pred": "HR29M8286",
+   "ok": false,
+   "conf": 0.9450978106922574
+  },
+  {
+   "file": "HR_HR4_crop.jpg",
+   "gt": "HR10AE9885",
+   "pred": "HR10AE9880",
+   "ok": false,
+   "conf": 0.988642942905426
+  },
+  {
+   "file": "HR_HR5_crop.jpg",
+   "gt": "HR26CC7676",
+   "pred": "HR26CC7676",
+   "ok": true,
+   "conf": 0.997636330127716
+  },
+  {
+   "file": "HR_HR6_crop.jpg",
+   "gt": "HR26DJ8832",
+   "pred": "HR26DJ8832",
+   "ok": true,
+   "conf": 0.9979441702365875
+  },
+  {
+   "file": "HR_HR7_crop.jpg",
+   "gt": "HR01W0080",
+   "pred": "HR01M008D",
+   "ok": false,
+   "conf": 0.9630581008063422
+  },
+  {
+   "file": "HR_HR8_crop.jpg",
+   "gt": "HR20X8432",
+   "pred": "HR20X8432",
+   "ok": true,
+   "conf": 0.9777251813146803
+  },
+  {
+   "file": "HR_HR9_crop.jpg",
+   "gt": "HR29AS0015",
+   "pred": "HR29AS0015",
+   "ok": true,
+   "conf": 0.9886976063251496
+  },
+  {
+   "file": "JH_JH1_crop.jpg",
+   "gt": "JH01Z3792",
+   "pred": "KH152Z3780",
+   "ok": false,
+   "conf": 0.7463672161102295
+  },
+  {
+   "file": "JH_JH10_crop.jpg",
+   "gt": "JH02AD2533",
+   "pred": "JH02AD2553",
+   "ok": false,
+   "conf": 0.9939574480056763
+  },
+  {
+   "file": "JH_JH11_crop.jpg",
+   "gt": "JH01BC5210",
+   "pred": "HO1BC5210",
+   "ok": false,
+   "conf": 0.9587393820285797
+  },
+  {
+   "file": "JH_JH12_crop.jpg",
+   "gt": "JH01AX5392",
+   "pred": "JH01AX5392",
+   "ok": true,
+   "conf": 0.9861483812332154
+  },
+  {
+   "file": "JH_JH13_crop.jpg",
+   "gt": "JH01AM2354",
+   "pred": "JH0IAC2554",
+   "ok": false,
+   "conf": 0.9393869519233704
+  },
+  {
+   "file": "JH_JH14_crop.jpg",
+   "gt": "JH10BV1496",
+   "pred": "JH10BV1496",
+   "ok": true,
+   "conf": 0.9773135125637055
+  },
+  {
+   "file": "JH_JH15_crop.jpg",
+   "gt": "JH08C0625",
+   "pred": "JH08C0625",
+   "ok": true,
+   "conf": 0.990594724814097
+  },
+  {
+   "file": "JH_JH16_crop.jpg",
+   "gt": "JH10S5378",
+   "pred": "JH10S5370",
+   "ok": false,
+   "conf": 0.9601008428467644
+  },
+  {
+   "file": "JH_JH17_crop.jpg",
+   "gt": "JH01AR2011",
+   "pred": "JH01AR2010",
+   "ok": false,
+   "conf": 0.9936265587806702
+  },
+  {
+   "file": "JH_JH18_crop.jpg",
+   "gt": "JH05S3291",
+   "pred": "JH405S3295",
+   "ok": false,
+   "conf": 0.8943830132484436
+  },
+  {
+   "file": "JH_JH19_crop.jpg",
+   "gt": "JH05Y9636",
+   "pred": "JY05Y9030",
+   "ok": false,
+   "conf": 0.9144757125112746
+  },
+  {
+   "file": "JH_JH2_crop.jpg",
+   "gt": "JH01AM0100",
+   "pred": "JH01AM0100",
+   "ok": true,
+   "conf": 0.9900389552116394
+  },
+  {
+   "file": "JH_JH3_crop.jpg",
+   "gt": "JH01DB1881",
+   "pred": "JH01DB1881",
+   "ok": true,
+   "conf": 0.9498427331447601
+  },
+  {
+   "file": "JH_JH5_crop.jpg",
+   "gt": "JH09AA2570",
+   "pred": "JH03AA2579",
+   "ok": false,
+   "conf": 0.9882038652896881
+  },
+  {
+   "file": "JH_JH6_crop.jpg",
+   "gt": "JH02AH0750",
+   "pred": "HO2AP0750",
+   "ok": false,
+   "conf": 0.9598329782485961
+  },
+  {
+   "file": "JH_JH7_crop.jpg",
+   "gt": "JH01BX0013",
+   "pred": "JH01BX0013",
+   "ok": true,
+   "conf": 0.9642511487007142
+  },
+  {
+   "file": "JH_JH8_crop.jpg",
+   "gt": "JH04C7104",
+   "pred": "JH04C7104",
+   "ok": true,
+   "conf": 0.9994825058513217
+  },
+  {
+   "file": "JH_JH9_crop.jpg",
+   "gt": "JH01BU9956",
+   "pred": "WH01BA9935",
+   "ok": false,
+   "conf": 0.8666880293325945
+  },
+  {
+   "file": "JK_JK1_crop.jpg",
+   "gt": "JK02BF5058",
+   "pred": "KA02BF5059",
+   "ok": false,
+   "conf": 0.8883045673370361
+  },
+  {
+   "file": "JK_JK10_crop.jpg",
+   "gt": "JK02AK8967",
+   "pred": "JK027AR8967",
+   "ok": false,
+   "conf": 0.9876683137633584
+  },
+  {
+   "file": "JK_JK11_crop.jpg",
+   "gt": "JK03D7750",
+   "pred": "H0307750",
+   "ok": false,
+   "conf": 0.9831738770008087
+  },
+  {
+   "file": "JK_JK12_crop.jpg",
+   "gt": "JK01AD3147",
+   "pred": "JK01AD3147",
+   "ok": true,
+   "conf": 0.9775087893009186
+  },
+  {
+   "file": "JK_JK13_crop.jpg",
+   "gt": "JK01AF7715",
+   "pred": "JK01AF7715",
+   "ok": true,
+   "conf": 0.999679547548294
+  },
+  {
+   "file": "JK_JK14_crop.jpg",
+   "gt": "JK11D8143",
+   "pred": "JK11D8143",
+   "ok": true,
+   "conf": 0.999428735838996
+  },
+  {
+   "file": "JK_JK15_crop.jpg",
+   "gt": "JK02AJ1525",
+   "pred": "JK02AJ1525",
+   "ok": true,
+   "conf": 0.9968640327453613
+  },
+  {
+   "file": "JK_JK16_crop.jpg",
+   "gt": "JK09B7745",
+   "pred": "JK09B7745",
+   "ok": true,
+   "conf": 0.9914628333515592
+  },
+  {
+   "file": "JK_JK17_crop.jpg",
+   "gt": "JK02AS3888",
+   "pred": "JK02AS3888",
+   "ok": true,
+   "conf": 0.9921013236045837
+  },
+  {
+   "file": "JK_JK18_crop.jpg",
+   "gt": "JK1182360",
+   "pred": "K1182360",
+   "ok": false,
+   "conf": 0.9907423928380013
+  },
+  {
+   "file": "JK_JK19_crop.jpg",
+   "gt": "JK127959",
+   "pred": "AL12790",
+   "ok": false,
+   "conf": 0.8765172277178083
+  },
+  {
+   "file": "JK_JK2_crop.jpg",
+   "gt": "JK02BJ7997",
+   "pred": "K02BJ7992",
+   "ok": false,
+   "conf": 0.9434238208664788
+  },
+  {
+   "file": "JK_JK20_crop.jpg",
+   "gt": "JK02BJ4045",
+   "pred": "TL9284ADA5",
+   "ok": false,
+   "conf": 0.9404498517513276
+  },
+  {
+   "file": "JK_JK22_crop.jpg",
+   "gt": "JK01AL4613",
+   "pred": "MR01AL4613",
+   "ok": false,
+   "conf": 0.9327822029590607
+  },
+  {
+   "file": "JK_JK23_crop.jpg",
+   "gt": "JK02CC0447",
+   "pred": "JK02CC0447",
+   "ok": true,
+   "conf": 0.9930686056613922
+  },
+  {
+   "file": "JK_JK24_crop.jpg",
+   "gt": "JK02BN3088",
+   "pred": "JK02BN3088",
+   "ok": true,
+   "conf": 0.9881711363792419
+  },
+  {
+   "file": "JK_JK26_crop.jpg",
+   "gt": "JK02AG2454",
+   "pred": "JK02AG2454",
+   "ok": true,
+   "conf": 0.9814037919044495
+  },
+  {
+   "file": "JK_JK27_crop.jpg",
+   "gt": "JK01D8354",
+   "pred": "LK1OP8935",
+   "ok": false,
+   "conf": 0.7484384693882682
+  },
+  {
+   "file": "JK_JK28_crop.jpg",
+   "gt": "JK10A5217",
+   "pred": "JK10A5414",
+   "ok": false,
+   "conf": 0.9824226829740736
+  },
+  {
+   "file": "JK_JK29_crop.jpg",
+   "gt": "JK01AF0310",
+   "pred": "JK01AF0310",
+   "ok": true,
+   "conf": 0.9988644599914551
+  },
+  {
+   "file": "JK_JK3_crop.jpg",
+   "gt": "JK02BL1212",
+   "pred": "DK023L112",
+   "ok": false,
+   "conf": 0.8431912726826138
+  },
+  {
+   "file": "JK_JK30_crop.jpg",
+   "gt": "JK02ACB876",
+   "pred": "KQ2AC8876",
+   "ok": false,
+   "conf": 0.9301877021789551
+  },
+  {
+   "file": "JK_JK31_crop.jpg",
+   "gt": "JK03A8042",
+   "pred": "JN0GA6042",
+   "ok": false,
+   "conf": 0.8940413163767921
+  },
+  {
+   "file": "JK_JK32_crop.jpg",
+   "gt": "JK13C4452",
+   "pred": "UH453A454",
+   "ok": false,
+   "conf": 0.8313628302680122
+  },
+  {
+   "file": "JK_JK34_crop.jpg",
+   "gt": "JK10B2313",
+   "pred": "JK10B2313",
+   "ok": true,
+   "conf": 0.9802522526846992
+  },
+  {
+   "file": "JK_JK35_crop.jpg",
+   "gt": "JK10A4638",
+   "pred": "JK10A4638",
+   "ok": true,
+   "conf": 0.9942462046941122
+  },
+  {
+   "file": "JK_JK36_crop.jpg",
+   "gt": "JK072483",
+   "pred": "HQ0R1092",
+   "ok": false,
+   "conf": 0.6668238651293975
+  },
+  {
+   "file": "JK_JK4_crop.jpg",
+   "gt": "JK01M4723",
+   "pred": "KL01N1472",
+   "ok": false,
+   "conf": 0.946084487438202
+  },
+  {
+   "file": "JK_JK5_crop.jpg",
+   "gt": "JK05H3594",
+   "pred": "JK05H3594",
+   "ok": true,
+   "conf": 0.9898507065243192
+  },
+  {
+   "file": "JK_JK6_crop.jpg",
+   "gt": "JK01R8021",
+   "pred": "JK01R804",
+   "ok": false,
+   "conf": 0.9292504787445068
+  },
+  {
+   "file": "JK_JK7_crop.jpg",
+   "gt": "JK11B4928",
+   "pred": "JK118B4928",
+   "ok": false,
+   "conf": 0.9794329643249512
+  },
+  {
+   "file": "JK_JK8_crop.jpg",
+   "gt": "JK02W2657",
+   "pred": "JK02W2657",
+   "ok": true,
+   "conf": 0.9886546730995178
+  },
+  {
+   "file": "JK_JK9_crop.jpg",
+   "gt": "JK02CD0461",
+   "pred": "JK02CD0A61",
+   "ok": false,
+   "conf": 0.9732749879360199
+  },
+  {
+   "file": "KA_KA1_crop.jpg",
+   "gt": "KA03MQ6984",
+   "pred": "KA03MO6984",
+   "ok": false,
+   "conf": 0.9144621670246125
+  },
+  {
+   "file": "KA_KA10_crop.jpg",
+   "gt": "KA04MG7528",
+   "pred": "KA041G7526",
+   "ok": false,
+   "conf": 0.9742008149623871
+  },
+  {
+   "file": "KA_KA11_crop.jpg",
+   "gt": "KA04MK0368",
+   "pred": "AD4MK0368",
+   "ok": false,
+   "conf": 0.9407736718654632
+  },
+  {
+   "file": "KA_KA12_crop.jpg",
+   "gt": "KA02MF3336",
+   "pred": "KA02MF336",
+   "ok": false,
+   "conf": 0.9903549949328104
+  },
+  {
+   "file": "KA_KA16_crop.jpg",
+   "gt": "KA03NC7167",
+   "pred": "KA03NC7167",
+   "ok": true,
+   "conf": 0.967592716217041
+  },
+  {
+   "file": "KA_KA17_crop.jpg",
+   "gt": "KA01MG1660",
+   "pred": "KA01MG1660",
+   "ok": true,
+   "conf": 0.9986176252365112
+  },
+  {
+   "file": "KA_KA18_crop.jpg",
+   "gt": "KA04MK312",
+   "pred": "KA04NK312",
+   "ok": false,
+   "conf": 0.9846603406800164
+  },
+  {
+   "file": "KA_KA19_crop.jpg",
+   "gt": "KA03MQ6984",
+   "pred": "KA3MG6984",
+   "ok": false,
+   "conf": 0.9441557990180122
+  },
+  {
+   "file": "KA_KA2_crop.jpg",
+   "gt": "KA05MF1762",
+   "pred": "KA05KF1762",
+   "ok": false,
+   "conf": 0.9502428412437439
+  },
+  {
+   "file": "KA_KA20_crop.jpg",
+   "gt": "KA19MF1763",
+   "pred": "KA19MF1763",
+   "ok": true,
+   "conf": 0.998556500673294
+  },
+  {
+   "file": "KA_KA21_crop.jpg",
+   "gt": "KA28M3589",
+   "pred": "KA28M3349",
+   "ok": false,
+   "conf": 0.9515478544765048
+  },
+  {
+   "file": "KA_KA23_crop.jpg",
+   "gt": "KA51ML4025",
+   "pred": "AA11M4024",
+   "ok": false,
+   "conf": 0.9500378370285034
+  },
+  {
+   "file": "KA_KA24_crop.jpg",
+   "gt": "KA25P5080",
+   "pred": "KA25R5080",
+   "ok": false,
+   "conf": 0.9996372063954672
+  },
+  {
+   "file": "KA_KA25_crop.jpg",
+   "gt": "KA38M8037",
+   "pred": "KA38M8037",
+   "ok": true,
+   "conf": 0.999611602889167
+  },
+  {
+   "file": "KA_KA3_crop.jpg",
+   "gt": "KA06C9590",
+   "pred": "KH06C9590",
+   "ok": false,
+   "conf": 0.9827278852462769
+  },
+  {
+   "file": "KA_KA4_crop.jpg",
+   "gt": "KA38M8037",
+   "pred": "KA38M8037",
+   "ok": true,
+   "conf": 0.999518613020579
+  },
+  {
+   "file": "KA_KA5_crop.jpg",
+   "gt": "KA53P7604",
+   "pred": "KA53P7604",
+   "ok": true,
+   "conf": 0.9977416396141052
+  },
+  {
+   "file": "KA_KA7_crop.jpg",
+   "gt": "KA51P7755",
+   "pred": "RA51P5795",
+   "ok": false,
+   "conf": 0.9137160003185272
+  },
+  {
+   "file": "KA_KA8_crop.jpg",
+   "gt": "KA51D9662",
+   "pred": "KA512R042",
+   "ok": false,
+   "conf": 0.8961252172787985
+  },
+  {
+   "file": "KA_KA9_crop.jpg",
+   "gt": "KA01MB9714",
+   "pred": "KA01MB9714",
+   "ok": true,
+   "conf": 0.9338484135541049
+  },
+  {
+   "file": "KL_KL10_crop.jpg",
+   "gt": "KL45C4411",
+   "pred": "KL456GC4427",
+   "ok": false,
+   "conf": 0.910480098290877
+  },
+  {
+   "file": "KL_KL11_crop.jpg",
+   "gt": "KL0BBJ5001",
+   "pred": "ML63B0715",
+   "ok": false,
+   "conf": 0.7944903274377187
+  },
+  {
+   "file": "KL_KL14_crop.jpg",
+   "gt": "KL03S6394",
+   "pred": "KL035F8280",
+   "ok": false,
+   "conf": 0.9012373805046081
+  },
+  {
+   "file": "KL_KL15_crop.jpg",
+   "gt": "KL43G6619",
+   "pred": "KL43G6619",
+   "ok": true,
+   "conf": 0.9824518031544156
+  },
+  {
+   "file": "KL_KL16_crop.jpg",
+   "gt": "KL43D4444",
+   "pred": "KL43D444",
+   "ok": false,
+   "conf": 0.9864579439163208
+  },
+  {
+   "file": "KL_KL19_crop.jpg",
+   "gt": "KL43D4389",
+   "pred": "KA43043B",
+   "ok": false,
+   "conf": 0.8968772478401661
+  },
+  {
+   "file": "KL_KL3_crop.jpg",
+   "gt": "KL02AF6723",
+   "pred": "KL02AF6723",
+   "ok": true,
+   "conf": 0.9728282213211059
+  },
+  {
+   "file": "KL_KL4_crop.jpg",
+   "gt": "KL27D9809",
+   "pred": "KA27D9805",
+   "ok": false,
+   "conf": 0.9404410256279839
+  },
+  {
+   "file": "KL_KL5_crop.jpg",
+   "gt": "KL34A7564",
+   "pred": "KA54A7560",
+   "ok": false,
+   "conf": 0.9542300237549676
+  },
+  {
+   "file": "KL_KL6_crop.jpg",
+   "gt": "KL46R3613",
+   "pred": "KP46R3613",
+   "ok": false,
+   "conf": 0.9538437326749166
+  },
+  {
+   "file": "KL_KL7_crop.jpg",
+   "gt": "KL41M93",
+   "pred": "KL41MC21",
+   "ok": false,
+   "conf": 0.9129995629191399
+  },
+  {
+   "file": "KL_KL8_crop.jpg",
+   "gt": "KL07BU7707",
+   "pred": "KL07BU770",
+   "ok": false,
+   "conf": 0.9934328463342454
+  },
+  {
+   "file": "KL_KL9_crop.jpg",
+   "gt": "KL16U8863",
+   "pred": "KL16B8863",
+   "ok": false,
+   "conf": 0.9518231352170309
+  },
+  {
+   "file": "LA_LA1_crop.jpg",
+   "gt": "LA020749",
+   "pred": "CS020749",
+   "ok": false,
+   "conf": 0.9657256752252579
+  },
+  {
+   "file": "MH_MH1_crop.jpg",
+   "gt": "MH06AB8620",
+   "pred": "MH06A88E9",
+   "ok": false,
+   "conf": 0.9282173911730448
+  },
+  {
+   "file": "MH_MH10_crop.jpg",
+   "gt": "MH11CQ8516",
+   "pred": "MH11CQ8516",
+   "ok": true,
+   "conf": 0.9675383627414703
+  },
+  {
+   "file": "MH_MH11_crop.jpg",
+   "gt": "MH36H5700",
+   "pred": "MH36H700",
+   "ok": false,
+   "conf": 0.9900668039917946
+  },
+  {
+   "file": "MH_MH12_crop.jpg",
+   "gt": "MH12NJ5838",
+   "pred": "MH12NLJ5838",
+   "ok": false,
+   "conf": 0.9722825288772583
+  },
+  {
+   "file": "MH_MH13_crop.jpg",
+   "gt": "MH05BS3471",
+   "pred": "MH05BS3471",
+   "ok": true,
+   "conf": 0.9940974235534668
+  },
+  {
+   "file": "MH_MH14_crop.jpg",
+   "gt": "MH43X8997",
+   "pred": "MH43X899",
+   "ok": false,
+   "conf": 0.990629032254219
+  },
+  {
+   "file": "MH_MH15_crop.jpg",
+   "gt": "MH05EQ4066",
+   "pred": "MH05E0406",
+   "ok": false,
+   "conf": 0.9539126422670152
+  },
+  {
+   "file": "MH_MH16_crop.jpg",
+   "gt": "MH12GR862",
+   "pred": "MH12GR862",
+   "ok": true,
+   "conf": 0.9920017123222351
+  },
+  {
+   "file": "MH_MH17_crop.jpg",
+   "gt": "MH01BT7906",
+   "pred": "MH01B7906",
+   "ok": false,
+   "conf": 0.9812834196620517
+  },
+  {
+   "file": "MH_MH18_crop.jpg",
+   "gt": "MH12HN4507",
+   "pred": "MH12MN4507",
+   "ok": false,
+   "conf": 0.9863039255142212
+  },
+  {
+   "file": "MH_MH19_crop.jpg",
+   "gt": "MH12KN8366",
+   "pred": "MH12KN836",
+   "ok": false,
+   "conf": 0.9851611190372043
+  },
+  {
+   "file": "MH_MH2_crop.jpg",
+   "gt": "MH48AK2798",
+   "pred": "MH48AK2798",
+   "ok": true,
+   "conf": 0.9871792495250702
+  },
+  {
+   "file": "MH_MH20_crop.jpg",
+   "gt": "MH12KJ7659",
+   "pred": "MH12KJA7659",
+   "ok": false,
+   "conf": 0.9866428862918507
+  },
+  {
+   "file": "MH_MH21_crop.jpg",
+   "gt": "MH04DR8508",
+   "pred": "MH04DR8508",
+   "ok": true,
+   "conf": 0.9809803783893585
+  },
+  {
+   "file": "MH_MH22_crop.jpg",
+   "gt": "MH05CH1754",
+   "pred": "MH06CH1764",
+   "ok": false,
+   "conf": 0.8759660094976425
+  },
+  {
+   "file": "MH_MH23_crop.jpg",
+   "gt": "MH49AS5099",
+   "pred": "MH19A4530",
+   "ok": false,
+   "conf": 0.9348246617750688
+  },
+  {
+   "file": "MH_MH24_crop.jpg",
+   "gt": "MH04HF5092",
+   "pred": "MH04HF5092",
+   "ok": true,
+   "conf": 0.9957158148288727
+  },
+  {
+   "file": "MH_MH25_crop.jpg",
+   "gt": "MH12FK1392",
+   "pred": "MH12FK1392",
+   "ok": true,
+   "conf": 0.9993829250335693
+  },
+  {
+   "file": "MH_MH26_crop.jpg",
+   "gt": "MH12HF5057",
+   "pred": "MH12HF5052",
+   "ok": false,
+   "conf": 0.9927432179450989
+  },
+  {
+   "file": "MH_MH3_crop.jpg",
+   "gt": "MH48AC6244",
+   "pred": "MH48AS624",
+   "ok": false,
+   "conf": 0.9018542501661513
+  },
+  {
+   "file": "MH_MH4_crop.jpg",
+   "gt": "MH12MF6822",
+   "pred": "MN12DF682",
+   "ok": false,
+   "conf": 0.9770603179931641
+  },
+  {
+   "file": "MH_MH6_crop.jpg",
+   "gt": "MH47N0712",
+   "pred": "MH47N0712",
+   "ok": true,
+   "conf": 0.9694358507792155
+  },
+  {
+   "file": "MH_MH7_crop.jpg",
+   "gt": "MH12KY6921",
+   "pred": "MH12K6921",
+   "ok": false,
+   "conf": 0.9350025918748643
+  },
+  {
+   "file": "MH_MH8_crop.jpg",
+   "gt": "MH02DN7410",
+   "pred": "MH02DN7410",
+   "ok": true,
+   "conf": 0.9985569953918457
+  },
+  {
+   "file": "ML_ML1_crop.jpg",
+   "gt": "ML05F6894",
+   "pred": "ML05F6894",
+   "ok": true,
+   "conf": 0.9951969914966159
+  },
+  {
+   "file": "ML_ML10_crop.jpg",
+   "gt": "ML06A1659",
+   "pred": "MH06A1659",
+   "ok": false,
+   "conf": 0.9464627371893989
+  },
+  {
+   "file": "ML_ML11_crop.jpg",
+   "gt": "ML05L1434",
+   "pred": "ML05L1434",
+   "ok": true,
+   "conf": 0.9782836370997958
+  },
+  {
+   "file": "ML_ML12_crop.jpg",
+   "gt": "ML05F9854",
+   "pred": "ML05F9854",
+   "ok": true,
+   "conf": 0.9918807148933411
+  },
+  {
+   "file": "ML_ML13_crop.jpg",
+   "gt": "ML05H1958",
+   "pred": "ML05H1958",
+   "ok": true,
+   "conf": 0.9995613495508829
+  },
+  {
+   "file": "ML_ML14_crop.jpg",
+   "gt": "ML10B9308",
+   "pred": "ML10B9308",
+   "ok": true,
+   "conf": 0.9602341453234354
+  },
+  {
+   "file": "ML_ML15_crop.jpg",
+   "gt": "ML111909",
+   "pred": "ML211E3909",
+   "ok": false,
+   "conf": 0.8694772809743881
+  },
+  {
+   "file": "ML_ML16_crop.jpg",
+   "gt": "ML133317",
+   "pred": "TLC133317",
+   "ok": false,
+   "conf": 0.9655930399894714
+  },
+  {
+   "file": "ML_ML17_crop.jpg",
+   "gt": "ML05L5154",
+   "pred": "ML85L5154",
+   "ok": false,
+   "conf": 0.9772175153096517
+  },
+  {
+   "file": "ML_ML18_crop.jpg",
+   "gt": "ML10B4503",
+   "pred": "ML10P4503",
+   "ok": false,
+   "conf": 0.984642313586341
+  },
+  {
+   "file": "ML_ML19_crop.jpg",
+   "gt": "ML04C0056",
+   "pred": "ML04C0056",
+   "ok": true,
+   "conf": 0.992589188946618
+  },
+  {
+   "file": "ML_ML2_crop.jpg",
+   "gt": "ML05Q8790",
+   "pred": "ML0508790",
+   "ok": false,
+   "conf": 0.9189675251642863
+  },
+  {
+   "file": "ML_ML20_crop.jpg",
+   "gt": "ML137827",
+   "pred": "ML137827",
+   "ok": true,
+   "conf": 0.9994083642959595
+  },
+  {
+   "file": "ML_ML21_crop.jpg",
+   "gt": "ML05J3288",
+   "pred": "ML05J3288",
+   "ok": true,
+   "conf": 0.9798383447859023
+  },
+  {
+   "file": "ML_ML22_crop.jpg",
+   "gt": "ML1032811",
+   "pred": "CA0B2810",
+   "ok": false,
+   "conf": 0.9848960902955797
+  },
+  {
+   "file": "ML_ML23_crop.jpg",
+   "gt": "ML05R1934",
+   "pred": "ML05R1934",
+   "ok": true,
+   "conf": 0.9993295272191366
+  },
+  {
+   "file": "ML_ML24_crop.jpg",
+   "gt": "ML0563550",
+   "pred": "BL0563550",
+   "ok": false,
+   "conf": 0.9356765780184004
+  },
+  {
+   "file": "ML_ML25_crop.jpg",
+   "gt": "ML04B8389",
+   "pred": "ML04B8389",
+   "ok": true,
+   "conf": 0.926006038983663
+  },
+  {
+   "file": "ML_ML26_crop.jpg",
+   "gt": "ML068346",
+   "pred": "ML0683460",
+   "ok": false,
+   "conf": 0.9345598287052579
+  },
+  {
+   "file": "ML_ML27_crop.jpg",
+   "gt": "ML05K9494",
+   "pred": "LQ5K9494",
+   "ok": false,
+   "conf": 0.9786470201280382
+  },
+  {
+   "file": "ML_ML28_crop.jpg",
+   "gt": "ML08C8061",
+   "pred": "ML08C8061",
+   "ok": true,
+   "conf": 0.9866312543551127
+  },
+  {
+   "file": "ML_ML29_crop.jpg",
+   "gt": "ML04C4738",
+   "pred": "ML94C4738",
+   "ok": false,
+   "conf": 0.9311983386675516
+  },
+  {
+   "file": "ML_ML30_crop.jpg",
+   "gt": "ML05C5389",
+   "pred": "MH05C530",
+   "ok": false,
+   "conf": 0.95577472448349
+  },
+  {
+   "file": "ML_ML31_crop.jpg",
+   "gt": "ML05J8950",
+   "pred": "ML05J8950",
+   "ok": true,
+   "conf": 0.9868036376105415
+  },
+  {
+   "file": "ML_ML32_crop.jpg",
+   "gt": "ML10C2674",
+   "pred": "ML10C2674",
+   "ok": true,
+   "conf": 0.9940541055467393
+  },
+  {
+   "file": "ML_ML33_crop.jpg",
+   "gt": "ML04B8918",
+   "pred": "ML04B8918",
+   "ok": true,
+   "conf": 0.9976712928877937
+  },
+  {
+   "file": "ML_ML34_crop.jpg",
+   "gt": "ML05H6564",
+   "pred": "ML05H6564",
+   "ok": true,
+   "conf": 0.977367983924018
+  },
+  {
+   "file": "ML_ML35_crop.jpg",
+   "gt": "ML05G3474",
+   "pred": "ML05G3474",
+   "ok": true,
+   "conf": 0.9817504617902968
+  },
+  {
+   "file": "ML_ML36_crop.jpg",
+   "gt": "ML08B1100",
+   "pred": "ML08B1100",
+   "ok": true,
+   "conf": 0.9859770205285814
+  },
+  {
+   "file": "ML_ML37_crop.jpg",
+   "gt": "ML08E9223",
+   "pred": "ML08E9220",
+   "ok": false,
+   "conf": 0.9537762933307223
+  },
+  {
+   "file": "ML_ML38_crop.jpg",
+   "gt": "ML064696",
+   "pred": "ML064696",
+   "ok": true,
+   "conf": 0.9834179282188416
+  },
+  {
+   "file": "ML_ML39_crop.jpg",
+   "gt": "ML05G6098",
+   "pred": "ML05G6098",
+   "ok": true,
+   "conf": 0.998055895169576
+  },
+  {
+   "file": "ML_ML5_crop.jpg",
+   "gt": "ML05D0571",
+   "pred": "ML05D0571",
+   "ok": true,
+   "conf": 0.9816907842954
+  },
+  {
+   "file": "ML_ML7_crop.jpg",
+   "gt": "ML069642",
+   "pred": "ML69642",
+   "ok": false,
+   "conf": 0.9986036675316947
+  },
+  {
+   "file": "ML_ML8_crop.jpg",
+   "gt": "ML087084",
+   "pred": "ML0B799",
+   "ok": false,
+   "conf": 0.8992644037519183
+  },
+  {
+   "file": "MN_MN2_crop.jpg",
+   "gt": "MN05A6028",
+   "pred": "MN05A6028",
+   "ok": true,
+   "conf": 0.9833659595913358
+  },
+  {
+   "file": "MN_MN3_crop.jpg",
+   "gt": "MN01G0297",
+   "pred": "MK01G0297",
+   "ok": false,
+   "conf": 0.9452440083026886
+  },
+  {
+   "file": "MN_MN4_crop.jpg",
+   "gt": "MN06LA0861",
+   "pred": "MN06A0861",
+   "ok": false,
+   "conf": 0.9830531080563863
+  },
+  {
+   "file": "MN_MN5_crop.jpg",
+   "gt": "MN01G5395",
+   "pred": "MK01G5395",
+   "ok": false,
+   "conf": 0.9327269262737699
+  },
+  {
+   "file": "MN_MN6_crop.jpg",
+   "gt": "MN01K5346",
+   "pred": "NN01K5346",
+   "ok": false,
+   "conf": 0.9680662552515665
+  },
+  {
+   "file": "MP_MP1_crop.jpg",
+   "gt": "MP04CL3546",
+   "pred": "MB04CL3546",
+   "ok": false,
+   "conf": 0.9608931064605712
+  },
+  {
+   "file": "MP_MP10_crop.jpg",
+   "gt": "MP08CA6293",
+   "pred": "ML080A6290",
+   "ok": false,
+   "conf": 0.9147519886493682
+  },
+  {
+   "file": "MP_MP11_crop.jpg",
+   "gt": "MP07CB8897",
+   "pred": "MP07CB8897",
+   "ok": true,
+   "conf": 0.995872700214386
+  },
+  {
+   "file": "MP_MP2_crop.jpg",
+   "gt": "MP04CL8840",
+   "pred": "HP04CL8840",
+   "ok": false,
+   "conf": 0.9993955254554748
+  },
+  {
+   "file": "MP_MP3_crop.jpg",
+   "gt": "MP65C0654",
+   "pred": "YP65C0654",
+   "ok": false,
+   "conf": 0.9308588325977325
+  },
+  {
+   "file": "MP_MP4_crop.jpg",
+   "gt": "MP09CK4943",
+   "pred": "MH09CM4974",
+   "ok": false,
+   "conf": 0.861127720637755
+  },
+  {
+   "file": "MP_MP5_crop.jpg",
+   "gt": "MP20TA0919",
+   "pred": "BP20TA099",
+   "ok": false,
+   "conf": 0.9362211757236056
+  },
+  {
+   "file": "MP_MP6_crop.jpg",
+   "gt": "MP07CA5563",
+   "pred": "MP07CA5563",
+   "ok": true,
+   "conf": 0.9298303931951523
+  },
+  {
+   "file": "MP_MP7_crop.jpg",
+   "gt": "MP09BD1270",
+   "pred": "MP09BD1270",
+   "ok": true,
+   "conf": 0.9364690840244293
+  },
+  {
+   "file": "MP_MP8_crop.jpg",
+   "gt": "MP09CQ9712",
+   "pred": "MP09CQ9712",
+   "ok": true,
+   "conf": 0.9962302327156067
+  },
+  {
+   "file": "MP_MP9_crop.jpg",
+   "gt": "MP45G0872",
+   "pred": "MY40G0172",
+   "ok": false,
+   "conf": 0.9450233976046244
+  },
+  {
+   "file": "MZ_MZ1_crop.jpg",
+   "gt": "MZ01G9825",
+   "pred": "WZ01G9825",
+   "ok": false,
+   "conf": 0.9531887590885162
+  },
+  {
+   "file": "NL_NL2_crop.jpg",
+   "gt": "NL01CB433",
+   "pred": "KL01C0433",
+   "ok": false,
+   "conf": 0.9538127051459419
+  },
+  {
+   "file": "NL_NL3_crop.jpg",
+   "gt": "NL078440",
+   "pred": "LZ07A8440",
+   "ok": false,
+   "conf": 0.881686332821846
+  },
+  {
+   "file": "NL_NL4_crop.jpg",
+   "gt": "NL02C3947",
+   "pred": "BM02C397",
+   "ok": false,
+   "conf": 0.9691752791404724
+  },
+  {
+   "file": "NL_NL5_crop.jpg",
+   "gt": "NL07CA7631",
+   "pred": "KL6M0109",
+   "ok": false,
+   "conf": 0.8111601206991408
+  },
+  {
+   "file": "NL_NL6_crop.jpg",
+   "gt": "NL02C9593",
+   "pred": "AL02C9683",
+   "ok": false,
+   "conf": 0.8888025548723009
+  },
+  {
+   "file": "NL_NL7_crop.jpg",
+   "gt": "NL01T8152",
+   "pred": "ML01T8152",
+   "ok": false,
+   "conf": 0.9710216058625115
+  },
+  {
+   "file": "NL_NL8_crop.jpg",
+   "gt": "NL07T0937",
+   "pred": "WL07T0937",
+   "ok": false,
+   "conf": 0.9876510302225748
+  },
+  {
+   "file": "NL_NL9_crop.jpg",
+   "gt": "NL02C6709",
+   "pred": "ML02C6709",
+   "ok": false,
+   "conf": 0.9963712361123827
+  },
+  {
+   "file": "OD_OD10_crop.jpg",
+   "gt": "OD05K6964",
+   "pred": "AD65K6964",
+   "ok": false,
+   "conf": 0.8505900336636437
+  },
+  {
+   "file": "OD_OD11_crop.jpg",
+   "gt": "OR02BV0701",
+   "pred": "BR02BV971",
+   "ok": false,
+   "conf": 0.9064851337009006
+  },
+  {
+   "file": "OD_OD12_crop.jpg",
+   "gt": "OR05AN4494",
+   "pred": "BR05AN4494",
+   "ok": false,
+   "conf": 0.9310369998216629
+  },
+  {
+   "file": "OD_OD13_crop.jpg",
+   "gt": "OD052323",
+   "pred": "GB01D3523",
+   "ok": false,
+   "conf": 0.853822960094972
+  },
+  {
+   "file": "OD_OD14_crop.jpg",
+   "gt": "OD02L4656",
+   "pred": "GO2L2465",
+   "ok": false,
+   "conf": 0.8884670853614807
+  },
+  {
+   "file": "OD_OD15_crop.jpg",
+   "gt": "OD05Y5787",
+   "pred": "M608010Y0767",
+   "ok": false,
+   "conf": 0.8608624090751013
+  },
+  {
+   "file": "OD_OD16_crop.jpg",
+   "gt": "OR14U8730",
+   "pred": "BR14J8730",
+   "ok": false,
+   "conf": 0.9495141386985779
+  },
+  {
+   "file": "OD_OD17_crop.jpg",
+   "gt": "OD14B7432",
+   "pred": "GL14AB7243",
+   "ok": false,
+   "conf": 0.9253002838654951
+  },
+  {
+   "file": "OD_OD18_crop.jpg",
+   "gt": "OD22J9911",
+   "pred": "MA2621901",
+   "ok": false,
+   "conf": 0.9147908290227255
+  },
+  {
+   "file": "OD_OD19_crop.jpg",
+   "gt": "OD11P6123",
+   "pred": "MH01P6125",
+   "ok": false,
+   "conf": 0.944089863035414
+  },
+  {
+   "file": "OD_OD20_crop.jpg",
+   "gt": "OD01Q4668",
+   "pred": "GL671844A18",
+   "ok": false,
+   "conf": 0.9338172349062833
+  },
+  {
+   "file": "OD_OD22_crop.jpg",
+   "gt": "OR05AC0422",
+   "pred": "KR022039",
+   "ok": false,
+   "conf": 0.9085438475012779
+  },
+  {
+   "file": "OD_OD23_crop.jpg",
+   "gt": "OR21E1033",
+   "pred": "BR21E1033",
+   "ok": false,
+   "conf": 0.9897584385342069
+  },
+  {
+   "file": "OD_OD24_crop.jpg",
+   "gt": "OD02J0435",
+   "pred": "GB02JG0435",
+   "ok": false,
+   "conf": 0.9036562740802765
+  },
+  {
+   "file": "OD_OD25_crop.jpg",
+   "gt": "OD02AP3010",
+   "pred": "ML02AP3010",
+   "ok": false,
+   "conf": 0.979540753364563
+  },
+  {
+   "file": "OD_OD26_crop.jpg",
+   "gt": "OD021481",
+   "pred": "DF02148",
+   "ok": false,
+   "conf": 0.9598091500146049
+  },
+  {
+   "file": "OD_OD27_crop.jpg",
+   "gt": "OD25F7400",
+   "pred": "AL023N7402",
+   "ok": false,
+   "conf": 0.8447146534919738
+  },
+  {
+   "file": "OD_OD3_crop.jpg",
+   "gt": "OD02V0007",
+   "pred": "KL0CZ4007",
+   "ok": false,
+   "conf": 0.8937051892280579
+  },
+  {
+   "file": "OD_OD4_crop.jpg",
+   "gt": "OD02C2836",
+   "pred": "DJ02C2836",
+   "ok": false,
+   "conf": 0.9503732257419162
+  },
+  {
+   "file": "OD_OD5_crop.jpg",
+   "gt": "OD14E3131",
+   "pred": "DP14E3713",
+   "ok": false,
+   "conf": 0.942157781124115
+  },
+  {
+   "file": "OD_OD6_crop.jpg",
+   "gt": "OR08F1001",
+   "pred": "BR08P1001",
+   "ok": false,
+   "conf": 0.9606357547971938
+  },
+  {
+   "file": "OD_OD9_crop.jpg",
+   "gt": "OD33L2616",
+   "pred": "DO33L2615",
+   "ok": false,
+   "conf": 0.890999909904268
+  },
+  {
+   "file": "PB_PB1_crop.jpg",
+   "gt": "PB11BG7347",
+   "pred": "PB1BG7347",
+   "ok": false,
+   "conf": 0.9239942365222507
+  },
+  {
+   "file": "PB_PB10_crop.jpg",
+   "gt": "PB11BN6101",
+   "pred": "PB11BN6101",
+   "ok": true,
+   "conf": 0.9831515371799469
+  },
+  {
+   "file": "PB_PB11_crop.jpg",
+   "gt": "PB08C03690",
+   "pred": "PB08C0369",
+   "ok": false,
+   "conf": 0.9700673758983612
+  },
+  {
+   "file": "PB_PB12_crop.jpg",
+   "gt": "PB07BY3563",
+   "pred": "PB07BY3563",
+   "ok": true,
+   "conf": 0.9992171943187713
+  },
+  {
+   "file": "PB_PB13_crop.jpg",
+   "gt": "PB08DT7342",
+   "pred": "UP808DT71342",
+   "ok": false,
+   "conf": 0.9315351645151774
+  },
+  {
+   "file": "PB_PB14_crop.jpg",
+   "gt": "PB10EH0164",
+   "pred": "PB10EH0164",
+   "ok": true,
+   "conf": 0.9550825774669647
+  },
+  {
+   "file": "PB_PB15_crop.jpg",
+   "gt": "PB30L5010",
+   "pred": "PB30L5010",
+   "ok": true,
+   "conf": 0.9998140003946092
+  },
+  {
+   "file": "PB_PB17_crop.jpg",
+   "gt": "PB23S8600",
+   "pred": "PB23S860",
+   "ok": false,
+   "conf": 0.9997828453779221
+  },
+  {
+   "file": "PB_PB18_crop.jpg",
+   "gt": "PB08BF6160",
+   "pred": "PB088F6160",
+   "ok": false,
+   "conf": 0.987861979007721
+  },
+  {
+   "file": "PB_PB19_crop.jpg",
+   "gt": "PB10CX0209",
+   "pred": "PB10CX0205",
+   "ok": false,
+   "conf": 0.9769350409507751
+  },
+  {
+   "file": "PB_PB2_crop.jpg",
+   "gt": "PB04S4253",
+   "pred": "PB04S4275",
+   "ok": false,
+   "conf": 0.8942423045635224
+  },
+  {
+   "file": "PB_PB20_crop.jpg",
+   "gt": "PB31R8123",
+   "pred": "PB31R8123",
+   "ok": true,
+   "conf": 0.9471999406814575
+  },
+  {
+   "file": "PB_PB21_crop.jpg",
+   "gt": "PB37A8269",
+   "pred": "WB37148260",
+   "ok": false,
+   "conf": 0.8978657901287079
+  },
+  {
+   "file": "PB_PB22_crop.jpg",
+   "gt": "PB06AN6162",
+   "pred": "PB06AN6162",
+   "ok": true,
+   "conf": 0.9993262946605682
+  },
+  {
+   "file": "PB_PB23_crop.jpg",
+   "gt": "PB02CC7299",
+   "pred": "UP12C8712",
+   "ok": false,
+   "conf": 0.8439430594444275
+  },
+  {
+   "file": "PB_PB24_crop.jpg",
+   "gt": "PB02DY7380",
+   "pred": "PB02DY7380",
+   "ok": true,
+   "conf": 0.9770629703998566
+  },
+  {
+   "file": "PB_PB25_crop.jpg",
+   "gt": "PB10CK5005",
+   "pred": "PB10CK005",
+   "ok": false,
+   "conf": 0.988891237311893
+  },
+  {
+   "file": "PB_PB26_crop.jpg",
+   "gt": "PB04T0678",
+   "pred": "KR0AT7067",
+   "ok": false,
+   "conf": 0.8957222104072571
+  },
+  {
+   "file": "PB_PB27_crop.jpg",
+   "gt": "PB65AN2583",
+   "pred": "PB65AN2583",
+   "ok": true,
+   "conf": 0.9938858866691589
+  },
+  {
+   "file": "PB_PB29_crop.jpg",
+   "gt": "PB10EE0888",
+   "pred": "PB102E0888",
+   "ok": false,
+   "conf": 0.9523731410503388
+  },
+  {
+   "file": "PB_PB30_crop.jpg",
+   "gt": "PB08DY4824",
+   "pred": "PB08DV4824",
+   "ok": false,
+   "conf": 0.8750471204519272
+  },
+  {
+   "file": "PB_PB4_crop.jpg",
+   "gt": "PB07BL8058",
+   "pred": "PB07BL8058",
+   "ok": true,
+   "conf": 0.995506763458252
+  },
+  {
+   "file": "PB_PB5_crop.jpg",
+   "gt": "PB2313752",
+   "pred": "PL313742",
+   "ok": false,
+   "conf": 0.9659437462687492
+  },
+  {
+   "file": "PB_PB6_crop.jpg",
+   "gt": "PB13AF6756",
+   "pred": "BQ13RF6756",
+   "ok": false,
+   "conf": 0.8513344198465347
+  },
+  {
+   "file": "PB_PB7_crop.jpg",
+   "gt": "PB10DV5354",
+   "pred": "PB10VS350",
+   "ok": false,
+   "conf": 0.90350827243593
+  },
+  {
+   "file": "PB_PB8_crop.jpg",
+   "gt": "PB10CQ0006",
+   "pred": "PL0CE5600",
+   "ok": false,
+   "conf": 0.82318514585495
+  },
+  {
+   "file": "PB_PB9_crop.jpg",
+   "gt": "PB35F9333",
+   "pred": "PB35F933",
+   "ok": false,
+   "conf": 0.9730266407132149
+  },
+  {
+   "file": "PY_PY1_crop.jpg",
+   "gt": "PY01Q7947",
+   "pred": "BA01Q7947",
+   "ok": false,
+   "conf": 0.9648017353481717
+  },
+  {
+   "file": "PY_PY10_crop.jpg",
+   "gt": "PY01CE4149",
+   "pred": "PY01CE4149",
+   "ok": true,
+   "conf": 0.9986107230186463
+  },
+  {
+   "file": "PY_PY12_crop.jpg",
+   "gt": "PY01AH9067",
+   "pred": "PY01AH9060",
+   "ok": false,
+   "conf": 0.9907339215278625
+  },
+  {
+   "file": "PY_PY13_crop.jpg",
+   "gt": "PY01CG2929",
+   "pred": "PY01CG929",
+   "ok": false,
+   "conf": 0.9934973319371542
+  },
+  {
+   "file": "PY_PY14_crop.jpg",
+   "gt": "PY01CV2447",
+   "pred": "BY01CY2442",
+   "ok": false,
+   "conf": 0.9648210514675487
+  },
+  {
+   "file": "PY_PY15_crop.jpg",
+   "gt": "PY05A8339",
+   "pred": "PY05A8339",
+   "ok": true,
+   "conf": 0.9986106952031454
+  },
+  {
+   "file": "PY_PY16_crop.jpg",
+   "gt": "PY01BU2406",
+   "pred": "WY01BU240",
+   "ok": false,
+   "conf": 0.9503168728616502
+  },
+  {
+   "file": "PY_PY17_crop.jpg",
+   "gt": "PY02S9326",
+   "pred": "PY02S9326",
+   "ok": true,
+   "conf": 0.9893605377939012
+  },
+  {
+   "file": "PY_PY18_crop.jpg",
+   "gt": "PY02L4602",
+   "pred": "TN02146Q04",
+   "ok": false,
+   "conf": 0.9149892747402191
+  },
+  {
+   "file": "PY_PY2_crop.jpg",
+   "gt": "PY01CM9549",
+   "pred": "PY01CM9549",
+   "ok": true,
+   "conf": 0.9991316080093384
+  },
+  {
+   "file": "PY_PY3_crop.jpg",
+   "gt": "PY01CM5400",
+   "pred": "PY01CM540",
+   "ok": false,
+   "conf": 0.9926472438706292
+  },
+  {
+   "file": "PY_PY4_crop.jpg",
+   "gt": "PY02S7828",
+   "pred": "PY02S7828",
+   "ok": true,
+   "conf": 0.999091194735633
+  },
+  {
+   "file": "PY_PY5_crop.jpg",
+   "gt": "PY01AW2814",
+   "pred": "TH01AH1241",
+   "ok": false,
+   "conf": 0.8661404143680226
+  },
+  {
+   "file": "PY_PY6_crop.jpg",
+   "gt": "PY01AP0555",
+   "pred": "PY01AP0555",
+   "ok": true,
+   "conf": 0.9581169605255127
+  },
+  {
+   "file": "PY_PY7_crop.jpg",
+   "gt": "PY036993",
+   "pred": "PY036997",
+   "ok": false,
+   "conf": 0.9956711828708649
+  },
+  {
+   "file": "PY_PY8_crop.jpg",
+   "gt": "PY01BD9020",
+   "pred": "YO01BD9020",
+   "ok": false,
+   "conf": 0.9289696324955333
+  },
+  {
+   "file": "PY_PY9_crop.jpg",
+   "gt": "PY055353",
+   "pred": "PY05353",
+   "ok": false,
+   "conf": 0.9509692362376622
+  },
+  {
+   "file": "RJ_RJ10_crop.jpg",
+   "gt": "RJ14CM3730",
+   "pred": "SJ14CH3730",
+   "ok": false,
+   "conf": 0.9597563906149431
+  },
+  {
+   "file": "RJ_RJ2_crop.jpg",
+   "gt": "RJ14CW4115",
+   "pred": "RJ14CW4115",
+   "ok": true,
+   "conf": 0.9932070314884186
+  },
+  {
+   "file": "RJ_RJ4_crop.jpg",
+   "gt": "RJ20CD5118",
+   "pred": "RJ20CD5118",
+   "ok": true,
+   "conf": 0.9875103056430816
+  },
+  {
+   "file": "RJ_RJ5_crop.jpg",
+   "gt": "RJ14CF5807",
+   "pred": "DJ14CF580",
+   "ok": false,
+   "conf": 0.9913133449024625
+  },
+  {
+   "file": "RJ_RJ6_crop.jpg",
+   "gt": "RJ23CB2272",
+   "pred": "RJ23CBZ272",
+   "ok": false,
+   "conf": 0.9946680545806885
+  },
+  {
+   "file": "RJ_RJ7_crop.jpg",
+   "gt": "RJ23CB4320",
+   "pred": "WJ23CB4320",
+   "ok": false,
+   "conf": 0.9720299065113067
+  },
+  {
+   "file": "RJ_RJ9_crop.jpg",
+   "gt": "RJ20UB0137",
+   "pred": "BR20UB017",
+   "ok": false,
+   "conf": 0.9278940425978767
+  },
+  {
+   "file": "SK_SK1_crop.jpg",
+   "gt": "SK01PA2969",
+   "pred": "CK01PA2969",
+   "ok": false,
+   "conf": 0.9860870122909546
+  },
+  {
+   "file": "SK_SK10_crop.jpg",
+   "gt": "SK01PB5004",
+   "pred": "CK01PB5004",
+   "ok": false,
+   "conf": 0.9677706837654114
+  },
+  {
+   "file": "SK_SK11_crop.jpg",
+   "gt": "SK02P1078",
+   "pred": "CK02P1078",
+   "ok": false,
+   "conf": 0.984054168065389
+  },
+  {
+   "file": "SK_SK12_crop.jpg",
+   "gt": "SK01T3835",
+   "pred": "LD0YT3835",
+   "ok": false,
+   "conf": 0.9364645481109619
+  },
+  {
+   "file": "SK_SK13_crop.jpg",
+   "gt": "SK05T0338",
+   "pred": "AK05T1033",
+   "ok": false,
+   "conf": 0.8789729863405228
+  },
+  {
+   "file": "SK_SK2_crop.jpg",
+   "gt": "SK01T3794",
+   "pred": "CK01T3794",
+   "ok": false,
+   "conf": 0.96621925301022
+  },
+  {
+   "file": "SK_SK3_crop.jpg",
+   "gt": "SK01PA7708",
+   "pred": "JK01PA7708",
+   "ok": false,
+   "conf": 0.9546742796897888
+  },
+  {
+   "file": "SK_SK4_crop.jpg",
+   "gt": "SK01PA4521",
+   "pred": "SK1PA4527",
+   "ok": false,
+   "conf": 0.9307923436164856
+  },
+  {
+   "file": "SK_SK5_crop.jpg",
+   "gt": "SK01PB3596",
+   "pred": "WS01NE3590",
+   "ok": false,
+   "conf": 0.9243184149265289
+  },
+  {
+   "file": "SK_SK6_crop.jpg",
+   "gt": "SK04P1320",
+   "pred": "CK04P1320",
+   "ok": false,
+   "conf": 0.9856592549218072
+  },
+  {
+   "file": "SK_SK7_crop.jpg",
+   "gt": "SK02P3471",
+   "pred": "TL02P3471",
+   "ok": false,
+   "conf": 0.9702381756570604
+  },
+  {
+   "file": "SK_SK8_crop.jpg",
+   "gt": "SK01PA5349",
+   "pred": "KL01PA5340",
+   "ok": false,
+   "conf": 0.9869367480278015
+  },
+  {
+   "file": "SK_SK9_crop.jpg",
+   "gt": "SK01T8791",
+   "pred": "CK01T8791",
+   "ok": false,
+   "conf": 0.9846661355760362
+  },
+  {
+   "file": "TN_TN1_crop.jpg",
+   "gt": "TN63BV7954",
+   "pred": "TN638V7954",
+   "ok": false,
+   "conf": 0.9845842957496643
+  },
+  {
+   "file": "TN_TN10_crop.jpg",
+   "gt": "TN69AJ4455",
+   "pred": "TN69A3445",
+   "ok": false,
+   "conf": 0.9661759972572327
+  },
+  {
+   "file": "TN_TN2_crop.jpg",
+   "gt": "TN76V1978",
+   "pred": "TN76V1978",
+   "ok": true,
+   "conf": 0.9936808678838942
+  },
+  {
+   "file": "TN_TN3_crop.jpg",
+   "gt": "TN02AU9295",
+   "pred": "TN02AU9290",
+   "ok": false,
+   "conf": 0.9834676325321198
+  },
+  {
+   "file": "TN_TN4_crop.jpg",
+   "gt": "TN10AR0131",
+   "pred": "TN101AR0131",
+   "ok": false,
+   "conf": 0.971225689757954
+  },
+  {
+   "file": "TN_TN5_crop.jpg",
+   "gt": "TN47T4464",
+   "pred": "TN47T4463",
+   "ok": false,
+   "conf": 0.8548847900496589
+  },
+  {
+   "file": "TN_TN6_crop.jpg",
+   "gt": "TN19F0816",
+   "pred": "TN19F0816",
+   "ok": true,
+   "conf": 0.9759285913573371
+  },
+  {
+   "file": "TN_TN7_crop.jpg",
+   "gt": "TN07BT5778",
+   "pred": "TN07BT5778",
+   "ok": true,
+   "conf": 0.9951974332332612
+  },
+  {
+   "file": "TN_TN8_crop.jpg",
+   "gt": "TN07AP0659",
+   "pred": "TN07AP0659",
+   "ok": true,
+   "conf": 0.9914708495140075
+  },
+  {
+   "file": "TN_TN9_crop.jpg",
+   "gt": "TN19Q0835",
+   "pred": "TN19Q0835",
+   "ok": true,
+   "conf": 0.9690327445665995
+  },
+  {
+   "file": "TR_TR1_crop.jpg",
+   "gt": "TR05B0308",
+   "pred": "MR05B0308",
+   "ok": false,
+   "conf": 0.9260886708895365
+  },
+  {
+   "file": "TR_TR10_crop.jpg",
+   "gt": "TR07D0569",
+   "pred": "TN07D0569",
+   "ok": false,
+   "conf": 0.9050684803062015
+  },
+  {
+   "file": "TR_TR2_crop.jpg",
+   "gt": "TR03H0259",
+   "pred": "TQ3H0259",
+   "ok": false,
+   "conf": 0.9983597695827484
+  },
+  {
+   "file": "TR_TR3_crop.jpg",
+   "gt": "TR02L0569",
+   "pred": "TN02L0569",
+   "ok": false,
+   "conf": 0.9453750318951077
+  },
+  {
+   "file": "TR_TR4_crop.jpg",
+   "gt": "TR01N0481",
+   "pred": "TR01NO481",
+   "ok": false,
+   "conf": 0.976709418826633
+  },
+  {
+   "file": "TR_TR5_crop.jpg",
+   "gt": "TR01X0482",
+   "pred": "TR01K0482",
+   "ok": false,
+   "conf": 0.9784552918540107
+  },
+  {
+   "file": "TR_TR6_crop.jpg",
+   "gt": "TR01BG0365",
+   "pred": "TR01BG0365",
+   "ok": true,
+   "conf": 0.9923319339752197
+  },
+  {
+   "file": "TR_TR7_crop.jpg",
+   "gt": "TR03F0375",
+   "pred": "MR5R3151",
+   "ok": false,
+   "conf": 0.8771142032411363
+  },
+  {
+   "file": "TR_TR8_crop.jpg",
+   "gt": "TR01E2157",
+   "pred": "PR01E216",
+   "ok": false,
+   "conf": 0.9396470189094543
+  },
+  {
+   "file": "TR_TR9_crop.jpg",
+   "gt": "TR01AS0609",
+   "pred": "HR01AS06D09",
+   "ok": false,
+   "conf": 0.9844049540433016
+  },
+  {
+   "file": "TS_TS1_crop.jpg",
+   "gt": "TS08FQ1262",
+   "pred": "TS08F0126",
+   "ok": false,
+   "conf": 0.9986056685447693
+  },
+  {
+   "file": "TS_TS10_crop.jpg",
+   "gt": "TS11EQ2914",
+   "pred": "TS1FQ2914",
+   "ok": false,
+   "conf": 0.9940457079145644
+  },
+  {
+   "file": "TS_TS11_crop.jpg",
+   "gt": "TS08FZ8298",
+   "pred": "SQ8FZ8293",
+   "ok": false,
+   "conf": 0.9607335925102234
+  },
+  {
+   "file": "TS_TS12_crop.jpg",
+   "gt": "TS09UA7948",
+   "pred": "MS09U1A7948",
+   "ok": false,
+   "conf": 0.9489599683068015
+  },
+  {
+   "file": "TS_TS13_crop.jpg",
+   "gt": "TS15ES0894",
+   "pred": "TB1E9089",
+   "ok": false,
+   "conf": 0.9143032431602478
+  },
+  {
+   "file": "TS_TS14_crop.jpg",
+   "gt": "TS36H6578",
+   "pred": "TS36H6578",
+   "ok": true,
+   "conf": 0.9982237550947402
+  },
+  {
+   "file": "TS_TS15_crop.jpg",
+   "gt": "TS13EK6213",
+   "pred": "GS13EK6219",
+   "ok": false,
+   "conf": 0.9425456285476684
+  },
+  {
+   "file": "TS_TS16_crop.jpg",
+   "gt": "TS07HM2684",
+   "pred": "TH051Q01",
+   "ok": false,
+   "conf": 0.8354656547307968
+  },
+  {
+   "file": "TS_TS2_crop.jpg",
+   "gt": "TS07EL3335",
+   "pred": "TS07EL3335",
+   "ok": true,
+   "conf": 0.9936486065387726
+  },
+  {
+   "file": "TS_TS3_crop.jpg",
+   "gt": "TS09EZ9293",
+   "pred": "TS09E9293",
+   "ok": false,
+   "conf": 0.9985692434840732
+  },
+  {
+   "file": "TS_TS4_crop.jpg",
+   "gt": "TS09EZ9296",
+   "pred": "TS09E2929",
+   "ok": false,
+   "conf": 0.9935149192810059
+  },
+  {
+   "file": "TS_TS5_crop.jpg",
+   "gt": "TS09EA4088",
+   "pred": "TB9EA4088",
+   "ok": false,
+   "conf": 0.9092804590861002
+  },
+  {
+   "file": "TS_TS6_crop.jpg",
+   "gt": "TS18T3899",
+   "pred": "RS1A7363",
+   "ok": false,
+   "conf": 0.9057542052533891
+  },
+  {
+   "file": "TS_TS7_crop.jpg",
+   "gt": "TS08EZ9463",
+   "pred": "TS08EZ9463",
+   "ok": true,
+   "conf": 0.9919992983341217
+  },
+  {
+   "file": "TS_TS8_crop.jpg",
+   "gt": "TS09EG6565",
+   "pred": "TS09EG6565",
+   "ok": true,
+   "conf": 0.9361992537975311
+  },
+  {
+   "file": "TS_TS9_crop.jpg",
+   "gt": "TS21J8351",
+   "pred": "GS21J8350",
+   "ok": false,
+   "conf": 0.9793984426392449
+  },
+  {
+   "file": "UK_UK1_crop.jpg",
+   "gt": "UK08W2276",
+   "pred": "MK08W2276",
+   "ok": false,
+   "conf": 0.9540291163656447
+  },
+  {
+   "file": "UK_UK10_crop.jpg",
+   "gt": "UK07AA2432",
+   "pred": "UH0AA2432",
+   "ok": false,
+   "conf": 0.9604591793484158
+  },
+  {
+   "file": "UK_UK2_crop.jpg",
+   "gt": "UK06CB4595",
+   "pred": "UK06C8459",
+   "ok": false,
+   "conf": 0.9412458956241607
+  },
+  {
+   "file": "UK_UK3_crop.jpg",
+   "gt": "UK185763",
+   "pred": "UK185763",
+   "ok": true,
+   "conf": 0.9976163879036903
+  },
+  {
+   "file": "UK_UK4_crop.jpg",
+   "gt": "UP23K0008",
+   "pred": "UP23K008",
+   "ok": false,
+   "conf": 0.9723447188735008
+  },
+  {
+   "file": "UK_UK5_crop.jpg",
+   "gt": "UK106679",
+   "pred": "UXK106G79",
+   "ok": false,
+   "conf": 0.9605613549550375
+  },
+  {
+   "file": "UK_UK6_crop.jpg",
+   "gt": "UK07055789",
+   "pred": "HK07CS5739",
+   "ok": false,
+   "conf": 0.9024783730506897
+  },
+  {
+   "file": "UK_UK7_crop.jpg",
+   "gt": "UK07AM5665",
+   "pred": "UK07AM665",
+   "ok": false,
+   "conf": 0.9966325296296014
+  },
+  {
+   "file": "UK_UK8_crop.jpg",
+   "gt": "UK07BK5014",
+   "pred": "CK07BK5014",
+   "ok": false,
+   "conf": 0.972899317741394
+  },
+  {
+   "file": "UK_UK9_crop.jpg",
+   "gt": "UK06J3953",
+   "pred": "UN06J3953",
+   "ok": false,
+   "conf": 0.8819597462813059
+  },
+  {
+   "file": "UP_UP1_crop.jpg",
+   "gt": "UP57H8173",
+   "pred": "UP571H8173",
+   "ok": false,
+   "conf": 0.9908231616020202
+  },
+  {
+   "file": "UP_UP10_crop.jpg",
+   "gt": "UP78DB3730",
+   "pred": "UP78DB3730",
+   "ok": true,
+   "conf": 0.9839728593826294
+  },
+  {
+   "file": "UP_UP11_crop.jpg",
+   "gt": "UP53AK1161",
+   "pred": "UP53AK1161",
+   "ok": true,
+   "conf": 0.9934760153293609
+  },
+  {
+   "file": "UP_UP12_crop.jpg",
+   "gt": "UP14CV7920",
+   "pred": "UP14CV720",
+   "ok": false,
+   "conf": 0.991125570403205
+  },
+  {
+   "file": "UP_UP14_crop.jpg",
+   "gt": "UP16BD4866",
+   "pred": "UP16BD4866",
+   "ok": true,
+   "conf": 0.9646915018558502
+  },
+  {
+   "file": "UP_UP15_crop.jpg",
+   "gt": "UP79L0567",
+   "pred": "UP79L067",
+   "ok": false,
+   "conf": 0.9963854923844337
+  },
+  {
+   "file": "UP_UP16_crop.jpg",
+   "gt": "UP32KW7325",
+   "pred": "UP32KU7325",
+   "ok": false,
+   "conf": 0.98354372382164
+  },
+  {
+   "file": "UP_UP17_crop.jpg",
+   "gt": "UP32CX3400",
+   "pred": "UP32CX340",
+   "ok": false,
+   "conf": 0.998536745707194
+  },
+  {
+   "file": "UP_UP19_crop.jpg",
+   "gt": "UP45Q3028",
+   "pred": "UP45Q3028",
+   "ok": true,
+   "conf": 0.9831323226292928
+  },
+  {
+   "file": "UP_UP2_crop.jpg",
+   "gt": "UP85BN4203",
+   "pred": "UP85BN4203",
+   "ok": true,
+   "conf": 0.9986961960792542
+  },
+  {
+   "file": "UP_UP20_crop.jpg",
+   "gt": "UP14AK8604",
+   "pred": "UP14AK8604",
+   "ok": true,
+   "conf": 0.9843009769916534
+  },
+  {
+   "file": "UP_UP21_crop.jpg",
+   "gt": "UP52AH9705",
+   "pred": "UP52AH9705",
+   "ok": true,
+   "conf": 0.9979942798614502
+  },
+  {
+   "file": "UP_UP22_crop.jpg",
+   "gt": "UP11AY0646",
+   "pred": "UP11AY0646",
+   "ok": true,
+   "conf": 0.9982616543769837
+  },
+  {
+   "file": "UP_UP23_crop.jpg",
+   "gt": "UP78ED0449",
+   "pred": "HP81D0449",
+   "ok": false,
+   "conf": 0.9798370003700256
+  },
+  {
+   "file": "UP_UP24_crop.jpg",
+   "gt": "UP27Z7322",
+   "pred": "UP27Z7320",
+   "ok": false,
+   "conf": 0.9909659822781881
+  },
+  {
+   "file": "UP_UP25_crop.jpg",
+   "gt": "UP32BF3577",
+   "pred": "UB322S3577",
+   "ok": false,
+   "conf": 0.9935638606548309
+  },
+  {
+   "file": "UP_UP26_crop.jpg",
+   "gt": "UP14AX9754",
+   "pred": "AP14AX9864",
+   "ok": false,
+   "conf": 0.8860211104154587
+  },
+  {
+   "file": "UP_UP27_crop.jpg",
+   "gt": "UP70ET7816",
+   "pred": "UP70ET7816",
+   "ok": true,
+   "conf": 0.976841950416565
+  },
+  {
+   "file": "UP_UP28_crop.jpg",
+   "gt": "UP32HY6077",
+   "pred": "LP32HY6070",
+   "ok": false,
+   "conf": 0.9482939541339874
+  },
+  {
+   "file": "UP_UP29_crop.jpg",
+   "gt": "UP14AF3804",
+   "pred": "PW4AT5384",
+   "ok": false,
+   "conf": 0.9527628242969512
+  },
+  {
+   "file": "UP_UP3_crop.jpg",
+   "gt": "UP80FA1666",
+   "pred": "UP80FA1666",
+   "ok": true,
+   "conf": 0.9970870792865754
+  },
+  {
+   "file": "UP_UP4_crop.jpg",
+   "gt": "UP16U3849",
+   "pred": "PU10U3849",
+   "ok": false,
+   "conf": 0.8511169135570527
+  },
+  {
+   "file": "UP_UP5_crop.jpg",
+   "gt": "UP32EC5577",
+   "pred": "UP32EC5577",
+   "ok": true,
+   "conf": 0.9728403925895691
+  },
+  {
+   "file": "UP_UP8_crop.jpg",
+   "gt": "UP16AJ0704",
+   "pred": "UP16AJ077",
+   "ok": false,
+   "conf": 0.9235518508487277
+  },
+  {
+   "file": "WB_WB1_crop.jpg",
+   "gt": "WB26T6688",
+   "pred": "MB26T668",
+   "ok": false,
+   "conf": 0.9601703584194183
+  },
+  {
+   "file": "WB_WB11_crop.jpg",
+   "gt": "WB08A4101",
+   "pred": "WB08A4101",
+   "ok": true,
+   "conf": 0.9982345965173509
+  },
+  {
+   "file": "WB_WB12_crop.jpg",
+   "gt": "WB26S5093",
+   "pred": "MB26S5093",
+   "ok": false,
+   "conf": 0.9591930972205268
+  },
+  {
+   "file": "WB_WB13_crop.jpg",
+   "gt": "WB26K2760",
+   "pred": "WB26K2760",
+   "ok": true,
+   "conf": 0.9642617503801981
+  },
+  {
+   "file": "WB_WB14_crop.jpg",
+   "gt": "WB36G6682",
+   "pred": "WB36C6582",
+   "ok": false,
+   "conf": 0.9293400446573893
+  },
+  {
+   "file": "WB_WB15_crop.jpg",
+   "gt": "WB12AX2987",
+   "pred": "WB11AX2987",
+   "ok": false,
+   "conf": 0.9661165535449981
+  },
+  {
+   "file": "WB_WB16_crop.jpg",
+   "gt": "WB06J9177",
+   "pred": "MB06J917",
+   "ok": false,
+   "conf": 0.9354802295565605
+  },
+  {
+   "file": "WB_WB17_crop.jpg",
+   "gt": "WB02AJ4534",
+   "pred": "WB02AJ4534",
+   "ok": true,
+   "conf": 0.9335745811462403
+  },
+  {
+   "file": "WB_WB18_crop.jpg",
+   "gt": "WB06J2192",
+   "pred": "WB06J2192",
+   "ok": true,
+   "conf": 0.9995073941018846
+  },
+  {
+   "file": "WB_WB19_crop.jpg",
+   "gt": "WB061061",
+   "pred": "WB061061",
+   "ok": true,
+   "conf": 0.9520012438297272
+  },
+  {
+   "file": "WB_WB2_crop.jpg",
+   "gt": "WB02M8447",
+   "pred": "WB02H8447",
+   "ok": false,
+   "conf": 0.9106869366433885
+  },
+  {
+   "file": "WB_WB20_crop.jpg",
+   "gt": "WB171717",
+   "pred": "MLB171717",
+   "ok": false,
+   "conf": 0.9853425621986389
+  },
+  {
+   "file": "WB_WB21_crop.jpg",
+   "gt": "WB02W9S3S",
+   "pred": "WB02BB9535",
+   "ok": false,
+   "conf": 0.8537646055221557
+  },
+  {
+   "file": "WB_WB22_crop.jpg",
+   "gt": "WB20H0271",
+   "pred": "WR20N0271",
+   "ok": false,
+   "conf": 0.9875747693909539
+  },
+  {
+   "file": "WB_WB23_crop.jpg",
+   "gt": "WB20AG9041",
+   "pred": "WB20AG904",
+   "ok": false,
+   "conf": 0.9948716229862637
+  },
+  {
+   "file": "WB_WB25_crop.jpg",
+   "gt": "WB06H2237",
+   "pred": "KA006M230",
+   "ok": false,
+   "conf": 0.8994210958480835
+  },
+  {
+   "file": "WB_WB26_crop.jpg",
+   "gt": "WB02A03017",
+   "pred": "PB02AD3017",
+   "ok": false,
+   "conf": 0.990747731924057
+  },
+  {
+   "file": "WB_WB27_crop.jpg",
+   "gt": "WB02AD4162",
+   "pred": "WB02AD4162",
+   "ok": true,
+   "conf": 0.988260293006897
+  },
+  {
+   "file": "WB_WB28_crop.jpg",
+   "gt": "WB02AM8548",
+   "pred": "WB02AM8548",
+   "ok": true,
+   "conf": 0.9805354475975037
+  },
+  {
+   "file": "WB_WB3_crop.jpg",
+   "gt": "WB70G3763",
+   "pred": "WB70G3763",
+   "ok": true,
+   "conf": 0.9865168531735738
+  },
+  {
+   "file": "WB_WB4_crop.jpg",
+   "gt": "WB02X8795",
+   "pred": "WH02X8795",
+   "ok": false,
+   "conf": 0.9871553315056695
+  },
+  {
+   "file": "WB_WB5_crop.jpg",
+   "gt": "WB06G4120",
+   "pred": "WB06G4120",
+   "ok": true,
+   "conf": 0.9980321923891703
+  },
+  {
+   "file": "WB_WB6_crop.jpg",
+   "gt": "WB02AH4655",
+   "pred": "WB02AH465",
+   "ok": false,
+   "conf": 0.9886256721284654
+  },
+  {
+   "file": "WB_WB8_crop.jpg",
+   "gt": "WB06J4432",
+   "pred": "YB06J4432",
+   "ok": false,
+   "conf": 0.8987199697229598
+  },
+  {
+   "file": "WB_WB9_crop.jpg",
+   "gt": "WB02AA5580",
+   "pred": "WB02AA5523",
+   "ok": false,
+   "conf": 0.8532821481878107
+  },
+  {
+   "file": "google_00b42b2c-f193-4863-b92c-0245cbc816da___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Nissan-Terrano-Petrol-Review-Images-Black-Front-Angle_crop.jpg",
+   "gt": "TN21AT0492",
+   "pred": "EK6Y5493",
+   "ok": false,
+   "conf": 0.7589822262525558
+  },
+  {
+   "file": "google_018b52e6-e9a1-42c2-8ce7-0617e8c8e021___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_sbtb02_auto1_crop.jpg",
+   "gt": "RJ27TC0530",
+   "pred": "HLFTK9170019D",
+   "ok": false,
+   "conf": 0.8800327090116647
+  },
+  {
+   "file": "google_07aaab79-71ee-4ea3-a9e6-640191183947___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_1208484d1392541449-nissan-terrano-official-review-img_20140215_181708_crop.jpg",
+   "gt": "KA18P2987",
+   "pred": "KA18P2987",
+   "ok": true,
+   "conf": 0.9895188079939948
+  },
+  {
+   "file": "google_07f6d77a-652e-4885-8520-6d405d2f712f___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_840539077_1_1080x720_nissan-terrano-xl-d-thp-110-ps-2016-diesel-_crop.jpg",
+   "gt": "UP50AS4535",
+   "pred": "UP50AS4535",
+   "ok": true,
+   "conf": 0.9773480236530304
+  },
+  {
+   "file": "google_0850c175-0b8d-47f2-801c-e29f1dbdb367___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_571_crop.jpg",
+   "gt": "RJ27TC0530",
+   "pred": "KS1H7605",
+   "ok": false,
+   "conf": 0.7643909841775894
+  },
+  {
+   "file": "google_092c497e-623d-499d-822a-4b01c657389b___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_nissan-terrano-rear-left-rim_crop.jpg",
+   "gt": "KL63C8800",
+   "pred": "KL63C8800",
+   "ok": true,
+   "conf": 0.9779860708448622
+  },
+  {
+   "file": "google_0a0d1748-48cd-4114-90cb-b5baf0b3cbe4___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_147274518_15141875973_large_crop.jpg",
+   "gt": "MH46X9996",
+   "pred": "MH46X9996",
+   "ok": true,
+   "conf": 0.9928062756856283
+  },
+  {
+   "file": "google_0a720df9-e4ef-4e44-8c13-b39b9be8444d___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Nissan-Terrano-6_crop.jpg",
+   "gt": "TN21AT0480",
+   "pred": "TN21AT0480",
+   "ok": true,
+   "conf": 0.9854266226291657
+  },
+  {
+   "file": "google_0b77e2a4-34db-486c-8d87-46186f5b7b88___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_nissan-terrano-diesel-review-motorzest-04_crop.jpg",
+   "gt": "TN21AT0479",
+   "pred": "TN21AT0479",
+   "ok": true,
+   "conf": 0.9963737845420837
+  },
+  {
+   "file": "google_18d2b870-7817-46da-a59a-6406c1b472c9___1033_crop.jpg",
+   "gt": "KA51MJ8156",
+   "pred": "KA51MJ8156",
+   "ok": true,
+   "conf": 0.9995144486427308
+  },
+  {
+   "file": "google_1a0da3dc-6667-4092-bc2a-a541a06f1e90___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Nissan-Terrano9_crop.jpg",
+   "gt": "KA04MN3622",
+   "pred": "KA04CMM362",
+   "ok": false,
+   "conf": 0.9632932841777802
+  },
+  {
+   "file": "google_1e7151e6-8626-4fb2-b7e8-0fb6a8fde713___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_a19be5870f8f2593c994c465a691477e_555X416_1_crop.jpg",
+   "gt": "RJ27TC0530",
+   "pred": "DH34LCC5150",
+   "ok": false,
+   "conf": 0.7230411171913147
+  },
+  {
+   "file": "google_2424211e-e6ba-4478-8ed1-6a04e25499c7___main-qimg-7673aeac86d0ef987deb837552c5dd4c-1_crop.jpg",
+   "gt": "KA03AB3380",
+   "pred": "MH05L600",
+   "ok": false,
+   "conf": 0.7778047770261765
+  },
+  {
+   "file": "google_2430703d-0fb3-4eb2-9765-4f9301f232cd___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Terrano-Duster-Rear-Comparison - Copy_crop.jpg",
+   "gt": "TN19H3322",
+   "pred": "TN19H332",
+   "ok": false,
+   "conf": 0.976086936891079
+  },
+  {
+   "file": "google_266d82c7-1b64-44cd-b77c-c08d98175390___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_5c752daa8d168dec865fe0462bf2c0bb_large_crop.jpg",
+   "gt": "MH21V9926",
+   "pred": "MH21J9926",
+   "ok": false,
+   "conf": 0.9672302405039469
+  },
+  {
+   "file": "google_27a88c24-0bf2-48b0-98a8-fa396e951045___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_7T4G0491-e1376988169395-1024x577_crop.jpg",
+   "gt": "TN21TC611",
+   "pred": "CHQCX173X307",
+   "ok": false,
+   "conf": 0.8126821493109068
+  },
+  {
+   "file": "google_27bfd7b7-6e0c-454c-b9f3-7a44d36edb9c___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_nissan-terrano-rear-right-side-angle-view_crop.jpg",
+   "gt": "DL6CM6683",
+   "pred": "PC6CN6683",
+   "ok": false,
+   "conf": 0.8560394181145562
+  },
+  {
+   "file": "google_28574c06-ac11-422e-864f-a51b726bb9ba___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_hqdefault0_crop.jpg",
+   "gt": "RJ27TC0530",
+   "pred": "MLT7C60S0C0",
+   "ok": false,
+   "conf": 0.91156343980269
+  },
+  {
+   "file": "google_28fc10e3-681b-4086-9c15-28934ae86f7e___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_nissan-terrano-amt_827x510_71478504527_crop.jpg",
+   "gt": "DL14CTC0153",
+   "pred": "DL14CTC0153",
+   "ok": true,
+   "conf": 0.9981058619239114
+  },
+  {
+   "file": "google_2c9306ab-3454-4ca0-89fd-db3f51dabcef___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Nissan-Terrano-front-three-quarters-on-plain-ground_crop.jpg",
+   "gt": "RJ27TC0530",
+   "pred": "KL29Z9050",
+   "ok": false,
+   "conf": 0.743932256102562
+  },
+  {
+   "file": "google_2fbe224b-e775-4c74-b975-fd66d2397ef6___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Nissan-Terrano_crop.jpg",
+   "gt": "RJ27TC0530",
+   "pred": "LT1T5110",
+   "ok": false,
+   "conf": 0.7995260159174601
+  },
+  {
+   "file": "google_346a6946-ae0a-4b3f-b094-d971124b2064___banner_3_crop.jpg",
+   "gt": "DL6CAB123X",
+   "pred": "DL6CAB1231",
+   "ok": false,
+   "conf": 0.989106273651123
+  },
+  {
+   "file": "google_369ccb4b-88fe-4e97-91c1-3838da2b7563___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Honda-Jazz-Number-Plates-Designs_crop.jpg",
+   "gt": "TN42R2697",
+   "pred": "ML75B9917",
+   "ok": false,
+   "conf": 0.7465655088424683
+  },
+  {
+   "file": "google_38cee3dd-dead-4ba0-b350-0f82d94836da___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_big_467860_1505633598_crop.jpg",
+   "gt": "HR26TC7303",
+   "pred": "MY7A1060",
+   "ok": false,
+   "conf": 0.8885617733001709
+  },
+  {
+   "file": "google_3bc3f147-2d6b-484a-8481-4a49fd8afe23___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_844581764_1_1080x720_nissan-terrano-xv-d-thp-110-ps-2013-diesel-faridabad_crop.jpg",
+   "gt": "HR51AY9099",
+   "pred": "HR51A909",
+   "ok": false,
+   "conf": 0.9992492869496346
+  },
+  {
+   "file": "google_3f677265-d5fa-439f-be23-feaacce22c49___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_848126147_2_1080x720_nissan-terrano-xl-d-plus-2014-diesel-upload-photos_crop.jpg",
+   "gt": "GJ05JH2501",
+   "pred": "GJ05JH2501",
+   "ok": true,
+   "conf": 0.9575305342674255
+  },
+  {
+   "file": "google_44ee098a-c33c-47a2-9dcb-717c02d5a240___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_2013-Nissan-Terrano-Front_crop.jpg",
+   "gt": "TN19TC91",
+   "pred": "KS3539R6049L9S",
+   "ok": false,
+   "conf": 0.8806626754147666
+  },
+  {
+   "file": "google_4b669e6d-4eec-4f46-b502-f64ee0175947___new_1_crop.jpg",
+   "gt": "MH14TC206AN",
+   "pred": "MH6Z9013",
+   "ok": false,
+   "conf": 0.8080023593372769
+  },
+  {
+   "file": "google_4ed4509a-18ed-44cd-bfe3-b1cce982e365___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Nissan-Terrano-3_crop.jpg",
+   "gt": "TN21AT0480",
+   "pred": "TN214ATQ480",
+   "ok": false,
+   "conf": 0.9654102542183616
+  },
+  {
+   "file": "google_5231116f-7a07-4ce2-b437-d34b497e7969___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_844329566_3_1080x720_nissan-terrano-xe-d-2014-diesel-_crop.jpg",
+   "gt": "HR11F7575",
+   "pred": "HR11F7575",
+   "ok": true,
+   "conf": 0.9789670169353485
+  },
+  {
+   "file": "google_57e92915-935a-4a91-91f8-f3ad70040a6e___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_847071203_1_1080x720_nissan-terrano-xv-d-thp-premium-110-ps-2015-diesel-ghaziabad_crop.jpg",
+   "gt": "UP16CT2233",
+   "pred": "UP16CC2233",
+   "ok": false,
+   "conf": 0.9910534441471099
+  },
+  {
+   "file": "google_59a29a85-30f5-469e-a6c2-e1af171f151c___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_10187746494_417a40a489 - Copy_crop.jpg",
+   "gt": "TN21AU7234",
+   "pred": "TN21AD7234",
+   "ok": false,
+   "conf": 0.9949336290359497
+  },
+  {
+   "file": "google_5ac9f7b9-f7cc-4161-bbd1-7f377bb890bf___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Nissan-Terrano-John-Abraham_crop.jpg",
+   "gt": "MH03CB6467",
+   "pred": "MH03CB6460",
+   "ok": false,
+   "conf": 0.9578368842601777
+  },
+  {
+   "file": "google_60842fa7-0a2e-4407-b41c-933d93bdbb35___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_nissan-terrano-red-rear_crop.jpg",
+   "gt": "RJ27TC0530",
+   "pred": "HP1T9U901Q0",
+   "ok": false,
+   "conf": 0.9304660992188887
+  },
+  {
+   "file": "google_658af519-5290-4ae5-8dd6-694bab9aa458___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_848765390_1_1080x720_nissan-terrano-xl-d-plus-2014-diesel-coimbatore_crop.jpg",
+   "gt": "TN59BE0939",
+   "pred": "NS9BFE0939",
+   "ok": false,
+   "conf": 0.9499571811069142
+  },
+  {
+   "file": "google_65e2825e-943f-48a3-a4e2-7e81d649ace2___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_nissan-terrano-L_crop.jpg",
+   "gt": "RJ27TC0530",
+   "pred": "KW0D1106",
+   "ok": false,
+   "conf": 0.7951313148845326
+  },
+  {
+   "file": "google_6767eddd-bf2f-4270-aa1f-6146738895ab___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Nissan-Terrano-20300_crop.jpg",
+   "gt": "RJ27TC0530",
+   "pred": "HLE144H10",
+   "ok": false,
+   "conf": 0.9501382576094733
+  },
+  {
+   "file": "google_6e52e238-927b-46e0-a8f1-5f77ef1ecf9f___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_nissan-terrano-rear_crop.jpg",
+   "gt": "RJ27TC0530",
+   "pred": "MH01HA7EYM0",
+   "ok": false,
+   "conf": 0.8374743515794928
+  },
+  {
+   "file": "google_6ec9d264-9eab-4027-bdcc-6f71c842ee75___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_846635891_1_1080x720_nissan-terrano-xl-d-thp-110-ps-2013-diesel-dehra-dun_crop.jpg",
+   "gt": "UK07BA7252",
+   "pred": "UK07BA7252",
+   "ok": true,
+   "conf": 0.9658597826957702
+  },
+  {
+   "file": "google_72894c2b-5999-4d87-baa4-e3507548e011___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_847602356_1_1080x720_nissan-terrano-xl-d-2014-diesel-bilaspur_crop.jpg",
+   "gt": "CG10S0650",
+   "pred": "AG10S989",
+   "ok": false,
+   "conf": 0.8781952857971191
+  },
+  {
+   "file": "google_730a2f83-cd53-4943-8922-af9d4fcad415___new_2_crop.jpg",
+   "gt": "DL1N4268",
+   "pred": "MH03A6251",
+   "ok": false,
+   "conf": 0.8423790335655212
+  },
+  {
+   "file": "google_760ba77a-8992-4574-8cba-6c081d9e3e19___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_04f4c639c871fba0b4cc6475604e40b7_large_crop.jpg",
+   "gt": "RJ02CC0784",
+   "pred": "RJ02CC0784",
+   "ok": true,
+   "conf": 0.9944582045078277
+  },
+  {
+   "file": "google_7c6227ed-9e92-4062-9591-b172cb32ec10___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Honda-Jazz-Front-Number-Plates-Designs_crop.jpg",
+   "gt": "TN42R2697",
+   "pred": "KH2R2697",
+   "ok": false,
+   "conf": 0.955414429306984
+  },
+  {
+   "file": "google_7f7e27cc-930a-46cb-b3af-6e43da8b566d___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Nissan-Terrano-Petrol-Review-Images-Black-Front-Grille-720x480_crop.jpg",
+   "gt": "TN21AT0492",
+   "pred": "TN22X922",
+   "ok": false,
+   "conf": 0.9095295816659927
+  },
+  {
+   "file": "google_868b996f-1f40-47ca-8222-b0f2750d7010___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_nissan-terrano-left-side-view_crop.jpg",
+   "gt": "AS23M1264",
+   "pred": "AS2M4264",
+   "ok": false,
+   "conf": 0.9028165079653263
+  },
+  {
+   "file": "google_8b5431f9-7d6f-43ed-853d-350ca058ff2a___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_2014-Nissan-Terrano1_crop.jpg",
+   "gt": "TN19TC94",
+   "pred": "KH8A1583",
+   "ok": false,
+   "conf": 0.7738544113106198
+  },
+  {
+   "file": "google_8da5183c-275f-4294-a5a8-276e10ac5ad0___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_nissan-terrano-amt_827x510_81478504265_crop.jpg",
+   "gt": "DL14CTC0153",
+   "pred": "DLL14LCTC0A8",
+   "ok": false,
+   "conf": 0.9191147536039352
+  },
+  {
+   "file": "google_8e0b8c6f-850f-4918-983a-7fa110368d32___banner_4_crop.jpg",
+   "gt": "DL6CAB123X",
+   "pred": "DL6CAB123",
+   "ok": false,
+   "conf": 0.9942633642090691
+  },
+  {
+   "file": "google_94c5a151-24b5-493c-a900-017a4353b00c___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Tata-Tiago-Front-Number-Plates-Design_crop.jpg",
+   "gt": "KL65H4383",
+   "pred": "KL65A1438",
+   "ok": false,
+   "conf": 0.9058595538139343
+  },
+  {
+   "file": "google_9cd75347-8952-40b1-97c5-d628f1b59590___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Maruti-Swift-Number-Plates-Design_crop.jpg",
+   "gt": "KL10AV6342",
+   "pred": "KL10A6342",
+   "ok": false,
+   "conf": 0.8624198171827528
+  },
+  {
+   "file": "google_a615016b-4d07-46c7-a52b-8d4319fe3a10___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_nissan-terrano-rear-view_crop.jpg",
+   "gt": "DL6CM6683",
+   "pred": "DL6CM6683",
+   "ok": true,
+   "conf": 0.9990738895204332
+  },
+  {
+   "file": "google_aea95aa0-a000-4103-945d-c173383bd646___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Nissan-Terrano-11_crop.jpg",
+   "gt": "RJ27TC0530",
+   "pred": "MH2691T6113",
+   "ok": false,
+   "conf": 0.7857923805713654
+  },
+  {
+   "file": "google_af058398-67d6-4d0e-a6d9-afc1cb184e5b___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_hqdefault3_crop.jpg",
+   "gt": "RJ27TC0530",
+   "pred": "TLCL0001",
+   "ok": false,
+   "conf": 0.9040684849023819
+  },
+  {
+   "file": "google_aff1f53b-3259-44f0-9718-05fb64dc8ba1___Untitled_crop.jpg",
+   "gt": "KA03NA8385",
+   "pred": "KA03MA8385",
+   "ok": false,
+   "conf": 0.9404113531112671
+  },
+  {
+   "file": "google_b79f870d-15c7-48e3-8874-7c0e53e29f75___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_754eab882b8290b29a0454dd45580a39_555X416_1 - Copy (2)_crop.jpg",
+   "gt": "HR26CP3135",
+   "pred": "UR26CP3125",
+   "ok": false,
+   "conf": 0.9516877889633178
+  },
+  {
+   "file": "google_b79f870d-15c7-48e3-8874-7c0e53e29f75___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_754eab882b8290b29a0454dd45580a39_555X416_1_crop.jpg",
+   "gt": "RJ27TC0530",
+   "pred": "HY3N1110",
+   "ok": false,
+   "conf": 0.8927708268165588
+  },
+  {
+   "file": "google_b7fd8aaa-8621-449f-b99c-f45778f1a25c___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_1208485d1392541449-nissan-terrano-official-review-img_20140215_181507_crop.jpg",
+   "gt": "KA18P2987",
+   "pred": "KA18P2987",
+   "ok": true,
+   "conf": 0.9299196534686618
+  },
+  {
+   "file": "google_ba457a81-cf10-4879-8e8f-3a0a8d10689a___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_hqdefault_crop.jpg",
+   "gt": "RJ27TC0530",
+   "pred": "MLT0T10",
+   "ok": false,
+   "conf": 0.9499098828860691
+  },
+  {
+   "file": "google_bb767d81-73b4-4c47-b619-7efde490b199___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_oem-name0 - Copy_crop.jpg",
+   "gt": "RJ27TC0530",
+   "pred": "MH010C0200",
+   "ok": false,
+   "conf": 0.9525014579296112
+  },
+  {
+   "file": "google_bb767d81-73b4-4c47-b619-7efde490b199___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_oem-name0_crop.jpg",
+   "gt": "RJ27TC0530",
+   "pred": "MHD1TC501",
+   "ok": false,
+   "conf": 0.8675003945827484
+  },
+  {
+   "file": "google_bdad5f66-70ad-4241-9a62-bba1123c3486___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_1447945d1449508546t-my-nissan-terrano-85-ps-_img_000000_000000_crop.jpg",
+   "gt": "KA05MQ92",
+   "pred": "KA09M092",
+   "ok": false,
+   "conf": 0.8914188668131828
+  },
+  {
+   "file": "google_car-wbs-CH01AN0001_00000_crop.jpg",
+   "gt": "CH01AN0001",
+   "pred": "MH01AN001",
+   "ok": false,
+   "conf": 0.9583777123027377
+  },
+  {
+   "file": "google_car-wbs-DL6CM6683_00000_crop.jpg",
+   "gt": "DL6CM6683",
+   "pred": "DL6CM6683",
+   "ok": true,
+   "conf": 0.9325424697664049
+  },
+  {
+   "file": "google_car-wbs-DL6CM6683_00001_crop.jpg",
+   "gt": "DL6CM6683",
+   "pred": "DL6CM6683",
+   "ok": true,
+   "conf": 0.998939765824212
+  },
+  {
+   "file": "google_car-wbs-DL7CN5617_00000_crop.jpg",
+   "gt": "DL7CN5617",
+   "pred": "DL7CN5617",
+   "ok": true,
+   "conf": 0.9917070931858487
+  },
+  {
+   "file": "google_car-wbs-DL8CX4850_00000_crop.jpg",
+   "gt": "DL8CX4850",
+   "pred": "DL8CK4850",
+   "ok": false,
+   "conf": 0.9770055545700921
+  },
+  {
+   "file": "google_car-wbs-GJ03JL0126_00000_crop.jpg",
+   "gt": "GJ03JL0126",
+   "pred": "GJ03JL126",
+   "ok": false,
+   "conf": 0.9994364115926955
+  },
+  {
+   "file": "google_car-wbs-GJ05JH2501_00000_crop.jpg",
+   "gt": "GJ05JH2501",
+   "pred": "GJ05JH2501",
+   "ok": true,
+   "conf": 0.9897171914577484
+  },
+  {
+   "file": "google_car-wbs-GJ05JH2501_00001_crop.jpg",
+   "gt": "GJ05JH2501",
+   "pred": "GJ5JH2501",
+   "ok": false,
+   "conf": 0.9975243144565158
+  },
+  {
+   "file": "google_car-wbs-HR11F7575_00000_crop.jpg",
+   "gt": "HR11F7575",
+   "pred": "HR11F7575",
+   "ok": true,
+   "conf": 0.9354081213474273
+  },
+  {
+   "file": "google_car-wbs-HR26AZ5927_00000_crop.jpg",
+   "gt": "HR26AZ5927",
+   "pred": "HR26AZ5927",
+   "ok": true,
+   "conf": 0.9980631172657013
+  },
+  {
+   "file": "google_car-wbs-HR26BC5514_00000_crop.jpg",
+   "gt": "HR26BC5514",
+   "pred": "HR26BC514",
+   "ok": false,
+   "conf": 0.9198315872086419
+  },
+  {
+   "file": "google_car-wbs-HR26BC5514_00001_crop.jpg",
+   "gt": "HR26BC5514",
+   "pred": "HR26BC554",
+   "ok": false,
+   "conf": 0.995534234576755
+  },
+  {
+   "file": "google_car-wbs-HR26BR9044_00000_crop.jpg",
+   "gt": "HR26BR9044",
+   "pred": "HR26BR9044",
+   "ok": true,
+   "conf": 0.9647425711154938
+  },
+  {
+   "file": "google_car-wbs-HR26BU0380_00000_crop.jpg",
+   "gt": "HR26BU0380",
+   "pred": "HR26BU0386",
+   "ok": false,
+   "conf": 0.9573181986808776
+  },
+  {
+   "file": "google_car-wbs-HR26CB1900_00000_crop.jpg",
+   "gt": "HR26CB1900",
+   "pred": "KR26CB190",
+   "ok": false,
+   "conf": 0.9518072737587823
+  },
+  {
+   "file": "google_car-wbs-HR26CE1485_00000_crop.jpg",
+   "gt": "HR26CE1485",
+   "pred": "HR26CE1485",
+   "ok": true,
+   "conf": 0.9967281699180603
+  },
+  {
+   "file": "google_car-wbs-HR26CU6799_00000_crop.jpg",
+   "gt": "HR26CU6799",
+   "pred": "HR26CU6799",
+   "ok": true,
+   "conf": 0.9476391971111298
+  },
+  {
+   "file": "google_car-wbs-HR51AY9099_00000_crop.jpg",
+   "gt": "HR51AY9099",
+   "pred": "HR51AY909",
+   "ok": false,
+   "conf": 0.9573056035571628
+  },
+  {
+   "file": "google_car-wbs-KA01CA2555_00000_crop.jpg",
+   "gt": "KL01CA2555",
+   "pred": "KL01CA255",
+   "ok": false,
+   "conf": 0.9935758842362298
+  },
+  {
+   "file": "google_car-wbs-KA03MG2784_00000_crop.jpg",
+   "gt": "KA03MG2784",
+   "pred": "KA03G2768",
+   "ok": false,
+   "conf": 0.9112020760774613
+  },
+  {
+   "file": "google_car-wbs-KA03NA8385_00000_crop.jpg",
+   "gt": "KA03NA8385",
+   "pred": "KA03MA8385",
+   "ok": false,
+   "conf": 0.9758510708808898
+  },
+  {
+   "file": "google_car-wbs-KA04MN3622_00000_crop.jpg",
+   "gt": "KA04MN3622",
+   "pred": "KA04CMN362",
+   "ok": false,
+   "conf": 0.9873565316200257
+  },
+  {
+   "file": "google_car-wbs-KA05MG1909_00000_crop.jpg",
+   "gt": "KA05MG1909",
+   "pred": "KA05MG399",
+   "ok": false,
+   "conf": 0.9648719098832872
+  },
+  {
+   "file": "google_car-wbs-KA18P2987_00000_crop.jpg",
+   "gt": "KA18P2987",
+   "pred": "KA18P2987",
+   "ok": true,
+   "conf": 0.9928577740987142
+  },
+  {
+   "file": "google_car-wbs-KA51MJ8156_00000_crop.jpg",
+   "gt": "KA51MJ8156",
+   "pred": "KA51MJ8156",
+   "ok": true,
+   "conf": 0.9877465784549713
+  },
+  {
+   "file": "google_car-wbs-KL01CC50_00000_crop.jpg",
+   "gt": "KL01CC50",
+   "pred": "KL01CC580",
+   "ok": false,
+   "conf": 0.9218658606211344
+  },
+  {
+   "file": "google_car-wbs-KL10AV6342_00001_crop.jpg",
+   "gt": "KL10AV6342",
+   "pred": "HL0AV6342",
+   "ok": false,
+   "conf": 0.882416820526123
+  },
+  {
+   "file": "google_car-wbs-KL10AV6633_00000_crop.jpg",
+   "gt": "KL10AV6633",
+   "pred": "KL10AV6633",
+   "ok": true,
+   "conf": 0.9358043819665909
+  },
+  {
+   "file": "google_car-wbs-KL54A2670_00000_crop.jpg",
+   "gt": "KL54A2670",
+   "pred": "KA54A2670",
+   "ok": false,
+   "conf": 0.9916632175445557
+  },
+  {
+   "file": "google_car-wbs-KL65H4383_00000_crop.jpg",
+   "gt": "KL65H4383",
+   "pred": "KL63R4383",
+   "ok": false,
+   "conf": 0.8223130504290262
+  },
+  {
+   "file": "google_car-wbs-MH01AV8866_00000_crop.jpg",
+   "gt": "MH01AV8866",
+   "pred": "MH01AV8860",
+   "ok": false,
+   "conf": 0.9706581115722657
+  },
+  {
+   "file": "google_car-wbs-MH03CB6467_00000_crop.jpg",
+   "gt": "MH03CB6467",
+   "pred": "MH03CB6467",
+   "ok": true,
+   "conf": 0.9885577142238617
+  },
+  {
+   "file": "google_car-wbs-MH12BG7237_00000_crop.jpg",
+   "gt": "MH12BG7237",
+   "pred": "MH12BG7237",
+   "ok": true,
+   "conf": 0.9930821001529694
+  },
+  {
+   "file": "google_car-wbs-MH12DE1433_00000_crop.jpg",
+   "gt": "MH12DE1433",
+   "pred": "MH12DE1433",
+   "ok": true,
+   "conf": 0.997064471244812
+  },
+  {
+   "file": "google_car-wbs-MH12NE8922_00000_crop.jpg",
+   "gt": "MH12NE8922",
+   "pred": "MH12HEB922",
+   "ok": false,
+   "conf": 0.9443359971046448
+  },
+  {
+   "file": "google_car-wbs-MH14DX9937_00000_crop.jpg",
+   "gt": "MH14DX9937",
+   "pred": "MH14DX9937",
+   "ok": true,
+   "conf": 0.9966981768608093
+  },
+  {
+   "file": "google_car-wbs-MH15BD8877_00000_crop.jpg",
+   "gt": "MH15BD8877",
+   "pred": "MH15BD0887",
+   "ok": false,
+   "conf": 0.9813984096050262
+  },
+  {
+   "file": "google_car-wbs-MH20BQ20_00000_crop.jpg",
+   "gt": "MH20BQ20",
+   "pred": "MH9968230",
+   "ok": false,
+   "conf": 0.8243271973397996
+  },
+  {
+   "file": "google_car-wbs-MH20EE7598_00000_crop.jpg",
+   "gt": "MH20EE7598",
+   "pred": "MH20EE7598",
+   "ok": true,
+   "conf": 0.9835844457149505
+  },
+  {
+   "file": "google_car-wbs-MH20EJ0364_00000_crop.jpg",
+   "gt": "MH20EJ0364",
+   "pred": "MH20EJ0364",
+   "ok": true,
+   "conf": 0.9550023078918457
+  },
+  {
+   "file": "google_car-wbs-MH21V9926_00000_crop.jpg",
+   "gt": "MH21V9926",
+   "pred": "MH21J9926",
+   "ok": false,
+   "conf": 0.9906218184365166
+  },
+  {
+   "file": "google_car-wbs-MH46X9996_00000_crop.jpg",
+   "gt": "MH46X9996",
+   "pred": "MH46X9996",
+   "ok": true,
+   "conf": 0.9990426964230008
+  },
+  {
+   "file": "google_car-wbs-RJ02CC0784_00000_crop.jpg",
+   "gt": "RJ02CC0784",
+   "pred": "RJ02CC0784",
+   "ok": true,
+   "conf": 0.980594938993454
+  },
+  {
+   "file": "google_car-wbs-TN19S4523_00000_crop.jpg",
+   "gt": "TN19S4523",
+   "pred": "TN19S4523",
+   "ok": true,
+   "conf": 0.9891891082127889
+  },
+  {
+   "file": "google_car-wbs-TN21AT0479_00000_crop.jpg",
+   "gt": "TN21AT0479",
+   "pred": "TN21AT0479",
+   "ok": true,
+   "conf": 0.9996181428432465
+  },
+  {
+   "file": "google_car-wbs-TN21AT0480_00000_crop.jpg",
+   "gt": "TN21AT0480",
+   "pred": "TN21AT0480",
+   "ok": true,
+   "conf": 0.995290744304657
+  },
+  {
+   "file": "google_car-wbs-TN21AT0480_00001_crop.jpg",
+   "gt": "TN21AT0480",
+   "pred": "TN21AT0480",
+   "ok": true,
+   "conf": 0.9975633144378662
+  },
+  {
+   "file": "google_car-wbs-TN21AT0492_00000_crop.jpg",
+   "gt": "TN21AT0492",
+   "pred": "TN21AT9486",
+   "ok": false,
+   "conf": 0.9567900029095736
+  },
+  {
+   "file": "google_car-wbs-TN21AU1153_00000_crop.jpg",
+   "gt": "TN21AU1153",
+   "pred": "TN21AU153",
+   "ok": false,
+   "conf": 0.9998329612943861
+  },
+  {
+   "file": "google_car-wbs-TN21BC6225_00000_crop.jpg",
+   "gt": "TN21BC6225",
+   "pred": "TN218C6225",
+   "ok": false,
+   "conf": 0.9970711171627045
+  },
+  {
+   "file": "google_car-wbs-TN21BY0166_00000_crop.jpg",
+   "gt": "TN21BY0166",
+   "pred": "TH218Y0156",
+   "ok": false,
+   "conf": 0.9751521468162536
+  },
+  {
+   "file": "google_car-wbs-TN21BZ0768_00000_crop.jpg",
+   "gt": "TN21BZ0768",
+   "pred": "TN21BZ0768",
+   "ok": true,
+   "conf": 0.9922482907772064
+  },
+  {
+   "file": "google_car-wbs-TN21BZ0768_00001_crop.jpg",
+   "gt": "TN21BZ0768",
+   "pred": "MN21Z2078",
+   "ok": false,
+   "conf": 0.9720867812633515
+  },
+  {
+   "file": "google_car-wbs-TN42R2697_00000_crop.jpg",
+   "gt": "TN42R2697",
+   "pred": "KH42BR2697",
+   "ok": false,
+   "conf": 0.9094955503940583
+  },
+  {
+   "file": "google_car-wbs-TN59BE0939_00000_crop.jpg",
+   "gt": "TN59BE0939",
+   "pred": "TN59BEG930",
+   "ok": false,
+   "conf": 0.9051364719867706
+  },
+  {
+   "file": "google_car-wbs-TN99F2378_00000_crop.jpg",
+   "gt": "TN99F2378",
+   "pred": "TN99F2378",
+   "ok": true,
+   "conf": 0.9377764662106832
+  },
+  {
+   "file": "google_car-wbs-TS08ER1643_00000_crop.jpg",
+   "gt": "TS08ER1643",
+   "pred": "TS08ER1643",
+   "ok": true,
+   "conf": 0.991345202922821
+  },
+  {
+   "file": "google_car-wbs-UP16CT2233_00000_crop.jpg",
+   "gt": "UP16CT2233",
+   "pred": "UP16CC2233",
+   "ok": false,
+   "conf": 0.9902169048786164
+  },
+  {
+   "file": "google_car-wbs-UP32FH2653_00000_crop.jpg",
+   "gt": "UP32FH2653",
+   "pred": "UP92FH2653",
+   "ok": false,
+   "conf": 0.9826464533805848
+  },
+  {
+   "file": "google_car-wbs-UP50AS4535_00000_crop.jpg",
+   "gt": "UP50AS4535",
+   "pred": "UP50AS4535",
+   "ok": true,
+   "conf": 0.9898704886436462
+  },
+  {
+   "file": "google_cd506968-8676-4df3-9150-d1c2e618f4c2___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_nissan-note-india-testing_827x510_81508219864_crop.jpg",
+   "gt": "TN21TC31",
+   "pred": "TLB91GJ34",
+   "ok": false,
+   "conf": 0.9511224561267428
+  },
+  {
+   "file": "google_d5ddd1e6-56ca-4991-994e-cb78fe836a47___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_2013-Nissan-Terrano-Review_crop.jpg",
+   "gt": "RJ27TC0530",
+   "pred": "KBF9015B0",
+   "ok": false,
+   "conf": 0.9762508140669929
+  },
+  {
+   "file": "google_e750b959-1b5a-41bf-bf64-d8099089e909___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Nissan-Terrano-Duster-launch-dare-pics-price-interiors-images-1_crop.jpg",
+   "gt": "TN19TC91",
+   "pred": "DL430",
+   "ok": false,
+   "conf": 0.9439806938171387
+  },
+  {
+   "file": "google_e82fc408-a209-4221-9f6d-742b4b9d4c70___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_848803268_2_1080x720_nissan-terrano-xl-d-plus-2014-diesel-upload-photos_crop.jpg",
+   "gt": "UP32FH2653",
+   "pred": "UP92FH269",
+   "ok": false,
+   "conf": 0.9607900381088257
+  },
+  {
+   "file": "google_f20708c6-14cd-46ff-b8f1-6faef5fd8d2d___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Nissan-Terrano-20346_crop.jpg",
+   "gt": "RJ27TC0530",
+   "pred": "TS29TK1505",
+   "ok": false,
+   "conf": 0.8014383453589219
+  },
+  {
+   "file": "google_f5bbb8da-dddd-47ae-a46c-15492f9cf752___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_10187746544_0c0822790e - Copy_crop.jpg",
+   "gt": "TN21AU7234",
+   "pred": "TN21AD7234",
+   "ok": false,
+   "conf": 0.952325850725174
+  },
+  {
+   "file": "google_f7ba7a93-e8d7-4253-b327-d87e3f2bb747___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_2013-Nissan-Terrano-Rear_crop.jpg",
+   "gt": "TN19TC94",
+   "pred": "MH101T0120",
+   "ok": false,
+   "conf": 0.8854348838329316
+  },
+  {
+   "file": "google_f94e9bcf-ec4a-418a-8685-14b71b82a039___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_848126147_1_1080x720_nissan-terrano-xl-d-plus-2014-diesel-surat_crop.jpg",
+   "gt": "GJ05JH2501",
+   "pred": "GJ05JH2501",
+   "ok": true,
+   "conf": 0.9975791931152344
+  },
+  {
+   "file": "google_fbb2b3ed-4db1-4d4c-8d4d-4b80b02bfd2a___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_01640f5edbbfb564a9ab6486b31d1554_large_crop.jpg",
+   "gt": "RJ09C84382",
+   "pred": "HR109C84382",
+   "ok": false,
+   "conf": 0.9791254509579052
+  },
+  {
+   "file": "google_fe3c95e4-7bd4-40f5-98a9-9fc635957d9c___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Baleno-Number-Plates-Design_crop.jpg",
+   "gt": "KL10AV6633",
+   "pred": "KL10AV6633",
+   "ok": true,
+   "conf": 0.9813434720039368
+  }
+ ]
+}

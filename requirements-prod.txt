@@ -1,0 +1,56 @@
+# TrackX Production Requirements - Optimized for Deployment
+
+# FastAPI & Web
+fastapi==0.104.1
+uvicorn==0.24.0
+python-multipart==0.0.6
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Database
+sqlalchemy==2.0.23
+psycopg2-binary==2.9.9
+alembic==1.13.0
+
+# Caching
+redis==5.0.1
+
+# OCR & Computer Vision (CPU optimized for production)
+# Note: For GPU support, use torch with CUDA
+pillow==10.1.0
+numpy==1.26.4
+opencv-python==4.8.1.78
+easyocr==1.7.0
+
+# Dashboard
+streamlit==1.38.0
+
+# Utilities
+pyyaml==6.0.1
+python-dotenv==1.0.0
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+email-validator==2.1.0
+
+# Monitoring & Logging
+prometheus-client==0.19.0
+
+# Async & Concurrency
+httpx==0.25.2
+aiofiles==23.2.1
+
+# Data Science
+pandas==2.1.4
+plotly==5.18.0
+altair==5.1.0
+networkx==3.2.1
+
+# Geospatial
+geopy==2.3.0
+
+# Development (optional, remove in strict production)
+pytest==7.4.3
+pytest-asyncio==0.21.1
+
+# Logging
+python-json-logger==2.0.7

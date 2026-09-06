@@ -1,0 +1,2602 @@
+[
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260825_224222_376048.jpg",
+    "ground_truth": "TS58RV7178",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.700622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260825_224223_138534.jpg",
+    "ground_truth": "UP42LZ6167",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.700622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260825_224609_919498.jpg",
+    "ground_truth": "GJ22XM6649",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.700622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260825_224610_879907.jpg",
+    "ground_truth": "DL32JD2714",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.700622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260825_224935_871626.jpg",
+    "ground_truth": "RJ99HA4991",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.700622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260825_224936_666254.jpg",
+    "ground_truth": "TS75HK7718",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_032031_763238.jpg",
+    "ground_truth": "PB72CE6303",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_032032_409105.jpg",
+    "ground_truth": "AP13NQ2709",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_032326_842059.jpg",
+    "ground_truth": "KA22ER2890",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_032326_898092.jpg",
+    "ground_truth": "PB85RE1077",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_084703_267492.jpg",
+    "ground_truth": "AP98PQ7743",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_084704_833376.jpg",
+    "ground_truth": "GJ95FB1098",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_093501_078357.jpg",
+    "ground_truth": "TN72UK9414",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_093503_849463.jpg",
+    "ground_truth": "WB08EA6193",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_095048_140499.jpg",
+    "ground_truth": "PB45SK3092",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_095048_678334.jpg",
+    "ground_truth": "DL68QH9261",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_095120_195921.jpg",
+    "ground_truth": "UP45KT5894",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_095154_634915.jpg",
+    "ground_truth": "GJ01KV7724",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_095155_140293.jpg",
+    "ground_truth": "KL87KQ1807",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_100412_803250.jpg",
+    "ground_truth": "DL86UK3035",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_100415_750686.jpg",
+    "ground_truth": "KL07DH1909",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_101628_368675.jpg",
+    "ground_truth": "KL98HL3389",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_101628_831003.jpg",
+    "ground_truth": "RJ19LY4056",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_112910_837895.jpg",
+    "ground_truth": "KL81ZQ1230",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_112913_494304.jpg",
+    "ground_truth": "PB88CG9494",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_113041_141751.jpg",
+    "ground_truth": "KA91XW7761",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_20260826_113041_999232.jpg",
+    "ground_truth": "GJ68RU1353",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260825_224223_864496.jpg",
+    "ground_truth": "TS29KW7214",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260825_224223_870623.jpg",
+    "ground_truth": "TS41LY7405",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260825_224611_792621.jpg",
+    "ground_truth": "KL75MS1802",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260825_224611_802775.jpg",
+    "ground_truth": "DL68YN5182",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260825_224937_371803.jpg",
+    "ground_truth": "TS59PJ3329",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260825_224937_379669.jpg",
+    "ground_truth": "GJ85SL5302",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260826_032032_497253.jpg",
+    "ground_truth": "KL59MN2430",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260826_032032_498730.jpg",
+    "ground_truth": "RJ94BV6856",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260826_032326_978505.jpg",
+    "ground_truth": "UP99QK5137",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260826_032326_979951.jpg",
+    "ground_truth": "AP65EH6532",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260826_084706_088790.jpg",
+    "ground_truth": "TS68BQ1514",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260826_084706_110246.jpg",
+    "ground_truth": "TN66XV9711",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260826_093506_048435.jpg",
+    "ground_truth": "GJ37XG9791",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260826_093506_067612.jpg",
+    "ground_truth": "KA62CY4743",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260826_095049_109530.jpg",
+    "ground_truth": "TN52VP2822",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260826_095049_115732.jpg",
+    "ground_truth": "AP13LR4167",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260826_095155_582099.jpg",
+    "ground_truth": "HR51SG6692",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260826_095155_586295.jpg",
+    "ground_truth": "DL37WG5103",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260826_100418_803607.jpg",
+    "ground_truth": "AP17AV4914",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260826_100418_822685.jpg",
+    "ground_truth": "UP68BC8667",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260826_101629_292431.jpg",
+    "ground_truth": "WB20ND7757",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260826_101629_297120.jpg",
+    "ground_truth": "DL64EC3590",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260826_112917_234488.jpg",
+    "ground_truth": "KA65BV7934",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260826_112917_482164.jpg",
+    "ground_truth": "MH54EV7650",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260826_113042_695574.jpg",
+    "ground_truth": "TN08EY1228",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_track1_20260826_113042_701571.jpg",
+    "ground_truth": "KL27CE4665",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_trackfallback_1_20260825_225243_343089.jpg",
+    "ground_truth": "WB66NR1961",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_trackfallback_1_20260826_083850_301729.jpg",
+    "ground_truth": "DL43EL8226",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_trackfallback_1_20260826_091925_325570.jpg",
+    "ground_truth": "KL17YZ4777",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_trackfallback_1_20260826_092039_855014.jpg",
+    "ground_truth": "MH11FH4147",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame0_trackfallback_1_20260826_092040_985088.jpg",
+    "ground_truth": "WB57EK6881",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260825_224223_165198.jpg",
+    "ground_truth": "TS08UC5571",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260825_224223_183675.jpg",
+    "ground_truth": "KA52PB7332",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260825_224223_203380.jpg",
+    "ground_truth": "TS94LR3987",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260825_224610_910521.jpg",
+    "ground_truth": "RJ43ZV4227",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260825_224610_936202.jpg",
+    "ground_truth": "UP72TP4292",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260825_224610_961099.jpg",
+    "ground_truth": "RJ61TG5398",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260825_224936_687250.jpg",
+    "ground_truth": "TS79JL6673",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260825_224936_700689.jpg",
+    "ground_truth": "KA51KW5825",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260825_224936_712813.jpg",
+    "ground_truth": "WB19XX9238",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_032032_414846.jpg",
+    "ground_truth": "GJ62DY8313",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_032032_417621.jpg",
+    "ground_truth": "MH85QE2231",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_032032_422301.jpg",
+    "ground_truth": "UP76HQ8177",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_032326_903209.jpg",
+    "ground_truth": "RJ05LA7545",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_032326_905926.jpg",
+    "ground_truth": "HR48XP4511",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_032326_910669.jpg",
+    "ground_truth": "DL30CH4670",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_084704_912810.jpg",
+    "ground_truth": "HR28EN7504",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_084704_965759.jpg",
+    "ground_truth": "KL20GV3606",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_084705_036677.jpg",
+    "ground_truth": "KA04DM5241",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_093504_089213.jpg",
+    "ground_truth": "KL27CJ2987",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_093504_158682.jpg",
+    "ground_truth": "TS42LM1581",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_093504_288984.jpg",
+    "ground_truth": "DL56HQ6093",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_095048_690447.jpg",
+    "ground_truth": "WB77MG7152",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_095048_714843.jpg",
+    "ground_truth": "RJ04JZ6870",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_095048_723977.jpg",
+    "ground_truth": "WB85UD4529",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_095155_152196.jpg",
+    "ground_truth": "PB02BC6103",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_095155_160804.jpg",
+    "ground_truth": "PB62HF5012",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_095155_170730.jpg",
+    "ground_truth": "TN01GW1381",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_100415_826572.jpg",
+    "ground_truth": "UP63NV8406",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_100415_881838.jpg",
+    "ground_truth": "MH54AE6333",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_100415_929893.jpg",
+    "ground_truth": "HR95RX7258",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_101628_842963.jpg",
+    "ground_truth": "MH42PG9278",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_101628_851922.jpg",
+    "ground_truth": "UP30BJ5269",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_101628_860496.jpg",
+    "ground_truth": "TN04YB5602",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.701618",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_112913_770503.jpg",
+    "ground_truth": "PB69DD8288",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_112914_104571.jpg",
+    "ground_truth": "KA74WY8121",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_112914_349068.jpg",
+    "ground_truth": "HR97YK2371",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_113042_021139.jpg",
+    "ground_truth": "UP57SC1702",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_113042_036866.jpg",
+    "ground_truth": "TS58EJ3594",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260826_113042_053631.jpg",
+    "ground_truth": "TS23JF8753",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_trackfallback_1_20260825_225250_991312.jpg",
+    "ground_truth": "UP19AR7024",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_trackfallback_1_20260826_083856_526042.jpg",
+    "ground_truth": "TN01UE2065",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_trackfallback_1_20260826_091931_632488.jpg",
+    "ground_truth": "MH64SL7852",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_trackfallback_1_20260826_092050_202744.jpg",
+    "ground_truth": "WB13HJ8040",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame10_trackfallback_1_20260826_092051_296640.jpg",
+    "ground_truth": "WB13AU9033",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame15_track42_20260825_224223_176193.jpg",
+    "ground_truth": "DL69LQ5637",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame15_track42_20260825_224610_925613.jpg",
+    "ground_truth": "KL95BQ3583",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame15_track42_20260825_224936_693697.jpg",
+    "ground_truth": "UP88JT6623",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame15_track42_20260826_032032_416246.jpg",
+    "ground_truth": "PB58YX5675",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame15_track42_20260826_032326_904610.jpg",
+    "ground_truth": "PB07EQ5927",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame15_track42_20260826_084704_947901.jpg",
+    "ground_truth": "MH23TD8652",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame15_track42_20260826_093504_121699.jpg",
+    "ground_truth": "RJ24RM8191",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame15_track42_20260826_095048_711230.jpg",
+    "ground_truth": "DL18BW9495",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame15_track42_20260826_095155_156923.jpg",
+    "ground_truth": "RJ23KB6262",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame15_track42_20260826_100415_857332.jpg",
+    "ground_truth": "DL80KX6333",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame15_track42_20260826_101628_848219.jpg",
+    "ground_truth": "KL58BC3149",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame15_track42_20260826_112913_951331.jpg",
+    "ground_truth": "MH91RD3814",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame15_track42_20260826_113042_030337.jpg",
+    "ground_truth": "GJ54WS1014",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame5_track42_20260825_224223_151764.jpg",
+    "ground_truth": "AP42LX6383",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame5_track42_20260825_224610_897017.jpg",
+    "ground_truth": "PB34MU2263",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame5_track42_20260825_224936_676945.jpg",
+    "ground_truth": "HR75FY4572",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame5_track42_20260826_032032_413105.jpg",
+    "ground_truth": "WB85TX1829",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame5_track42_20260826_032326_901729.jpg",
+    "ground_truth": "HR34UG8161",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame5_track42_20260826_084704_864828.jpg",
+    "ground_truth": "GJ45TG3901",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame5_track42_20260826_093504_019639.jpg",
+    "ground_truth": "HR79EQ9469",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame5_track42_20260826_095048_684713.jpg",
+    "ground_truth": "KA74VP8415",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame5_track42_20260826_095155_146534.jpg",
+    "ground_truth": "KA27XY1488",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame5_track42_20260826_100415_794179.jpg",
+    "ground_truth": "UP39XY2989",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame5_track42_20260826_101628_837561.jpg",
+    "ground_truth": "DL68TS7053",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame5_track42_20260826_112913_641083.jpg",
+    "ground_truth": "AP97LU2961",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame5_track42_20260826_113042_009120.jpg",
+    "ground_truth": "PB72TK8441",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame5_trackfallback_1_20260825_225247_443227.jpg",
+    "ground_truth": "KL21JN3393",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame5_trackfallback_1_20260826_083853_582284.jpg",
+    "ground_truth": "PB56EJ2949",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame5_trackfallback_1_20260826_091928_658711.jpg",
+    "ground_truth": "KA79QD7281",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame5_trackfallback_1_20260826_092045_371688.jpg",
+    "ground_truth": "DL71YU3371",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frame5_trackfallback_1_20260826_092046_433181.jpg",
+    "ground_truth": "AP80KV3697",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260825_224222_729628.jpg",
+    "ground_truth": "AP35QX9685",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260825_224610_398155.jpg",
+    "ground_truth": "UP06CK5597",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260825_224936_263682.jpg",
+    "ground_truth": "TN15VK2694",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260825_225211_776569.jpg",
+    "ground_truth": "PB39ZD7995",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_032032_203896.jpg",
+    "ground_truth": "KA24GX3467",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_032326_849543.jpg",
+    "ground_truth": "MH93NU8219",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_083840_478451.jpg",
+    "ground_truth": "TN86DF6393",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_084704_087598.jpg",
+    "ground_truth": "UP19FQ3375",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_091913_551064.jpg",
+    "ground_truth": "HR01KU7529",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_092026_804174.jpg",
+    "ground_truth": "KA93LP2697",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_092028_324262.jpg",
+    "ground_truth": "TS62SU3403",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_093502_612088.jpg",
+    "ground_truth": "TN25YV2712",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_094156_765755.jpg",
+    "ground_truth": "RJ97KG5738",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_095048_394808.jpg",
+    "ground_truth": "HR94FC4259",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_095120_423217.jpg",
+    "ground_truth": "MH25NQ5368",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_095154_863481.jpg",
+    "ground_truth": "KA34UL6594",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_100414_305825.jpg",
+    "ground_truth": "DL34ES6937",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_101237_432976.jpg",
+    "ground_truth": "WB26HD9007",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_101255_188500.jpg",
+    "ground_truth": "UP05ZT3786",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_101334_449657.jpg",
+    "ground_truth": "PB40XF4321",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_101425_882661.jpg",
+    "ground_truth": "TS96PM4931",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_101510_487197.jpg",
+    "ground_truth": "DL27WV2571",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_101628_570525.jpg",
+    "ground_truth": "DL27KR9887",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_112912_182500.jpg",
+    "ground_truth": "RJ98ZL9702",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_113041_605134.jpg",
+    "ground_truth": "DL32FW6468",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260825_224223_651972.jpg",
+    "ground_truth": "HR19PK3535",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260825_224223_763467.jpg",
+    "ground_truth": "DL10SK4008",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260825_224611_428581.jpg",
+    "ground_truth": "HR77CV2380",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260825_224611_605709.jpg",
+    "ground_truth": "KA76HR3738",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260825_224937_122355.jpg",
+    "ground_truth": "TN93PK8887",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260825_224937_265311.jpg",
+    "ground_truth": "MH65SK7658",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260826_032032_463235.jpg",
+    "ground_truth": "DL24PP6919",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260826_032032_466548.jpg",
+    "ground_truth": "WB62KP5236",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260826_032326_954017.jpg",
+    "ground_truth": "HR86LL6515",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260826_032326_957960.jpg",
+    "ground_truth": "AP91ZB3977",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260826_084705_592067.jpg",
+    "ground_truth": "WB84WW1756",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260826_084705_848534.jpg",
+    "ground_truth": "TS84RZ4806",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260826_093505_124533.jpg",
+    "ground_truth": "WB51KJ8419",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260826_093505_563152.jpg",
+    "ground_truth": "DL14AK7913",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260826_095049_012588.jpg",
+    "ground_truth": "HR38VH8665",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260826_095049_058477.jpg",
+    "ground_truth": "MH39LW1325",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260826_095155_481999.jpg",
+    "ground_truth": "TS82XG6693",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260826_095155_532937.jpg",
+    "ground_truth": "KA03SN4320",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260826_100417_119611.jpg",
+    "ground_truth": "UP32MF5574",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260826_100418_204787.jpg",
+    "ground_truth": "TN97JR2382",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260826_101629_183900.jpg",
+    "ground_truth": "UP93BU6851",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260826_101629_236285.jpg",
+    "ground_truth": "WB91LW7197",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.702625",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260826_112916_033850.jpg",
+    "ground_truth": "UP67GX8455",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260826_112916_659939.jpg",
+    "ground_truth": "DL94XG6732",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260826_113042_442707.jpg",
+    "ground_truth": "UP57NX5638",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track12_20260826_113042_568312.jpg",
+    "ground_truth": "KA80WR1135",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track42_20260825_224223_699533.jpg",
+    "ground_truth": "MH94JQ9116",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track42_20260825_224611_483616.jpg",
+    "ground_truth": "MH01KY9329",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track42_20260825_224937_177567.jpg",
+    "ground_truth": "UP29FN7676",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track42_20260826_032032_464646.jpg",
+    "ground_truth": "PB65LR1374",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track42_20260826_032326_955762.jpg",
+    "ground_truth": "RJ85CQ8511",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track42_20260826_084705_672988.jpg",
+    "ground_truth": "KL48UM8111",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track42_20260826_093505_284035.jpg",
+    "ground_truth": "KL43XB9227",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track42_20260826_095049_030305.jpg",
+    "ground_truth": "KL93TJ2415",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track42_20260826_095155_500589.jpg",
+    "ground_truth": "KA79YX5888",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track42_20260826_100417_730590.jpg",
+    "ground_truth": "WB60LF3622",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track42_20260826_101629_204701.jpg",
+    "ground_truth": "TN22DX6981",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track42_20260826_112916_310004.jpg",
+    "ground_truth": "PB98WM3305",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track42_20260826_113042_487618.jpg",
+    "ground_truth": "GJ48JY8153",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260825_224222_381348.jpg",
+    "ground_truth": "DL48PD9729",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260825_224223_563097.jpg",
+    "ground_truth": "WB09JX8867",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260825_224223_734627.jpg",
+    "ground_truth": "MH22AK8029",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260825_224609_930686.jpg",
+    "ground_truth": "AP60QF8376",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260825_224611_347321.jpg",
+    "ground_truth": "DL53DF7091",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260825_224611_555466.jpg",
+    "ground_truth": "HR48HX2966",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260825_224935_877236.jpg",
+    "ground_truth": "TN46FL9893",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260825_224937_076345.jpg",
+    "ground_truth": "TN21EM5808",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260825_224937_209868.jpg",
+    "ground_truth": "WB30HT4353",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_032031_767517.jpg",
+    "ground_truth": "GJ29JA2750",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_032032_462968.jpg",
+    "ground_truth": "HR97DG9251",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_032032_466225.jpg",
+    "ground_truth": "KA09FL9848",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_032326_844201.jpg",
+    "ground_truth": "MH95KP4143",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_032326_953615.jpg",
+    "ground_truth": "DL65VN7903",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_032326_957611.jpg",
+    "ground_truth": "HR34ZC1874",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_084703_286386.jpg",
+    "ground_truth": "HR71MT5694",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_084705_528712.jpg",
+    "ground_truth": "UP30LQ1718",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_084705_766966.jpg",
+    "ground_truth": "RJ70MD8881",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_093501_139615.jpg",
+    "ground_truth": "KL65GX6977",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_093504_940477.jpg",
+    "ground_truth": "HR41SQ4484",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_093505_430208.jpg",
+    "ground_truth": "GJ50XK5548",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_095048_147004.jpg",
+    "ground_truth": "GJ83HM9894",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_095048_992109.jpg",
+    "ground_truth": "TS30AU4502",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_095049_047333.jpg",
+    "ground_truth": "WB70XY4541",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_095120_202833.jpg",
+    "ground_truth": "UP31YY1696",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_095154_638523.jpg",
+    "ground_truth": "KA48CE2092",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_095155_466418.jpg",
+    "ground_truth": "GJ19JW6922",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_095155_515488.jpg",
+    "ground_truth": "GJ11XH3402",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_100412_824271.jpg",
+    "ground_truth": "KA64BQ2403",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_100416_778063.jpg",
+    "ground_truth": "WB27PE1007",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_100417_946368.jpg",
+    "ground_truth": "WB05LH8541",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_101628_373526.jpg",
+    "ground_truth": "TS07RT5631",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_101629_159899.jpg",
+    "ground_truth": "RJ88EQ3982",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_101629_221049.jpg",
+    "ground_truth": "TN41LZ3250",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_112910_850905.jpg",
+    "ground_truth": "KL92TM7966",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_112915_735429.jpg",
+    "ground_truth": "KL54BY7805",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_112916_595066.jpg",
+    "ground_truth": "DL72QG5896",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_113041_148266.jpg",
+    "ground_truth": "PB15GN1184",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_113042_409518.jpg",
+    "ground_truth": "UP87MH1466",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_01_frameNone_track7_20260826_113042_530436.jpg",
+    "ground_truth": "RJ64FR3652",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_02_frameNone_20260825_224146_201752.jpg",
+    "ground_truth": "KA96NA8023",
+    "camera_id": "CAM_02",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_02_frameNone_20260825_224146_557198.jpg",
+    "ground_truth": "KA30UJ4160",
+    "camera_id": "CAM_02",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_02_frameNone_20260826_032119_943927.jpg",
+    "ground_truth": "HR84AX7564",
+    "camera_id": "CAM_02",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_02_frameNone_20260826_032120_064416.jpg",
+    "ground_truth": "TS03QE3535",
+    "camera_id": "CAM_02",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_02_frameNone_20260826_083813_140587.jpg",
+    "ground_truth": "RJ73QQ6299",
+    "camera_id": "CAM_02",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_02_frameNone_20260826_083815_800524.jpg",
+    "ground_truth": "UP62CQ9101",
+    "camera_id": "CAM_02",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_02_frameNone_20260826_092122_994218.jpg",
+    "ground_truth": "DL28XD4121",
+    "camera_id": "CAM_02",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_02_frameNone_20260826_092124_342845.jpg",
+    "ground_truth": "MH73TQ5655",
+    "camera_id": "CAM_02",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_03_frameNone_20260826_090645_282721.jpg",
+    "ground_truth": "DL89JU3384",
+    "camera_id": "CAM_03",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_03_frameNone_20260826_090648_206572.jpg",
+    "ground_truth": "MH04XL9323",
+    "camera_id": "CAM_03",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_03_frameNone_20260826_090651_189544.jpg",
+    "ground_truth": "KA98BA2996",
+    "camera_id": "CAM_03",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_03_frameNone_20260826_090652_745353.jpg",
+    "ground_truth": "RJ88CN8975",
+    "camera_id": "CAM_03",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_03_frameNone_20260826_090655_284442.jpg",
+    "ground_truth": "KA65YL8953",
+    "camera_id": "CAM_03",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_03_frameNone_20260826_090656_199877.jpg",
+    "ground_truth": "GJ92YQ7932",
+    "camera_id": "CAM_03",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_03_frameNone_20260826_090657_062382.jpg",
+    "ground_truth": "TS94VF5774",
+    "camera_id": "CAM_03",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_03_frameNone_20260826_102245_083391.jpg",
+    "ground_truth": "HR09ZQ8530",
+    "camera_id": "CAM_03",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_03_frameNone_20260826_102247_845583.jpg",
+    "ground_truth": "DL68CP1080",
+    "camera_id": "CAM_03",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_03_frameNone_20260826_102250_391882.jpg",
+    "ground_truth": "AP87FF3173",
+    "camera_id": "CAM_03",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_03_frameNone_20260826_102251_750727.jpg",
+    "ground_truth": "HR75ER8682",
+    "camera_id": "CAM_03",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_03_frameNone_20260826_102253_810779.jpg",
+    "ground_truth": "PB42ZV9334",
+    "camera_id": "CAM_03",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_03_frameNone_20260826_102254_650388.jpg",
+    "ground_truth": "KA43JE5052",
+    "camera_id": "CAM_03",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_03_frameNone_20260826_102255_604530.jpg",
+    "ground_truth": "AP86WW2664",
+    "camera_id": "CAM_03",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_04_frameNone_20260826_090756_971767.jpg",
+    "ground_truth": "DL42RW2415",
+    "camera_id": "CAM_04",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_04_frameNone_20260826_090758_283174.jpg",
+    "ground_truth": "DL14RE8452",
+    "camera_id": "CAM_04",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_04_frameNone_20260826_090800_567433.jpg",
+    "ground_truth": "KL51HM1701",
+    "camera_id": "CAM_04",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_04_frameNone_20260826_090801_433304.jpg",
+    "ground_truth": "HR48MJ2391",
+    "camera_id": "CAM_04",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_04_frameNone_20260826_090802_816845.jpg",
+    "ground_truth": "WB77ZW3482",
+    "camera_id": "CAM_04",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_04_frameNone_20260826_090804_458060.jpg",
+    "ground_truth": "DL28QC1701",
+    "camera_id": "CAM_04",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_04_frameNone_20260826_090806_437773.jpg",
+    "ground_truth": "KA78DM7232",
+    "camera_id": "CAM_04",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_04_frameNone_20260826_090835_242378.jpg",
+    "ground_truth": "PB20PW8930",
+    "camera_id": "CAM_04",
+    "timestamp": "2026-08-26T11:40:12.703623",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_04_frameNone_20260826_090836_679122.jpg",
+    "ground_truth": "KL76FB1907",
+    "camera_id": "CAM_04",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_04_frameNone_20260826_090838_799078.jpg",
+    "ground_truth": "KL78YT1317",
+    "camera_id": "CAM_04",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_04_frameNone_20260826_090839_692045.jpg",
+    "ground_truth": "RJ63TJ8844",
+    "camera_id": "CAM_04",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_04_frameNone_20260826_090841_258941.jpg",
+    "ground_truth": "UP14RU8780",
+    "camera_id": "CAM_04",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_04_frameNone_20260826_090843_163388.jpg",
+    "ground_truth": "GJ21SS7025",
+    "camera_id": "CAM_04",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_04_frameNone_20260826_090845_249119.jpg",
+    "ground_truth": "TS12EN8429",
+    "camera_id": "CAM_04",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260825_224225_315614.jpg",
+    "ground_truth": "TS67WF1511",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260825_224225_426672.jpg",
+    "ground_truth": "AP35KL7799",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260825_224225_554241.jpg",
+    "ground_truth": "KL13MX1535",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260825_224613_680344.jpg",
+    "ground_truth": "WB55DU7976",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260825_224613_810567.jpg",
+    "ground_truth": "MH98HU5447",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260825_224613_966779.jpg",
+    "ground_truth": "KL01WJ2382",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260825_224938_811651.jpg",
+    "ground_truth": "UP16UA2980",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260825_224938_927503.jpg",
+    "ground_truth": "AP87CF5286",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260825_224939_059869.jpg",
+    "ground_truth": "TN97PL8271",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_032032_658887.jpg",
+    "ground_truth": "TN20FX4273",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_032032_671251.jpg",
+    "ground_truth": "RJ33UY4332",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_032032_687701.jpg",
+    "ground_truth": "WB62VN5476",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_032327_156997.jpg",
+    "ground_truth": "KA24RP9493",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_032327_169897.jpg",
+    "ground_truth": "TS41CN5941",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_032327_184377.jpg",
+    "ground_truth": "GJ19XG6146",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_084708_187704.jpg",
+    "ground_truth": "WB33GA6233",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_084708_333851.jpg",
+    "ground_truth": "DL22AL3837",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_084708_478138.jpg",
+    "ground_truth": "PB28ZL3216",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_093508_680357.jpg",
+    "ground_truth": "HR02XR2637",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_093508_863318.jpg",
+    "ground_truth": "KL56MA1313",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_093509_097465.jpg",
+    "ground_truth": "TN33RV6204",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_095050_445146.jpg",
+    "ground_truth": "DL06ES5771",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_095050_556034.jpg",
+    "ground_truth": "AP25DM5959",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_095050_717641.jpg",
+    "ground_truth": "KL72SG1287",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_095156_865744.jpg",
+    "ground_truth": "RJ77CT5233",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_095156_953365.jpg",
+    "ground_truth": "AP93XK2399",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_095157_063889.jpg",
+    "ground_truth": "PB95FU7117",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_100423_086791.jpg",
+    "ground_truth": "MH80YD9601",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_100423_477283.jpg",
+    "ground_truth": "PB16GT2887",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_100423_718664.jpg",
+    "ground_truth": "KA09NX1684",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_101630_691848.jpg",
+    "ground_truth": "PB79QJ7407",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_101630_802243.jpg",
+    "ground_truth": "RJ52NY7505",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_101630_931011.jpg",
+    "ground_truth": "KA60EB1318",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_112922_984176.jpg",
+    "ground_truth": "TS22EM6136",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_112923_261831.jpg",
+    "ground_truth": "TS16NG5150",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_112923_542477.jpg",
+    "ground_truth": "UP05BL8010",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_113044_265791.jpg",
+    "ground_truth": "KA58ZK8788",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_113044_364270.jpg",
+    "ground_truth": "UP53YC1547",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track1_20260826_113044_473419.jpg",
+    "ground_truth": "UP20TN9116",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track2_20260825_224225_427562.jpg",
+    "ground_truth": "KL13EK8523",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track2_20260825_224613_811568.jpg",
+    "ground_truth": "RJ41CU7575",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track2_20260825_224938_928473.jpg",
+    "ground_truth": "KA70EB9556",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track2_20260826_032032_671413.jpg",
+    "ground_truth": "TS94BM6123",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track2_20260826_032327_170019.jpg",
+    "ground_truth": "WB63KG6755",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track2_20260826_084708_336848.jpg",
+    "ground_truth": "AP53GQ2376",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track2_20260826_093508_865808.jpg",
+    "ground_truth": "RJ03QM5854",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track2_20260826_095050_557054.jpg",
+    "ground_truth": "UP15LB9506",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track2_20260826_095156_954170.jpg",
+    "ground_truth": "HR57MX4574",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track2_20260826_100423_479724.jpg",
+    "ground_truth": "PB20MA7110",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track2_20260826_101630_803400.jpg",
+    "ground_truth": "GJ98SW8575",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track2_20260826_112923_262837.jpg",
+    "ground_truth": "TS80RT6531",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  },
+  {
+    "image": "outputs\\results\\plate_crops\\CAM_TEST_frame0_track2_20260826_113044_365267.jpg",
+    "ground_truth": "GJ21XB2037",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T11:40:12.704622",
+    "source": "REAL_INFERENCE",
+    "condition": "extracted_from_system"
+  }
+]

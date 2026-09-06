@@ -1,0 +1,39 @@
+# detection/data.yaml.example
+#
+# Standard Ultralytics YOLO dataset config. If you download a dataset from
+# Roboflow Universe in "YOLOv8" export format, it already comes with a
+# data.yaml that looks like this - you likely don't need to write this by
+# hand, just point --data at whatever data.yaml the dataset export gave you.
+#
+# Copy this file to detection/data.yaml (or wherever your downloaded
+# dataset put its own data.yaml) and adjust the paths below to match
+# where you actually extracted the dataset.
+#
+# Expected folder layout (this is what Roboflow's YOLOv8 export produces):
+#
+#   your-dataset-folder/
+#     data.yaml          <- this file
+#     train/
+#       images/           *.jpg
+#       labels/           *.txt   (one label file per image, same basename)
+#     valid/
+#       images/
+#       labels/
+#     test/               (optional)
+#       images/
+#       labels/
+#
+# Each label .txt line is: <class_id> <x_center> <y_center> <width> <height>
+# with all four numbers normalized 0-1 relative to the image size - this is
+# the standard YOLO Darknet label format, not pixel coordinates.
+
+train: train/images
+val: valid/images
+test: test/images   # optional - remove this line if you don't have a test split
+
+# single class: this project only needs "is this a license plate", not
+# multiple plate types/regions. If your downloaded dataset has more than
+# one class, either remap all of them to class 0 or update
+# detection/vehicle_detector.py-style class filtering to match.
+nc: 1
+names: ['license_plate']

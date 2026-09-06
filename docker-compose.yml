@@ -1,0 +1,78 @@
+version: '3.8'
+
+services:
+  # PostgreSQL with PostGIS
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: trackx-postgres
+    environment:
+      POSTGRES_DB: trackx
+      POSTGRES_USER: trackx
+      POSTGRES_PASSWORD: trackx_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U trackx"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis for queue
+  redis:
+    image: redis:7-alpine
+    container_name: trackx-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: trackx-backend
+    environment:
+      POSTGRES_SERVER: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: trackx
+      POSTGRES_PASSWORD: trackx_password
+      POSTGRES_DB: trackx
+      USE_SQLITE: "false"
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      SECRET_KEY: change_this_to_a_random_64_character_string
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+      - ./data/cameras:/app/data/cameras
+      - ./outputs:/app/outputs
+      - ./models:/app/models
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: trackx-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
+  redis_data:

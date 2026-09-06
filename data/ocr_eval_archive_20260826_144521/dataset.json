@@ -1,0 +1,22 @@
+[
+  {
+    "image": "outputs/results/plate_crops/CAM_01_frame0_20260825_224222_376048.jpg",
+    "ground_truth": "TN10AB1234"
+  },
+  {
+    "image": "outputs/results/plate_crops/CAM_01_frame0_20260825_224223_138534.jpg", 
+    "ground_truth": "TN10AB1234"
+  },
+  {
+    "image": "outputs/results/plate_crops/CAM_01_frame0_20260825_224609_919498.jpg",
+    "ground_truth": "KA05CD5678"
+  },
+  {
+    "image": "outputs/results/plate_crops/CAM_01_frame0_20260825_224610_879907.jpg",
+    "ground_truth": "KA05CD5678"
+  },
+  {
+    "image": "outputs/results/plate_crops/CAM_01_frame0_20260825_224935_871626.jpg",
+    "ground_truth": "MH12EF9012"
+  }
+]

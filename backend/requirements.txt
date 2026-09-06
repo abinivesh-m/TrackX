@@ -1,0 +1,48 @@
+# FastAPI and ASGI server
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+websockets==12.0
+
+# Database
+sqlalchemy==2.0.23
+aiosqlite==0.22.1
+pytest==9.1.1
+pytest-asyncio==1.4.0
+psycopg2-binary==2.9.9
+alembic==1.12.1
+geoalchemy2==0.14.2
+
+# Authentication & Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.6
+
+# Pydantic & validation
+pydantic==2.5.0
+pydantic-settings==2.1.0
+email-validator==2.1.0
+
+# Redis
+redis==5.0.1
+hiredis==2.2.3
+
+# CORS
+python-cors==1.0.0
+
+# AI/ML dependencies
+ultralytics==8.0.206
+paddleocr==2.7.0.3
+paddlepaddle==2.5.2
+opencv-python==4.8.1.78
+numpy==1.26.2
+pillow==10.1.0
+
+# HTTP client
+httpx==0.25.2
+aiohttp==3.9.1
+
+# Logging
+python-json-logger==2.0.7
+
+# Utilities
+python-dotenv==1.0.0

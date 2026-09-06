@@ -1,0 +1,128 @@
+[
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_03_frameNone_20260826_090645_282721.jpg",
+    "ground_truth": "MH01BG8283",
+    "camera_id": "CAM_03",
+    "timestamp": "2026-08-26T09:06:43.756043"
+  },
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_04_frameNone_20260826_090756_971767.jpg",
+    "ground_truth": "KA09MB7389",
+    "camera_id": "CAM_04",
+    "timestamp": "2026-08-26T09:07:55.783722"
+  },
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_04_frameNone_20260826_090801_433304.jpg",
+    "ground_truth": "KA05488135",
+    "camera_id": "CAM_04",
+    "timestamp": "2026-08-26T09:07:55.783722"
+  },
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_04_frameNone_20260826_090835_242378.jpg",
+    "ground_truth": "KA09MB7389",
+    "camera_id": "CAM_04",
+    "timestamp": "2026-08-26T09:08:34.028234"
+  },
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_04_frameNone_20260826_090839_692045.jpg",
+    "ground_truth": "KA05488135",
+    "camera_id": "CAM_04",
+    "timestamp": "2026-08-26T09:08:34.028234"
+  },
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_091913_551064.jpg",
+    "ground_truth": "TN09CQ1234",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T09:19:12.283151"
+  },
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_01_frame0_trackfallback_1_20260826_091925_325570.jpg",
+    "ground_truth": "TN09CQ1234",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T09:19:24.926995"
+  },
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_01_frame5_trackfallback_1_20260826_091928_658711.jpg",
+    "ground_truth": "TN09CQ1234",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T09:19:28.267811"
+  },
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_01_frame10_trackfallback_1_20260826_091931_632488.jpg",
+    "ground_truth": "TN09CQ1234",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T09:19:31.248744"
+  },
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_092026_804174.jpg",
+    "ground_truth": "TN09CQ1234",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T09:20:18.907331"
+  },
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_092028_324262.jpg",
+    "ground_truth": "TN09CQ1234",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T09:20:25.512968"
+  },
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_01_frame0_trackfallback_1_20260826_092039_855014.jpg",
+    "ground_truth": "TN09CQ1234",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T09:20:39.248836"
+  },
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_01_frame0_trackfallback_1_20260826_092040_985088.jpg",
+    "ground_truth": "TN09CQ1234",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T09:20:39.827309"
+  },
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_01_frame5_trackfallback_1_20260826_092045_371688.jpg",
+    "ground_truth": "TN09CQ1234",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T09:20:44.762944"
+  },
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_01_frame5_trackfallback_1_20260826_092046_433181.jpg",
+    "ground_truth": "TN09CQ1234",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T09:20:45.353009"
+  },
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_01_frame10_trackfallback_1_20260826_092050_202744.jpg",
+    "ground_truth": "TN09CQ1234",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T09:20:49.569867"
+  },
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_01_frame10_trackfallback_1_20260826_092051_296640.jpg",
+    "ground_truth": "TN09CQ1234",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T09:20:50.266012"
+  },
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_02_frameNone_20260826_092122_994218.jpg",
+    "ground_truth": "MH20DV2363",
+    "camera_id": "CAM_02",
+    "timestamp": "2026-08-26T09:21:21.856721"
+  },
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_094156_765755.jpg",
+    "ground_truth": "TN09CQ1234",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T09:41:55.092468"
+  },
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_01_frameNone_20260826_101510_487197.jpg",
+    "ground_truth": "TN09CQ1234",
+    "camera_id": "CAM_01",
+    "timestamp": "2026-08-26T10:15:10.106759"
+  },
+  {
+    "image": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\TrackX\\outputs\\results\\plate_crops\\CAM_03_frameNone_20260826_102245_083391.jpg",
+    "ground_truth": "MH01BG8283",
+    "camera_id": "CAM_03",
+    "timestamp": "2026-08-26T10:22:43.426904"
+  }
+]

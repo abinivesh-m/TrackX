@@ -1,0 +1,23 @@
+samples: 551
+unreadable_images: 0
+exact_matches: 181
+exact_match_accuracy: 0.3285
+character_accuracy: 0.6976
+elapsed_seconds: 215.0
+ms_per_image: 390.2
+sample_results(first 15):
+  gt=AN01P9687 pred=AN01P9687 char=1.00
+  gt=AN01K9412 pred=AN01K9412 char=1.00
+  gt=AN01D4163 pred=KN01D4363 char=0.78
+  gt=AN01M4M pred=AM01H40 char=0.57
+  gt=AN01L6155 pred=AW016155 char=0.44
+  gt=AN01H1689 pred=NO1H1689 char=0.00
+  gt=AN01H0908 pred=KA01H09B8 char=0.67
+  gt=AP39E1493 pred=AP39E1493 char=1.00
+  gt=AP310U7562 pred=AP3J1BU7459807 char=0.21
+  gt=AP28AT5333 pred=AP28A5033 char=0.70
+  gt=AP39GR3492 pred=AP396R9492 char=0.80
+  gt=AP31TP2282 pred=AH3112282 char=0.40
+  gt=AP04M7627 pred=PO4M7627 char=0.00
+  gt=AP07AN3915 pred=AS07AN7915 char=0.80
+  gt=AP04AS8753 pred=K90AS8750 char=0.10

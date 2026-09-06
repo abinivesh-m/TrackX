@@ -1,0 +1,189 @@
+{
+  "ocr_engine": "paddleocr",
+  "total_processed": 20,
+  "exact_matches": 14,
+  "accuracy": 70.0,
+  "average_confidence": 0.916,
+  "results": [
+    {
+      "image": "DL_DL7_crop.jpg",
+      "ground_truth": "DL12CK8643",
+      "normalized_ground": "DL12CK8643",
+      "ocr_text": "DL12CK8643",
+      "normalized_ocr": "DL12CK8643",
+      "confidence": 0.958,
+      "match": true
+    },
+    {
+      "image": "AP_AP42_crop.jpg",
+      "ground_truth": "AP31TV6847",
+      "normalized_ground": "AP31TV6847",
+      "ocr_text": "APC76814",
+      "normalized_ocr": "APC76814",
+      "confidence": 0.64,
+      "match": false
+    },
+    {
+      "image": "ML_ML21_crop.jpg",
+      "ground_truth": "ML05J3288",
+      "normalized_ground": "ML05J3288",
+      "ocr_text": "ML05J3288",
+      "normalized_ocr": "ML05J3288",
+      "confidence": 0.906,
+      "match": true
+    },
+    {
+      "image": "MH_MH1_crop.jpg",
+      "ground_truth": "MH06AB8620",
+      "normalized_ground": "MH06AB8620",
+      "ocr_text": "MH06AB8620",
+      "normalized_ocr": "MH06AB8620",
+      "confidence": 0.865,
+      "match": true
+    },
+    {
+      "image": "KA_KA21_crop.jpg",
+      "ground_truth": "KA28M3589",
+      "normalized_ground": "KA28M3589",
+      "ocr_text": "KA28M3589",
+      "normalized_ocr": "KA28M3589",
+      "confidence": 0.942,
+      "match": true
+    },
+    {
+      "image": "GJ_GJ28_crop.jpg",
+      "ground_truth": "GJ05JB6589",
+      "normalized_ground": "GJ05JB6589",
+      "ocr_text": "GJ05J8658",
+      "normalized_ocr": "GJ05J8658",
+      "confidence": 0.888,
+      "match": false
+    },
+    {
+      "image": "DL_DL27_crop.jpg",
+      "ground_truth": "DL10CA0986",
+      "normalized_ground": "DL10CA0986",
+      "ocr_text": "DL10CA0986",
+      "normalized_ocr": "DL10CA0986",
+      "confidence": 0.979,
+      "match": true
+    },
+    {
+      "image": "DL_DL1_crop.jpg",
+      "ground_truth": "DL6CJ8404",
+      "normalized_ground": "DL6CJ8404",
+      "ocr_text": "DL6CJ8404",
+      "normalized_ocr": "DL6CJ8404",
+      "confidence": 0.942,
+      "match": true
+    },
+    {
+      "image": "WB_WB2_crop.jpg",
+      "ground_truth": "WB02M8447",
+      "normalized_ground": "WB02M8447",
+      "ocr_text": "WB62M8447",
+      "normalized_ocr": "WB62M8447",
+      "confidence": 0.956,
+      "match": false
+    },
+    {
+      "image": "AR_AR6_crop.jpg",
+      "ground_truth": "AR168272",
+      "normalized_ground": "AR168272",
+      "ocr_text": "AR168272",
+      "normalized_ocr": "AR168272",
+      "confidence": 0.99,
+      "match": true
+    },
+    {
+      "image": "AR_AR12_crop.jpg",
+      "ground_truth": "AR118724",
+      "normalized_ground": "AR118724",
+      "ocr_text": "AR18724",
+      "normalized_ocr": "AR18724",
+      "confidence": 0.755,
+      "match": false
+    },
+    {
+      "image": "DL_DL19_crop.jpg",
+      "ground_truth": "DL1CT2782",
+      "normalized_ground": "DL1CT2782",
+      "ocr_text": "DL1CT2782",
+      "normalized_ocr": "DL1CT2782",
+      "confidence": 0.931,
+      "match": true
+    },
+    {
+      "image": "KA_KA12_crop.jpg",
+      "ground_truth": "KA02MF3336",
+      "normalized_ground": "KA02MF3336",
+      "ocr_text": "KA02MF3336",
+      "normalized_ocr": "KA02MF3336",
+      "confidence": 0.96,
+      "match": true
+    },
+    {
+      "image": "KL_KL14_crop.jpg",
+      "ground_truth": "KL03S6394",
+      "normalized_ground": "KL03S6394",
+      "ocr_text": "KL0356394",
+      "normalized_ocr": "KL03S6394",
+      "confidence": 0.812,
+      "match": true
+    },
+    {
+      "image": "google_b79f870d-15c7-48e3-8874-7c0e53e29f75___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_754eab882b8290b29a0454dd45580a39_555X416_1 - Copy_crop.jpg",
+      "ground_truth": "DUSTER",
+      "normalized_ground": "DUSTER",
+      "ocr_text": "DUSTER",
+      "normalized_ocr": "DUSTER",
+      "confidence": 0.992,
+      "match": true
+    },
+    {
+      "image": "AP_AP45_crop.jpg",
+      "ground_truth": "AP31BL2833",
+      "normalized_ground": "AP31BL2833",
+      "ocr_text": "AP31BL2833",
+      "normalized_ocr": "AP31BL2833",
+      "confidence": 0.986,
+      "match": true
+    },
+    {
+      "image": "JK_JK16_crop.jpg",
+      "ground_truth": "JK09B7745",
+      "normalized_ground": "JK09B7745",
+      "ocr_text": "JK09B7745",
+      "normalized_ocr": "JK09B7745",
+      "confidence": 0.969,
+      "match": true
+    },
+    {
+      "image": "WB_WB16_crop.jpg",
+      "ground_truth": "WB06J9177",
+      "normalized_ground": "WB06J9177",
+      "ocr_text": "8061917",
+      "normalized_ocr": "8061917",
+      "confidence": 0.93,
+      "match": false
+    },
+    {
+      "image": "KA_KA17_crop.jpg",
+      "ground_truth": "KA01MG1660",
+      "normalized_ground": "KA01MG1660",
+      "ocr_text": "KA01MG1660",
+      "normalized_ocr": "KA01MG1660",
+      "confidence": 0.939,
+      "match": true
+    },
+    {
+      "image": "google_d5ddd1e6-56ca-4991-994e-cb78fe836a47___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_2013-Nissan-Terrano-Review_crop.jpg",
+      "ground_truth": "RJ27TC0530",
+      "normalized_ground": "RJ27TC0530",
+      "ocr_text": "R27TC0530",
+      "normalized_ocr": "R27TC0530",
+      "confidence": 0.985,
+      "match": false
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+folium==0.17.0
+numpy>=1.26.4
+opencv-python<=4.6.0.66
+paddleocr==2.7.3
+paddlepaddle==2.6.2
+pandas>=2.2.2
+pyyaml>=6.0.1
+streamlit==1.38.0
+torch==2.3.0
+torchvision==0.18.0
+ultralytics==8.3.0
+# LPRNet dependencies for Indian plate OCR
+torchvision>=0.18.0
+Pillow>=9.0.0
+networkx>=3.0
+geopy>=2.3.0
+# Additional for advanced features
+plotly>=5.0.0
+altair>=5.0.0

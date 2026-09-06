@@ -1,0 +1,13 @@
+total_observations: 102
+total_trajectories: 9
+multi_camera_trajectories: 0
+vehicles_per_camera: {"CAM_01": 16, "CAM_02": 18, "CAM_03": 14, "CAM_04": 12, "CAM_05": 14, "CAM_06": 14, "CAM_07": 14}
+busiest_camera: "CAM_02"
+top_cross_camera_routes: {"CAM_01 -> CAM_02": 3, "CAM_02 -> CAM_03": 3, "CAM_05 -> CAM_06": 3, "CAM_06 -> CAM_07": 3, "CAM_03 -> CAM_04": 2}
+average_speed: {"overall_avg_speed": 9.62, "speeds_by_camera_pair": {"CAM_01 -> CAM_02": 14.770000000000001, "CAM_02 -> CAM_03": 7.48, "CAM_03 -> CAM_04": 12.92, "CAM_04 -> CAM_05": 11.08, "CAM_05 -> CAM_06": 6.23, "CAM_06 -> CAM_07": 9.959999999999999, "CAM_03 -> CAM_05": 0.2}, "num_observations": 102, "num_valid_speeds": 17, "status": "calculated"}
+od_patterns: {"od_pairs": {"CAM_01": {"CAM_02": 1, "CAM_03": 1}, "CAM_02": {"CAM_04": 1, "CAM_07": 1}, "CAM_03": {"CAM_06": 1}, "CAM_04": {"CAM_05": 1}, "CAM_05": {"CAM_07": 1}, "CAM_06": {"CAM_02": 1}, "CAM_07": {"CAM_01": 1}}, "od_matrix": [["CAM_01", "CAM_02", 1], ["CAM_01", "CAM_03", 1], ["CAM_02", "CAM_04", 1], ["CAM_02", "CAM_07", 1], ["CAM_03", "CAM_06", 1], ["CAM_04", "CAM_05", 1], ["CAM_05", "CAM_07", 1], ["CAM_06", "CAM_02", 1], ["CAM_07", "CAM_01", 1]], "top_origins": [["CAM_01", 2], ["CAM_02", 2], ["CAM_03", 1], ["CAM_04", 1], ["CAM_05", 1], ["CAM_06", 1], ["CAM_07", 1]], "top_destinations": [[
+congestion: {"congested_cameras": [["CAM_02", 0.797], ["CAM_05", 0.742]], "congestion_scores": {"CAM_01": 0.476, "CAM_02": 0.797, "CAM_03": 0.733, "CAM_04": 0.487, "CAM_05": 0.742, "CAM_06": 0.598, "CAM_07": 0.624}, "density_by_camera": {"CAM_01": 16, "CAM_02": 18, "CAM_03": 14, "CAM_04": 12, "CAM_05": 14, "CAM_06": 14, "CAM_07": 14}, "speed_by_camera": {"CAM_01": 14.770000000000001, "CAM_02": 7.48, "CAM_03": 6.56, "CAM_04": 11.08, "CAM_05": 6.23, "CAM_06": 9.959999999999999}, "congestion_factors": {"CAM_01": {"density_score": 0.889, "speed_score": 0.0, "efficiency_score": 0.602, "raw_density": 16, "raw_s
+repeated_sightings: {"CAM_01": {"repeat_transitions": 12, "global_vehicle_ids": [1, 6, 7, 8]}, "CAM_02": {"repeat_transitions": 13, "global_vehicle_ids": [1, 2, 6, 8, 9]}, "CAM_03": {"repeat_transitions": 10, "global_vehicle_ids": [2, 3, 8, 9]}, "CAM_04": {"repeat_transitions": 9, "global_vehicle_ids": [2, 3, 4]}, "CAM
+alerts_by_type: {"BLACKLISTED_VEHICLE": 2, "REPEATED_CAMERA": 1, "SUSPICIOUS_ROUTE": 9}
+alerts_total: 12
+blacklist_total: 1

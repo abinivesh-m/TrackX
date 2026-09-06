@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# generated at runtime - don't commit the demo/real database, maps, crops
+outputs/results/*
+outputs/crop/*
+outputs/logos/*
+!outputs/results/.gitkeep
+!outputs/crop/.gitkeep
+!outputs/logos/.gitkeep
+
+# trained model weights - large binary files, don't belong in git
+# (share via drive link / release asset instead, and note the link here
+# once you have one, so teammates know where to grab it)
+detection/runs/
+models/*.pt
+models/*.pth
+
+# raw/processed footage and datasets - large, and possibly not yours to
+# redistribute depending on dataset licensing
+data/raw/*
+data/processed/*
+data/samples/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/samples/.gitkeep
+
+# OS/editor cruft
+.DS_Store
+.vscode/
+*.swp

@@ -1,0 +1,2 @@
+total_trajectories: 9
+multi_camera_trajectories: 9

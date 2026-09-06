@@ -1,0 +1,59 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Documentation
+*.md
+docs/
+README.md
+
+# Testing
+tests/
+test_*.py
+*_test.py
+
+# Misc
+.env
+.env.local
+.env.*.local
+*.db
+*.sqlite
+*.sqlite3
+logs/
+temp/
+tmp/
+data/
+outputs/
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml

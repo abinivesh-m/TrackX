@@ -1,0 +1,1142 @@
+{
+  "metadata": {
+    "created": "2026-09-05T14:30:00",
+    "total_entries": 113,
+    "unique_ground_truths": 110,
+    "split": "test",
+    "source": "expanded_dataset_clean_split",
+    "leakage_prevention": "ground_truth_grouping"
+  },
+  "entries": [
+    {
+      "filename": "AP_AP18_crop.jpg",
+      "height": 15,
+      "width": 58,
+      "aspect_ratio": 3.87,
+      "ground_truth": "AP16BS4500",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "a5fadc99c16ee374f76162c3e1ab82014b98123ab23b8b5e00c07a1e821ec931"
+    },
+    {
+      "filename": "AP_AP19_crop.jpg",
+      "height": 16,
+      "width": 60,
+      "aspect_ratio": 3.75,
+      "ground_truth": "AP04M7627",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "964c1471670040108cece4896013af5ac3e39010cc000a94c9d84be6da946150"
+    },
+    {
+      "filename": "AP_AP1_crop.jpg",
+      "height": 17,
+      "width": 78,
+      "aspect_ratio": 4.59,
+      "ground_truth": "AP05BY7799",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "c1e5e6e3d64ebff70ba953414c2c40c456810a14d003adb7b975c092618a2d7a"
+    },
+    {
+      "filename": "AP_AP21_crop.jpg",
+      "height": 30,
+      "width": 109,
+      "aspect_ratio": 3.63,
+      "ground_truth": "AP31AT5064",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "12c922c16b1ff7cca3376e9ea2eb819dbcb42e492f3dbd894c86222d3e3ae4e8"
+    },
+    {
+      "filename": "AP_AP34_crop.jpg",
+      "height": 15,
+      "width": 85,
+      "aspect_ratio": 5.67,
+      "ground_truth": "AP37EJ2277",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "3cc8bc8e7e43820a3aecbcaad56e45f7119f10eae42110d9287b327b7a92aa53"
+    },
+    {
+      "filename": "AP_AP39_crop.jpg",
+      "height": 15,
+      "width": 73,
+      "aspect_ratio": 4.87,
+      "ground_truth": "AP05DY3395",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "a06157a058e6711a1fd969037d2b7690d7161f2247aa2d6e68eaded8e420184f"
+    },
+    {
+      "filename": "AP_AP4_crop.jpg",
+      "height": 12,
+      "width": 60,
+      "aspect_ratio": 5.0,
+      "ground_truth": "AP39HZ0087",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "4695fd662ceaf2a9e5688f9a3d893dff5727780ea5ba72f0cd4856be4b483d85"
+    },
+    {
+      "filename": "AP_AP5_crop.jpg",
+      "height": 16,
+      "width": 62,
+      "aspect_ratio": 3.88,
+      "ground_truth": "AP39TP0211",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "ecc87d763d99429a0ce795bdc85da42210089d1b7c3b55fafd8350e840302a2b"
+    },
+    {
+      "filename": "AP_AP6_crop.jpg",
+      "height": 18,
+      "width": 78,
+      "aspect_ratio": 4.33,
+      "ground_truth": "AP31TV7236",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "879ff2d442f370a628b7d24188d75bcb91d13b673ee101e71e0446a7223a828b"
+    },
+    {
+      "filename": "AR_AR1_crop.jpg",
+      "height": 12,
+      "width": 57,
+      "aspect_ratio": 4.75,
+      "ground_truth": "AR048395",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "4fda4a615d3e4e2a3441e68689f7f7b39f819b268e1edea1ee1065fb73531e5e"
+    },
+    {
+      "filename": "AS_AS25_crop.jpg",
+      "height": 18,
+      "width": 70,
+      "aspect_ratio": 3.89,
+      "ground_truth": "AS01BS4362",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "20fb73544b08482b4cd0ec0c88a6ada091796f17114f63227dfde41959078b9b"
+    },
+    {
+      "filename": "BR_BR12_crop.jpg",
+      "height": 11,
+      "width": 48,
+      "aspect_ratio": 4.36,
+      "ground_truth": "BR03PA3803",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "e7380cb388574cfebc58ad5e107b299be9359ef7d2020f893ca714dde33ab11e"
+    },
+    {
+      "filename": "BR_BR18_crop.jpg",
+      "height": 22,
+      "width": 107,
+      "aspect_ratio": 4.86,
+      "ground_truth": "BR01BD5042",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "e4280524b70ea0142325467643beef240e245d2ff94877a70a971f5d6f6536b3"
+    },
+    {
+      "filename": "BR_BR9_crop.jpg",
+      "height": 21,
+      "width": 50,
+      "aspect_ratio": 2.38,
+      "ground_truth": "BR01AW1250",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "76c014b540ab55c26317ab36776dbaf5b39d1b7082f2b1e35ce619b6b089f260"
+    },
+    {
+      "filename": "CG_CG15_crop.jpg",
+      "height": 12,
+      "width": 57,
+      "aspect_ratio": 4.75,
+      "ground_truth": "CG07BR3255",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "15a7abfd10e661c80c71bf561cdd1a4bdec63ee0b1f58cc66f32195af67828f9"
+    },
+    {
+      "filename": "CG_CG18_crop.jpg",
+      "height": 41,
+      "width": 101,
+      "aspect_ratio": 2.46,
+      "ground_truth": "CG07CA7784",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "45f0c0c4041a44cfc345b6073f0d1927f37410d69f7f5e8ae7aa36ce25c0a6f5"
+    },
+    {
+      "filename": "CG_CG1_crop.jpg",
+      "height": 21,
+      "width": 90,
+      "aspect_ratio": 4.29,
+      "ground_truth": "CG04HD6930",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "3f29ef3bb08dbc8b2ba53798dff8c9c4739e3119907fb7bcf6c570656dad1dda"
+    },
+    {
+      "filename": "CH_CH10_crop.jpg",
+      "height": 20,
+      "width": 94,
+      "aspect_ratio": 4.7,
+      "ground_truth": "CH01AB4559",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "39089dfcee36e3158aabc2c0095e17cbb2fc059e4889d05d048895c3592b7ecd"
+    },
+    {
+      "filename": "CH_CH7_crop.jpg",
+      "height": 26,
+      "width": 108,
+      "aspect_ratio": 4.15,
+      "ground_truth": "CH01AL4920",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "57b2f9154f462e48c17759a5429fe0c2983f5f53b5910dec4f684bc0cb1bf0c6"
+    },
+    {
+      "filename": "CH_CH9_crop.jpg",
+      "height": 13,
+      "width": 54,
+      "aspect_ratio": 4.15,
+      "ground_truth": "CH01AF1382",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "0feaf9f0dc643861b8f97690c9455d8910cc04dfeaf0cb833736640850d00345"
+    },
+    {
+      "filename": "DL_DL12_crop.jpg",
+      "height": 22,
+      "width": 84,
+      "aspect_ratio": 3.82,
+      "ground_truth": "DL5CH7599",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "24e5eedfbfb807b4f2a041942194ea435856a64373bd7d96f4fcd63a9e25f2e5"
+    },
+    {
+      "filename": "DL_DL33_crop.jpg",
+      "height": 19,
+      "width": 74,
+      "aspect_ratio": 3.89,
+      "ground_truth": "DL4CNA7231",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "9100b01de475c7ba43ec3a366c1b78c81b0f01cf752bfe6aff04b9f5a490f12a"
+    },
+    {
+      "filename": "DL_DL38_crop.jpg",
+      "height": 15,
+      "width": 65,
+      "aspect_ratio": 4.33,
+      "ground_truth": "DL4CAQ3231",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "27ed115e336083e5359def75657f6da6798ddd03b97101875aef672c9fc63839"
+    },
+    {
+      "filename": "DL_DL6_crop.jpg",
+      "height": 21,
+      "width": 88,
+      "aspect_ratio": 4.19,
+      "ground_truth": "DL4CAM9066",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "acfe9d5863f0e34a28aa640cbcb320c46f7e1c71058c061f77c54539a897d3af"
+    },
+    {
+      "filename": "DN_DN8_crop.jpg",
+      "height": 23,
+      "width": 78,
+      "aspect_ratio": 3.39,
+      "ground_truth": "DN09C0868",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "4c0d9a9fa10156b43780bec012cc5750d136c5b279ce7cf706f9e2c47043021c"
+    },
+    {
+      "filename": "GA_GA11_crop.jpg",
+      "height": 29,
+      "width": 49,
+      "aspect_ratio": 1.69,
+      "ground_truth": "GA03P2839",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "a191d021cadce63bdac54765c516d105e09149e1ba1e72cb66b468e9307a9b77"
+    },
+    {
+      "filename": "GA_GA13_crop.jpg",
+      "height": 18,
+      "width": 54,
+      "aspect_ratio": 3.0,
+      "ground_truth": "GA07K6090",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "bab7bebfcfc58fb5f25a7aa49124965235f577264c0c00f0c620915fa0b395a5"
+    },
+    {
+      "filename": "GA_GA2_crop.jpg",
+      "height": 29,
+      "width": 101,
+      "aspect_ratio": 3.48,
+      "ground_truth": "GA08M0184",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "3f20672fce9644db1a4e735fc1e3aae91b8ac9e9ddb39466e5934a4ede1013c4"
+    },
+    {
+      "filename": "GA_GA4_crop.jpg",
+      "height": 55,
+      "width": 108,
+      "aspect_ratio": 1.96,
+      "ground_truth": "GA01C2098",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "2369cd3b54a5091a918054d20ed38c39b33405708fac0bac9c364e845134b00e"
+    },
+    {
+      "filename": "GA_GA9_crop.jpg",
+      "height": 18,
+      "width": 74,
+      "aspect_ratio": 4.11,
+      "ground_truth": "GA06E3855",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "7676c5cb340e6dd76bf7749a006051a92b318b0b774b06a82530281df3dceb02"
+    },
+    {
+      "filename": "GJ_GJ11_crop.jpg",
+      "height": 32,
+      "width": 106,
+      "aspect_ratio": 3.31,
+      "ground_truth": "GJ06HS1855",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "795b7a4add965bcd5b70dc4f3d2a8d4dd354e123abfd3b5f5ae86cadfb12c9fe"
+    },
+    {
+      "filename": "GJ_GJ14_crop.jpg",
+      "height": 14,
+      "width": 71,
+      "aspect_ratio": 5.07,
+      "ground_truth": "GJ06DG9355",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "6bfca33e9feb7089a05c7a41fc7e5b74ee35b965bbb67f622999f9568a126b35"
+    },
+    {
+      "filename": "GJ_GJ5_crop.jpg",
+      "height": 18,
+      "width": 82,
+      "aspect_ratio": 4.56,
+      "ground_truth": "GJ1SCG7928",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "c1d77afbe9be6d3d3d2d779874f4b2534896cf13c66c4ae4ad974f53e50583dc"
+    },
+    {
+      "filename": "HP_HP11_crop.jpg",
+      "height": 14,
+      "width": 71,
+      "aspect_ratio": 5.07,
+      "ground_truth": "HP12H7917",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "3b168a6ddc261e2f8733c447159eaf3807ab8591ff7b8755949a10e8639af870"
+    },
+    {
+      "filename": "HP_HP16_crop.jpg",
+      "height": 13,
+      "width": 50,
+      "aspect_ratio": 3.85,
+      "ground_truth": "HP302165",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "f96d385187762b453906fa8031abb484383d1146804be7f9686ce2f0150e45a8"
+    },
+    {
+      "filename": "HP_HP5_crop.jpg",
+      "height": 18,
+      "width": 86,
+      "aspect_ratio": 4.78,
+      "ground_truth": "HP01N0304",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "942302769aa40ae9a213984ca22247746414e3fa9e2f67a358c28a850e75461b"
+    },
+    {
+      "filename": "HR_HR11_crop.jpg",
+      "height": 23,
+      "width": 101,
+      "aspect_ratio": 4.39,
+      "ground_truth": "HR01H4731",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "c6d3ef0707feed66c7f9e14ffebfd334c3638525e4fb669c2cd51e8debf92a94"
+    },
+    {
+      "filename": "HR_HR17_crop.jpg",
+      "height": 24,
+      "width": 89,
+      "aspect_ratio": 3.71,
+      "ground_truth": "HR26BK8597",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "1c2748ad46b2532b5bce4ecaea6134c1704197bc7a447841027c54014e672e13"
+    },
+    {
+      "filename": "JK_JK10_crop.jpg",
+      "height": 19,
+      "width": 79,
+      "aspect_ratio": 4.16,
+      "ground_truth": "JK02AK8967",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "054a38eda8c75e2ee84d70c567e4bcf6099a49b1a7bc03176ade398236ee760b"
+    },
+    {
+      "filename": "JK_JK11_crop.jpg",
+      "height": 18,
+      "width": 70,
+      "aspect_ratio": 3.89,
+      "ground_truth": "JK03D7750",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "8cbc7e3fe91ddcad7d42b7f195b59b57a96483708df31e86157476b56ecda146"
+    },
+    {
+      "filename": "JK_JK2_crop.jpg",
+      "height": 30,
+      "width": 109,
+      "aspect_ratio": 3.63,
+      "ground_truth": "JK02BJ7997",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "9bdf1be2656187db8ba0fea030ccb40561f3d5c0d30fd4fb9c9da21052df145b"
+    },
+    {
+      "filename": "JK_JK4_crop.jpg",
+      "height": 39,
+      "width": 90,
+      "aspect_ratio": 2.31,
+      "ground_truth": "JK01M4723",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "e6af05363a07ae302ba36126aeada8c682b74138d31368e5f267b4abd2fc2459"
+    },
+    {
+      "filename": "JK_JK6_crop.jpg",
+      "height": 30,
+      "width": 62,
+      "aspect_ratio": 2.07,
+      "ground_truth": "JK01R8021",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "d5b495fa65ad5a180b0e5e102f0fbec596652f18185531b09ec1ff7af89f993b"
+    },
+    {
+      "filename": "KA_KA21_crop.jpg",
+      "height": 18,
+      "width": 69,
+      "aspect_ratio": 3.83,
+      "ground_truth": "KA28M3589",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "a59e7f1f0e60c3c888504f8bf9388b22887818255eef06b5aba2f61b2df76534"
+    },
+    {
+      "filename": "KA_KA3_crop.jpg",
+      "height": 25,
+      "width": 74,
+      "aspect_ratio": 2.96,
+      "ground_truth": "KA06C9590",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "830a2a04102ab4b027efa2ec5505a7addce5fe7c7d18f8eafbba2dd651168315"
+    },
+    {
+      "filename": "KA_KA7_crop.jpg",
+      "height": 8,
+      "width": 39,
+      "aspect_ratio": 4.88,
+      "ground_truth": "KA51P7755",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "aed6d55efd754bbe0d11c13084d6dc30f5c96c45e750542b0687f0428c80d942"
+    },
+    {
+      "filename": "KL_KL9_crop.jpg",
+      "height": 13,
+      "width": 77,
+      "aspect_ratio": 5.92,
+      "ground_truth": "KL16U8863",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "e0a8cbb06e40624f1c3d7271542809fa534de79169b1a013ff081d20fca65b4d"
+    },
+    {
+      "filename": "MH_MH14_crop.jpg",
+      "height": 17,
+      "width": 89,
+      "aspect_ratio": 5.24,
+      "ground_truth": "MH43X8997",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "8fb04a35ae9c66e9357d7b1fba52af9c958865e6a97d203a3e641ea0724c408c"
+    },
+    {
+      "filename": "MH_MH17_crop.jpg",
+      "height": 17,
+      "width": 64,
+      "aspect_ratio": 3.76,
+      "ground_truth": "MH01BT7906",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "635c29101d197f23695dc82752d0d2b18cd6112c4f8eada9a5e011014eff1207"
+    },
+    {
+      "filename": "MH_MH20_crop.jpg",
+      "height": 16,
+      "width": 78,
+      "aspect_ratio": 4.88,
+      "ground_truth": "MH12KJ7659",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "ce3d5067e8e7b730a15d24b8c191cb9904c0b05848a16653b2ef8bdf16dab080"
+    },
+    {
+      "filename": "MH_MH3_crop.jpg",
+      "height": 15,
+      "width": 65,
+      "aspect_ratio": 4.33,
+      "ground_truth": "MH48AC6244",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "9515a31ae61c47d61825804863474f344e83025b0f7e7dd82a495fecfd9ae7f7"
+    },
+    {
+      "filename": "MH_MH4_crop.jpg",
+      "height": 17,
+      "width": 84,
+      "aspect_ratio": 4.94,
+      "ground_truth": "MH12MF6822",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "0f77e615fb15d3f3a42d77cc754a60693a304c9bbfd1e58ac104c189db79ee18"
+    },
+    {
+      "filename": "MH_MH6_crop.jpg",
+      "height": 15,
+      "width": 62,
+      "aspect_ratio": 4.13,
+      "ground_truth": "MH47N0712",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "07f07be9dc33703b6e3027c6ebbc0753528272a167fd54c318703ccbbec7c7ad"
+    },
+    {
+      "filename": "ML_ML19_crop.jpg",
+      "height": 21,
+      "width": 84,
+      "aspect_ratio": 4.0,
+      "ground_truth": "ML04C0056",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "d255db428c3261c5f252fdafb2c18bf100b12f572f3ed46b50dd7342c4e5a32c"
+    },
+    {
+      "filename": "ML_ML33_crop.jpg",
+      "height": 22,
+      "width": 83,
+      "aspect_ratio": 3.77,
+      "ground_truth": "ML04B8918",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "89925b1dc1bfd9d024c5c4c3b757bc7c0d3973797a1943e8de57c04e4a7e2a3c"
+    },
+    {
+      "filename": "ML_ML35_crop.jpg",
+      "height": 17,
+      "width": 68,
+      "aspect_ratio": 4.0,
+      "ground_truth": "ML05G3474",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "4597064e77b64e1522306a4a77c1a3182c1025bab8c5e5daecfed9aed41af2fd"
+    },
+    {
+      "filename": "ML_ML38_crop.jpg",
+      "height": 29,
+      "width": 105,
+      "aspect_ratio": 3.62,
+      "ground_truth": "ML064696",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "6e12e904cab0ba9d4c2675e6aabf2a61836e7729d5dec25398e8c32ab8de9dbd"
+    },
+    {
+      "filename": "ML_ML39_crop.jpg",
+      "height": 18,
+      "width": 70,
+      "aspect_ratio": 3.89,
+      "ground_truth": "ML05G6098",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "8c3ebb08d7de1653e237052a87ac8bdeb65d14c5fc8292103ef0191beb9b5661"
+    },
+    {
+      "filename": "MN_MN5_crop.jpg",
+      "height": 16,
+      "width": 68,
+      "aspect_ratio": 4.25,
+      "ground_truth": "MN01G5395",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "9c382c19968229ad1ab558a34a5e7244503b6c9b2b8381b3487fff4952ad2080"
+    },
+    {
+      "filename": "MN_MN6_crop.jpg",
+      "height": 18,
+      "width": 72,
+      "aspect_ratio": 4.0,
+      "ground_truth": "MN01K5346",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "285d677a355a87388372d85ed55168b06f75cad74b056cf3e845805e3d04f298"
+    },
+    {
+      "filename": "MP_MP11_crop.jpg",
+      "height": 27,
+      "width": 94,
+      "aspect_ratio": 3.48,
+      "ground_truth": "MP07CB8897",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "0508f4d4f544f8d1a4e76020155741042b6c7d621a7f5f6a5b409de227094782"
+    },
+    {
+      "filename": "MP_MP9_crop.jpg",
+      "height": 32,
+      "width": 59,
+      "aspect_ratio": 1.84,
+      "ground_truth": "MP45G0872",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "36586fd969b8f77d4900917dbddc109dd691e68c770e71d2108784cad75874ca"
+    },
+    {
+      "filename": "MZ_MZ1_crop.jpg",
+      "height": 14,
+      "width": 62,
+      "aspect_ratio": 4.43,
+      "ground_truth": "MZ01G9825",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "dbd99ee156113c759e8b3d99facd1d898a279ee92d38833f0746ae6a832f8c97"
+    },
+    {
+      "filename": "NL_NL9_crop.jpg",
+      "height": 28,
+      "width": 98,
+      "aspect_ratio": 3.5,
+      "ground_truth": "NL02C6709",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "1b023636f4f04a490b81cc595d12b39aba6f0056702c69895247aa1d464d06d2"
+    },
+    {
+      "filename": "OD_OD11_crop.jpg",
+      "height": 22,
+      "width": 50,
+      "aspect_ratio": 2.27,
+      "ground_truth": "OR02BV0701",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "9a67dafa0a8bc22a8e322679fc4fbe4cb66d6de803c8d23daff2fa62b9cf53da"
+    },
+    {
+      "filename": "OD_OD16_crop.jpg",
+      "height": 20,
+      "width": 88,
+      "aspect_ratio": 4.4,
+      "ground_truth": "OR14U8730",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "5d69f26a715cb529b0650f950782d41dc7608b524a697fc9ab0d8d417b112fcb"
+    },
+    {
+      "filename": "OD_OD17_crop.jpg",
+      "height": 12,
+      "width": 48,
+      "aspect_ratio": 4.0,
+      "ground_truth": "OD14B7432",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "77a54fac9f161645ea7d28371db1c4eb770ad16114081da8d25ab87555ffb939"
+    },
+    {
+      "filename": "OD_OD19_crop.jpg",
+      "height": 18,
+      "width": 66,
+      "aspect_ratio": 3.67,
+      "ground_truth": "OD11P6123",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "f5de9043478ac503b61f68621a066e6310ab2b181bf5937895481451f09cbf3b"
+    },
+    {
+      "filename": "PB_PB13_crop.jpg",
+      "height": 16,
+      "width": 66,
+      "aspect_ratio": 4.12,
+      "ground_truth": "PB08DT7342",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "8057a608189558bb9ac401dabbbddb49a901079611646eb162947d72ee9d67ef"
+    },
+    {
+      "filename": "PB_PB20_crop.jpg",
+      "height": 14,
+      "width": 61,
+      "aspect_ratio": 4.36,
+      "ground_truth": "PB31R8123",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "4c4c2b5b6584700974b95c08df4e5e7e7baeace8ecd9367b3e74e902e2ad598d"
+    },
+    {
+      "filename": "PB_PB21_crop.jpg",
+      "height": 33,
+      "width": 96,
+      "aspect_ratio": 2.91,
+      "ground_truth": "PB37A8269",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "8a11cf7c6b82446f5a361cfe4dbc50c48ae47c1212dcba4c383a5cf6f0fdf22c"
+    },
+    {
+      "filename": "PB_PB27_crop.jpg",
+      "height": 19,
+      "width": 85,
+      "aspect_ratio": 4.47,
+      "ground_truth": "PB65AN2583",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "253a7dff201a40588b7c4fbbd746eccb8501d78ed09bbdf57d333ef6f03426e8"
+    },
+    {
+      "filename": "PB_PB4_crop.jpg",
+      "height": 15,
+      "width": 81,
+      "aspect_ratio": 5.4,
+      "ground_truth": "PB07BL8058",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "cc6eb697c93430f86bf67c68ebb728d804c5e91e72b58e24e55e305c94de03c5"
+    },
+    {
+      "filename": "PB_PB7_crop.jpg",
+      "height": 13,
+      "width": 58,
+      "aspect_ratio": 4.46,
+      "ground_truth": "PB10DV5354",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "20171867097f75bb298f9e52fd2966c9dd09fe100647e8d4e9912a5aa5cfe949"
+    },
+    {
+      "filename": "PB_PB9_crop.jpg",
+      "height": 13,
+      "width": 69,
+      "aspect_ratio": 5.31,
+      "ground_truth": "PB35F9333",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "bfc85ccfa86336d3b05c59936cca5c716ecd1de5d844e19aa8d4b6a6badf8648"
+    },
+    {
+      "filename": "PY_PY6_crop.jpg",
+      "height": 19,
+      "width": 89,
+      "aspect_ratio": 4.68,
+      "ground_truth": "PY01AP0555",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "066bc9bbad32278642712c6aac86797b5c12c96a0d4ee674b7ed9605bab301bc"
+    },
+    {
+      "filename": "RJ_RJ5_crop.jpg",
+      "height": 24,
+      "width": 90,
+      "aspect_ratio": 3.75,
+      "ground_truth": "RJ14CF5807",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "a5eec3eb4bb692e0ae05369bf02d7d6f743d42571c265d94c255bfd1789da333"
+    },
+    {
+      "filename": "RJ_RJ7_crop.jpg",
+      "height": 22,
+      "width": 94,
+      "aspect_ratio": 4.27,
+      "ground_truth": "RJ23CB4320",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "2b16914a16b201ab5a7c3be5b18e71da5962055f3ea06ec458cb6a49afeb9166"
+    },
+    {
+      "filename": "SK_SK7_crop.jpg",
+      "height": 29,
+      "width": 61,
+      "aspect_ratio": 2.1,
+      "ground_truth": "SK02P3471",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "56fea101b03ae872149c0216a28ce54d67f08b5a46f8f8820f20247952648a1e"
+    },
+    {
+      "filename": "TN_TN1_crop.jpg",
+      "height": 16,
+      "width": 55,
+      "aspect_ratio": 3.44,
+      "ground_truth": "TN63BV7954",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "910264137f729520fd1b905412f44b9a51da1920242671eb42f2e96046e293ef"
+    },
+    {
+      "filename": "TR_TR4_crop.jpg",
+      "height": 15,
+      "width": 62,
+      "aspect_ratio": 4.13,
+      "ground_truth": "TR01N0481",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "b670bcae65619d5b1ffaae7a2e6ccce112b58d7b1a9fef33581c9f6f86f31f11"
+    },
+    {
+      "filename": "TR_TR9_crop.jpg",
+      "height": 24,
+      "width": 83,
+      "aspect_ratio": 3.46,
+      "ground_truth": "TR01AS0609",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "3d51c9ecfbf804cf27c159d8298452bed00c583479a46aa1af062cd71f69533f"
+    },
+    {
+      "filename": "TS_TS14_crop.jpg",
+      "height": 17,
+      "width": 74,
+      "aspect_ratio": 4.35,
+      "ground_truth": "TS36H6578",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "b438480018a2956aedf2a80831ab31d46e05c428e6d4d175e51029e0e27d4e22"
+    },
+    {
+      "filename": "TS_TS1_crop.jpg",
+      "height": 20,
+      "width": 94,
+      "aspect_ratio": 4.7,
+      "ground_truth": "TS08FQ1262",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "7bf66630c978f458d2f9e925f78e62a82e2f36c07b4d40fd6fb6b020b464025f"
+    },
+    {
+      "filename": "UK_UK5_crop.jpg",
+      "height": 14,
+      "width": 68,
+      "aspect_ratio": 4.86,
+      "ground_truth": "UK106679",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "75f18faec2082ffd01cf2afb2cc9aa0aa6da53e857afa5eb0b6f4f13b1fcd05d"
+    },
+    {
+      "filename": "UP_UP21_crop.jpg",
+      "height": 31,
+      "width": 91,
+      "aspect_ratio": 2.94,
+      "ground_truth": "UP52AH9705",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "fafe45082f2fab873775982f4196a0a06555227ae8b6978be7eda5fe0c84201e"
+    },
+    {
+      "filename": "UP_UP26_crop.jpg",
+      "height": 15,
+      "width": 55,
+      "aspect_ratio": 3.67,
+      "ground_truth": "UP14AX9754",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "e1e25f311031e2436498f694861d31f409b9344fbdfc0306259a84bbfcecbfc6"
+    },
+    {
+      "filename": "UP_UP27_crop.jpg",
+      "height": 22,
+      "width": 68,
+      "aspect_ratio": 3.09,
+      "ground_truth": "UP70ET7816",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "a45242979e7faa9ef0f3281e586e67e976edd9d3d90b86d5fe7a37f8502ef065"
+    },
+    {
+      "filename": "UP_UP28_crop.jpg",
+      "height": 19,
+      "width": 82,
+      "aspect_ratio": 4.32,
+      "ground_truth": "UP32HY6077",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "790b871a115234bf3439f4881319db5b3cca0229a05a102bd4da61b0e55bca8a"
+    },
+    {
+      "filename": "WB_WB18_crop.jpg",
+      "height": 21,
+      "width": 93,
+      "aspect_ratio": 4.43,
+      "ground_truth": "WB06J2192",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "49b2c5283d5e4bd069a441c1b9de269a8141fc475249fea11f6feb4b4e5d78a2"
+    },
+    {
+      "filename": "WB_WB21_crop.jpg",
+      "height": 26,
+      "width": 72,
+      "aspect_ratio": 2.77,
+      "ground_truth": "WB02W9S3S",
+      "split": "training",
+      "source": "State-wise_OLX",
+      "sha256": "2ed2b4970e32d04cb5ed5bbb4cc08f81781f9e1b50838b4b6c5f3d091c9b5867"
+    },
+    {
+      "filename": "WB_WB25_crop.jpg",
+      "height": 23,
+      "width": 47,
+      "aspect_ratio": 2.04,
+      "ground_truth": "WB06H2237",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "ed27657b34bac557d702f936f12871f33202930ae9ae91a40d34cc93e3b8bffa"
+    },
+    {
+      "filename": "WB_WB2_crop.jpg",
+      "height": 25,
+      "width": 104,
+      "aspect_ratio": 4.16,
+      "ground_truth": "WB02M8447",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "c4ff4148d2d3ff3fa9e74402be10e15f6fb4a6e9516b9ee2ed738a02efe8672e"
+    },
+    {
+      "filename": "WB_WB8_crop.jpg",
+      "height": 19,
+      "width": 86,
+      "aspect_ratio": 4.53,
+      "ground_truth": "WB06J4432",
+      "split": "evaluation",
+      "source": "State-wise_OLX",
+      "sha256": "55c6cf800c65cd7a423b8c4ccd9b0add2444ba579ca1f60e379e65f45a30be6b"
+    },
+    {
+      "filename": "google_3f677265-d5fa-439f-be23-feaacce22c49___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_848126147_2_1080x720_nissan-terrano-xl-d-plus-2014-diesel-upload-photos_crop.jpg",
+      "height": 34,
+      "width": 128,
+      "aspect_ratio": 3.76,
+      "ground_truth": "GJ05JH2501",
+      "split": "evaluation",
+      "source": "google_images",
+      "sha256": "ef606471ba71747a31be09914bf842fb3bb37e12f4211a97764417d5b2ff4aac"
+    },
+    {
+      "filename": "google_car-wbs-GJ05JH2501_00000_crop.jpg",
+      "height": 34,
+      "width": 129,
+      "aspect_ratio": 3.79,
+      "ground_truth": "GJ05JH2501",
+      "split": "evaluation",
+      "source": "google_images",
+      "sha256": "db0a0f58232d78656a991141aa7867b4f7d25bdf39d8efd7a3e5a7d4e5c8e6c0"
+    },
+    {
+      "filename": "google_car-wbs-GJ05JH2501_00001_crop.jpg",
+      "height": 33,
+      "width": 118,
+      "aspect_ratio": 3.58,
+      "ground_truth": "GJ05JH2501",
+      "split": "evaluation",
+      "source": "google_images",
+      "sha256": "794a434bf701c1effb25f304c7182f721d34d9fcf6d50e2e76449095457673be"
+    },
+    {
+      "filename": "google_f94e9bcf-ec4a-418a-8685-14b71b82a039___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_848126147_1_1080x720_nissan-terrano-xl-d-plus-2014-diesel-surat_crop.jpg",
+      "height": 30,
+      "width": 115,
+      "aspect_ratio": 3.83,
+      "ground_truth": "GJ05JH2501",
+      "split": "evaluation",
+      "source": "google_images",
+      "sha256": "e98e27c928525cb8374a0c5853e306aef49b2c494211c1447f8b24f71f330060"
+    },
+    {
+      "filename": "google_72894c2b-5999-4d87-baa4-e3507548e011___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_847602356_1_1080x720_nissan-terrano-xl-d-2014-diesel-bilaspur_crop.jpg",
+      "height": 76,
+      "width": 106,
+      "aspect_ratio": 1.39,
+      "ground_truth": "CG10S0650",
+      "split": "evaluation",
+      "source": "google_images",
+      "sha256": "01dc3d405c162be3ac1da5906750d6d928287b06436a3f7fcb9c4a906af6a586"
+    },
+    {
+      "filename": "google_car-wbs-CH01AN0001_00000_crop.jpg",
+      "height": 41,
+      "width": 142,
+      "aspect_ratio": 3.46,
+      "ground_truth": "CH01AN0001",
+      "split": "evaluation",
+      "source": "google_images",
+      "sha256": "3b0131b2a2e31601b7bba22918a2a37f0c7ff6f5946ef7e8b3db47815214b346"
+    },
+    {
+      "filename": "google_car-wbs-HR26AZ5927_00000_crop.jpg",
+      "height": 19,
+      "width": 80,
+      "aspect_ratio": 4.21,
+      "ground_truth": "HR26AZ5927",
+      "split": "evaluation",
+      "source": "google_images",
+      "sha256": "7777efade97b3d89a2e7329cebc9308ced410f431da1746e0f7e3a282e2f5183"
+    },
+    {
+      "filename": "google_car-wbs-HR26BU0380_00000_crop.jpg",
+      "height": 17,
+      "width": 63,
+      "aspect_ratio": 3.71,
+      "ground_truth": "HR26BU0380",
+      "split": "evaluation",
+      "source": "google_images",
+      "sha256": "2fc67f567281b5b22cae7a4563a8b5bfd306803e07859745f852e2c4bc84a74d"
+    },
+    {
+      "filename": "google_car-wbs-KA05MG1909_00000_crop.jpg",
+      "height": 89,
+      "width": 200,
+      "aspect_ratio": 2.25,
+      "ground_truth": "KA05MG1909",
+      "split": "training",
+      "source": "google_images",
+      "sha256": "ed0510b2336f357682feca717c138e68f7365bb9ae74d43ad2e13adcfe1674d5"
+    },
+    {
+      "filename": "google_car-wbs-KL54A2670_00000_crop.jpg",
+      "height": 26,
+      "width": 96,
+      "aspect_ratio": 3.69,
+      "ground_truth": "KL54A2670",
+      "split": "training",
+      "source": "google_images",
+      "sha256": "3a1a82b86bfa4992e167f5712e8d479b16ac1a7737dcbef0983e270652a4d1c6"
+    },
+    {
+      "filename": "google_car-wbs-MH15BD8877_00000_crop.jpg",
+      "height": 28,
+      "width": 104,
+      "aspect_ratio": 3.71,
+      "ground_truth": "MH15BD8877",
+      "split": "training",
+      "source": "google_images",
+      "sha256": "9d959c0bfcb81b5d1795917127550cff99acc800e92e9bf466bad05e2498b7cd"
+    },
+    {
+      "filename": "hf_image_0005.jpg",
+      "height": 3000,
+      "width": 4000,
+      "aspect_ratio": 1.33,
+      "ground_truth": "IMAGE_0005",
+      "split": "additional",
+      "source": "HuggingFace_Datacluster",
+      "sha256": "44fac57f9eeb1590bd06a1604412143d8240f20d2b66a26196f58aa1f4292418"
+    },
+    {
+      "filename": "hf_image_0006.jpg",
+      "height": 3000,
+      "width": 4000,
+      "aspect_ratio": 1.33,
+      "ground_truth": "IMAGE_0006",
+      "split": "additional",
+      "source": "HuggingFace_Datacluster",
+      "sha256": "34d05fd4d18f21a2055d6a9e2018c6b183296fd95bc35378d8a4660c21195e82"
+    },
+    {
+      "filename": "hf_image_0020.jpg",
+      "height": 3264,
+      "width": 2448,
+      "aspect_ratio": 0.75,
+      "ground_truth": "IMAGE_0020",
+      "split": "additional",
+      "source": "HuggingFace_Datacluster",
+      "sha256": "3b6687b4e58998b2660c7a95e750bfb7c642b50acb09f3e286ba2baf56f5c2bf"
+    },
+    {
+      "filename": "hf_image_0029.jpg",
+      "height": 3024,
+      "width": 4032,
+      "aspect_ratio": 1.33,
+      "ground_truth": "IMAGE_0029",
+      "split": "additional",
+      "source": "HuggingFace_Datacluster",
+      "sha256": "829918de873e194662d057c28e6bcc6970f82b0212ea931eab909421dea24129"
+    },
+    {
+      "filename": "hf_image_0034.jpg",
+      "height": 4000,
+      "width": 3000,
+      "aspect_ratio": 0.75,
+      "ground_truth": "IMAGE_0034",
+      "split": "additional",
+      "source": "HuggingFace_Datacluster",
+      "sha256": "b3a0fed20deb72f8f0e47e74592eb7022d497867726e59abdd142a6b7cf417ad"
+    },
+    {
+      "filename": "hf_image_0037.jpg",
+      "height": 4160,
+      "width": 3120,
+      "aspect_ratio": 0.75,
+      "ground_truth": "IMAGE_0037",
+      "split": "additional",
+      "source": "HuggingFace_Datacluster",
+      "sha256": "1cc95a5cb66b782209a858c5e4d343b63b37425a84aed43846d25c5c271de9eb"
+    },
+    {
+      "filename": "hf_image_0041.jpg",
+      "height": 3264,
+      "width": 2448,
+      "aspect_ratio": 0.75,
+      "ground_truth": "IMAGE_0041",
+      "split": "additional",
+      "source": "HuggingFace_Datacluster",
+      "sha256": "a973d158c5918ee9cd455e7d7003f018387c8e34d3529784c63ad8a9d4b4eb49"
+    },
+    {
+      "filename": "hf_image_0046.jpg",
+      "height": 4160,
+      "width": 3120,
+      "aspect_ratio": 0.75,
+      "ground_truth": "IMAGE_0046",
+      "split": "additional",
+      "source": "HuggingFace_Datacluster",
+      "sha256": "9b044bcd3f30b8f559261af4265b1edcece6de13c69b33435562770a2d515a66"
+    }
+  ]
+}

@@ -1,0 +1,3373 @@
+{
+  "error_analysis": {
+    "no_ocr": [
+      {
+        "image_path": "outputs\\results\\plate_crops\\CAM_01_frame10_track42_20260825_224223_165198.jpg",
+        "ground_truth": "TS08UC5571",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AN\\AN10.jpg",
+        "ground_truth": "AN01K9412",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP12.jpg",
+        "ground_truth": "AP310U7562",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP23.jpg",
+        "ground_truth": "AP39DL3537",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP42.jpg",
+        "ground_truth": "AP31TV6847",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AR\\AR3.jpg",
+        "ground_truth": "AR169723",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AR\\AR7.jpg",
+        "ground_truth": "AR02A7116",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS15.jpg",
+        "ground_truth": "AS01BF9673",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS18.jpg",
+        "ground_truth": "AS04P4549",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS6.jpg",
+        "ground_truth": "AS12S6951",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS8.jpg",
+        "ground_truth": "AS01AM1419",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\BR\\BR14.jpg",
+        "ground_truth": "BR01BL6628",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\BR\\BR3.jpg",
+        "ground_truth": "BR01AZ6290",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CG\\CG16.jpg",
+        "ground_truth": "CG07R2684",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CG\\CG19.jpg",
+        "ground_truth": "CG07MA7848",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CH\\CH1.jpg",
+        "ground_truth": "CH01BQ5604",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CH\\CH5.jpg",
+        "ground_truth": "CH01AP4538",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CH\\CH8.jpg",
+        "ground_truth": "CH01A09331",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL25.jpg",
+        "ground_truth": "DL9C0S1537",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL30.jpg",
+        "ground_truth": "DL10C05520",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL32.jpg",
+        "ground_truth": "DL2CAR0108",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DN\\DN2.jpg",
+        "ground_truth": "DN09J1548",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HP\\HP12.jpg",
+        "ground_truth": "HP36E3330",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HP\\HP18.jpg",
+        "ground_truth": "HP24C8D32",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HP\\HP6.jpg",
+        "ground_truth": "HP01A7630",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JH\\JH1.jpg",
+        "ground_truth": "JH01Z3792",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK26.jpg",
+        "ground_truth": "JK02AG2454",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK32.jpg",
+        "ground_truth": "JK13C4452",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KA\\KA18.jpg",
+        "ground_truth": "KA04MK312",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KA\\KA20.jpg",
+        "ground_truth": "KA19MF1763",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KL\\KL19.jpg",
+        "ground_truth": "KL43D4389",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KL\\KL3.jpg",
+        "ground_truth": "KL02AF6723",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KL\\KL7.jpg",
+        "ground_truth": "KL41M93",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MH\\MH2.jpg",
+        "ground_truth": "MH48AK2798",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MH\\MH4.jpg",
+        "ground_truth": "MH12MF6822",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MH\\MH7.jpg",
+        "ground_truth": "MH12KY6921",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML16.jpg",
+        "ground_truth": "ML133317",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML5.jpg",
+        "ground_truth": "ML05D0571",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MN\\MN6.jpg",
+        "ground_truth": "MN01K5346",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\OD\\OD18.jpg",
+        "ground_truth": "OD22J9911",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\OD\\OD22.jpg",
+        "ground_truth": "OR05AC0422",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB13.jpg",
+        "ground_truth": "PB08DT7342",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB24.jpg",
+        "ground_truth": "PB02DY7380",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB25.jpg",
+        "ground_truth": "PB10CK5005",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PY\\PY14.jpg",
+        "ground_truth": "PY01CV2447",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TN\\TN2.jpg",
+        "ground_truth": "TN76V1978",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TR\\TR7.jpg",
+        "ground_truth": "TR03F0375",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TS\\TS5.jpg",
+        "ground_truth": "TS09EA4088",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UK\\UK9.jpg",
+        "ground_truth": "UK06J3953",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UP\\UP27.jpg",
+        "ground_truth": "UP70ET7816",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UP\\UP8.jpg",
+        "ground_truth": "UP16AJ0704",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB13.jpg",
+        "ground_truth": "WB26K2760",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\868b996f-1f40-47ca-8222-b0f2750d7010___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_nissan-terrano-left-side-view.jpg",
+        "ground_truth": "AS23M1264",
+        "ocr_result": null,
+        "confidence": 0.0
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\fbb2b3ed-4db1-4d4c-8d4d-4b80b02bfd2a___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_01640f5edbbfb564a9ab6486b31d1554_large.jpg",
+        "ground_truth": "RJ09C84382",
+        "ocr_result": null,
+        "confidence": 0.0
+      }
+    ],
+    "length_error": [
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AN\\AN6.jpg",
+        "ground_truth": "AN01H1689",
+        "ocr_result": "PANO1H1689",
+        "confidence": 0.826
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP10.jpg",
+        "ground_truth": "AP39E1493",
+        "ocr_result": "COOODDDFUSIONAP39E1493",
+        "confidence": 0.83
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP40.jpg",
+        "ground_truth": "AP04BA4464",
+        "ocr_result": "AP04A446",
+        "confidence": 0.889
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP43.jpg",
+        "ground_truth": "AP31BG7827",
+        "ocr_result": "AMOMEVNWARAP318G7827",
+        "confidence": 0.706
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP8.jpg",
+        "ground_truth": "AP16DP7065",
+        "ocr_result": "FAP160P7065",
+        "confidence": 0.942
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AR\\AR12.jpg",
+        "ground_truth": "AR118724",
+        "ocr_result": "87E4",
+        "confidence": 0.631
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AR\\AR2.jpg",
+        "ground_truth": "AR01F2523",
+        "ocr_result": "FARO1F2523",
+        "confidence": 0.896
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS11.jpg",
+        "ground_truth": "AS01DS7523",
+        "ocr_result": "050105752",
+        "confidence": 0.724
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS17.jpg",
+        "ground_truth": "AS01AR1986",
+        "ocr_result": "FA501AR1986",
+        "confidence": 0.977
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS23.jpg",
+        "ground_truth": "AS19D9919",
+        "ocr_result": "PAS19D9919",
+        "confidence": 0.984
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\BR\\BR12.jpg",
+        "ground_truth": "BR03PA3803",
+        "ocr_result": "ARO3PA58O",
+        "confidence": 0.661
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CG\\CG11.jpg",
+        "ground_truth": "CG04HA4553",
+        "ocr_result": "CG94MA55",
+        "confidence": 0.72
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CG\\CG14.jpg",
+        "ground_truth": "CG09JA2359",
+        "ocr_result": "SOLEROC09JA235",
+        "confidence": 0.872
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CG\\CG20.jpg",
+        "ground_truth": "CG251612",
+        "ocr_result": "161",
+        "confidence": 0.943
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CG\\CG6.jpg",
+        "ground_truth": "CG22AB1111",
+        "ocr_result": "CG224811",
+        "confidence": 0.75
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CH\\CH2.jpg",
+        "ground_truth": "CH01BL3528",
+        "ocr_result": "FCHO1BL3528",
+        "confidence": 0.891
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL28.jpg",
+        "ground_truth": "DL40NA7238",
+        "ocr_result": "DL4NA723",
+        "confidence": 0.943
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL31.jpg",
+        "ground_truth": "DL8CNA1596",
+        "ocr_result": "DLBCNASSP",
+        "confidence": 0.703
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL4.jpg",
+        "ground_truth": "DL9CAU5573",
+        "ocr_result": "FDL9CAU5573",
+        "confidence": 0.905
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GA\\GA11.jpg",
+        "ground_truth": "GA03P2839",
+        "ocr_result": "AG3P2839",
+        "confidence": 0.803
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ1.jpg",
+        "ground_truth": "GJ7AG4373",
+        "ocr_result": "NISIGOUGJ7AG4373",
+        "confidence": 0.835
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ25.jpg",
+        "ground_truth": "GJ01HM5887",
+        "ocr_result": "FGJO1HM5887",
+        "confidence": 0.818
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ28.jpg",
+        "ground_truth": "GJ05JB6589",
+        "ocr_result": "FGJ05J86589",
+        "confidence": 0.901
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ5.jpg",
+        "ground_truth": "GJ1SCG7928",
+        "ocr_result": "5CG7928",
+        "confidence": 0.828
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ7.jpg",
+        "ground_truth": "GJ34B9811",
+        "ocr_result": "GJ34898",
+        "confidence": 0.928
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HP\\HP15.jpg",
+        "ground_truth": "HP22E8000",
+        "ocr_result": "AUTOTERRACEHP22E8000",
+        "confidence": 0.885
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HP\\HP16.jpg",
+        "ground_truth": "HP302165",
+        "ocr_result": "30216S",
+        "confidence": 0.784
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HP\\HP20.jpg",
+        "ground_truth": "HP2020TR6255G",
+        "ocr_result": "2206255",
+        "confidence": 0.585
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HP\\HP3.jpg",
+        "ground_truth": "HP666807",
+        "ocr_result": "2196192HP666807",
+        "confidence": 0.854
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HP\\HP4.jpg",
+        "ground_truth": "HP48B2252",
+        "ocr_result": "4882252",
+        "confidence": 0.91
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HR\\HR12.jpg",
+        "ground_truth": "HR29R9466",
+        "ocr_result": "R293483",
+        "confidence": 0.718
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HR\\HR16.jpg",
+        "ground_truth": "HR56B2626",
+        "ocr_result": "HR56826",
+        "confidence": 0.985
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HR\\HR22.jpg",
+        "ground_truth": "HR09G8378",
+        "ocr_result": "R09G8378",
+        "confidence": 0.871
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HR\\HR6.jpg",
+        "ground_truth": "HR26DJ8832",
+        "ocr_result": "FHR260J8832",
+        "confidence": 0.928
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HR\\HR7.jpg",
+        "ground_truth": "HR01W0080",
+        "ocr_result": "HR010080",
+        "confidence": 0.919
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JH\\JH5.jpg",
+        "ground_truth": "JH09AA2570",
+        "ocr_result": "AA270",
+        "confidence": 0.687
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK1.jpg",
+        "ground_truth": "JK02BF5058",
+        "ocr_result": "FJK028F5058",
+        "confidence": 0.935
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK14.jpg",
+        "ground_truth": "JK11D8143",
+        "ocr_result": "PJK11D8143",
+        "confidence": 0.936
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK16.jpg",
+        "ground_truth": "JK09B7745",
+        "ocr_result": "PJK09B7745",
+        "confidence": 0.9
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK20.jpg",
+        "ground_truth": "JK02BJ4045",
+        "ocr_result": "028J4045",
+        "confidence": 0.927
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK6.jpg",
+        "ground_truth": "JK01R8021",
+        "ocr_result": "JKO1R802",
+        "confidence": 0.933
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KA\\KA23.jpg",
+        "ground_truth": "KA51ML4025",
+        "ocr_result": "KA514025",
+        "confidence": 0.811
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KA\\KA7.jpg",
+        "ground_truth": "KA51P7755",
+        "ocr_result": "KA51P775",
+        "confidence": 0.792
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KA\\KA9.jpg",
+        "ground_truth": "KA01MB9714",
+        "ocr_result": "KA0189714",
+        "confidence": 0.84
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KL\\KL10.jpg",
+        "ground_truth": "KL45C4411",
+        "ocr_result": "KL45C4",
+        "confidence": 0.72
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KL\\KL11.jpg",
+        "ground_truth": "KL0BBJ5001",
+        "ocr_result": "LOBBJ5O",
+        "confidence": 0.656
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KL\\KL5.jpg",
+        "ground_truth": "KL34A7564",
+        "ocr_result": "K34A7564",
+        "confidence": 0.817
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KL\\KL6.jpg",
+        "ground_truth": "KL46R3613",
+        "ocr_result": "KL46A36",
+        "confidence": 0.661
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MH\\MH11.jpg",
+        "ground_truth": "MH36H5700",
+        "ocr_result": "H36H5700",
+        "confidence": 0.87
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MH\\MH14.jpg",
+        "ground_truth": "MH43X8997",
+        "ocr_result": "668X7HW",
+        "confidence": 0.671
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MH\\MH22.jpg",
+        "ground_truth": "MH05CH1754",
+        "ocr_result": "05CH754",
+        "confidence": 0.841
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML10.jpg",
+        "ground_truth": "ML06A1659",
+        "ocr_result": "L06A1659",
+        "confidence": 0.902
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML11.jpg",
+        "ground_truth": "ML05L1434",
+        "ocr_result": "PMLO5L1434",
+        "confidence": 0.852
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML2.jpg",
+        "ground_truth": "ML05Q8790",
+        "ocr_result": "1ML05Q8790",
+        "confidence": 0.778
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML21.jpg",
+        "ground_truth": "ML05J3288",
+        "ocr_result": "053288",
+        "confidence": 0.963
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML22.jpg",
+        "ground_truth": "ML1032811",
+        "ocr_result": "MC102811",
+        "confidence": 0.803
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML36.jpg",
+        "ground_truth": "ML08B1100",
+        "ocr_result": "L0881100",
+        "confidence": 0.864
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML37.jpg",
+        "ground_truth": "ML08E9223",
+        "ocr_result": "L08E9223",
+        "confidence": 0.715
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\NL\\NL2.jpg",
+        "ground_truth": "NL01CB433",
+        "ocr_result": "ENL01CB433",
+        "confidence": 0.746
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\NL\\NL3.jpg",
+        "ground_truth": "NL078440",
+        "ocr_result": "FNL078440",
+        "confidence": 0.812
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\OD\\OD10.jpg",
+        "ground_truth": "OD05K6964",
+        "ocr_result": "D05K6964",
+        "confidence": 0.979
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\OD\\OD11.jpg",
+        "ground_truth": "OR02BV0701",
+        "ocr_result": "RENAI02BV070",
+        "confidence": 0.831
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\OD\\OD17.jpg",
+        "ground_truth": "OD14B7432",
+        "ocr_result": "01487432",
+        "confidence": 0.719
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\OD\\OD20.jpg",
+        "ground_truth": "OD01Q4668",
+        "ocr_result": "OD01Q406",
+        "confidence": 0.818
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\OD\\OD3.jpg",
+        "ground_truth": "OD02V0007",
+        "ocr_result": "00020007",
+        "confidence": 0.762
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB15.jpg",
+        "ground_truth": "PB30L5010",
+        "ocr_result": "PP830L5010",
+        "confidence": 0.936
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB22.jpg",
+        "ground_truth": "PB06AN6162",
+        "ocr_result": "FP806AN6162",
+        "confidence": 0.895
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB23.jpg",
+        "ground_truth": "PB02CC7299",
+        "ocr_result": "02C7299",
+        "confidence": 0.818
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB5.jpg",
+        "ground_truth": "PB2313752",
+        "ocr_result": "27213752",
+        "confidence": 0.511
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB6.jpg",
+        "ground_truth": "PB13AF6756",
+        "ocr_result": "SP813AF6756",
+        "confidence": 0.909
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB9.jpg",
+        "ground_truth": "PB35F9333",
+        "ocr_result": "FP835F9333",
+        "confidence": 0.84
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PY\\PY18.jpg",
+        "ground_truth": "PY02L4602",
+        "ocr_result": "021460",
+        "confidence": 0.781
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PY\\PY4.jpg",
+        "ground_truth": "PY02S7828",
+        "ocr_result": "EPY02S7828",
+        "confidence": 0.917
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\RJ\\RJ6.jpg",
+        "ground_truth": "RJ23CB2272",
+        "ocr_result": "FRJ23C82272",
+        "confidence": 0.913
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\SK\\SK12.jpg",
+        "ground_truth": "SK01T3835",
+        "ocr_result": "ESK0173835",
+        "confidence": 0.868
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\SK\\SK2.jpg",
+        "ground_truth": "SK01T3794",
+        "ocr_result": "FSK01T3794",
+        "confidence": 0.931
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\SK\\SK4.jpg",
+        "ground_truth": "SK01PA4521",
+        "ocr_result": "SKO1PA452",
+        "confidence": 0.788
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TN\\TN1.jpg",
+        "ground_truth": "TN63BV7954",
+        "ocr_result": "TN6387954",
+        "confidence": 0.925
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TN\\TN8.jpg",
+        "ground_truth": "TN07AP0659",
+        "ocr_result": "TN7AP0659",
+        "confidence": 0.922
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TR\\TR8.jpg",
+        "ground_truth": "TR01E2157",
+        "ocr_result": "ROIE2157",
+        "confidence": 0.866
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UP\\UP1.jpg",
+        "ground_truth": "UP57H8173",
+        "ocr_result": "INDIGOCUP57H8173",
+        "confidence": 0.926
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UP\\UP11.jpg",
+        "ground_truth": "UP53AK1161",
+        "ocr_result": "P53AK1161",
+        "confidence": 0.907
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UP\\UP22.jpg",
+        "ground_truth": "UP11AY0646",
+        "ocr_result": "UP11",
+        "confidence": 0.53
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UP\\UP23.jpg",
+        "ground_truth": "UP78ED0449",
+        "ocr_result": "P78D0449",
+        "confidence": 0.857
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB15.jpg",
+        "ground_truth": "WB12AX2987",
+        "ocr_result": "FW812AX2987",
+        "confidence": 0.947
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB16.jpg",
+        "ground_truth": "WB06J9177",
+        "ocr_result": "806J9177",
+        "confidence": 0.939
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB18.jpg",
+        "ground_truth": "WB06J2192",
+        "ocr_result": "B06J2197",
+        "confidence": 0.874
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB22.jpg",
+        "ground_truth": "WB20H0271",
+        "ocr_result": "B20H0271",
+        "confidence": 0.907
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB25.jpg",
+        "ground_truth": "WB06H2237",
+        "ocr_result": "306H2237",
+        "confidence": 0.768
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB3.jpg",
+        "ground_truth": "WB70G3763",
+        "ocr_result": "B70G3763",
+        "confidence": 0.893
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB8.jpg",
+        "ground_truth": "WB06J4432",
+        "ocr_result": "B06J4432",
+        "confidence": 0.928
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\018b52e6-e9a1-42c2-8ce7-0617e8c8e021___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_sbtb02_auto1.jpg",
+        "ground_truth": "RJ27TC0530",
+        "ocr_result": "R27TC0530",
+        "confidence": 0.935
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\092c497e-623d-499d-822a-4b01c657389b___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_nissan-terrano-rear-left-rim.jpg",
+        "ground_truth": "KL63C8800",
+        "ocr_result": "919656562222",
+        "confidence": 0.997
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\369ccb4b-88fe-4e97-91c1-3838da2b7563___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Honda-Jazz-Number-Plates-Designs.jpg",
+        "ground_truth": "TN42R2697",
+        "ocr_result": "SKRESALTN42R692CARSACCESSORIESIN",
+        "confidence": 0.9
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\730a2f83-cd53-4943-8922-af9d4fcad415___new_2.jpg",
+        "ground_truth": "DL1N4268",
+        "ocr_result": "3800DL1N4268",
+        "confidence": 0.868
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\b79f870d-15c7-48e3-8874-7c0e53e29f75___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_754eab882b8290b29a0454dd45580a39_555X416_1 - Copy (2).jpg",
+        "ground_truth": "HR26CP3135",
+        "ocr_result": "26CP313",
+        "confidence": 0.923
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\b79f870d-15c7-48e3-8874-7c0e53e29f75___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_754eab882b8290b29a0454dd45580a39_555X416_1 - Copy (3).jpg",
+        "ground_truth": "CRETA",
+        "ocr_result": "CRTA",
+        "confidence": 0.782
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\bdad5f66-70ad-4241-9a62-bba1123c3486___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_1447945d1449508546t-my-nissan-terrano-85-ps-_img_000000_000000.jpg",
+        "ground_truth": "KA05MQ92",
+        "ocr_result": "KA05M2TEAMBHPCOMJPEG",
+        "confidence": 0.847
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\f5bbb8da-dddd-47ae-a46c-15492f9cf752___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_10187746544_0c0822790e.jpg",
+        "ground_truth": "blur",
+        "ocr_result": "MOTORBEAMCAM",
+        "confidence": 0.957
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\fda5760a-c6ff-43a9-8ce7-61e808f109ea___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_nissan_terrano_ii_nissan_terrano_ii_2_7_tdi_se_4x4_3330085523722771900.jpg",
+        "ground_truth": "HD02NP0",
+        "ocr_result": "FORSALEHD02NPO",
+        "confidence": 0.935
+      }
+    ],
+    "substitution_error": [
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AN\\AN2.jpg",
+        "ground_truth": "AN01D4163",
+        "ocr_result": "ANO104163",
+        "confidence": 0.805
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP16.jpg",
+        "ground_truth": "AP39GR3492",
+        "ocr_result": "AP39689492",
+        "confidence": 0.894
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP29.jpg",
+        "ground_truth": "AP31DF2833",
+        "ocr_result": "AP31DF2883",
+        "confidence": 0.87
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP30.jpg",
+        "ground_truth": "AP31DT9378",
+        "ocr_result": "AP310T9378",
+        "confidence": 0.979
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP33.jpg",
+        "ground_truth": "AP31DA0020",
+        "ocr_result": "AP310A0020",
+        "confidence": 0.968
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP39.jpg",
+        "ground_truth": "AP05DY3395",
+        "ocr_result": "AP050Y3395",
+        "confidence": 0.944
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS13.jpg",
+        "ground_truth": "AS25S6858",
+        "ocr_result": "AS2536858",
+        "confidence": 0.814
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS20.jpg",
+        "ground_truth": "AS01AT8119",
+        "ocr_result": "AS61AT8119",
+        "confidence": 0.87
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS26.jpg",
+        "ground_truth": "AS06Z0841",
+        "ocr_result": "1P80Z90SV",
+        "confidence": 0.721
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS7.jpg",
+        "ground_truth": "AS06Q4437",
+        "ocr_result": "AS0604437",
+        "confidence": 0.962
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\BR\\BR17.jpg",
+        "ground_truth": "BF06P00006",
+        "ocr_result": "BR06PO0006",
+        "confidence": 0.784
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\BR\\BR8.jpg",
+        "ground_truth": "BR01DG6692",
+        "ocr_result": "8R01066692",
+        "confidence": 0.842
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\BR\\BR9.jpg",
+        "ground_truth": "BR01AW1250",
+        "ocr_result": "EBROTANI2S",
+        "confidence": 0.757
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL34.jpg",
+        "ground_truth": "DL8CNA5085",
+        "ocr_result": "OL8CNA5085",
+        "confidence": 0.818
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL38.jpg",
+        "ground_truth": "DL4CAQ3231",
+        "ocr_result": "DL4CA03231",
+        "confidence": 0.88
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL9.jpg",
+        "ground_truth": "DL2CH8634",
+        "ocr_result": "OL2CH8634",
+        "confidence": 0.89
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DN\\DN6.jpg",
+        "ground_truth": "DN0901438",
+        "ocr_result": "DN0901430",
+        "confidence": 0.891
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ14.jpg",
+        "ground_truth": "GJ06DG9355",
+        "ocr_result": "GJ060G9355",
+        "confidence": 0.976
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ17.jpg",
+        "ground_truth": "GJ06DQ3712",
+        "ocr_result": "GJ06003712",
+        "confidence": 0.891
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ21.jpg",
+        "ground_truth": "GJ12CG2526",
+        "ocr_result": "6J12062526",
+        "confidence": 0.87
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ22.jpg",
+        "ground_truth": "GJ18BD5216",
+        "ocr_result": "GJ18805216",
+        "confidence": 0.939
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HR\\HR19.jpg",
+        "ground_truth": "HR29AQ4939",
+        "ocr_result": "HR29A04939",
+        "confidence": 0.947
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JH\\JH3.jpg",
+        "ground_truth": "JH01DB1881",
+        "ocr_result": "JH010B1881",
+        "confidence": 0.927
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK24.jpg",
+        "ground_truth": "JK02BN3088",
+        "ocr_result": "JK028K3088",
+        "confidence": 0.837
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK28.jpg",
+        "ground_truth": "JK10A5217",
+        "ocr_result": "JK10A5213",
+        "confidence": 0.896
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK30.jpg",
+        "ground_truth": "JK02ACB876",
+        "ocr_result": "JK02AC0876",
+        "confidence": 0.842
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KA\\KA1.jpg",
+        "ground_truth": "KA03MQ6984",
+        "ocr_result": "KA03MO6984",
+        "confidence": 0.843
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KL\\KL15.jpg",
+        "ground_truth": "KL43G6619",
+        "ocr_result": "XL4366619",
+        "confidence": 0.864
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KL\\KL4.jpg",
+        "ground_truth": "KL27D9809",
+        "ocr_result": "KL2709809",
+        "confidence": 0.949
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KL\\KL9.jpg",
+        "ground_truth": "KL16U8863",
+        "ocr_result": "KL1608863",
+        "confidence": 0.951
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MH\\MH1.jpg",
+        "ground_truth": "MH06AB8620",
+        "ocr_result": "MH06AB8630",
+        "confidence": 0.831
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MH\\MH10.jpg",
+        "ground_truth": "MH11CQ8516",
+        "ocr_result": "MH11C08516",
+        "confidence": 0.957
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MH\\MH15.jpg",
+        "ground_truth": "MH05EQ4066",
+        "ocr_result": "MHO5E04066",
+        "confidence": 0.91
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML14.jpg",
+        "ground_truth": "ML10B9308",
+        "ocr_result": "HL1089308",
+        "confidence": 0.902
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML34.jpg",
+        "ground_truth": "ML05H6564",
+        "ocr_result": "HL05H6564",
+        "confidence": 0.918
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MP\\MP7.jpg",
+        "ground_truth": "MP09BD1270",
+        "ocr_result": "MP09801270",
+        "confidence": 0.904
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\NL\\NL7.jpg",
+        "ground_truth": "NL01T8152",
+        "ocr_result": "RL0178152",
+        "confidence": 0.663
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\OD\\OD27.jpg",
+        "ground_truth": "OD25F7400",
+        "ocr_result": "0025F7400",
+        "confidence": 0.892
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB19.jpg",
+        "ground_truth": "PB10CX0209",
+        "ocr_result": "PB100X0209",
+        "confidence": 0.847
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PY\\PY16.jpg",
+        "ground_truth": "PY01BU2406",
+        "ocr_result": "PY01BU2408",
+        "confidence": 0.866
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\SK\\SK13.jpg",
+        "ground_truth": "SK05T0338",
+        "ocr_result": "SK0510338",
+        "confidence": 0.788
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TN\\TN10.jpg",
+        "ground_truth": "TN69AJ4455",
+        "ocr_result": "TN69A34455",
+        "confidence": 0.947
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TS\\TS1.jpg",
+        "ground_truth": "TS08FQ1262",
+        "ocr_result": "TS08F01262",
+        "confidence": 0.956
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TS\\TS2.jpg",
+        "ground_truth": "TS07EL3335",
+        "ocr_result": "IS02EL3335",
+        "confidence": 0.9
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TS\\TS9.jpg",
+        "ground_truth": "TS21J8351",
+        "ocr_result": "TS2138351",
+        "confidence": 0.893
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UK\\UK6.jpg",
+        "ground_truth": "UK07055789",
+        "ocr_result": "LK07055709",
+        "confidence": 0.798
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UK\\UK8.jpg",
+        "ground_truth": "UK07BK5014",
+        "ocr_result": "UX07BK5014",
+        "confidence": 0.904
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UP\\UP26.jpg",
+        "ground_truth": "UP14AX9754",
+        "ocr_result": "UP44AX9754",
+        "confidence": 0.906
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB26.jpg",
+        "ground_truth": "WB02A03017",
+        "ocr_result": "M8O2AD3017",
+        "confidence": 0.609
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB9.jpg",
+        "ground_truth": "WB02AA5580",
+        "ocr_result": "M802AA5580",
+        "confidence": 0.782
+      }
+    ],
+    "confusion": [
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AN\\AN4.jpg",
+        "ground_truth": "AN01M4M",
+        "ocr_result": "ANO1MAM",
+        "confidence": 0.824
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP3.jpg",
+        "ground_truth": "AP2D4014",
+        "ocr_result": "AP201014",
+        "confidence": 0.849
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CH\\CH9.jpg",
+        "ground_truth": "CH01AF1382",
+        "ocr_result": "CHOTAF1382",
+        "confidence": 0.906
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL24.jpg",
+        "ground_truth": "DL3CCK8019",
+        "ocr_result": "0L3C0K8019",
+        "confidence": 0.797
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL3.jpg",
+        "ground_truth": "DL8CAU6883",
+        "ocr_result": "0L8CAU6883",
+        "confidence": 0.925
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GA\\GA3.jpg",
+        "ground_truth": "GA01S5594",
+        "ocr_result": "GAOLSSSIY",
+        "confidence": 0.741
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK31.jpg",
+        "ground_truth": "JK03A8042",
+        "ocr_result": "JKO3A804E",
+        "confidence": 0.734
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MH\\MH17.jpg",
+        "ground_truth": "MH01BT7906",
+        "ocr_result": "MH0L8T7906",
+        "confidence": 0.832
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB2.jpg",
+        "ground_truth": "PB04S4253",
+        "ocr_result": "PBOAS4253",
+        "confidence": 0.855
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TS\\TS11.jpg",
+        "ground_truth": "TS08FZ8298",
+        "ocr_result": "TS08F28299",
+        "confidence": 0.817
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TS\\TS6.jpg",
+        "ground_truth": "TS18T3899",
+        "ocr_result": "751813899",
+        "confidence": 0.738
+      }
+    ],
+    "correct": [
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AN\\AN5.jpg",
+        "ground_truth": "AN01L6155",
+        "ocr_result": "AN01L6155",
+        "confidence": 0.932
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP1.jpg",
+        "ground_truth": "AP05BY7799",
+        "ocr_result": "AP058Y7799",
+        "confidence": 0.942
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP13.jpg",
+        "ground_truth": "AP39JJ5441",
+        "ocr_result": "AP39JJ5441",
+        "confidence": 0.966
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP15.jpg",
+        "ground_truth": "AP28AT5333",
+        "ocr_result": "AP28AT5333",
+        "confidence": 0.942
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP18.jpg",
+        "ground_truth": "AP16BS4500",
+        "ocr_result": "AP168S4500",
+        "confidence": 0.928
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP2.jpg",
+        "ground_truth": "AP07AN3915",
+        "ocr_result": "AP07AN3915",
+        "confidence": 0.758
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP20.jpg",
+        "ground_truth": "AP04AS8753",
+        "ocr_result": "AP04AS8753",
+        "confidence": 0.807
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP21.jpg",
+        "ground_truth": "AP31AT5064",
+        "ocr_result": "AP31AT5064",
+        "confidence": 0.97
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP22.jpg",
+        "ground_truth": "AP16CH9545",
+        "ocr_result": "AP16CH9545",
+        "confidence": 0.956
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP24.jpg",
+        "ground_truth": "AP07AD5555",
+        "ocr_result": "AP07AD5555",
+        "confidence": 0.94
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP25.jpg",
+        "ground_truth": "AP26AM1260",
+        "ocr_result": "AP26AM1260",
+        "confidence": 0.99
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP26.jpg",
+        "ground_truth": "AP31BR9501",
+        "ocr_result": "AP31BR9501",
+        "confidence": 0.957
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP27.jpg",
+        "ground_truth": "AP31EF1155",
+        "ocr_result": "AP31EF1155",
+        "confidence": 0.935
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP34.jpg",
+        "ground_truth": "AP37EJ2277",
+        "ocr_result": "AP37EJ2277",
+        "confidence": 0.96
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP4.jpg",
+        "ground_truth": "AP39HZ0087",
+        "ocr_result": "AP39HZ0087",
+        "confidence": 0.894
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP41.jpg",
+        "ground_truth": "AP5CG6320",
+        "ocr_result": "AP5CG6320",
+        "confidence": 0.951
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP44.jpg",
+        "ground_truth": "AP318L4935",
+        "ocr_result": "AP3I8L4935",
+        "confidence": 0.814
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP45.jpg",
+        "ground_truth": "AP31BL2833",
+        "ocr_result": "AP31BL2833",
+        "confidence": 0.803
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP46.jpg",
+        "ground_truth": "AP31CS2511",
+        "ocr_result": "AP31CS2511",
+        "confidence": 0.957
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP5.jpg",
+        "ground_truth": "AP39TP0211",
+        "ocr_result": "AP39TP0211",
+        "confidence": 0.917
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP6.jpg",
+        "ground_truth": "AP31TV7236",
+        "ocr_result": "AP31TV7236",
+        "confidence": 0.928
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AP\\AP7.jpg",
+        "ground_truth": "AP31BL8656",
+        "ocr_result": "AP31BL8656",
+        "confidence": 0.98
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AR\\AR1.jpg",
+        "ground_truth": "AR048395",
+        "ocr_result": "AR048395",
+        "confidence": 0.936
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AR\\AR10.jpg",
+        "ground_truth": "AR152019",
+        "ocr_result": "AR152019",
+        "confidence": 0.847
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AR\\AR13.jpg",
+        "ground_truth": "AR200692",
+        "ocr_result": "AR200692",
+        "confidence": 0.993
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AR\\AR4.jpg",
+        "ground_truth": "AR01C5723",
+        "ocr_result": "AR01C5723",
+        "confidence": 0.963
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AR\\AR6.jpg",
+        "ground_truth": "AR168272",
+        "ocr_result": "AR168272",
+        "confidence": 0.993
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AR\\AR9.jpg",
+        "ground_truth": "AR01E1034",
+        "ocr_result": "AR01E1034",
+        "confidence": 0.896
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS1.jpg",
+        "ground_truth": "AS23H2866",
+        "ocr_result": "AS23H2866",
+        "confidence": 0.877
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS14.jpg",
+        "ground_truth": "AS018P2415",
+        "ocr_result": "A5018P2415",
+        "confidence": 0.913
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS16.jpg",
+        "ground_truth": "AS01AL3746",
+        "ocr_result": "AS01AL3746",
+        "confidence": 0.916
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS19.jpg",
+        "ground_truth": "AS06U1295",
+        "ocr_result": "AS06U1295",
+        "confidence": 0.935
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS2.jpg",
+        "ground_truth": "AS07AC6653",
+        "ocr_result": "AS07AC6653",
+        "confidence": 0.936
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS21.jpg",
+        "ground_truth": "AS23X5585",
+        "ocr_result": "AS23X5585",
+        "confidence": 0.898
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS22.jpg",
+        "ground_truth": "AS01AN8668",
+        "ocr_result": "AS01AN8668",
+        "confidence": 0.96
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS25.jpg",
+        "ground_truth": "AS01BS4362",
+        "ocr_result": "AS018S4362",
+        "confidence": 0.951
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS3.jpg",
+        "ground_truth": "AS23E0596",
+        "ocr_result": "AS23E0596",
+        "confidence": 0.798
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\AS\\AS9.jpg",
+        "ground_truth": "AS04X2780",
+        "ocr_result": "AS04X2780",
+        "confidence": 0.945
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\BR\\BR10.jpg",
+        "ground_truth": "BR32PA6558",
+        "ocr_result": "BR32PA6558",
+        "confidence": 0.987
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\BR\\BR11.jpg",
+        "ground_truth": "BR02AF7424",
+        "ocr_result": "BR02AF7424",
+        "confidence": 0.893
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\BR\\BR13.jpg",
+        "ground_truth": "BR01PL7594",
+        "ocr_result": "BR01PL7594",
+        "confidence": 0.969
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\BR\\BR15.jpg",
+        "ground_truth": "BR01BR5435",
+        "ocr_result": "BR01BR5435",
+        "confidence": 0.957
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\BR\\BR16.jpg",
+        "ground_truth": "BR33M0001",
+        "ocr_result": "BR33M0001",
+        "confidence": 0.845
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\BR\\BR18.jpg",
+        "ground_truth": "BR01BD5042",
+        "ocr_result": "BR01BD5042",
+        "confidence": 0.945
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\BR\\BR5.jpg",
+        "ground_truth": "BR01BE0777",
+        "ocr_result": "BR01BE0777",
+        "confidence": 0.965
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\BR\\BR7.jpg",
+        "ground_truth": "BR44E1206",
+        "ocr_result": "BR44E1206",
+        "confidence": 0.931
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CG\\CG1.jpg",
+        "ground_truth": "CG04HD6930",
+        "ocr_result": "CG04HD6930",
+        "confidence": 0.892
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CG\\CG12.jpg",
+        "ground_truth": "CG12AG1130",
+        "ocr_result": "CG12AG1130",
+        "confidence": 0.988
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CG\\CG13.jpg",
+        "ground_truth": "CG16B1802",
+        "ocr_result": "CG16B1802",
+        "confidence": 0.977
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CG\\CG15.jpg",
+        "ground_truth": "CG07BR3255",
+        "ocr_result": "CG078R3255",
+        "confidence": 0.911
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CG\\CG17.jpg",
+        "ground_truth": "CG07MA2529",
+        "ocr_result": "CG07MA2529",
+        "confidence": 0.867
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CG\\CG18.jpg",
+        "ground_truth": "CG07CA7784",
+        "ocr_result": "CG07CA7784",
+        "confidence": 0.911
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CG\\CG21.jpg",
+        "ground_truth": "CG04FJ5834",
+        "ocr_result": "CG04FJ5834",
+        "confidence": 0.785
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CG\\CG22.jpg",
+        "ground_truth": "CG13AE4060",
+        "ocr_result": "CG13AE4060",
+        "confidence": 0.992
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CG\\CG4.jpg",
+        "ground_truth": "CG04HV7009",
+        "ocr_result": "CG04HV7009",
+        "confidence": 0.986
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CG\\CG8.jpg",
+        "ground_truth": "CG04H5060",
+        "ocr_result": "CG04H5060",
+        "confidence": 0.93
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CG\\CG9.jpg",
+        "ground_truth": "CG04HC4887",
+        "ocr_result": "CG04HC4887",
+        "confidence": 0.876
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CH\\CH3.jpg",
+        "ground_truth": "CH03K7672",
+        "ocr_result": "CH03K7672",
+        "confidence": 0.944
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CH\\CH4.jpg",
+        "ground_truth": "CH01AX9090",
+        "ocr_result": "CH01AX9090",
+        "confidence": 0.915
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CH\\CH6.jpg",
+        "ground_truth": "CH01AZ2642",
+        "ocr_result": "CH01AZ2642",
+        "confidence": 0.961
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\CH\\CH7.jpg",
+        "ground_truth": "CH01AL4920",
+        "ocr_result": "CH01AL4920",
+        "confidence": 0.948
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL1.jpg",
+        "ground_truth": "DL6CJ8404",
+        "ocr_result": "DL6CJ8404",
+        "confidence": 0.941
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL10.jpg",
+        "ground_truth": "DL9CAE1359",
+        "ocr_result": "DL9CAE1359",
+        "confidence": 0.931
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL11.jpg",
+        "ground_truth": "DL9CAP8884",
+        "ocr_result": "DL9CAP8884",
+        "confidence": 0.925
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL12.jpg",
+        "ground_truth": "DL5CH7599",
+        "ocr_result": "DL5CH7599",
+        "confidence": 0.98
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL13.jpg",
+        "ground_truth": "DL12CJ9823",
+        "ocr_result": "DL12CJ9823",
+        "confidence": 0.98
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL14.jpg",
+        "ground_truth": "DL9CAU4743",
+        "ocr_result": "DL9CAU4743",
+        "confidence": 0.965
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL15.jpg",
+        "ground_truth": "DL8CZ7230",
+        "ocr_result": "DL8CZ7230",
+        "confidence": 0.91
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL16.jpg",
+        "ground_truth": "DL9CAV1739",
+        "ocr_result": "DL9CAV1739",
+        "confidence": 0.964
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL18.jpg",
+        "ground_truth": "DL1CS8739",
+        "ocr_result": "DL1CS8739",
+        "confidence": 0.951
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL19.jpg",
+        "ground_truth": "DL1CT2782",
+        "ocr_result": "DL1CT2782",
+        "confidence": 0.964
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL2.jpg",
+        "ground_truth": "DL6CR7002",
+        "ocr_result": "DL6CR7002",
+        "confidence": 0.954
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL20.jpg",
+        "ground_truth": "DL12CL2555",
+        "ocr_result": "DL12CL2555",
+        "confidence": 0.859
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL21.jpg",
+        "ground_truth": "DL12CS7886",
+        "ocr_result": "DL12CS7886",
+        "confidence": 0.954
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL22.jpg",
+        "ground_truth": "DL6CL0457",
+        "ocr_result": "DL6CL0457",
+        "confidence": 0.853
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL23.jpg",
+        "ground_truth": "DL2CAX2886",
+        "ocr_result": "DL2CAX2886",
+        "confidence": 0.939
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL26.jpg",
+        "ground_truth": "DL11CA4900",
+        "ocr_result": "DL11CA4900",
+        "confidence": 0.96
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL29.jpg",
+        "ground_truth": "DL8CAL4134",
+        "ocr_result": "DL8CAL4134",
+        "confidence": 0.896
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL33.jpg",
+        "ground_truth": "DL4CNA7231",
+        "ocr_result": "DL4CNA7231",
+        "confidence": 0.956
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL35.jpg",
+        "ground_truth": "DL3CBS5881",
+        "ocr_result": "DL3CBS5881",
+        "confidence": 0.941
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL5.jpg",
+        "ground_truth": "DL12CN8660",
+        "ocr_result": "DL12CN8660",
+        "confidence": 0.89
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL6.jpg",
+        "ground_truth": "DL4CAM9066",
+        "ocr_result": "DL4CAM9066",
+        "confidence": 0.925
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL7.jpg",
+        "ground_truth": "DL12CK8643",
+        "ocr_result": "DL12CK8643",
+        "confidence": 0.986
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DL\\DL8.jpg",
+        "ground_truth": "DL10CH1252",
+        "ocr_result": "DL10CH1252",
+        "confidence": 0.935
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DN\\DN1.jpg",
+        "ground_truth": "DN09H2191",
+        "ocr_result": "DN09H2191",
+        "confidence": 0.93
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DN\\DN3.jpg",
+        "ground_truth": "DN09H0968",
+        "ocr_result": "DN09H0968",
+        "confidence": 0.903
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\DN\\DN8.jpg",
+        "ground_truth": "DN09C0868",
+        "ocr_result": "DN09C0868",
+        "confidence": 0.85
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GA\\GA1.jpg",
+        "ground_truth": "GA03R9230",
+        "ocr_result": "GA03R9230",
+        "confidence": 0.807
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GA\\GA10.jpg",
+        "ground_truth": "GA01R6315",
+        "ocr_result": "GA01R6315",
+        "confidence": 0.936
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GA\\GA12.jpg",
+        "ground_truth": "GA03Y9512",
+        "ocr_result": "GA03Y9512",
+        "confidence": 0.91
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GA\\GA13.jpg",
+        "ground_truth": "GA07K6090",
+        "ocr_result": "GA07K6090",
+        "confidence": 0.96
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GA\\GA4.jpg",
+        "ground_truth": "GA01C2098",
+        "ocr_result": "GA01C2098",
+        "confidence": 0.941
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GA\\GA5.jpg",
+        "ground_truth": "GA01E5947",
+        "ocr_result": "GA01E5947",
+        "confidence": 0.986
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GA\\GA7.jpg",
+        "ground_truth": "GA07K7150",
+        "ocr_result": "GA07K7150",
+        "confidence": 0.911
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GA\\GA8.jpg",
+        "ground_truth": "GA05B5077",
+        "ocr_result": "GA0585077",
+        "confidence": 0.854
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GA\\GA9.jpg",
+        "ground_truth": "GA06E3855",
+        "ocr_result": "GA06E3855",
+        "confidence": 0.964
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ10.jpg",
+        "ground_truth": "GJ01RA8370",
+        "ocr_result": "GJ01RA8370",
+        "confidence": 0.917
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ12.jpg",
+        "ground_truth": "GJ06PA0097",
+        "ocr_result": "GJ06PA0097",
+        "confidence": 0.954
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ13.jpg",
+        "ground_truth": "GJ06KP8508",
+        "ocr_result": "GJ06KP8508",
+        "confidence": 0.949
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ15.jpg",
+        "ground_truth": "GJ01HS1902",
+        "ocr_result": "GJ01HS1902",
+        "confidence": 0.747
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ16.jpg",
+        "ground_truth": "GJ01KC9959",
+        "ocr_result": "GJ01KC9959",
+        "confidence": 0.929
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ18.jpg",
+        "ground_truth": "GJ01RN4259",
+        "ocr_result": "GJ01RN4259",
+        "confidence": 0.944
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ2.jpg",
+        "ground_truth": "GJ15CB3980",
+        "ocr_result": "GJ15CB3980",
+        "confidence": 0.98
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ20.jpg",
+        "ground_truth": "GJ01RK2430",
+        "ocr_result": "GJ01RK2430",
+        "confidence": 0.793
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ23.jpg",
+        "ground_truth": "GJ01RS0198",
+        "ocr_result": "GJ01RS0198",
+        "confidence": 0.914
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ26.jpg",
+        "ground_truth": "GJ09AG8384",
+        "ocr_result": "GJ09AG8384",
+        "confidence": 0.969
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ27.jpg",
+        "ground_truth": "GJ18BK6705",
+        "ocr_result": "GJ188K6705",
+        "confidence": 0.879
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ29.jpg",
+        "ground_truth": "GJ01RM3413",
+        "ocr_result": "GJ01RM3413",
+        "confidence": 0.884
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ4.jpg",
+        "ground_truth": "GJ06JE4788",
+        "ocr_result": "GJ06JE4788",
+        "confidence": 0.956
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ6.jpg",
+        "ground_truth": "GJ06FK2977",
+        "ocr_result": "GJ06FK2977",
+        "confidence": 0.945
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ8.jpg",
+        "ground_truth": "GJ16CH9827",
+        "ocr_result": "GJ16CH9827",
+        "confidence": 0.985
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\GJ\\GJ9.jpg",
+        "ground_truth": "GJ05RE8119",
+        "ocr_result": "GJ05RE8119",
+        "confidence": 0.965
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HP\\HP1.jpg",
+        "ground_truth": "HP12H1324",
+        "ocr_result": "HP12H1324",
+        "confidence": 0.886
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HP\\HP11.jpg",
+        "ground_truth": "HP12H7917",
+        "ocr_result": "HP12H7917",
+        "confidence": 0.99
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HP\\HP14.jpg",
+        "ground_truth": "HP3SG1539",
+        "ocr_result": "HP3SGIS39",
+        "confidence": 0.678
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HP\\HP17.jpg",
+        "ground_truth": "HP20E3953",
+        "ocr_result": "HP20E3953",
+        "confidence": 0.985
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HP\\HP19.jpg",
+        "ground_truth": "HP54C6564",
+        "ocr_result": "HP54C6564",
+        "confidence": 0.909
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HP\\HP2.jpg",
+        "ground_truth": "HP16A2014",
+        "ocr_result": "HP16A2014",
+        "confidence": 0.925
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HP\\HP22.jpg",
+        "ground_truth": "HP64B3380",
+        "ocr_result": "HP6483380",
+        "confidence": 0.928
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HP\\HP5.jpg",
+        "ground_truth": "HP01N0304",
+        "ocr_result": "HP01N0304",
+        "confidence": 0.969
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HP\\HP7.jpg",
+        "ground_truth": "HP12C3766",
+        "ocr_result": "HP12C3766",
+        "confidence": 0.982
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HP\\HP8.jpg",
+        "ground_truth": "HP719898",
+        "ocr_result": "HP719898",
+        "confidence": 0.993
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HP\\HP9.jpg",
+        "ground_truth": "HP23A6365",
+        "ocr_result": "HP23A6365",
+        "confidence": 0.951
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HR\\HR1.jpg",
+        "ground_truth": "HR26BQ8176",
+        "ocr_result": "HR26BQ8176",
+        "confidence": 0.953
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HR\\HR10.jpg",
+        "ground_truth": "HR26BY4812",
+        "ocr_result": "HR26BY4812",
+        "confidence": 0.971
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HR\\HR11.jpg",
+        "ground_truth": "HR01H4731",
+        "ocr_result": "HR01H4731",
+        "confidence": 0.772
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HR\\HR13.jpg",
+        "ground_truth": "HR51AQ0911",
+        "ocr_result": "HR51AQ0911",
+        "confidence": 0.963
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HR\\HR14.jpg",
+        "ground_truth": "HR51BU8218",
+        "ocr_result": "HR51BU8218",
+        "confidence": 0.915
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HR\\HR15.jpg",
+        "ground_truth": "HR29K7840",
+        "ocr_result": "HR29K7840",
+        "confidence": 0.935
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HR\\HR2.jpg",
+        "ground_truth": "HR71F9259",
+        "ocr_result": "HR71F9259",
+        "confidence": 0.988
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HR\\HR20.jpg",
+        "ground_truth": "HR26EJ7668",
+        "ocr_result": "HR26EJ7668",
+        "confidence": 0.988
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HR\\HR21.jpg",
+        "ground_truth": "HR4281329",
+        "ocr_result": "HR4281329",
+        "confidence": 0.918
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HR\\HR3.jpg",
+        "ground_truth": "HR29W8286",
+        "ocr_result": "HR29W8286",
+        "confidence": 0.938
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HR\\HR4.jpg",
+        "ground_truth": "HR10AE9885",
+        "ocr_result": "HR10AE9885",
+        "confidence": 0.975
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HR\\HR5.jpg",
+        "ground_truth": "HR26CC7676",
+        "ocr_result": "HR26CC7676",
+        "confidence": 0.986
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HR\\HR8.jpg",
+        "ground_truth": "HR20X8432",
+        "ocr_result": "HR20X8432",
+        "confidence": 0.968
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\HR\\HR9.jpg",
+        "ground_truth": "HR29AS0015",
+        "ocr_result": "HR29AS0015",
+        "confidence": 0.98
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JH\\JH13.jpg",
+        "ground_truth": "JH01AM2354",
+        "ocr_result": "JH01AM2354",
+        "confidence": 0.9
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JH\\JH14.jpg",
+        "ground_truth": "JH10BV1496",
+        "ocr_result": "JH10BV1496",
+        "confidence": 0.932
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JH\\JH15.jpg",
+        "ground_truth": "JH08C0625",
+        "ocr_result": "JH08C0625",
+        "confidence": 0.933
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JH\\JH17.jpg",
+        "ground_truth": "JH01AR2011",
+        "ocr_result": "JH01AR2011",
+        "confidence": 0.875
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JH\\JH18.jpg",
+        "ground_truth": "JH05S3291",
+        "ocr_result": "JH0553291",
+        "confidence": 0.851
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JH\\JH19.jpg",
+        "ground_truth": "JH05Y9636",
+        "ocr_result": "JH05Y9636",
+        "confidence": 0.861
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JH\\JH2.jpg",
+        "ground_truth": "JH01AM0100",
+        "ocr_result": "JH01AM0100",
+        "confidence": 0.776
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JH\\JH6.jpg",
+        "ground_truth": "JH02AH0750",
+        "ocr_result": "JH02AH0750",
+        "confidence": 0.867
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JH\\JH7.jpg",
+        "ground_truth": "JH01BX0013",
+        "ocr_result": "JHO18X0013",
+        "confidence": 0.962
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JH\\JH8.jpg",
+        "ground_truth": "JH04C7104",
+        "ocr_result": "JH04C7104",
+        "confidence": 0.959
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JH\\JH9.jpg",
+        "ground_truth": "JH01BU9956",
+        "ocr_result": "JH018U9956",
+        "confidence": 0.807
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK10.jpg",
+        "ground_truth": "JK02AK8967",
+        "ocr_result": "JK02AK8967",
+        "confidence": 0.956
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK12.jpg",
+        "ground_truth": "JK01AD3147",
+        "ocr_result": "JK01AD3147",
+        "confidence": 0.957
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK13.jpg",
+        "ground_truth": "JK01AF7715",
+        "ocr_result": "JK01AF7715",
+        "confidence": 0.986
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK15.jpg",
+        "ground_truth": "JK02AJ1525",
+        "ocr_result": "JK02AJ1525",
+        "confidence": 0.942
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK17.jpg",
+        "ground_truth": "JK02AS3888",
+        "ocr_result": "JK02AS3888",
+        "confidence": 0.977
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK19.jpg",
+        "ground_truth": "JK127959",
+        "ocr_result": "JK127959",
+        "confidence": 0.994
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK2.jpg",
+        "ground_truth": "JK02BJ7997",
+        "ocr_result": "JK028J7997",
+        "confidence": 0.938
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK22.jpg",
+        "ground_truth": "JK01AL4613",
+        "ocr_result": "JK01AL4613",
+        "confidence": 0.932
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK23.jpg",
+        "ground_truth": "JK02CC0447",
+        "ocr_result": "JK02CC0447",
+        "confidence": 0.925
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK27.jpg",
+        "ground_truth": "JK01D8354",
+        "ocr_result": "JK01D8354",
+        "confidence": 0.835
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK3.jpg",
+        "ground_truth": "JK02BL1212",
+        "ocr_result": "JK028L1212",
+        "confidence": 0.905
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK34.jpg",
+        "ground_truth": "JK10B2313",
+        "ocr_result": "JK10B2313",
+        "confidence": 0.928
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK35.jpg",
+        "ground_truth": "JK10A4638",
+        "ocr_result": "JK10A4638",
+        "confidence": 0.985
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK36.jpg",
+        "ground_truth": "JK072483",
+        "ocr_result": "JK072483",
+        "confidence": 0.951
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK7.jpg",
+        "ground_truth": "JK11B4928",
+        "ocr_result": "JK1184928",
+        "confidence": 0.984
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK8.jpg",
+        "ground_truth": "JK02W2657",
+        "ocr_result": "JK02W2657",
+        "confidence": 0.943
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\JK\\JK9.jpg",
+        "ground_truth": "JK02CD0461",
+        "ocr_result": "JK02CD0461",
+        "confidence": 0.959
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KA\\KA10.jpg",
+        "ground_truth": "KA04MG7528",
+        "ocr_result": "KA04MG7528",
+        "confidence": 0.94
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KA\\KA11.jpg",
+        "ground_truth": "KA04MK0368",
+        "ocr_result": "KA04MK0368",
+        "confidence": 0.861
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KA\\KA12.jpg",
+        "ground_truth": "KA02MF3336",
+        "ocr_result": "KA02MF3336",
+        "confidence": 0.886
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KA\\KA16.jpg",
+        "ground_truth": "KA03NC7167",
+        "ocr_result": "KA03NC7167",
+        "confidence": 0.917
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KA\\KA17.jpg",
+        "ground_truth": "KA01MG1660",
+        "ocr_result": "KA01MG1660",
+        "confidence": 0.878
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KA\\KA2.jpg",
+        "ground_truth": "KA05MF1762",
+        "ocr_result": "KA05MF1762",
+        "confidence": 0.875
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KA\\KA24.jpg",
+        "ground_truth": "KA25P5080",
+        "ocr_result": "KA25P5080",
+        "confidence": 0.98
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KA\\KA3.jpg",
+        "ground_truth": "KA06C9590",
+        "ocr_result": "KA06C9590",
+        "confidence": 0.965
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KA\\KA5.jpg",
+        "ground_truth": "KA53P7604",
+        "ocr_result": "KA53P7604",
+        "confidence": 0.958
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KA\\KA8.jpg",
+        "ground_truth": "KA51D9662",
+        "ocr_result": "KA51D9662",
+        "confidence": 0.959
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KL\\KL14.jpg",
+        "ground_truth": "KL03S6394",
+        "ocr_result": "KL0356394",
+        "confidence": 0.856
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KL\\KL16.jpg",
+        "ground_truth": "KL43D4444",
+        "ocr_result": "KL43D4444",
+        "confidence": 0.949
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\KL\\KL8.jpg",
+        "ground_truth": "KL07BU7707",
+        "ocr_result": "KL07BU7707",
+        "confidence": 0.867
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\LA\\LA1.jpg",
+        "ground_truth": "LA020749",
+        "ocr_result": "LA020749",
+        "confidence": 0.992
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MH\\MH12.jpg",
+        "ground_truth": "MH12NJ5838",
+        "ocr_result": "MH12NJ5838",
+        "confidence": 0.867
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MH\\MH16.jpg",
+        "ground_truth": "MH12GR862",
+        "ocr_result": "MH12GR862",
+        "confidence": 0.988
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MH\\MH20.jpg",
+        "ground_truth": "MH12KJ7659",
+        "ocr_result": "MH12KJ7659",
+        "confidence": 0.878
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MH\\MH23.jpg",
+        "ground_truth": "MH49AS5099",
+        "ocr_result": "MH49AS5099",
+        "confidence": 0.952
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MH\\MH24.jpg",
+        "ground_truth": "MH04HF5092",
+        "ocr_result": "MH04HF5092",
+        "confidence": 0.892
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MH\\MH25.jpg",
+        "ground_truth": "MH12FK1392",
+        "ocr_result": "MH12FK1392",
+        "confidence": 0.968
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MH\\MH26.jpg",
+        "ground_truth": "MH12HF5057",
+        "ocr_result": "MH12HF5057",
+        "confidence": 0.936
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MH\\MH3.jpg",
+        "ground_truth": "MH48AC6244",
+        "ocr_result": "MH48AC6244",
+        "confidence": 0.907
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MH\\MH6.jpg",
+        "ground_truth": "MH47N0712",
+        "ocr_result": "MH47N0712",
+        "confidence": 0.928
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MH\\MH8.jpg",
+        "ground_truth": "MH02DN7410",
+        "ocr_result": "MH02DN7410",
+        "confidence": 0.965
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML1.jpg",
+        "ground_truth": "ML05F6894",
+        "ocr_result": "ML05F6894",
+        "confidence": 0.98
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML12.jpg",
+        "ground_truth": "ML05F9854",
+        "ocr_result": "ML05F9854",
+        "confidence": 0.915
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML15.jpg",
+        "ground_truth": "ML111909",
+        "ocr_result": "ML111909",
+        "confidence": 0.952
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML17.jpg",
+        "ground_truth": "ML05L5154",
+        "ocr_result": "ML05L5154",
+        "confidence": 0.894
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML19.jpg",
+        "ground_truth": "ML04C0056",
+        "ocr_result": "ML04C0056",
+        "confidence": 0.855
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML20.jpg",
+        "ground_truth": "ML137827",
+        "ocr_result": "ML137827",
+        "confidence": 0.972
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML23.jpg",
+        "ground_truth": "ML05R1934",
+        "ocr_result": "ML05R1934",
+        "confidence": 0.965
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML24.jpg",
+        "ground_truth": "ML0563550",
+        "ocr_result": "ML0563550",
+        "confidence": 0.925
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML25.jpg",
+        "ground_truth": "ML04B8389",
+        "ocr_result": "ML0488389",
+        "confidence": 0.969
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML26.jpg",
+        "ground_truth": "ML068346",
+        "ocr_result": "ML068346",
+        "confidence": 0.887
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML27.jpg",
+        "ground_truth": "ML05K9494",
+        "ocr_result": "ML05K9494",
+        "confidence": 0.943
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML28.jpg",
+        "ground_truth": "ML08C8061",
+        "ocr_result": "ML08C8061",
+        "confidence": 0.878
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML29.jpg",
+        "ground_truth": "ML04C4738",
+        "ocr_result": "ML04C4738",
+        "confidence": 0.815
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML30.jpg",
+        "ground_truth": "ML05C5389",
+        "ocr_result": "MLO5CS389",
+        "confidence": 0.714
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML31.jpg",
+        "ground_truth": "ML05J8950",
+        "ocr_result": "ML05J8950",
+        "confidence": 0.973
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML35.jpg",
+        "ground_truth": "ML05G3474",
+        "ocr_result": "ML0563474",
+        "confidence": 0.915
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML38.jpg",
+        "ground_truth": "ML064696",
+        "ocr_result": "ML064696",
+        "confidence": 0.979
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML39.jpg",
+        "ground_truth": "ML05G6098",
+        "ocr_result": "ML0566098",
+        "confidence": 0.922
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML7.jpg",
+        "ground_truth": "ML069642",
+        "ocr_result": "ML069642",
+        "confidence": 0.899
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\ML\\ML8.jpg",
+        "ground_truth": "ML087084",
+        "ocr_result": "ML087084",
+        "confidence": 0.917
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MN\\MN2.jpg",
+        "ground_truth": "MN05A6028",
+        "ocr_result": "MN05A6028",
+        "confidence": 0.858
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MN\\MN3.jpg",
+        "ground_truth": "MN01G0297",
+        "ocr_result": "MN01G0297",
+        "confidence": 0.855
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MN\\MN4.jpg",
+        "ground_truth": "MN06LA0861",
+        "ocr_result": "MN06LA0861",
+        "confidence": 0.588
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MN\\MN5.jpg",
+        "ground_truth": "MN01G5395",
+        "ocr_result": "MN01G5395",
+        "confidence": 0.879
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MP\\MP1.jpg",
+        "ground_truth": "MP04CL3546",
+        "ocr_result": "MP04CL3546",
+        "confidence": 0.917
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MP\\MP10.jpg",
+        "ground_truth": "MP08CA6293",
+        "ocr_result": "MP08CA6293",
+        "confidence": 0.946
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MP\\MP11.jpg",
+        "ground_truth": "MP07CB8897",
+        "ocr_result": "MP07CB8897",
+        "confidence": 0.907
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MP\\MP2.jpg",
+        "ground_truth": "MP04CL8840",
+        "ocr_result": "MP04CL8840",
+        "confidence": 0.951
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MP\\MP3.jpg",
+        "ground_truth": "MP65C0654",
+        "ocr_result": "MP65C0654",
+        "confidence": 0.977
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MP\\MP4.jpg",
+        "ground_truth": "MP09CK4943",
+        "ocr_result": "MP09CK4943",
+        "confidence": 0.945
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MP\\MP5.jpg",
+        "ground_truth": "MP20TA0919",
+        "ocr_result": "MP20TA0919",
+        "confidence": 0.905
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MP\\MP6.jpg",
+        "ground_truth": "MP07CA5563",
+        "ocr_result": "MP07CA5563",
+        "confidence": 0.88
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MP\\MP8.jpg",
+        "ground_truth": "MP09CQ9712",
+        "ocr_result": "MP09CQ9712",
+        "confidence": 0.94
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MP\\MP9.jpg",
+        "ground_truth": "MP45G0872",
+        "ocr_result": "MP45G0872",
+        "confidence": 0.826
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\MZ\\MZ1.jpg",
+        "ground_truth": "MZ01G9825",
+        "ocr_result": "MZ0169825",
+        "confidence": 0.895
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\NL\\NL6.jpg",
+        "ground_truth": "NL02C9593",
+        "ocr_result": "NL02C9593",
+        "confidence": 0.821
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\NL\\NL8.jpg",
+        "ground_truth": "NL07T0937",
+        "ocr_result": "NL07T0937",
+        "confidence": 0.912
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\OD\\OD13.jpg",
+        "ground_truth": "OD052323",
+        "ocr_result": "OD052323",
+        "confidence": 0.877
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\OD\\OD14.jpg",
+        "ground_truth": "OD02L4656",
+        "ocr_result": "OD02L4656",
+        "confidence": 0.881
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\OD\\OD15.jpg",
+        "ground_truth": "OD05Y5787",
+        "ocr_result": "OD05Y5787",
+        "confidence": 0.765
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\OD\\OD19.jpg",
+        "ground_truth": "OD11P6123",
+        "ocr_result": "OD11P6123",
+        "confidence": 0.886
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\OD\\OD23.jpg",
+        "ground_truth": "OR21E1033",
+        "ocr_result": "OR21E1033",
+        "confidence": 0.89
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\OD\\OD24.jpg",
+        "ground_truth": "OD02J0435",
+        "ocr_result": "OD02J0435",
+        "confidence": 0.88
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\OD\\OD25.jpg",
+        "ground_truth": "OD02AP3010",
+        "ocr_result": "OD02AP3010",
+        "confidence": 0.976
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\OD\\OD26.jpg",
+        "ground_truth": "OD021481",
+        "ocr_result": "OD021481",
+        "confidence": 0.951
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\OD\\OD5.jpg",
+        "ground_truth": "OD14E3131",
+        "ocr_result": "0D14E3131",
+        "confidence": 0.915
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\OD\\OD9.jpg",
+        "ground_truth": "OD33L2616",
+        "ocr_result": "0D33L2616",
+        "confidence": 0.923
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB11.jpg",
+        "ground_truth": "PB08C03690",
+        "ocr_result": "PB08C03690",
+        "confidence": 0.959
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB12.jpg",
+        "ground_truth": "PB07BY3563",
+        "ocr_result": "PB07BY3563",
+        "confidence": 0.891
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB14.jpg",
+        "ground_truth": "PB10EH0164",
+        "ocr_result": "PB10EH0164",
+        "confidence": 0.946
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB17.jpg",
+        "ground_truth": "PB23S8600",
+        "ocr_result": "P823S8600",
+        "confidence": 0.943
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB18.jpg",
+        "ground_truth": "PB08BF6160",
+        "ocr_result": "P8088F6160",
+        "confidence": 0.927
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB20.jpg",
+        "ground_truth": "PB31R8123",
+        "ocr_result": "PB31R8123",
+        "confidence": 0.984
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB26.jpg",
+        "ground_truth": "PB04T0678",
+        "ocr_result": "P804T0678",
+        "confidence": 0.878
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB27.jpg",
+        "ground_truth": "PB65AN2583",
+        "ocr_result": "PB65AN2583",
+        "confidence": 0.968
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB29.jpg",
+        "ground_truth": "PB10EE0888",
+        "ocr_result": "PB10EE0888",
+        "confidence": 0.865
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB30.jpg",
+        "ground_truth": "PB08DY4824",
+        "ocr_result": "P808DY4824",
+        "confidence": 0.95
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB4.jpg",
+        "ground_truth": "PB07BL8058",
+        "ocr_result": "P8078L8058",
+        "confidence": 0.91
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB7.jpg",
+        "ground_truth": "PB10DV5354",
+        "ocr_result": "P810DV5354",
+        "confidence": 0.925
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PB\\PB8.jpg",
+        "ground_truth": "PB10CQ0006",
+        "ocr_result": "PB10CQ0006",
+        "confidence": 0.724
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PY\\PY1.jpg",
+        "ground_truth": "PY01Q7947",
+        "ocr_result": "PY01Q7947",
+        "confidence": 0.946
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PY\\PY10.jpg",
+        "ground_truth": "PY01CE4149",
+        "ocr_result": "PY01CE4149",
+        "confidence": 0.916
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PY\\PY12.jpg",
+        "ground_truth": "PY01AH9067",
+        "ocr_result": "PY01AH9067",
+        "confidence": 0.823
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PY\\PY13.jpg",
+        "ground_truth": "PY01CG2929",
+        "ocr_result": "PY01C62929",
+        "confidence": 0.867
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PY\\PY15.jpg",
+        "ground_truth": "PY05A8339",
+        "ocr_result": "PY05A8339",
+        "confidence": 0.946
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PY\\PY17.jpg",
+        "ground_truth": "PY02S9326",
+        "ocr_result": "PY02S9326",
+        "confidence": 0.966
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PY\\PY2.jpg",
+        "ground_truth": "PY01CM9549",
+        "ocr_result": "PY01CM9549",
+        "confidence": 0.944
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PY\\PY3.jpg",
+        "ground_truth": "PY01CM5400",
+        "ocr_result": "PY01CM5400",
+        "confidence": 0.897
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PY\\PY5.jpg",
+        "ground_truth": "PY01AW2814",
+        "ocr_result": "PY01AW2814",
+        "confidence": 0.859
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PY\\PY6.jpg",
+        "ground_truth": "PY01AP0555",
+        "ocr_result": "PY01AP0555",
+        "confidence": 0.972
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PY\\PY7.jpg",
+        "ground_truth": "PY036993",
+        "ocr_result": "PY036993",
+        "confidence": 0.91
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\PY\\PY9.jpg",
+        "ground_truth": "PY055353",
+        "ocr_result": "PY055353",
+        "confidence": 0.973
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\RJ\\RJ10.jpg",
+        "ground_truth": "RJ14CM3730",
+        "ocr_result": "RJ14CM3730",
+        "confidence": 0.955
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\RJ\\RJ2.jpg",
+        "ground_truth": "RJ14CW4115",
+        "ocr_result": "RJ14CW4115",
+        "confidence": 0.874
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\RJ\\RJ4.jpg",
+        "ground_truth": "RJ20CD5118",
+        "ocr_result": "RJ20CD5118",
+        "confidence": 0.978
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\RJ\\RJ5.jpg",
+        "ground_truth": "RJ14CF5807",
+        "ocr_result": "RJ14CF5807",
+        "confidence": 0.985
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\RJ\\RJ7.jpg",
+        "ground_truth": "RJ23CB4320",
+        "ocr_result": "RJ23CB4320",
+        "confidence": 0.966
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\RJ\\RJ9.jpg",
+        "ground_truth": "RJ20UB0137",
+        "ocr_result": "RJ20UB0137",
+        "confidence": 0.867
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\SK\\SK1.jpg",
+        "ground_truth": "SK01PA2969",
+        "ocr_result": "SK01PA2969",
+        "confidence": 0.95
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\SK\\SK10.jpg",
+        "ground_truth": "SK01PB5004",
+        "ocr_result": "SK01P85004",
+        "confidence": 0.874
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\SK\\SK11.jpg",
+        "ground_truth": "SK02P1078",
+        "ocr_result": "SK02P1078",
+        "confidence": 0.968
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\SK\\SK3.jpg",
+        "ground_truth": "SK01PA7708",
+        "ocr_result": "SK01PA7708",
+        "confidence": 0.94
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\SK\\SK6.jpg",
+        "ground_truth": "SK04P1320",
+        "ocr_result": "SK04P1320",
+        "confidence": 0.976
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\SK\\SK7.jpg",
+        "ground_truth": "SK02P3471",
+        "ocr_result": "SK02P3471",
+        "confidence": 0.914
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\SK\\SK8.jpg",
+        "ground_truth": "SK01PA5349",
+        "ocr_result": "SK01PA5349",
+        "confidence": 0.9
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\SK\\SK9.jpg",
+        "ground_truth": "SK01T8791",
+        "ocr_result": "SK01T8791",
+        "confidence": 0.964
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TN\\TN4.jpg",
+        "ground_truth": "TN10AR0131",
+        "ocr_result": "TN10AR0131",
+        "confidence": 0.941
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TN\\TN6.jpg",
+        "ground_truth": "TN19F0816",
+        "ocr_result": "TN19F0816",
+        "confidence": 0.981
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TN\\TN7.jpg",
+        "ground_truth": "TN07BT5778",
+        "ocr_result": "TN07BT5778",
+        "confidence": 0.904
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TR\\TR1.jpg",
+        "ground_truth": "TR05B0308",
+        "ocr_result": "TR05B0308",
+        "confidence": 0.932
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TR\\TR3.jpg",
+        "ground_truth": "TR02L0569",
+        "ocr_result": "TR02L0569",
+        "confidence": 0.9
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TR\\TR4.jpg",
+        "ground_truth": "TR01N0481",
+        "ocr_result": "TR01N0481",
+        "confidence": 0.882
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TR\\TR5.jpg",
+        "ground_truth": "TR01X0482",
+        "ocr_result": "TR01X0482",
+        "confidence": 0.942
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TR\\TR6.jpg",
+        "ground_truth": "TR01BG0365",
+        "ocr_result": "TR01BG0365",
+        "confidence": 0.933
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TS\\TS13.jpg",
+        "ground_truth": "TS15ES0894",
+        "ocr_result": "TS15ES0894",
+        "confidence": 0.979
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TS\\TS14.jpg",
+        "ground_truth": "TS36H6578",
+        "ocr_result": "TS36H6578",
+        "confidence": 0.97
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TS\\TS15.jpg",
+        "ground_truth": "TS13EK6213",
+        "ocr_result": "TS13EK6213",
+        "confidence": 0.968
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TS\\TS3.jpg",
+        "ground_truth": "TS09EZ9293",
+        "ocr_result": "TS09EZ9293",
+        "confidence": 0.958
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TS\\TS4.jpg",
+        "ground_truth": "TS09EZ9296",
+        "ocr_result": "TS09EZ9296",
+        "confidence": 0.978
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\TS\\TS7.jpg",
+        "ground_truth": "TS08EZ9463",
+        "ocr_result": "TS08EZ9463",
+        "confidence": 0.918
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UK\\UK1.jpg",
+        "ground_truth": "UK08W2276",
+        "ocr_result": "UK08W2276",
+        "confidence": 0.962
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UK\\UK10.jpg",
+        "ground_truth": "UK07AA2432",
+        "ocr_result": "UK07AA2432",
+        "confidence": 0.912
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UK\\UK5.jpg",
+        "ground_truth": "UK106679",
+        "ocr_result": "UK106679",
+        "confidence": 0.979
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UK\\UK7.jpg",
+        "ground_truth": "UK07AM5665",
+        "ocr_result": "UK07AM5665",
+        "confidence": 0.952
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UP\\UP10.jpg",
+        "ground_truth": "UP78DB3730",
+        "ocr_result": "UP78DB3730",
+        "confidence": 0.947
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UP\\UP17.jpg",
+        "ground_truth": "UP32CX3400",
+        "ocr_result": "UP32CX3400",
+        "confidence": 0.965
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UP\\UP2.jpg",
+        "ground_truth": "UP85BN4203",
+        "ocr_result": "UP85BN4203",
+        "confidence": 0.899
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UP\\UP20.jpg",
+        "ground_truth": "UP14AK8604",
+        "ocr_result": "UP14AK8604",
+        "confidence": 0.956
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UP\\UP24.jpg",
+        "ground_truth": "UP27Z7322",
+        "ocr_result": "UP27Z7322",
+        "confidence": 0.945
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UP\\UP28.jpg",
+        "ground_truth": "UP32HY6077",
+        "ocr_result": "UP32HY6077",
+        "confidence": 0.915
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\UP\\UP3.jpg",
+        "ground_truth": "UP80FA1666",
+        "ocr_result": "UP80FA1666",
+        "confidence": 0.983
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB1.jpg",
+        "ground_truth": "WB26T6688",
+        "ocr_result": "WB26T6688",
+        "confidence": 0.791
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB12.jpg",
+        "ground_truth": "WB26S5093",
+        "ocr_result": "WB26S5093",
+        "confidence": 0.942
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB17.jpg",
+        "ground_truth": "WB02AJ4534",
+        "ocr_result": "WB02AJ4534",
+        "confidence": 0.882
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB19.jpg",
+        "ground_truth": "WB061061",
+        "ocr_result": "WB061061",
+        "confidence": 0.939
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB20.jpg",
+        "ground_truth": "WB171717",
+        "ocr_result": "WB171717",
+        "confidence": 0.963
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB21.jpg",
+        "ground_truth": "WB02W9S3S",
+        "ocr_result": "WB02W9535",
+        "confidence": 0.899
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB23.jpg",
+        "ground_truth": "WB20AG9041",
+        "ocr_result": "WB20AG9041",
+        "confidence": 0.986
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB27.jpg",
+        "ground_truth": "WB02AD4162",
+        "ocr_result": "WB02AD4162",
+        "confidence": 0.857
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB28.jpg",
+        "ground_truth": "WB02AM8548",
+        "ocr_result": "WB02AM8548",
+        "confidence": 0.913
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB4.jpg",
+        "ground_truth": "WB02X8795",
+        "ocr_result": "WB02X8795",
+        "confidence": 0.968
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB5.jpg",
+        "ground_truth": "WB06G4120",
+        "ocr_result": "WB0664120",
+        "confidence": 0.838
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\State-wise_OLX\\WB\\WB6.jpg",
+        "ground_truth": "WB02AH4655",
+        "ocr_result": "W802AH4655",
+        "confidence": 0.864
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\0a0d1748-48cd-4114-90cb-b5baf0b3cbe4___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_147274518_15141875973_large.jpg",
+        "ground_truth": "MH46X9996",
+        "ocr_result": "MH46X9996",
+        "confidence": 0.955
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\266d82c7-1b64-44cd-b77c-c08d98175390___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_5c752daa8d168dec865fe0462bf2c0bb_large.jpg",
+        "ground_truth": "MH21V9926",
+        "ocr_result": "MH21V9926",
+        "confidence": 0.986
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\38cee3dd-dead-4ba0-b350-0f82d94836da___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_big_467860_1505633598.jpg",
+        "ground_truth": "HR26TC7303",
+        "ocr_result": "HR26TC7303",
+        "confidence": 0.876
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\4b669e6d-4eec-4f46-b502-f64ee0175947___new_1.jpg",
+        "ground_truth": "MH14TC206AN",
+        "ocr_result": "MH14TC206AN",
+        "confidence": 0.995
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\59a29a85-30f5-469e-a6c2-e1af171f151c___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_10187746494_417a40a489 - Copy.jpg",
+        "ground_truth": "TN21AU7234",
+        "ocr_result": "TN21AU7234",
+        "confidence": 0.958
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\5ac9f7b9-f7cc-4161-bbd1-7f377bb890bf___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Nissan-Terrano-John-Abraham.jpg",
+        "ground_truth": "MH03CB6467",
+        "ocr_result": "MH03CB6467",
+        "confidence": 0.803
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\760ba77a-8992-4574-8cba-6c081d9e3e19___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_04f4c639c871fba0b4cc6475604e40b7_large.jpg",
+        "ground_truth": "RJ02CC0784",
+        "ocr_result": "RJ02CC0784",
+        "confidence": 0.847
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\7f7e27cc-930a-46cb-b3af-6e43da8b566d___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_Nissan-Terrano-Petrol-Review-Images-Black-Front-Grille-720x480.jpg",
+        "ground_truth": "TN21AT0492",
+        "ocr_result": "TN21AT0492",
+        "confidence": 0.978
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\b79f870d-15c7-48e3-8874-7c0e53e29f75___3e7fd381-0ae5-4421-8a70-279ee0ec1c61_754eab882b8290b29a0454dd45580a39_555X416_1 - Copy.jpg",
+        "ground_truth": "DUSTER",
+        "ocr_result": "DUSTER",
+        "confidence": 0.993
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\car-wbs-TN21AT0479_00000.jpg",
+        "ground_truth": "TN21AT0479",
+        "ocr_result": "TN21AT0479",
+        "confidence": 0.937
+      },
+      {
+        "image_path": "C:\\Users\\abini\\OneDrive\\Desktop\\sih26127\\google_images\\car-wbs-UP32FH2653_00000.jpg",
+        "ground_truth": "UP32FH2653",
+        "ocr_result": "UP32FH2653",
+        "confidence": 0.983
+      }
+    ]
+  },
+  "char_confusions": {
+    "0->O": 4,
+    "D->0": 12,
+    "G->6": 5,
+    "R->8": 1,
+    "3->9": 1,
+    "3->8": 1,
+    "S->3": 1,
+    "0->6": 1,
+    "A->1": 1,
+    "S->P": 1,
+    "0->8": 1,
+    "6->0": 1,
+    "0->9": 1,
+    "8->0": 3,
+    "4->S": 1,
+    "1->V": 1,
+    "Q->0": 7,
+    "F->R": 1,
+    "B->8": 7,
+    "B->E": 1,
+    "R->B": 1,
+    "0->R": 1,
+    "1->O": 1,
+    "A->T": 1,
+    "W->A": 1,
+    "1->N": 1,
+    "2->I": 1,
+    "5->2": 1,
+    "0->S": 1,
+    "D->O": 2,
+    "C->0": 2,
+    "N->K": 1,
+    "7->3": 1,
+    "B->0": 1,
+    "Q->O": 1,
+    "K->X": 2,
+    "U->0": 1,
+    "2->3": 1,
+    "M->H": 2,
+    "N->R": 1,
+    "T->7": 1,
+    "O->0": 1,
+    "6->8": 1,
+    "T->1": 1,
+    "J->3": 2,
+    "T->I": 1,
+    "7->2": 1,
+    "U->L": 1,
+    "1->4": 1,
+    "W->M": 2,
+    "0->D": 1
+  },
+  "prefix_issues": [
+    [
+      "AP39E1493",
+      "COOODDDFUSIONAP39E1493",
+      "COOODDDFUSION"
+    ],
+    [
+      "AS19D9919",
+      "PAS19D9919",
+      "P"
+    ],
+    [
+      "DL9CAU5573",
+      "FDL9CAU5573",
+      "F"
+    ],
+    [
+      "GJ7AG4373",
+      "NISIGOUGJ7AG4373",
+      "NISIGOU"
+    ],
+    [
+      "HP22E8000",
+      "AUTOTERRACEHP22E8000",
+      "AUTOTERRACE"
+    ],
+    [
+      "HP666807",
+      "2196192HP666807",
+      "2196192"
+    ],
+    [
+      "JK11D8143",
+      "PJK11D8143",
+      "P"
+    ],
+    [
+      "JK09B7745",
+      "PJK09B7745",
+      "P"
+    ],
+    [
+      "ML05Q8790",
+      "1ML05Q8790",
+      "1"
+    ],
+    [
+      "NL01CB433",
+      "ENL01CB433",
+      "E"
+    ],
+    [
+      "NL078440",
+      "FNL078440",
+      "F"
+    ],
+    [
+      "PY02S7828",
+      "EPY02S7828",
+      "E"
+    ],
+    [
+      "SK01T3794",
+      "FSK01T3794",
+      "F"
+    ],
+    [
+      "UP57H8173",
+      "INDIGOCUP57H8173",
+      "INDIGOC"
+    ],
+    [
+      "DL1N4268",
+      "3800DL1N4268",
+      "3800"
+    ]
+  ],
+  "suffix_issues": []
+}
