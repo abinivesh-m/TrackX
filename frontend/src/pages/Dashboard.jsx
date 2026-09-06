@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { apiClient } from '../App'
 import { Activity, AlertCircle, TrendingUp, Users } from 'lucide-react'
+import MapView from '../components/MapView'
 
 export default function Dashboard() {
   const [stats, setStats] = useState(null)
@@ -85,6 +86,12 @@ export default function Dashboard() {
 
       {/* Info Cards */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Map View */}
+        <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-lg p-8">
+          <h2 className="text-xl font-bold text-white mb-4">Camera Network Map</h2>
+          <MapView />
+        </div>
+
         <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-lg p-8">
           <h2 className="text-xl font-bold text-white mb-4">System Status</h2>
           <div className="space-y-3">
