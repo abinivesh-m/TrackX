@@ -6,6 +6,8 @@ import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, L
 export default function Analytics() {
   const [hourlyData, setHourlyData] = useState([])
   const [stats, setStats] = useState(null)
+  const [routeData, setRouteData] = useState([])
+  const [cameraPerformance, setCameraPerformance] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -14,12 +16,16 @@ export default function Analytics() {
 
   const fetchAnalytics = async () => {
     try {
-      const [hourlyRes, statsRes] = await Promise.all([
+      const [hourlyRes, statsRes, routesRes, perfRes] = await Promise.all([
         apiClient.get('/api/v1/analytics/hourly'),
-        apiClient.get('/api/v1/analytics/stats')
+        apiClient.get('/api/v1/analytics/stats'),
+        apiClient.get('/api/v1/analytics/routes'),
+        apiClient.get('/api/v1/analytics/camera-performance')
       ])
       setHourlyData(hourlyRes.data.data || [])
       setStats(statsRes.data)
+      setRouteData(routesRes.data.routes || [])
+      setCameraPerformance(perfRes.data.cameras || [])
       setLoading(false)
     } catch (error) {
       console.error('Failed to fetch analytics:', error)
@@ -156,44 +162,24 @@ export default function Analytics() {
         <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-lg p-8">
           <h2 className="text-xl font-bold text-white mb-4">Top Routes</h2>
           <div className="space-y-3">
-            <div className="flex justify-between items-center">
-              <span className="text-gray-300">CAM_001 → CAM_002</span>
-              <span className="bg-blue-600 px-3 py-1 rounded-full text-sm font-semibold">245</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-300">CAM_003 → CAM_001</span>
-              <span className="bg-blue-600 px-3 py-1 rounded-full text-sm font-semibold">198</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-300">CAM_002 → CAM_004</span>
-              <span className="bg-blue-600 px-3 py-1 rounded-full text-sm font-semibold">167</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-300">CAM_004 → CAM_003</span>
-              <span className="bg-blue-600 px-3 py-1 rounded-full text-sm font-semibold">142</span>
-            </div>
+            {routeData.map((route, idx) => (
+              <div key={idx} className="flex justify-between items-center">
+                <span className="text-gray-300">{route.from_name} → {route.to_name}</span>
+                <span className="bg-blue-600 px-3 py-1 rounded-full text-sm font-semibold">{route.count}</span>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-lg p-8">
           <h2 className="text-xl font-bold text-white mb-4">Camera Performance</h2>
           <div className="space-y-3">
-            <div className="flex justify-between items-center">
-              <span className="text-gray-300">CAM_001 - MG Road</span>
-              <span className="text-green-400 font-semibold">99.2%</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-300">CAM_002 - Brigade Rd</span>
-              <span className="text-green-400 font-semibold">98.8%</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-300">CAM_003 - Indiranagar</span>
-              <span className="text-green-400 font-semibold">99.5%</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-300">CAM_004 - Koramangala</span>
-              <span className="text-green-400 font-semibold">97.9%</span>
-            </div>
+            {cameraPerformance.map((cam, idx) => (
+              <div key={idx} className="flex justify-between items-center">
+                <span className="text-gray-300">{cam.name}</span>
+                <span className="text-green-400 font-semibold">{cam.accuracy}%</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

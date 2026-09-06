@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Dashboard from './pages/Dashboard'
 import VehicleTracking from './pages/VehicleTracking'
+import VehicleDetails from './pages/VehicleDetails'
 import Analytics from './pages/Analytics'
 import Alerts from './pages/Alerts'
+import LiveIngestion from './pages/LiveIngestion'
 import Navigation from './components/Navigation'
 import axios from 'axios'
 
@@ -70,8 +72,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/tracking" element={<VehicleTracking />} />
+            <Route path="/vehicle/:plate" element={<VehicleDetails />} />
             <Route path="/analytics" element={<Analytics />} />
             <Route path="/alerts" element={<Alerts />} />
+            <Route path="/live" element={<LiveIngestion />} />
           </Routes>
         </main>
       </div>

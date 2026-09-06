@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { apiClient } from '../App'
 import { MapPin, Zap, Database } from 'lucide-react'
 import MapView from '../components/MapView'
 
 export default function VehicleTracking() {
+  const navigate = useNavigate()
   const [vehicles, setVehicles] = useState([])
   const [loading, setLoading] = useState(true)
   const [filter, setFilter] = useState('')
@@ -27,6 +29,11 @@ export default function VehicleTracking() {
   const filteredVehicles = vehicles.filter(v =>
     v.plate_text?.toLowerCase().includes(filter.toLowerCase())
   )
+
+  const handleRowClick = (plate) => {
+    // Navigate to vehicle details page
+    navigate(`/vehicle/${plate}`)
+  }
 
   return (
     <div className="space-y-8">
@@ -92,7 +99,7 @@ export default function VehicleTracking() {
                   <tr 
                     key={idx} 
                     className="border-b border-slate-700 hover:bg-slate-800/50 transition-colors cursor-pointer"
-                    onClick={() => setSelectedPlate(vehicle.plate_text)}
+                    onClick={() => handleRowClick(vehicle.plate_text)}
                   >
                     <td className="px-6 py-4">
                       <span className="font-mono font-bold text-blue-400">

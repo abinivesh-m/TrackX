@@ -34,32 +34,78 @@ DEMO_CAMERAS = [
     {"id": "CAM_07", "name": "Singanallur Junction", "status": "online", "latitude": 10.9990, "longitude": 77.0324},
 ]
 
-# Real vehicle TN 09 CX 7134 tracked across 5 cameras + additional demo vehicles
-DEMO_VEHICLES = [
-    # TN09CX7134 - Main tracked vehicle across 5 cameras
-    {"plate_text": "TN09CX7134", "camera_id": "CAM_02", "observation_count": 5, "last_seen": "2025-03-06T10:22:47", "latitude": 11.0167, "longitude": 76.9707},
-    {"plate_text": "TN09CX7134", "camera_id": "CAM_03", "observation_count": 5, "last_seen": "2025-03-06T12:31:09", "latitude": 11.0051, "longitude": 76.9508},
-    {"plate_text": "TN09CX7134", "camera_id": "CAM_05", "observation_count": 5, "last_seen": "2025-03-06T18:05:44", "latitude": 10.9911, "longitude": 76.9600},
-    {"plate_text": "TN09CX7134", "camera_id": "CAM_06", "observation_count": 5, "last_seen": "2025-03-06T20:17:33", "latitude": 11.0200, "longitude": 76.9680},
-    {"plate_text": "TN09CX7134", "camera_id": "CAM_07", "observation_count": 5, "last_seen": "2025-03-06T22:38:56", "latitude": 10.9990, "longitude": 77.0324},
+# Generate 50+ realistic vehicles with timestamps spread across 24 hours
+def generate_demo_vehicles():
+    """Generate realistic vehicle data for demonstration"""
+    vehicles = []
+    camera_ids = ["CAM_01", "CAM_02", "CAM_03", "CAM_04", "CAM_05", "CAM_06", "CAM_07"]
+    camera_coords = {
+        "CAM_01": (11.0205, 76.9667),
+        "CAM_02": (11.0167, 76.9707),
+        "CAM_03": (11.0051, 76.9508),
+        "CAM_04": (11.0128, 76.9889),
+        "CAM_05": (10.9911, 76.9600),
+        "CAM_06": (11.0200, 76.9680),
+        "CAM_07": (10.9990, 77.0324),
+    }
     
-    # Additional vehicles for realistic demo
-    {"plate_text": "TN09AB1234", "camera_id": "CAM_01", "observation_count": 3, "last_seen": "2025-03-06T09:15:22", "latitude": 11.0205, "longitude": 76.9667},
-    {"plate_text": "TN09CD5678", "camera_id": "CAM_03", "observation_count": 2, "last_seen": "2025-03-06T11:45:18", "latitude": 11.0051, "longitude": 76.9508},
-    {"plate_text": "TN09EF9012", "camera_id": "CAM_04", "observation_count": 4, "last_seen": "2025-03-06T13:22:55", "latitude": 11.0128, "longitude": 76.9889},
-    {"plate_text": "TN09GH3456", "camera_id": "CAM_05", "observation_count": 1, "last_seen": "2025-03-06T14:10:33", "latitude": 10.9911, "longitude": 76.9600},
-    {"plate_text": "TN09IJ7890", "camera_id": "CAM_06", "observation_count": 6, "last_seen": "2025-03-06T15:30:12", "latitude": 11.0200, "longitude": 76.9680},
-    {"plate_text": "TN09KL2345", "camera_id": "CAM_07", "observation_count": 3, "last_seen": "2025-03-06T16:55:47", "latitude": 10.9990, "longitude": 77.0324},
-    {"plate_text": "TN09MN6789", "camera_id": "CAM_01", "observation_count": 2, "last_seen": "2025-03-06T17:20:05", "latitude": 11.0205, "longitude": 76.9667},
-    {"plate_text": "TN09OP0123", "camera_id": "CAM_02", "observation_count": 5, "last_seen": "2025-03-06T18:45:31", "latitude": 11.0167, "longitude": 76.9707},
-    {"plate_text": "TN09QR4567", "camera_id": "CAM_03", "observation_count": 4, "last_seen": "2025-03-06T19:12:44", "latitude": 11.0051, "longitude": 76.9508},
-    {"plate_text": "TN09ST8901", "camera_id": "CAM_04", "observation_count": 3, "last_seen": "2025-03-06T20:33:18", "latitude": 11.0128, "longitude": 76.9889},
-]
+    # TN09CX7134 - Main tracked vehicle across 5 cameras
+    vehicles.extend([
+        {"plate_text": "TN09CX7134", "camera_id": "CAM_02", "observation_count": 5, "last_seen": "2025-03-06T10:22:47", "latitude": 11.0167, "longitude": 76.9707},
+        {"plate_text": "TN09CX7134", "camera_id": "CAM_03", "observation_count": 5, "last_seen": "2025-03-06T12:31:09", "latitude": 11.0051, "longitude": 76.9508},
+        {"plate_text": "TN09CX7134", "camera_id": "CAM_05", "observation_count": 5, "last_seen": "2025-03-06T18:05:44", "latitude": 10.9911, "longitude": 76.9600},
+        {"plate_text": "TN09CX7134", "camera_id": "CAM_06", "observation_count": 5, "last_seen": "2025-03-06T20:17:33", "latitude": 11.0200, "longitude": 76.9680},
+        {"plate_text": "TN09CX7134", "camera_id": "CAM_07", "observation_count": 5, "last_seen": "2025-03-06T22:38:56", "latitude": 10.9990, "longitude": 77.0324},
+    ])
+    
+    # Generate 50+ additional unique vehicles
+    prefixes = ["AB", "CD", "EF", "GH", "IJ", "KL", "MN", "OP", "QR", "ST", "UV", "WX", "YZ", "AA", "BB", "CC", "DD", "EE", "FF", "GG", "HH", "II", "JJ", "KK", "LL", "MM", "NN", "OO", "PP", "QQ", "RR", "SS", "TT", "UU", "VV", "WW", "XX", "YY", "ZZ", "AX", "BY", "CZ", "DX", "EY", "FZ", "GX", "HY", "IZ"]
+    
+    for i, prefix in enumerate(prefixes):
+        plate_num = str(1000 + i * 111)[:4]
+        plate = f"TN09{prefix}{plate_num}"
+        camera = camera_ids[i % len(camera_ids)]
+        lat, lng = camera_coords[camera]
+        hour = i % 24
+        minute = (i * 17) % 60
+        timestamp = f"2025-03-06T{hour:02d}:{minute:02d}:{(i*13)%60:02d}"
+        obs_count = (i % 7) + 1
+        
+        vehicles.append({
+            "plate_text": plate,
+            "camera_id": camera,
+            "observation_count": obs_count,
+            "last_seen": timestamp,
+            "latitude": lat,
+            "longitude": lng
+        })
+    
+    return vehicles
 
+DEMO_VEHICLES = generate_demo_vehicles()
+
+# Generate 20+ realistic alerts for demo
 DEMO_ALERTS = [
-    {"id": 1, "vehicle_plate": "TN09CX7134", "alert_type": "speed_violation", "severity": "high", "timestamp": datetime.now().isoformat(), "description": "Excessive speed detected", "status": "active", "created_at": datetime.now().isoformat()},
-    {"id": 2, "vehicle_plate": "TN09CX7134", "alert_type": "stolen_vehicle", "severity": "critical", "timestamp": (datetime.now() - timedelta(hours=2)).isoformat(), "description": "Vehicle flagged as stolen", "status": "active", "created_at": (datetime.now() - timedelta(hours=2)).isoformat()},
-    {"id": 3, "vehicle_plate": "TN09CX7134", "alert_type": "suspicious_route", "severity": "medium", "timestamp": (datetime.now() - timedelta(hours=5)).isoformat(), "description": "Unusual travel pattern detected", "status": "active", "created_at": (datetime.now() - timedelta(hours=5)).isoformat()},
+    {"id": 1, "vehicle_plate": "TN09CX7134", "alert_type": "speed_violation", "severity": "high", "timestamp": datetime.now().isoformat(), "description": "Excessive speed detected at 85 km/h in 40 zone", "status": "active", "created_at": datetime.now().isoformat(), "camera_id": "CAM_02", "location": "Tidel Park Junction"},
+    {"id": 2, "vehicle_plate": "TN09CX7134", "alert_type": "stolen_vehicle", "severity": "critical", "timestamp": (datetime.now() - timedelta(hours=2)).isoformat(), "description": "Vehicle flagged as stolen in police database", "status": "active", "created_at": (datetime.now() - timedelta(hours=2)).isoformat(), "camera_id": "CAM_05", "location": "Town Hall Junction"},
+    {"id": 3, "vehicle_plate": "TN09CX7134", "alert_type": "suspicious_route", "severity": "medium", "timestamp": (datetime.now() - timedelta(hours=5)).isoformat(), "description": "Unusual travel pattern detected across 5 cameras", "status": "active", "created_at": (datetime.now() - timedelta(hours=5)).isoformat(), "camera_id": "CAM_07", "location": "Singanallur Junction"},
+    {"id": 4, "vehicle_plate": "TN09AB1234", "alert_type": "wrong_way", "severity": "critical", "timestamp": (datetime.now() - timedelta(hours=1)).isoformat(), "description": "Vehicle traveling in wrong direction", "status": "active", "created_at": (datetime.now() - timedelta(hours=1)).isoformat(), "camera_id": "CAM_01", "location": "Gandhipuram Junction"},
+    {"id": 5, "vehicle_plate": "TN09CD5678", "alert_type": "signal_violation", "severity": "medium", "timestamp": (datetime.now() - timedelta(hours=3)).isoformat(), "description": "Red light violation detected", "status": "active", "created_at": (datetime.now() - timedelta(hours=3)).isoformat(), "camera_id": "CAM_03", "location": "RS Puram Signal"},
+    {"id": 6, "vehicle_plate": "TN09EF9012", "alert_type": "blacklist_match", "severity": "critical", "timestamp": (datetime.now() - timedelta(hours=4)).isoformat(), "description": "Vehicle matches blacklist entry", "status": "active", "created_at": (datetime.now() - timedelta(hours=4)).isoformat(), "camera_id": "CAM_04", "location": "Lakshmi Mills Junction"},
+    {"id": 7, "vehicle_plate": "TN09GH3456", "alert_type": "parking_violation", "severity": "low", "timestamp": (datetime.now() - timedelta(hours=6)).isoformat(), "description": "Illegal parking detected", "status": "resolved", "created_at": (datetime.now() - timedelta(hours=6)).isoformat(), "camera_id": "CAM_05", "location": "Town Hall Junction"},
+    {"id": 8, "vehicle_plate": "TN09IJ7890", "alert_type": "speed_violation", "severity": "high", "timestamp": (datetime.now() - timedelta(hours=7)).isoformat(), "description": "Speed limit exceeded by 30 km/h", "status": "active", "created_at": (datetime.now() - timedelta(hours=7)).isoformat(), "camera_id": "CAM_06", "location": "Gandhipuram Bus Stand"},
+    {"id": 9, "vehicle_plate": "TN09KL2345", "alert_type": "suspicious_route", "severity": "medium", "timestamp": (datetime.now() - timedelta(hours=8)).isoformat(), "description": "Vehicle visited same location 5 times in 2 hours", "status": "active", "created_at": (datetime.now() - timedelta(hours=8)).isoformat(), "camera_id": "CAM_07", "location": "Singanallur Junction"},
+    {"id": 10, "vehicle_plate": "TN09MN6789", "alert_type": "no_helmet", "severity": "medium", "timestamp": (datetime.now() - timedelta(hours=9)).isoformat(), "description": "Two-wheeler without helmet detected", "status": "active", "created_at": (datetime.now() - timedelta(hours=9)).isoformat(), "camera_id": "CAM_01", "location": "Gandhipuram Junction"},
+    {"id": 11, "vehicle_plate": "TN09OP0123", "alert_type": "overloading", "severity": "high", "timestamp": (datetime.now() - timedelta(hours=10)).isoformat(), "description": "Vehicle overloading detected", "status": "active", "created_at": (datetime.now() - timedelta(hours=10)).isoformat(), "camera_id": "CAM_02", "location": "Tidel Park Junction"},
+    {"id": 12, "vehicle_plate": "TN09QR4567", "alert_type": "lane_violation", "severity": "low", "timestamp": (datetime.now() - timedelta(hours=11)).isoformat(), "description": "Improper lane usage", "status": "resolved", "created_at": (datetime.now() - timedelta(hours=11)).isoformat(), "camera_id": "CAM_03", "location": "RS Puram Signal"},
+    {"id": 13, "vehicle_plate": "TN09ST8901", "alert_type": "traffic_violation", "severity": "medium", "timestamp": (datetime.now() - timedelta(hours=12)).isoformat(), "description": "Multiple traffic violations detected", "status": "active", "created_at": (datetime.now() - timedelta(hours=12)).isoformat(), "camera_id": "CAM_04", "location": "Lakshmi Mills Junction"},
+    {"id": 14, "vehicle_plate": "TN09UV2345", "alert_type": "stolen_vehicle", "severity": "critical", "timestamp": (datetime.now() - timedelta(hours=13)).isoformat(), "description": "Reported stolen 2 days ago", "status": "active", "created_at": (datetime.now() - timedelta(hours=13)).isoformat(), "camera_id": "CAM_05", "location": "Town Hall Junction"},
+    {"id": 15, "vehicle_plate": "TN09WX6789", "alert_type": "speed_violation", "severity": "high", "timestamp": (datetime.now() - timedelta(hours=14)).isoformat(), "description": "Racing suspected - speed 120 km/h", "status": "active", "created_at": (datetime.now() - timedelta(hours=14)).isoformat(), "camera_id": "CAM_06", "location": "Gandhipuram Bus Stand"},
+    {"id": 16, "vehicle_plate": "TN09YZ0123", "alert_type": "suspicious_route", "severity": "high", "timestamp": (datetime.now() - timedelta(hours=15)).isoformat(), "description": "Circular route pattern detected", "status": "active", "created_at": (datetime.now() - timedelta(hours=15)).isoformat(), "camera_id": "CAM_07", "location": "Singanallur Junction"},
+    {"id": 17, "vehicle_plate": "TN09AA4567", "alert_type": "document_violation", "severity": "medium", "timestamp": (datetime.now() - timedelta(hours=16)).isoformat(), "description": "Expired registration detected", "status": "active", "created_at": (datetime.now() - timedelta(hours=16)).isoformat(), "camera_id": "CAM_01", "location": "Gandhipuram Junction"},
+    {"id": 18, "vehicle_plate": "TN09BB8901", "alert_type": "signal_violation", "severity": "medium", "timestamp": (datetime.now() - timedelta(hours=17)).isoformat(), "description": "Signal jump at yellow light", "status": "resolved", "created_at": (datetime.now() - timedelta(hours=17)).isoformat(), "camera_id": "CAM_02", "location": "Tidel Park Junction"},
+    {"id": 19, "vehicle_plate": "TN09CC2345", "alert_type": "wrong_way", "severity": "critical", "timestamp": (datetime.now() - timedelta(hours=18)).isoformat(), "description": "One-way violation detected", "status": "active", "created_at": (datetime.now() - timedelta(hours=18)).isoformat(), "camera_id": "CAM_03", "location": "RS Puram Signal"},
+    {"id": 20, "vehicle_plate": "TN09DD6789", "alert_type": "blacklist_match", "severity": "critical", "timestamp": (datetime.now() - timedelta(hours=19)).isoformat(), "description": "Vehicle involved in previous hit-and-run", "status": "active", "created_at": (datetime.now() - timedelta(hours=19)).isoformat(), "camera_id": "CAM_04", "location": "Lakshmi Mills Junction"},
 ]
 
 @app.get("/")
@@ -155,6 +201,115 @@ async def get_vehicle_trajectory(plate: str):
         ]
         return {"plate": plate, "trajectory": trajectory, "total_observations": len(trajectory)}
     return {"plate": plate, "trajectory": [], "total_observations": 0}
+
+@app.get("/api/v1/vehicles/{plate}/details")
+async def get_vehicle_details(plate: str):
+    """Get complete vehicle details including all observations, alerts, and risk status"""
+    plate_upper = plate.upper().replace(" ", "")
+    
+    # Find all observations for this plate
+    vehicle_obs = [v for v in DEMO_VEHICLES if v["plate_text"] == plate_upper]
+    
+    if not vehicle_obs:
+        return {"error": "Vehicle not found", "plate": plate}
+    
+    # Sort by timestamp to get first and last seen
+    sorted_obs = sorted(vehicle_obs, key=lambda x: x["last_seen"])
+    first_seen = sorted_obs[0]["last_seen"]
+    last_seen = sorted_obs[-1]["last_seen"]
+    
+    # Get all cameras visited
+    cameras_visited = list(set([v["camera_id"] for v in vehicle_obs]))
+    
+    # Get all alerts for this vehicle
+    vehicle_alerts = [a for a in DEMO_ALERTS if a["vehicle_plate"] == plate_upper]
+    
+    # Calculate risk score based on alerts
+    risk_score = 0
+    if any(a["severity"] == "critical" for a in vehicle_alerts):
+        risk_score = 90
+        risk_level = "CRITICAL"
+    elif any(a["severity"] == "high" for a in vehicle_alerts):
+        risk_score = 70
+        risk_level = "HIGH"
+    elif any(a["severity"] == "medium" for a in vehicle_alerts):
+        risk_score = 40
+        risk_level = "MEDIUM"
+    else:
+        risk_score = 10
+        risk_level = "LOW"
+    
+    # Get trajectory if available
+    trajectory_response = await get_vehicle_trajectory(plate)
+    
+    return {
+        "plate": plate_upper,
+        "first_seen": first_seen,
+        "last_seen": last_seen,
+        "total_observations": len(vehicle_obs),
+        "cameras_visited": cameras_visited,
+        "camera_count": len(cameras_visited),
+        "alerts": vehicle_alerts,
+        "alert_count": len(vehicle_alerts),
+        "risk_score": risk_score,
+        "risk_level": risk_level,
+        "blacklist_status": "BLACKLISTED" if risk_level == "CRITICAL" else "CLEAR",
+        "trajectory": trajectory_response.get("trajectory", []),
+        "observations": vehicle_obs,
+        "vehicle_type": "Car",
+        "state": "Tamil Nadu",
+        "registration_year": "2020",
+    }
+
+@app.post("/api/v1/upload/image")
+async def upload_image():
+    """
+    Endpoint for live image ingestion (OCR processing)
+    In production, this would process the image with PaddleOCR/LPRNet
+    For demo, returns mock OCR results
+    """
+    return {
+        "success": True,
+        "message": "Image processed successfully",
+        "ocr_results": {
+            "plate_text": "TN09CX7134",
+            "confidence": 0.92,
+            "processing_time_ms": 145,
+            "detection_box": [[100, 50], [300, 50], [300, 120], [100, 120]],
+            "camera_id": "UPLOAD",
+            "timestamp": datetime.now().isoformat()
+        },
+        "note": "Live OCR processing available in full deployment"
+    }
+
+@app.get("/api/v1/analytics/camera-performance")
+async def get_camera_performance():
+    """Get individual camera performance metrics"""
+    return {
+        "cameras": [
+            {"id": "CAM_01", "name": "Gandhipuram Junction", "accuracy": 99.2, "uptime": 99.8, "vehicles_today": 1245},
+            {"id": "CAM_02", "name": "Tidel Park Junction", "accuracy": 98.8, "uptime": 99.5, "vehicles_today": 1189},
+            {"id": "CAM_03", "name": "RS Puram Signal", "accuracy": 99.5, "uptime": 99.9, "vehicles_today": 1432},
+            {"id": "CAM_04", "name": "Lakshmi Mills Junction", "accuracy": 97.9, "uptime": 98.7, "vehicles_today": 987},
+            {"id": "CAM_05", "name": "Town Hall Junction", "accuracy": 98.4, "uptime": 99.2, "vehicles_today": 1567},
+            {"id": "CAM_06", "name": "Gandhipuram Bus Stand", "accuracy": 99.1, "uptime": 99.6, "vehicles_today": 1834},
+            {"id": "CAM_07", "name": "Singanallur Junction", "accuracy": 98.6, "uptime": 99.3, "vehicles_today": 1098},
+        ]
+    }
+
+@app.get("/api/v1/analytics/routes")
+async def get_top_routes():
+    """Get top traffic routes between cameras"""
+    return {
+        "routes": [
+            {"from": "CAM_01", "to": "CAM_02", "from_name": "Gandhipuram Junction", "to_name": "Tidel Park Junction", "count": 245},
+            {"from": "CAM_03", "to": "CAM_01", "from_name": "RS Puram Signal", "to_name": "Gandhipuram Junction", "count": 198},
+            {"from": "CAM_02", "to": "CAM_04", "from_name": "Tidel Park Junction", "to_name": "Lakshmi Mills Junction", "count": 167},
+            {"from": "CAM_04", "to": "CAM_03", "from_name": "Lakshmi Mills Junction", "to_name": "RS Puram Signal", "count": 142},
+            {"from": "CAM_05", "to": "CAM_06", "from_name": "Town Hall Junction", "to_name": "Gandhipuram Bus Stand", "count": 189},
+            {"from": "CAM_06", "to": "CAM_07", "from_name": "Gandhipuram Bus Stand", "to_name": "Singanallur Junction", "count": 134},
+        ]
+    }
 
 if __name__ == "__main__":
     import uvicorn
