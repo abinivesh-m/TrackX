@@ -7,7 +7,7 @@ import Alerts from './pages/Alerts'
 import Navigation from './components/Navigation'
 import axios from 'axios'
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api/v1'
+const API_URL = import.meta.env.VITE_API_URL || 'https://trackx-2.onrender.com'
 
 export const apiClient = axios.create({
   baseURL: API_URL,
@@ -28,8 +28,8 @@ function App() {
 
   const checkHealth = async () => {
     try {
-      const response = await apiClient.get('/health/')
-      setIsHealthy(response.data.status === 'ok')
+      const response = await apiClient.get('/health')
+      setIsHealthy(response.data.status === 'healthy')
       setLoading(false)
     } catch (error) {
       console.error('Health check failed:', error)
