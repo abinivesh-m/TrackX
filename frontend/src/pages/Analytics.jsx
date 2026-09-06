@@ -9,6 +9,10 @@ export default function Analytics() {
   const [stats, setStats] = useState(null)
   const [routeData, setRouteData] = useState([])
   const [cameraPerformance, setCameraPerformance] = useState([])
+  const [vehiclesPerCamera, setVehiclesPerCamera] = useState([])
+  const [congestion, setCongestion] = useState(null)
+  const [speedByPair, setSpeedByPair] = useState([])
+  const [odPatterns, setOdPatterns] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -17,16 +21,24 @@ export default function Analytics() {
 
   const fetchAnalytics = async () => {
     try {
-      const [hourlyRes, statsRes, routesRes, perfRes] = await Promise.all([
+      const [hourlyRes, statsRes, routesRes, perfRes, vpcRes, congRes, speedRes, odRes] = await Promise.all([
         apiClient.get('/api/v1/analytics/hourly'),
         apiClient.get('/api/v1/analytics/stats'),
         apiClient.get('/api/v1/analytics/routes'),
-        apiClient.get('/api/v1/analytics/camera-performance')
+        apiClient.get('/api/v1/analytics/camera-performance'),
+        apiClient.get('/api/v1/analytics/vehicles-per-camera'),
+        apiClient.get('/api/v1/analytics/congestion'),
+        apiClient.get('/api/v1/analytics/speed-by-pair'),
+        apiClient.get('/api/v1/analytics/od-patterns')
       ])
       setHourlyData(hourlyRes.data.data || [])
       setStats(statsRes.data)
       setRouteData(routesRes.data.routes || [])
       setCameraPerformance(perfRes.data.cameras || [])
+      setVehiclesPerCamera(vpcRes.data.data || [])
+      setCongestion(congRes.data)
+      setSpeedByPair(speedRes.data.speeds || [])
+      setOdPatterns(odRes.data.top_od_pairs || [])
       setLoading(false)
     } catch (error) {
       console.error('Failed to fetch analytics:', error)
@@ -195,6 +207,109 @@ export default function Analytics() {
             )}
           </div>
         </div>
+      </div>
+
+      {/* Vehicles Per Camera */}
+      <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-lg p-8">
+        <h2 className="text-xl font-bold text-white mb-6">Vehicles Per Camera</h2>
+        {loading ? (
+          <div className="text-gray-400">Loading...</div>
+        ) : vehiclesPerCamera.length > 0 ? (
+          <div className="space-y-3">
+            {vehiclesPerCamera.map((item, idx) => (
+              <div key={idx} className="flex justify-between items-center bg-slate-900/50 border border-slate-700 rounded-lg p-4">
+                <div>
+                  <span className="text-white font-semibold">{item.camera_id}</span>
+                  <span className="text-gray-400 text-sm ml-2">— {item.camera_name}</span>
+                </div>
+                <span className="bg-blue-600 px-4 py-2 rounded-full font-bold text-white">{item.count}</span>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-gray-400">No data available</div>
+        )}
+      </div>
+
+      {/* Congestion Hotspots */}
+      {congestion && congestion.congested_cameras && congestion.congested_cameras.length > 0 && (
+        <div className="bg-red-600/10 border border-red-500 rounded-lg p-8">
+          <h2 className="text-xl font-bold text-red-400 mb-6">⚠️ Congestion Hotspots</h2>
+          <p className="text-gray-300 mb-4">Cameras with high traffic (threshold: {congestion.threshold} vehicles)</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {congestion.congested_cameras.map((cam, idx) => (
+              <div key={idx} className={`p-4 rounded-lg border ${cam.severity === 'HIGH' ? 'bg-red-600/20 border-red-500' : 'bg-orange-600/20 border-orange-500'}`}>
+                <div className="flex justify-between items-center">
+                  <div>
+                    <p className="text-white font-semibold">{cam.camera_id} — {cam.camera_name}</p>
+                    <p className="text-sm text-gray-300">{cam.vehicle_count} vehicles</p>
+                  </div>
+                  <span className={`px-3 py-1 rounded-full text-sm font-bold ${cam.severity === 'HIGH' ? 'bg-red-600 text-white' : 'bg-orange-600 text-white'}`}>
+                    {cam.severity}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Speed by Camera Pair */}
+      <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-lg p-8">
+        <h2 className="text-xl font-bold text-white mb-6">Average Speed by Camera Pair</h2>
+        {loading ? (
+          <div className="text-gray-400">Loading...</div>
+        ) : speedByPair.length > 0 ? (
+          <div className="space-y-3">
+            {speedByPair.map((speed, idx) => (
+              <div key={idx} className="bg-slate-900/50 border border-slate-700 rounded-lg p-4">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-white font-semibold">{speed.from_name} → {speed.to_name}</span>
+                  <span className="bg-purple-600 px-3 py-1 rounded-full text-white font-bold">{speed.avg_speed_kmh} km/h</span>
+                </div>
+                <div className="text-sm text-gray-400">
+                  {speed.from_camera} → {speed.to_camera} • {speed.sample_count} vehicles tracked
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-gray-400">No data available</div>
+        )}
+      </div>
+
+      {/* Origin-Destination Patterns */}
+      <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-lg p-8">
+        <h2 className="text-xl font-bold text-white mb-6">Origin-Destination Patterns</h2>
+        <p className="text-gray-400 mb-4">Top vehicle journey patterns across the city</p>
+        {loading ? (
+          <div className="text-gray-400">Loading...</div>
+        ) : odPatterns.length > 0 ? (
+          <div className="space-y-3">
+            {odPatterns.map((od, idx) => (
+              <div key={idx} className="bg-slate-900/50 border border-slate-700 rounded-lg p-4">
+                <div className="flex justify-between items-center mb-2">
+                  <div className="flex-1">
+                    <div className="flex items-center space-x-2 mb-1">
+                      <span className="text-green-400">🚩 {od.origin_name}</span>
+                      <span className="text-gray-500">→</span>
+                      <span className="text-red-400">🏁 {od.dest_name}</span>
+                    </div>
+                    <div className="text-sm text-gray-400">
+                      {od.origin} → {od.destination}
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-white font-bold text-2xl">{od.count}</p>
+                    <p className="text-xs text-gray-400">{od.avg_time_minutes} min avg</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-gray-400">No data available</div>
+        )}
       </div>
     </div>
   )

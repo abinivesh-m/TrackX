@@ -297,17 +297,72 @@ async def get_camera_performance():
         ]
     }
 
-@app.get("/api/v1/analytics/routes")
-async def get_top_routes():
-    """Get top traffic routes between cameras"""
+@app.get("/api/v1/analytics/vehicles-per-camera")
+async def get_vehicles_per_camera():
+    """Get vehicle count by camera for bar chart"""
+    camera_counts = {}
+    for vehicle in DEMO_VEHICLES:
+        cam = vehicle["camera_id"]
+        camera_counts[cam] = camera_counts.get(cam, 0) + 1
+    
     return {
-        "routes": [
-            {"from": "CAM_01", "to": "CAM_02", "from_name": "Gandhipuram Junction", "to_name": "Tidel Park Junction", "count": 245},
-            {"from": "CAM_03", "to": "CAM_01", "from_name": "RS Puram Signal", "to_name": "Gandhipuram Junction", "count": 198},
-            {"from": "CAM_02", "to": "CAM_04", "from_name": "Tidel Park Junction", "to_name": "Lakshmi Mills Junction", "count": 167},
-            {"from": "CAM_04", "to": "CAM_03", "from_name": "Lakshmi Mills Junction", "to_name": "RS Puram Signal", "count": 142},
-            {"from": "CAM_05", "to": "CAM_06", "from_name": "Town Hall Junction", "to_name": "Gandhipuram Bus Stand", "count": 189},
-            {"from": "CAM_06", "to": "CAM_07", "from_name": "Gandhipuram Bus Stand", "to_name": "Singanallur Junction", "count": 134},
+        "data": [
+            {"camera_id": cam_id, "camera_name": next((c["name"] for c in DEMO_CAMERAS if c["id"] == cam_id), cam_id), "count": count}
+            for cam_id, count in sorted(camera_counts.items())
+        ]
+    }
+
+@app.get("/api/v1/analytics/congestion")
+async def get_congestion_hotspots():
+    """Get congestion hotspots (cameras above threshold)"""
+    threshold = 10  # vehicles per camera
+    camera_counts = {}
+    for vehicle in DEMO_VEHICLES:
+        cam = vehicle["camera_id"]
+        camera_counts[cam] = camera_counts.get(cam, 0) + 1
+    
+    congested = [(cam, count) for cam, count in camera_counts.items() if count >= threshold]
+    congested_sorted = sorted(congested, key=lambda x: x[1], reverse=True)
+    
+    return {
+        "threshold": threshold,
+        "congested_cameras": [
+            {
+                "camera_id": cam,
+                "camera_name": next((c["name"] for c in DEMO_CAMERAS if c["id"] == cam), cam),
+                "vehicle_count": count,
+                "severity": "HIGH" if count >= threshold * 1.5 else "MEDIUM"
+            }
+            for cam, count in congested_sorted
+        ],
+        "status": "detected" if congested_sorted else "clear"
+    }
+
+@app.get("/api/v1/analytics/speed-by-pair")
+async def get_speed_by_camera_pair():
+    """Get average speed between camera pairs"""
+    # Mock data for demo - in production, calculate from trajectories
+    return {
+        "speeds": [
+            {"from_camera": "CAM_01", "to_camera": "CAM_02", "from_name": "Gandhipuram Junction", "to_name": "Tidel Park Junction", "avg_speed_kmh": 35.2, "sample_count": 45},
+            {"from_camera": "CAM_02", "to_camera": "CAM_03", "from_name": "Tidel Park Junction", "to_name": "RS Puram Signal", "avg_speed_kmh": 42.8, "sample_count": 38},
+            {"from_camera": "CAM_03", "to_camera": "CAM_05", "from_name": "RS Puram Signal", "to_name": "Town Hall Junction", "avg_speed_kmh": 38.5, "sample_count": 29},
+            {"from_camera": "CAM_05", "to_camera": "CAM_06", "from_name": "Town Hall Junction", "to_name": "Gandhipuram Bus Stand", "avg_speed_kmh": 31.7, "sample_count": 41},
+            {"from_camera": "CAM_06", "to_camera": "CAM_07", "from_name": "Gandhipuram Bus Stand", "to_name": "Singanallur Junction", "avg_speed_kmh": 45.3, "sample_count": 33},
+        ],
+        "overall_avg_speed": 38.7
+    }
+
+@app.get("/api/v1/analytics/od-patterns")
+async def get_origin_destination_patterns():
+    """Get top origin-destination patterns"""
+    return {
+        "top_od_pairs": [
+            {"origin": "CAM_01", "destination": "CAM_07", "origin_name": "Gandhipuram Junction", "dest_name": "Singanallur Junction", "count": 67, "avg_time_minutes": 45},
+            {"origin": "CAM_02", "destination": "CAM_05", "origin_name": "Tidel Park Junction", "dest_name": "Town Hall Junction", "count": 54, "avg_time_minutes": 32},
+            {"origin": "CAM_03", "destination": "CAM_06", "origin_name": "RS Puram Signal", "dest_name": "Gandhipuram Bus Stand", "count": 48, "avg_time_minutes": 28},
+            {"origin": "CAM_04", "destination": "CAM_02", "origin_name": "Lakshmi Mills Junction", "dest_name": "Tidel Park Junction", "count": 41, "avg_time_minutes": 22},
+            {"origin": "CAM_05", "destination": "CAM_01", "origin_name": "Town Hall Junction", "dest_name": "Gandhipuram Junction", "count": 39, "avg_time_minutes": 25},
         ]
     }
 
