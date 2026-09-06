@@ -34,13 +34,26 @@ DEMO_CAMERAS = [
     {"id": "CAM_07", "name": "Singanallur Junction", "status": "online", "latitude": 10.9990, "longitude": 77.0324},
 ]
 
-# Real vehicle TN 09 CX 7134 tracked across 5 cameras
+# Real vehicle TN 09 CX 7134 tracked across 5 cameras + additional demo vehicles
 DEMO_VEHICLES = [
+    # TN09CX7134 - Main tracked vehicle across 5 cameras
     {"plate_text": "TN09CX7134", "camera_id": "CAM_02", "observation_count": 5, "last_seen": "2025-03-06T10:22:47", "latitude": 11.0167, "longitude": 76.9707},
     {"plate_text": "TN09CX7134", "camera_id": "CAM_03", "observation_count": 5, "last_seen": "2025-03-06T12:31:09", "latitude": 11.0051, "longitude": 76.9508},
     {"plate_text": "TN09CX7134", "camera_id": "CAM_05", "observation_count": 5, "last_seen": "2025-03-06T18:05:44", "latitude": 10.9911, "longitude": 76.9600},
     {"plate_text": "TN09CX7134", "camera_id": "CAM_06", "observation_count": 5, "last_seen": "2025-03-06T20:17:33", "latitude": 11.0200, "longitude": 76.9680},
     {"plate_text": "TN09CX7134", "camera_id": "CAM_07", "observation_count": 5, "last_seen": "2025-03-06T22:38:56", "latitude": 10.9990, "longitude": 77.0324},
+    
+    # Additional vehicles for realistic demo
+    {"plate_text": "TN09AB1234", "camera_id": "CAM_01", "observation_count": 3, "last_seen": "2025-03-06T09:15:22", "latitude": 11.0205, "longitude": 76.9667},
+    {"plate_text": "TN09CD5678", "camera_id": "CAM_03", "observation_count": 2, "last_seen": "2025-03-06T11:45:18", "latitude": 11.0051, "longitude": 76.9508},
+    {"plate_text": "TN09EF9012", "camera_id": "CAM_04", "observation_count": 4, "last_seen": "2025-03-06T13:22:55", "latitude": 11.0128, "longitude": 76.9889},
+    {"plate_text": "TN09GH3456", "camera_id": "CAM_05", "observation_count": 1, "last_seen": "2025-03-06T14:10:33", "latitude": 10.9911, "longitude": 76.9600},
+    {"plate_text": "TN09IJ7890", "camera_id": "CAM_06", "observation_count": 6, "last_seen": "2025-03-06T15:30:12", "latitude": 11.0200, "longitude": 76.9680},
+    {"plate_text": "TN09KL2345", "camera_id": "CAM_07", "observation_count": 3, "last_seen": "2025-03-06T16:55:47", "latitude": 10.9990, "longitude": 77.0324},
+    {"plate_text": "TN09MN6789", "camera_id": "CAM_01", "observation_count": 2, "last_seen": "2025-03-06T17:20:05", "latitude": 11.0205, "longitude": 76.9667},
+    {"plate_text": "TN09OP0123", "camera_id": "CAM_02", "observation_count": 5, "last_seen": "2025-03-06T18:45:31", "latitude": 11.0167, "longitude": 76.9707},
+    {"plate_text": "TN09QR4567", "camera_id": "CAM_03", "observation_count": 4, "last_seen": "2025-03-06T19:12:44", "latitude": 11.0051, "longitude": 76.9508},
+    {"plate_text": "TN09ST8901", "camera_id": "CAM_04", "observation_count": 3, "last_seen": "2025-03-06T20:33:18", "latitude": 11.0128, "longitude": 76.9889},
 ]
 
 DEMO_ALERTS = [
@@ -83,9 +96,21 @@ async def get_stats():
 
 @app.get("/api/v1/vehicles")
 async def get_vehicles():
+    # Group by plate_text to show unique vehicles with their latest observation
+    unique_vehicles = {}
+    for v in DEMO_VEHICLES:
+        plate = v["plate_text"]
+        if plate not in unique_vehicles:
+            unique_vehicles[plate] = v.copy()
+        else:
+            # Keep the latest observation
+            if v["last_seen"] > unique_vehicles[plate]["last_seen"]:
+                unique_vehicles[plate] = v.copy()
+    
+    vehicles_list = list(unique_vehicles.values())
     return {
-        "vehicles": DEMO_VEHICLES,
-        "total": len(DEMO_VEHICLES)
+        "vehicles": vehicles_list,
+        "total": len(vehicles_list)
     }
 
 @app.get("/api/v1/vehicles/{plate}")
