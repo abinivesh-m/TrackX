@@ -366,6 +366,18 @@ async def get_origin_destination_patterns():
         ]
     }
 
+@app.get("/api/v1/analytics/repeated-sightings")
+async def get_repeated_camera_sightings():
+    """Get vehicles with repeated sightings at same camera"""
+    # Mock data - in production, analyze trajectories for repeated visits
+    return {
+        "repeated_sightings": [
+            {"camera_id": "CAM_01", "camera_name": "Gandhipuram Junction", "vehicle_count": 3, "plates": ["TN09AB1234", "TN09MN6789", "TN09CX7134"]},
+            {"camera_id": "CAM_06", "camera_name": "Gandhipuram Bus Stand", "vehicle_count": 2, "plates": ["TN09IJ7890", "TN09CX7134"]},
+            {"camera_id": "CAM_03", "camera_name": "RS Puram Signal", "vehicle_count": 2, "plates": ["TN09CD5678", "TN09QR4567"]},
+        ]
+    }
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)

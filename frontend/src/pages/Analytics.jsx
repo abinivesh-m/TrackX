@@ -13,6 +13,7 @@ export default function Analytics() {
   const [congestion, setCongestion] = useState(null)
   const [speedByPair, setSpeedByPair] = useState([])
   const [odPatterns, setOdPatterns] = useState([])
+  const [repeatedSightings, setRepeatedSightings] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -21,7 +22,7 @@ export default function Analytics() {
 
   const fetchAnalytics = async () => {
     try {
-      const [hourlyRes, statsRes, routesRes, perfRes, vpcRes, congRes, speedRes, odRes] = await Promise.all([
+      const [hourlyRes, statsRes, routesRes, perfRes, vpcRes, congRes, speedRes, odRes, repRes] = await Promise.all([
         apiClient.get('/api/v1/analytics/hourly'),
         apiClient.get('/api/v1/analytics/stats'),
         apiClient.get('/api/v1/analytics/routes'),
@@ -29,7 +30,8 @@ export default function Analytics() {
         apiClient.get('/api/v1/analytics/vehicles-per-camera'),
         apiClient.get('/api/v1/analytics/congestion'),
         apiClient.get('/api/v1/analytics/speed-by-pair'),
-        apiClient.get('/api/v1/analytics/od-patterns')
+        apiClient.get('/api/v1/analytics/od-patterns'),
+        apiClient.get('/api/v1/analytics/repeated-sightings')
       ])
       setHourlyData(hourlyRes.data.data || [])
       setStats(statsRes.data)
@@ -39,6 +41,7 @@ export default function Analytics() {
       setCongestion(congRes.data)
       setSpeedByPair(speedRes.data.speeds || [])
       setOdPatterns(odRes.data.top_od_pairs || [])
+      setRepeatedSightings(repRes.data.repeated_sightings || [])
       setLoading(false)
     } catch (error) {
       console.error('Failed to fetch analytics:', error)
@@ -62,6 +65,81 @@ export default function Analytics() {
   const avgVehicles = hourlyData.length > 0
     ? Math.round(hourlyData.reduce((sum, item) => sum + item.count, 0) / hourlyData.length)
     : 0
+
+  // Export functions
+  const handleExportVehicles = async () => {
+    try {
+      const response = await apiClient.get('/api/v1/vehicles')
+      const vehicles = response.data.vehicles || []
+      
+      const csv = [
+        ['Plate Number', 'Camera ID', 'Observations', 'Last Seen', 'Latitude', 'Longitude'],
+        ...vehicles.map(v => [
+          v.plate_text,
+          v.camera_id,
+          v.observation_count,
+          v.last_seen,
+          v.latitude,
+          v.longitude
+        ])
+      ].map(row => row.join(',')).join('\n')
+      
+      downloadCSV(csv, 'trackx_vehicles.csv')
+    } catch (error) {
+      console.error('Export failed:', error)
+    }
+  }
+
+  const handleExportAnalytics = () => {
+    const csv = [
+      ['Hour', 'Vehicle Count', 'Timestamp'],
+      ...hourlyData.map(item => [
+        item.hour,
+        item.count,
+        item.timestamp
+      ])
+    ].map(row => row.join(',')).join('\n')
+    
+    downloadCSV(csv, 'trackx_analytics.csv')
+  }
+
+  const handleExportAlerts = async () => {
+    try {
+      const response = await apiClient.get('/api/v1/alerts')
+      const alerts = response.data.alerts || []
+      
+      const csv = [
+        ['ID', 'Vehicle Plate', 'Alert Type', 'Severity', 'Description', 'Status', 'Camera', 'Location', 'Timestamp'],
+        ...alerts.map(a => [
+          a.id,
+          a.vehicle_plate,
+          a.alert_type,
+          a.severity,
+          a.description,
+          a.status,
+          a.camera_id || 'N/A',
+          a.location || 'N/A',
+          a.timestamp
+        ])
+      ].map(row => row.join(',')).join('\n')
+      
+      downloadCSV(csv, 'trackx_alerts.csv')
+    } catch (error) {
+      console.error('Export failed:', error)
+    }
+  }
+
+  const downloadCSV = (csv, filename) => {
+    const blob = new Blob([csv], { type: 'text/csv' })
+    const url = window.URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = filename
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    window.URL.revokeObjectURL(url)
+  }
 
   return (
     <div className="space-y-8">
@@ -310,6 +388,62 @@ export default function Analytics() {
         ) : (
           <div className="text-gray-400">No data available</div>
         )}
+      </div>
+
+      {/* Repeated Camera Sightings */}
+      {repeatedSightings.length > 0 && (
+        <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-lg p-8">
+          <h2 className="text-xl font-bold text-white mb-6">Repeated Camera Sightings</h2>
+          <p className="text-gray-400 mb-4">Vehicles with multiple visits to the same camera</p>
+          <div className="space-y-3">
+            {repeatedSightings.map((sighting, idx) => (
+              <div key={idx} className="bg-slate-900/50 border border-slate-700 rounded-lg p-4">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <p className="text-white font-semibold">{sighting.camera_id} — {sighting.camera_name}</p>
+                    <p className="text-sm text-gray-400 mt-1">
+                      Vehicles: {sighting.plates.map((plate, i) => (
+                        <span key={i} className="font-mono text-blue-400 ml-2">{plate}</span>
+                      ))}
+                    </p>
+                  </div>
+                  <span className="bg-orange-600 px-4 py-2 rounded-full text-white font-bold">
+                    {sighting.vehicle_count} repeated
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Export to CSV */}
+      <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-lg p-8">
+        <h2 className="text-xl font-bold text-white mb-6">Data Export</h2>
+        <p className="text-gray-400 mb-6">Export analytics data for further analysis</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <button
+            onClick={handleExportVehicles}
+            className="px-6 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2"
+          >
+            <span>📊</span>
+            <span>Export Vehicles CSV</span>
+          </button>
+          <button
+            onClick={handleExportAnalytics}
+            className="px-6 py-4 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2"
+          >
+            <span>📈</span>
+            <span>Export Analytics CSV</span>
+          </button>
+          <button
+            onClick={handleExportAlerts}
+            className="px-6 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2"
+          >
+            <span>⚠️</span>
+            <span>Export Alerts CSV</span>
+          </button>
+        </div>
       </div>
     </div>
   )

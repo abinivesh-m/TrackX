@@ -6,6 +6,7 @@ import VehicleDetails from './pages/VehicleDetails'
 import Analytics from './pages/Analytics'
 import Alerts from './pages/Alerts'
 import LiveIngestion from './pages/LiveIngestion'
+import SystemStatus from './pages/SystemStatus'
 import Navigation from './components/Navigation'
 import axios from 'axios'
 
@@ -76,6 +77,7 @@ function App() {
             <Route path="/analytics" element={<Analytics />} />
             <Route path="/alerts" element={<Alerts />} />
             <Route path="/live" element={<LiveIngestion />} />
+            <Route path="/system" element={<SystemStatus />} />
           </Routes>
         </main>
       </div>

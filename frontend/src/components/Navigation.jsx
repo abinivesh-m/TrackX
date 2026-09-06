@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Car, BarChart3, AlertCircle, Home, Upload } from 'lucide-react'
+import { Menu, X, Car, BarChart3, AlertCircle, Home, Upload, Activity } from 'lucide-react'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -12,6 +12,7 @@ export default function Navigation() {
     { path: '/analytics', label: 'Analytics', icon: BarChart3 },
     { path: '/alerts', label: 'Alerts', icon: AlertCircle },
     { path: '/live', label: 'Live OCR', icon: Upload },
+    { path: '/system', label: 'System', icon: Activity },
   ]
 
   const isActive = (path) => location.pathname === path
