@@ -1,30 +1,25 @@
-# Build stage
-FROM node:18-alpine as builder
+# Single-stage build to avoid permission issues
+FROM node:18-alpine
 
 WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies with proper permissions
+# Install dependencies
 RUN npm install --legacy-peer-deps
+
+# Install serve globally
+RUN npm install -g serve
 
 # Copy source code
 COPY . .
 
-# Build application using npx to avoid permission issues
-RUN npx vite build
+# Build application
+RUN npm run build
 
-# Production stage
-FROM node:18-alpine
-
-WORKDIR /app
-
-# Install serve and curl for health checks
-RUN npm install -g serve && apk add --no-cache curl
-
-# Copy built app from builder
-COPY --from=builder /app/dist ./dist
+# Install curl for health checks
+RUN apk add --no-cache curl
 
 # Expose port
 EXPOSE 3000
