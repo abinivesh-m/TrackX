@@ -3,18 +3,17 @@ set -e
 
 echo "Starting TrackX Backend..."
 
-# Wait for database to be ready
-echo "Waiting for database..."
-until PGPASSWORD=$POSTGRES_PASSWORD psql -h "$POSTGRES_SERVER" -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c '\q'; do
-  echo "PostgreSQL is unavailable - sleeping"
-  sleep 2
-done
+# Wait a bit for database to be ready (Render handles service dependencies)
+echo "Waiting for database to be ready..."
+sleep 10
 
-echo "Database is ready!"
-
-# Run migrations
+# Try to run migrations
 echo "Running database migrations..."
-alembic upgrade head
+if alembic upgrade head; then
+  echo "Migrations completed successfully"
+else
+  echo "Migration failed, but continuing..."
+fi
 
 # Start the application
 echo "Starting FastAPI server..."

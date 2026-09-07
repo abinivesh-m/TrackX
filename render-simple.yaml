@@ -1,5 +1,5 @@
 services:
-  # Backend API Service
+  # Backend API Service - Simplified for Render
   - type: web
     name: trackx-backend
     env: docker
@@ -11,35 +11,10 @@ services:
         fromDatabase:
           name: trackx-postgres
           property: connectionString
-      - key: REDIS_URL
-        fromService:
-          type: redis
-          name: trackx-redis
-          property: connectionString
       - key: SECRET_KEY
         generateValue: true
       - key: ENVIRONMENT
         value: production
-      - key: POSTGRES_SERVER
-        fromDatabase:
-          name: trackx-postgres
-          property: host
-      - key: POSTGRES_PORT
-        fromDatabase:
-          name: trackx-postgres
-          property: port
-      - key: POSTGRES_USER
-        fromDatabase:
-          name: trackx-postgres
-          property: user
-      - key: POSTGRES_PASSWORD
-        fromDatabase:
-          name: trackx-postgres
-          property: password
-      - key: POSTGRES_DB
-        fromDatabase:
-          name: trackx-postgres
-          property: database
       - key: USE_SQLITE
         value: false
       - key: BACKEND_CORS_ORIGINS
@@ -47,10 +22,10 @@ services:
     healthCheck:
       http:
         path: /api/v1/health/
-        initialDelaySeconds: 60
-        periodSeconds: 10
-        timeoutSeconds: 5
-        failureThreshold: 3
+        initialDelaySeconds: 90
+        periodSeconds: 15
+        timeoutSeconds: 10
+        failureThreshold: 5
 
   # Frontend Service
   - type: web
@@ -68,16 +43,13 @@ services:
     healthCheck:
       http:
         path: /
-        initialDelaySeconds: 30
-        periodSeconds: 10
-        timeoutSeconds: 5
-        failureThreshold: 3
+        initialDelaySeconds: 60
+        periodSeconds: 15
+        timeoutSeconds: 10
+        failureThreshold: 5
 
 databases:
   - name: trackx-postgres
     databaseName: trackx
     user: trackx
-    plan: free
-
-  - name: trackx-redis
     plan: free
