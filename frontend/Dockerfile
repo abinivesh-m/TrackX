@@ -6,14 +6,14 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci
+# Install dependencies with proper permissions
+RUN npm install --legacy-peer-deps
 
 # Copy source code
 COPY . .
 
-# Build application
-RUN npm run build
+# Build application using npx to avoid permission issues
+RUN npx vite build
 
 # Production stage
 FROM node:18-alpine

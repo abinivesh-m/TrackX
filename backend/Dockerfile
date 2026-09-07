@@ -21,9 +21,9 @@ RUN pip install --no-cache-dir -r requirements-prod.txt
 # Copy application code
 COPY . .
 
-# Copy startup script
+# Copy startup script and set permissions
 COPY start.sh .
-RUN chmod +x start.sh
+RUN chmod +x start.sh && chmod +x /app/start.sh
 
 # Create necessary directories
 RUN mkdir -p data/cameras outputs models logs

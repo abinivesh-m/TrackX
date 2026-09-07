@@ -22,31 +22,10 @@ services:
     healthCheck:
       http:
         path: /api/v1/health/
-        initialDelaySeconds: 90
-        periodSeconds: 15
-        timeoutSeconds: 10
-        failureThreshold: 5
-
-  # Frontend Service
-  - type: web
-    name: trackx-frontend
-    env: docker
-    dockerfilePath: ./frontend/Dockerfile
-    dockerContext: ./frontend
-    plan: free
-    envVars:
-      - key: REACT_APP_API_URL
-        fromService:
-          type: web
-          name: trackx-backend
-          property: url
-    healthCheck:
-      http:
-        path: /
-        initialDelaySeconds: 60
-        periodSeconds: 15
-        timeoutSeconds: 10
-        failureThreshold: 5
+        initialDelaySeconds: 120
+        periodSeconds: 20
+        timeoutSeconds: 15
+        failureThreshold: 10
 
 databases:
   - name: trackx-postgres
