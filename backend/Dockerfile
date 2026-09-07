@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     libproj-dev \
     curl \
     postgresql-client \
+    sqlite3 \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first for better caching

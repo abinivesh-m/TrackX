@@ -19,12 +19,14 @@ services:
         value: false
       - key: BACKEND_CORS_ORIGINS
         value: '["*"]'
+      - key: DEBUG
+        value: "False"
     healthCheck:
       http:
         path: /api/v1/health/
-        initialDelaySeconds: 120
-        periodSeconds: 20
-        timeoutSeconds: 15
+        initialDelaySeconds: 180
+        periodSeconds: 30
+        timeoutSeconds: 30
         failureThreshold: 10
 
 databases:
