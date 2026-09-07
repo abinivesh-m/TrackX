@@ -50,6 +50,12 @@ services:
       DEBUG: "False"
       LOG_LEVEL: INFO
       CORS_ORIGINS: '["*"]'
+      POSTGRES_SERVER: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: trackx
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-trackx123}
+      POSTGRES_DB: trackx
+      USE_SQLITE: "false"
     ports:
       - "8000:8000"
     depends_on:
@@ -61,8 +67,8 @@ services:
       test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health/"]
       interval: 30s
       timeout: 5s
-      retries: 3
-      start_period: 40s
+      retries: 5
+      start_period: 60s
     networks:
       - trackx
     restart: unless-stopped

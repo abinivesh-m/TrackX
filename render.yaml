@@ -1,0 +1,77 @@
+services:
+  # Backend API Service
+  - type: web
+    name: trackx-backend
+    env: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: trackx-postgres
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: trackx-redis
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ENVIRONMENT
+        value: production
+      - key: POSTGRES_SERVER
+        value: localhost
+      - key: POSTGRES_PORT
+        value: 5432
+      - key: POSTGRES_USER
+        fromDatabase:
+          name: trackx-postgres
+          property: user
+      - key: POSTGRES_PASSWORD
+        fromDatabase:
+          name: trackx-postgres
+          property: password
+      - key: POSTGRES_DB
+        fromDatabase:
+          name: trackx-postgres
+          property: database
+      - key: USE_SQLITE
+        value: false
+    healthCheck:
+      http:
+        path: /api/v1/health/
+        initialDelaySeconds: 60
+        periodSeconds: 10
+        timeoutSeconds: 5
+        failureThreshold: 3
+
+  # Frontend Service
+  - type: web
+    name: trackx-frontend
+    env: docker
+    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: ./frontend
+    plan: free
+    envVars:
+      - key: REACT_APP_API_URL
+        fromService:
+          type: web
+          name: trackx-backend
+          property: url
+    healthCheck:
+      http:
+        path: /
+        initialDelaySeconds: 30
+        periodSeconds: 10
+        timeoutSeconds: 5
+        failureThreshold: 3
+
+databases:
+  - name: trackx-postgres
+    databaseName: trackx
+    user: trackx
+    plan: free
+
+  - name: trackx-redis
+    plan: free
