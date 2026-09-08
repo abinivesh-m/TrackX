@@ -1,0 +1,46 @@
+warning: in the working copy of 'frontend/src/components/layout/Sidebar.tsx', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/frontend/src/components/layout/Sidebar.tsx b/frontend/src/components/layout/Sidebar.tsx[m
+[1mindex bb21e016..57135627 100644[m
+[1m--- a/frontend/src/components/layout/Sidebar.tsx[m
+[1m+++ b/frontend/src/components/layout/Sidebar.tsx[m
+[36m@@ -68,16 +68,25 @@[m [mconst Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {[m
+         )}[m
+       </AnimatePresence>[m
+ [m
+[31m-      <motion.aside[m
+[31m-        initial={false}[m
+[31m-        animate={{[m
+[31m-          x: open ? 0 : -256,[m
+[31m-        }}[m
+[31m-        transition={{ type: "spring", stiffness: 300, damping: 30 }}[m
+[32m+[m[32m      {/*[m
+[32m+[m[32m        Plain <aside>, not <motion.aside>, on purpose: Framer Motion's[m
+[32m+[m[32m        animate={{x: ...}} sets `transform` as an INLINE style, which beats[m
+[32m+[m[32m        every stylesheet rule - including the `lg:translate-x-0` media-query[m
+[32m+[m[32m        override below that's supposed to pin the sidebar open on desktop.[m
+[32m+[m[32m        With the inline style, the sidebar was permanently transformed off[m
+[32m+[m[32m        -screen (translateX(-256px)) at every viewport width, since[m
+[32m+[m[32m        `sidebarOpen` (Layout.tsx) defaults to false even on desktop and[m
+[32m+[m[32m        nothing there ever sets it true for wide screens - only the (now[m
+[32m+[m[32m        overridden) CSS media query was supposed to handle that case. Using[m
+[32m+[m[32m        plain Tailwind classes + a CSS transition here lets `lg:` actually[m
+[32m+[m[32m        win at desktop widths again.[m
+[32m+[m[32m      */}[m
+[32m+[m[32m      <aside[m
+         className={`[m
+           fixed z-50 lg:relative[m
+           h-full w-64 flex-shrink-0[m
+           bg-surface border-r border-border[m
+[32m+[m[32m          transition-transform duration-300 ease-in-out[m
+           ${open ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}[m
+         `}[m
+       >[m
+[36m@@ -201,7 +210,7 @@[m [mconst Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {[m
+             <span className="font-medium">Logout</span>[m
+           </motion.button>[m
+         </motion.div>[m
+[31m-      </motion.aside>[m
+[32m+[m[32m      </aside>[m
+     </>[m
+   )[m
+ }[m
