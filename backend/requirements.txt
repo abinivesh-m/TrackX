@@ -26,15 +26,18 @@ email-validator==2.1.0
 redis==5.0.1
 hiredis==2.2.3
 
-# CORS
-python-cors==1.0.0
+# CORS is handled by fastapi.middleware.cors.CORSMiddleware, which ships
+# with FastAPI/Starlette itself - "python-cors" is not a real PyPI package
+# (it doesn't exist; installing it always failed) and has been removed.
 
-# AI/ML dependencies
-ultralytics==8.0.206
-paddleocr==2.7.0.3
-paddlepaddle==2.5.2
-opencv-python==4.8.1.78
-numpy==1.26.2
+# AI/ML dependencies - ultralytics/paddleocr/paddlepaddle/opencv-python/numpy
+# are intentionally NOT pinned here. They're already pinned once, in the
+# root requirements.txt (ultralytics==8.3.0, paddleocr==2.7.3,
+# paddlepaddle==2.6.2, opencv-python==4.6.0.66, numpy>=1.26.4) - both files
+# get installed together in the same pip command (see render.yaml), and
+# having two different exact pins for the same package here was a real,
+# previously-untested conflict that broke the first real deploy attempt.
+# One source of truth for these versions now.
 pillow==10.1.0
 
 # HTTP client
