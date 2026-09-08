@@ -257,6 +257,17 @@ const RouteAnomalyPage: React.FC = () => {
 
                     {anomaly.details && (
                       <div className="mt-2 text-xs text-muted space-y-1">
+                        {/*
+                          route_anomaly.py's add_anomaly() call never sends
+                          observed_travel_time or expected_max_time, and
+                          sends observed_speed_kmph as null for exactly the
+                          "impossible" case (required_speed_kmph == inf) -
+                          the most common/dramatic anomaly type. Calling
+                          .toFixed() on those unconditionally crashed this
+                          whole page to a black screen (no error boundary)
+                          the moment such an anomaly rendered. Optional
+                          chaining + a fallback keeps it rendering instead.
+                        */}
                         {anomaly.details.unexpected_transition && (
                           <div className="flex items-center gap-1 text-red-400">
                             <XCircle size={12} />
@@ -266,13 +277,13 @@ const RouteAnomalyPage: React.FC = () => {
                         {anomaly.details.impossible_travel_time && (
                           <div className="flex items-center gap-1 text-red-400">
                             <XCircle size={12} />
-                            Impossible travel time ({anomaly.details.observed_travel_time.toFixed(1)}s vs expected {anomaly.details.expected_min_time}-{anomaly.details.expected_max_time}s)
+                            Impossible travel time ({anomaly.details.observed_travel_time?.toFixed(1) ?? '?'}s vs expected {anomaly.details.expected_min_time ?? '?'}-{anomaly.details.expected_max_time ?? '?'}s)
                           </div>
                         )}
                         {anomaly.details.unreasonable_speed && (
                           <div className="flex items-center gap-1 text-orange-400">
                             <AlertTriangle size={12} />
-                            Unreasonable speed ({anomaly.details.observed_speed_kmph.toFixed(1)} km/h)
+                            Unreasonable speed ({anomaly.details.observed_speed_kmph?.toFixed(1) ?? 'very high'} km/h)
                           </div>
                         )}
                       </div>
@@ -374,20 +385,20 @@ const RouteAnomalyPage: React.FC = () => {
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span className="text-muted">Distance</span>
-                      <span className="text-white">{selectedAnomaly.details.distance_km.toFixed(2)} km</span>
+                      <span className="text-white">{selectedAnomaly.details.distance_km?.toFixed(2) ?? '?'} km</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted">Observed Travel Time</span>
-                      <span className="text-white">{selectedAnomaly.details.observed_travel_time.toFixed(1)}s</span>
+                      <span className="text-white">{selectedAnomaly.details.observed_travel_time?.toFixed(1) ?? '?'}s</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted">Expected Time Range</span>
-                      <span className="text-white">{selectedAnomaly.details.expected_min_time.toFixed(0)}s - {selectedAnomaly.details.expected_max_time.toFixed(0)}s</span>
+                      <span className="text-white">{selectedAnomaly.details.expected_min_time?.toFixed(0) ?? '?'}s - {selectedAnomaly.details.expected_max_time?.toFixed(0) ?? '?'}s</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted">Observed Speed</span>
                       <span className={selectedAnomaly.details.unreasonable_speed ? 'text-red-400 font-bold' : 'text-white'}>
-                        {selectedAnomaly.details.observed_speed_kmph.toFixed(1)} km/h
+                        {selectedAnomaly.details.observed_speed_kmph?.toFixed(1) ?? 'very high'} km/h
                       </span>
                     </div>
                     <div className="flex justify-between">
