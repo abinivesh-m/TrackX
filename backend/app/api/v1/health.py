@@ -5,8 +5,8 @@ from datetime import datetime
 from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends, status
 
-from backend.app.api.deps import get_db
-from backend.app.core.config import settings
+from app.api.deps import get_db
+from app.core.config import settings
 from database.observation_store import database_file_exists, ObservationStore
 
 router = APIRouter(prefix="/health", tags=["health"])
@@ -38,12 +38,16 @@ def check_database() -> Dict[str, Any]:
 def check_models() -> Dict[str, Any]:
     """Check availability of ML models."""
     try:
-        from recognition.ocr_reader import PlateOCR, LPRNET_AVAILABLE, PADDLEOCR_AVAILABLE
+        from recognition.ocr_reader import PlateOCR, PADDLEOCR_AVAILABLE
         from detection.vehicle_detector import VehicleDetector
         from detection.detect_plates import PlateDetector
-        
+
         models = {
-            "lprnet": LPRNET_AVAILABLE,
+            # LPRNet was removed from the live OCR path (see
+            # recognition/ocr_reader.py) - it never had a trained checkpoint
+            # in this repo and could only ever fall through to PaddleOCR
+            # anyway, so it's reported as not in use rather than checked.
+            "lprnet": False,
             "paddleocr": PADDLEOCR_AVAILABLE,
             "yolo_vehicle": True,  # Usually available
             "yolo_plate": True,     # Usually available
@@ -93,7 +97,7 @@ def deep_health_check() -> Dict[str, Any]:
             "database": db_status,
             "models": model_status,
         },
-        "environment": "production" if settings.DEBUG is False else "development"
+        "environment": settings.ENVIRONMENT
     }
 
 
@@ -104,7 +108,23 @@ def system_status(db: Session = Depends(get_db)) -> Dict[str, Any]:
     model_status = check_models()
     
     try:
-        from backend.app.models.camera import Camera
+        # Camera.observations is a relationship("Observation", ...) resolved
+        # by name at mapper-configure time. Camera is otherwise never
+        # imported anywhere in the live app (the app/services/* modules
+        # that also import it are dead code, never imported by any
+        # router), so importing Camera here without Observation used to
+        # leave that relationship permanently unresolvable: SQLAlchemy's
+        # configure_mappers() runs once per process and caches the failure
+        # on the mapper, which then poisons every subsequent ORM query in
+        # the whole process (not just this endpoint - a bare except here
+        # only hid the immediate symptom) with
+        # "InvalidRequestError: One or more mappers failed to initialize".
+        # Importing Observation alongside Camera lets the relationship
+        # resolve correctly the first time, so calling this endpoint can
+        # no longer break every other endpoint that touches the database
+        # afterward.
+        from app.models.camera import Camera
+        from app.models.observation import Observation  # noqa: F401 - required for Camera's relationship("Observation") to resolve
         camera_count = db.query(Camera).count()
     except:
         camera_count = 0

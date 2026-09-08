@@ -15,6 +15,7 @@ values Phase 13 will use are: BLACKLISTED_VEHICLE, IMPOSSIBLE_TRAVEL,
 SUSPICIOUS_ROUTE, REPEATED_CAMERA.
 """
 
+import json
 import os
 import sqlite3
 from datetime import datetime
@@ -52,17 +53,34 @@ class AlertStore:
             self.conn.execute("UPDATE alerts SET updated_at = created_at WHERE updated_at IS NULL")
         if "resolution_notes" not in existing:
             self.conn.execute("ALTER TABLE alerts ADD COLUMN resolution_notes TEXT")
+        if "evidence" not in existing:
+            # Structured, per-alert-type proof (matched plate + similarity,
+            # camera sequence, anomaly signal breakdown, congestion/offline
+            # metrics - whatever the detector actually computed). Stored as
+            # JSON text since the fields differ per alert_type; NULL for any
+            # alert persisted before this column existed. See
+            # intelligence/alerts.py for what each alert_type puts here.
+            self.conn.execute("ALTER TABLE alerts ADD COLUMN evidence TEXT")
         self.conn.commit()
 
     def add_alert(self, plate: str, alert_type: str, timestamp: str,
                   severity: str = "MEDIUM", camera_id: Optional[str] = None,
-                  description: Optional[str] = None, confidence: Optional[float] = None):
+                  description: Optional[str] = None, confidence: Optional[float] = None,
+                  evidence: Optional[dict] = None):
         """
         Idempotent on the natural key (plate, alert_type, camera_id,
         timestamp) - re-running the same detection logic over the same data
         (e.g. re-scanning trajectories) won't pile up duplicate alert rows.
         Returns (alert_id, created) where created is False if this exact
         alert already existed.
+
+        `plate` is a vehicle plate for vehicle-scoped alert types
+        (BLACKLISTED_VEHICLE, REPEATED_CAMERA, SUSPICIOUS_ROUTE) and a
+        camera_id for camera-scoped types (CAMERA_OFFLINE,
+        CONGESTION_BOTTLENECK) - there's no vehicle to key those on, and
+        reusing this column keeps the existing idempotency key working
+        without a schema change. Callers/consumers tell the two apart by
+        alert_type, not by inspecting the plate field's shape.
         """
         cur = self.conn.execute("""
             SELECT alert_id FROM alerts
@@ -75,10 +93,11 @@ class AlertStore:
 
         cur = self.conn.execute("""
             INSERT INTO alerts
-            (plate, alert_type, severity, camera_id, timestamp, description, confidence, status, created_at, updated_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, 'OPEN', ?, ?)
+            (plate, alert_type, severity, camera_id, timestamp, description, confidence, evidence, status, created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'OPEN', ?, ?)
         """, (plate, alert_type, severity, camera_id, timestamp, description,
-              confidence, datetime.now().isoformat(), datetime.now().isoformat()))
+              confidence, json.dumps(evidence) if evidence is not None else None,
+              datetime.now().isoformat(), datetime.now().isoformat()))
         self.conn.commit()
         return cur.lastrowid, True
 
@@ -100,7 +119,17 @@ class AlertStore:
             values.append(limit)
         cur = self.conn.execute(query, values)
         cols = [d[0] for d in cur.description]
-        return [dict(zip(cols, row)) for row in cur.fetchall()]
+        rows = [dict(zip(cols, row)) for row in cur.fetchall()]
+        for row in rows:
+            raw = row.get("evidence")
+            if raw:
+                try:
+                    row["evidence"] = json.loads(raw)
+                except (TypeError, ValueError):
+                    row["evidence"] = None
+            else:
+                row["evidence"] = None
+        return rows
 
     def update_status(self, alert_id: int, status: str, notes: Optional[str] = None):
         if status not in {"OPEN", "ACKNOWLEDGED", "RESOLVED"}:

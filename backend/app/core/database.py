@@ -18,12 +18,14 @@ backend_path = os.path.join(os.path.dirname(__file__), '..', '..')
 if backend_path not in sys.path:
     sys.path.insert(0, backend_path)
 
-# Import settings for environment-based configuration
-try:
-    from app.core.config import settings
-except ImportError:
-    # Fallback for when running from project root
-    from backend.app.core.config import settings
+# Import settings for environment-based configuration.
+# Phase 14: no longer falls back to "backend.app.core.config" on
+# ImportError - see app/main.py's import block for why that fallback
+# pattern is dangerous (it silently duplicates model registration under a
+# second SQLAlchemy Base). The sys.path insertion just above guarantees
+# "app.core.config" resolves, so a single plain import is both simpler and
+# safer.
+from app.core.config import settings
 
 # Database URL configuration
 # Priority: 1. Environment variable DATABASE_URL, 2. Settings-based URL, 3. SQLite fallback

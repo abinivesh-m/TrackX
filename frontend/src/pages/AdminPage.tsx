@@ -1,30 +1,49 @@
 // frontend/src/pages/AdminPage.tsx
+//
+// The System tab reads GET /health (the same real database/model checks
+// Phase 8 wired the Operations Center dashboard to) instead of hardcoded
+// "Running"/"Connected"/"Active" badges. The Security/Database tabs' controls
+// have no backend behind them in this build, so they're shown as disabled
+// with an honest label rather than as working buttons that do nothing when
+// clicked. Audit Logs previously showed four fabricated example entries
+// ("User login... 2 minutes ago") on every load - there is no audit-log
+// store in this codebase, so that's now stated plainly instead.
 
 import React, { useState, useEffect } from 'react'
+import { toast } from 'react-toastify'
 import { api } from '@/services/api'
 import { useAuth } from '@/contexts/AuthContext'
-import { Users, Activity, Shield, Database, Server } from 'lucide-react'
+import { Users, Activity, Shield, Database, Server, WifiOff } from 'lucide-react'
 import type { User } from '@/types'
 
 const AdminPage: React.FC = () => {
   const { user } = useAuth()
   const [users, setUsers] = useState<User[]>([])
+  const [health, setHealth] = useState<any>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [loadError, setLoadError] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState('users')
 
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchData = async () => {
       try {
-        const data = await api.getUsers()
-        setUsers(data)
+        const [usersData, healthData] = await Promise.all([
+          api.getUsers(),
+          api.getHealth().catch(() => null),
+        ])
+        setUsers(usersData)
+        setHealth(healthData)
+        setLoadError(null)
       } catch (error) {
-        console.error('Failed to fetch users:', error)
+        console.error('Failed to fetch admin data:', error)
+        setLoadError('Could not reach the TrackX API.')
+        toast.error('Failed to load admin data')
       } finally {
         setIsLoading(false)
       }
     }
-    
-    fetchUsers()
+
+    fetchData()
   }, [])
 
   const tabs = [
@@ -37,6 +56,16 @@ const AdminPage: React.FC = () => {
 
   if (isLoading) {
     return <div className="flex justify-center items-center h-full">Loading...</div>
+  }
+
+  if (loadError) {
+    return (
+      <div className="flex flex-col items-center justify-center h-full text-center gap-2 text-red-300">
+        <WifiOff size={32} />
+        <p className="text-lg font-medium">{loadError}</p>
+        <p className="text-sm text-muted">Admin console could not be loaded. Try refreshing the page.</p>
+      </div>
+    )
   }
 
   return (
@@ -102,6 +131,11 @@ const AdminPage: React.FC = () => {
         {activeTab === 'system' && (
           <div>
             <h3 className="text-lg font-bold text-white mb-4">System Health</h3>
+            {!health && (
+              <p className="text-sm text-amber-300 mb-4">
+                Could not reach GET /health - status below may be stale or unavailable.
+              </p>
+            )}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="p-4 rounded-lg bg-surface-light border border-border">
                 <div className="flex items-center gap-3 mb-2">
@@ -109,8 +143,10 @@ const AdminPage: React.FC = () => {
                   <span className="font-medium text-white">API Server</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-green-500 rounded-full pulse" />
-                  <span className="text-sm text-green-400">Running</span>
+                  <span className={`w-2 h-2 rounded-full ${health ? 'bg-green-500 pulse' : 'bg-red-500'}`} />
+                  <span className={`text-sm ${health ? 'text-green-400' : 'text-red-400'}`}>
+                    {health ? 'Reachable' : 'Unreachable'}
+                  </span>
                 </div>
               </div>
               <div className="p-4 rounded-lg bg-surface-light border border-border">
@@ -119,28 +155,35 @@ const AdminPage: React.FC = () => {
                   <span className="font-medium text-white">Database</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-green-500 rounded-full pulse" />
-                  <span className="text-sm text-green-400">Connected</span>
+                  <span className={`w-2 h-2 rounded-full ${health?.database === 'healthy' ? 'bg-green-500 pulse' : 'bg-red-500'}`} />
+                  <span className={`text-sm ${health?.database === 'healthy' ? 'text-green-400' : 'text-red-400'}`}>
+                    {health?.database ? health.database : 'Unknown'}
+                    {typeof health?.database_details?.observation_count === 'number'
+                      ? ` (${health.database_details.observation_count} observations)`
+                      : ''}
+                  </span>
                 </div>
               </div>
               <div className="p-4 rounded-lg bg-surface-light border border-border">
                 <div className="flex items-center gap-3 mb-2">
                   <Activity size={20} className="text-purple-400" />
-                  <span className="font-medium text-white">AI Processing</span>
+                  <span className="font-medium text-white">AI / OCR Engine</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full pulse" />
-                  <span className="text-sm text-blue-400">Active</span>
+                  <span className={`w-2 h-2 rounded-full ${health?.ai_engine === 'healthy' ? 'bg-blue-500 pulse' : 'bg-red-500'}`} />
+                  <span className={`text-sm ${health?.ai_engine === 'healthy' ? 'text-blue-400' : 'text-red-400'}`}>
+                    {health?.ai_engine || 'Unknown'}{health?.ocr_engine ? ` - ${health.ocr_engine}` : ''}
+                  </span>
                 </div>
               </div>
               <div className="p-4 rounded-lg bg-surface-light border border-border">
                 <div className="flex items-center gap-3 mb-2">
                   <Shield size={20} className="text-yellow-400" />
-                  <span className="font-medium text-white">Security</span>
+                  <span className="font-medium text-white">Auth</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-green-500 rounded-full pulse" />
-                  <span className="text-sm text-green-400">Enabled</span>
+                  <span className="text-sm text-green-400">JWT-protected (you are signed in)</span>
                 </div>
               </div>
             </div>
@@ -150,26 +193,29 @@ const AdminPage: React.FC = () => {
         {activeTab === 'security' && (
           <div>
             <h3 className="text-lg font-bold text-white mb-4">Security Settings</h3>
+            <p className="text-xs text-muted mb-4">
+              Not configurable from this build - these controls are not wired to a backend yet.
+            </p>
             <div className="space-y-4">
-              <div className="p-4 rounded-lg bg-surface-light border border-border">
+              <div className="p-4 rounded-lg bg-surface-light border border-border opacity-60">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-medium text-white">Two-Factor Authentication</p>
-                    <p className="text-xs text-muted">Enable 2FA for enhanced security</p>
+                    <p className="text-xs text-muted">Not implemented in this build</p>
                   </div>
-                  <button className="px-4 py-2 rounded-lg bg-blue-500/20 text-blue-400 text-sm hover:bg-blue-500/30">
-                    Configure
+                  <button disabled className="px-4 py-2 rounded-lg bg-surface text-muted text-sm cursor-not-allowed">
+                    Unavailable
                   </button>
                 </div>
               </div>
-              <div className="p-4 rounded-lg bg-surface-light border border-border">
+              <div className="p-4 rounded-lg bg-surface-light border border-border opacity-60">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-medium text-white">Session Timeout</p>
-                    <p className="text-xs text-muted">Current: 30 minutes</p>
+                    <p className="text-xs text-muted">Not configurable in this build</p>
                   </div>
-                  <button className="px-4 py-2 rounded-lg bg-blue-500/20 text-blue-400 text-sm hover:bg-blue-500/30">
-                    Update
+                  <button disabled className="px-4 py-2 rounded-lg bg-surface text-muted text-sm cursor-not-allowed">
+                    Unavailable
                   </button>
                 </div>
               </div>
@@ -180,26 +226,30 @@ const AdminPage: React.FC = () => {
         {activeTab === 'database' && (
           <div>
             <h3 className="text-lg font-bold text-white mb-4">Database Management</h3>
+            <p className="text-xs text-muted mb-4">
+              Not available from this build - no backup/purge endpoint exists yet. Use the sqlite
+              file directly if you need to back up or prune data.
+            </p>
             <div className="space-y-4">
-              <div className="p-4 rounded-lg bg-surface-light border border-border">
+              <div className="p-4 rounded-lg bg-surface-light border border-border opacity-60">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-medium text-white">Backup Database</p>
-                    <p className="text-xs text-muted">Create a full backup of the database</p>
+                    <p className="text-xs text-muted">Not implemented in this build</p>
                   </div>
-                  <button className="px-4 py-2 rounded-lg bg-green-500/20 text-green-400 text-sm hover:bg-green-500/30">
-                    Backup
+                  <button disabled className="px-4 py-2 rounded-lg bg-surface text-muted text-sm cursor-not-allowed">
+                    Unavailable
                   </button>
                 </div>
               </div>
-              <div className="p-4 rounded-lg bg-surface-light border border-border">
+              <div className="p-4 rounded-lg bg-surface-light border border-border opacity-60">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-medium text-white">Clear Old Observations</p>
-                    <p className="text-xs text-muted">Remove observations older than 30 days</p>
+                    <p className="text-xs text-muted">Not implemented in this build</p>
                   </div>
-                  <button className="px-4 py-2 rounded-lg bg-red-500/20 text-red-400 text-sm hover:bg-red-500/30">
-                    Clear
+                  <button disabled className="px-4 py-2 rounded-lg bg-surface text-muted text-sm cursor-not-allowed">
+                    Unavailable
                   </button>
                 </div>
               </div>
@@ -210,24 +260,10 @@ const AdminPage: React.FC = () => {
         {activeTab === 'logs' && (
           <div>
             <h3 className="text-lg font-bold text-white mb-4">Audit Logs</h3>
-            <div className="space-y-2">
-              {[
-                { action: 'User login', user: 'admin', time: '2 minutes ago' },
-                { action: 'Alert resolved', user: 'operator', time: '15 minutes ago' },
-                { action: 'Camera added', user: 'admin', time: '1 hour ago' },
-                { action: 'System health check', user: 'system', time: '2 hours ago' },
-              ].map((log, i) => (
-                <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-surface-light border border-border">
-                  <div className="flex items-center gap-3">
-                    <Activity size={16} className="text-muted" />
-                    <div>
-                      <p className="text-sm text-white">{log.action}</p>
-                      <p className="text-xs text-muted">by {log.user}</p>
-                    </div>
-                  </div>
-                  <span className="text-xs text-muted">{log.time}</span>
-                </div>
-              ))}
+            <div className="p-4 rounded-lg bg-surface-light border border-border text-sm text-muted">
+              Audit logging is not implemented in this build - there is no persisted record of
+              admin/operator actions to show here. (Previous versions of this page showed four
+              fabricated example entries at this location; they were not real activity.)
             </div>
           </div>
         )}

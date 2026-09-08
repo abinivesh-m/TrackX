@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import type { Camera } from '@/types'
+import { MAP_TILE_URL, MAP_TILE_ATTRIBUTION, MAP_TILE_MAX_ZOOM } from '@/config/mapTiles'
 
 interface CameraMapProps {
   cameras: Camera[]
@@ -28,10 +29,14 @@ const CameraMap: React.FC<CameraMapProps> = ({ cameras, height = 500 }) => {
         renderer: L.canvas()
       })
       
-      // Add dark tiles with better performance settings
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-        maxZoom: 18,
+      // Tile provider - see src/config/mapTiles.ts. Was a hardcoded CARTO
+      // dark-tile URL whose anonymous endpoint started serving placeholder
+      // tiles reading "API KEY REQUIRED" in production instead of real map
+      // imagery; now a reliable no-key default (OpenStreetMap), still
+      // environment-configurable via VITE_MAP_TILE_URL.
+      L.tileLayer(MAP_TILE_URL, {
+        attribution: MAP_TILE_ATTRIBUTION,
+        maxZoom: MAP_TILE_MAX_ZOOM,
         minZoom: 10
       }).addTo(mapRef.current)
       

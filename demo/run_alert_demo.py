@@ -13,22 +13,27 @@ This script demonstrates the complete alert workflow:
 
 This aligns with SIH requirements for:
 - Alert System for blacklisted vehicles
-- Real-time anomaly detection
+- On-demand anomaly detection (not continuous/push-based - see the
+  "Real-time Processing" line below, corrected in the Phase 12 honesty
+  audit to say what it actually means)
 - Database persistence for alerts
-- Integration with city-wide monitoring
+- City-wide monitoring, via the FastAPI + React web app (the current
+  primary UI - the Streamlit dashboard this script's --dashboard flag
+  launches is legacy/secondary tooling, not the product judges see)
 
 Usage:
     python demo/run_alert_demo.py [--clean] [--dashboard]
 
 Options:
     --clean: Clear existing data before running demo
-    --dashboard: Automatically launch the Streamlit dashboard after demo
+    --dashboard: Print a reminder to use the web app (backend/ + frontend/)
+        instead of the legacy Streamlit dashboard, which was removed from
+        this repo and can no longer actually be launched from here
 """
 
 import os
 import sys
 import argparse
-import subprocess
 from datetime import datetime
 
 # Add project root to path
@@ -193,24 +198,28 @@ def run_alert_demo(clean=False, launch_dashboard=False):
     print("[OK] Route Anomaly Detection: Working (impossible travel, suspicious patterns)")
     print("[OK] Repeated Camera Detection: Working (loitering detection)")
     print("[OK] Database Persistence: Working (alerts stored in SQLite)")
-    print("[OK] Real-time Processing: Working (on-demand alert generation)")
+    print("[OK] Alert Generation: Working (on-demand, not continuous/push-based)")
     
     print("\n[NEXT STEPS]")
-    print("1. View detailed analytics in the dashboard:")
-    print("   streamlit run dashboard/dashboard.py")
+    print("1. View this data in the web app (backend/ + frontend/ - the")
+    print("   current primary UI; the old Streamlit dashboard/dashboard.py")
+    print("   this script used to point at was removed from the repo):")
+    print("     uvicorn app.main:app --reload   (from backend/)")
+    print("     npm run dev                      (from frontend/)")
     print("2. Manage blacklist and resolve alerts in the Alerts tab")
     print("3. Search for specific vehicle trajectories")
     print("4. View city-wide traffic analytics and heatmaps")
-    
+
     if launch_dashboard:
-        print("\n[LAUNCHING] Streamlit Dashboard...")
-        try:
-            subprocess.run([sys.executable, "-m", "streamlit", "run", "dashboard/dashboard.py"], 
-                         cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        except Exception as e:
-            print(f"Failed to launch dashboard: {e}")
-            print("Please run manually: streamlit run dashboard/dashboard.py")
-    
+        # dashboard/dashboard.py no longer exists in this repo (removed when
+        # the project moved to the React+FastAPI stack - see README.md).
+        # --dashboard used to shell out to it and fail with a file-not-found
+        # error; it now just says so plainly instead of pretending to launch
+        # something that isn't there.
+        print("\n[NOTE] --dashboard was requested, but the legacy Streamlit")
+        print("       dashboard (dashboard/dashboard.py) no longer exists in")
+        print("       this repo. Use the web app instead - see step 1 above.")
+
     return 0
 
 def main():

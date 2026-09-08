@@ -73,9 +73,16 @@ PLATE_CROPS_DIR = str(CONFIG_RESULTS_DIR / "plate_crops")
 # random COCO objects. If none of these exist, plate detection is
 # reported as unavailable rather than faked.
 PLATE_WEIGHT_CANDIDATES = [
+    str(PROJECT_ROOT / "models" / "best_plate_detector.pt"),
     str(PROJECT_ROOT / "models" / "plate_detector.pt"),
     str(PROJECT_ROOT / "models" / "best.pt"),
     str(PROJECT_ROOT / "detection" / "runs" / "detect" / "plate_train" / "weights" / "best.pt"),
+    # ONNX export - ultralytics.YOLO() loads this directly via ONNX Runtime.
+    # Listed last so a real .pt (fine-tunable, usually more current) wins if
+    # both exist; this is the one weight file actually present as of
+    # 2026-09-07 (best_plate_detector.pt is referenced throughout the repo's
+    # docs/config but is not on disk - see docs/CLAUDE_PHASE0_AUDIT.md).
+    str(PROJECT_ROOT / "models" / "best.onnx"),
 ]
 
 _NO_PLATE_FIELDS = {

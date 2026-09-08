@@ -17,11 +17,47 @@ For production deployment:
 Environment-based configuration. Copy .env.example to .env and adjust values.
 """
 
+from pathlib import Path
 from typing import List, Optional, Union
 from pydantic import AnyHttpUrl, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 import os
 import warnings
+
+# Repo root is three levels up from this file (backend/app/core/config.py).
+_REPO_ROOT = Path(__file__).resolve().parents[3]
+
+
+def _resolve_plate_weights() -> str:
+    """
+    PLATE_WEIGHTS used to hard-default to 'models/best_plate_detector.pt',
+    which is NOT present on disk (it's .gitignore'd, like all *.pt/*.pth
+    weights, and was never actually committed/shared to this checkout - see
+    docs/CLAUDE_PHASE0_AUDIT.md). That silently broke plate detection: the
+    file never existed, so PlateDetector() would fail to construct.
+
+    'models/best.onnx' IS present and IS a real single-class
+    'license_plate' detector (verified by loading it with
+    ultralytics.YOLO(..., task='detect') - reports names={0: 'license_plate'}).
+    ultralytics.YOLO can run inference directly from an .onnx file, so
+    prefer whichever weight file actually exists, .pt first (fine-tunable,
+    usually the more current artifact) then .onnx, instead of hard-coding a
+    path that may not exist in a given checkout.
+    """
+    candidates = [
+        _REPO_ROOT / "models" / "best_plate_detector.pt",
+        _REPO_ROOT / "models" / "plate_detector.pt",
+        _REPO_ROOT / "detection" / "runs" / "detect" / "plate_train" / "weights" / "best.pt",
+        _REPO_ROOT / "models" / "best.onnx",
+    ]
+    for c in candidates:
+        if c.is_file():
+            return str(c.relative_to(_REPO_ROOT)) if c.is_relative_to(_REPO_ROOT) else str(c)
+    # nothing found - keep the documented/expected path as the default so
+    # the error a caller gets ("file not found: models/best_plate_detector.pt")
+    # points at the right thing to go add, rather than silently pointing at
+    # a made-up path.
+    return "models/best_plate_detector.pt"
 
 
 class Settings(BaseSettings):
@@ -53,6 +89,10 @@ class Settings(BaseSettings):
     USE_SQLITE: bool = True
     SQLITE_DB_PATH: str = "backend/trackx.db"
 
+    # Optional full DB URL; when set it overrides the parts above
+    # (read directly by app.core.database before building the engine).
+    DATABASE_URL: Optional[str] = None
+
     # Redis (for queue/caching)
     REDIS_HOST: str = "localhost"
     REDIS_PORT: int = 6379
@@ -64,7 +104,12 @@ class Settings(BaseSettings):
 
     # AI Pipeline
     VEHICLE_WEIGHTS: str = "yolov8n.pt"
-    PLATE_WEIGHTS: str = "models/best_plate_detector.pt"
+    PLATE_WEIGHTS: str = _resolve_plate_weights()
+    # lprnet_indian.pth is NOT present on this checkout and has no public
+    # download (see docs/CLAUDE_PHASE0_AUDIT.md) - LPRNet stays disabled
+    # until it's trained on a real Indian-plate OCR dataset or a checkpoint
+    # is supplied. recognition/ocr_reader.py falls back to PaddleOCR when
+    # this path doesn't exist, rather than faking a loaded model.
     OCR_MODEL_PATH: str = "models/lprnet_indian.pth"
 
     # Logging

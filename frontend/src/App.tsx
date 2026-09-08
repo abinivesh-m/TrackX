@@ -16,7 +16,10 @@ const CamerasPage = lazy(() => import('@/pages/CamerasPage'))
 const AnalyticsPage = lazy(() => import('@/pages/AnalyticsPage'))
 const AlertsPage = lazy(() => import('@/pages/AlertsPage'))
 const AdminPage = lazy(() => import('@/pages/AdminPage'))
+const RouteAnomalyPage = lazy(() => import('@/pages/RouteAnomalyPage'))
+const CongestionPage = lazy(() => import('@/pages/CongestionPage'))
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'))
+const VideoDemoPage = lazy(() => import('@/pages/VideoDemoPage'))
 
 function App() {
   return (
@@ -36,6 +39,9 @@ function App() {
                 <Route path="/cameras" element={<CamerasPage />} />
                 <Route path="/analytics" element={<AnalyticsPage />} />
                 <Route path="/alerts" element={<AlertsPage />} />
+                <Route path="/route-anomaly" element={<RouteAnomalyPage />} />
+                <Route path="/congestion" element={<CongestionPage />} />
+                <Route path="/ai-processing" element={<VideoDemoPage />} />
                 <Route path="/admin" element={<AdminPage />} />
               </Route>
             </Route>

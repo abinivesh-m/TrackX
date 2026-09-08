@@ -10,6 +10,7 @@ from typing import List
 from app.core.database import get_db
 from app.api.v1.deps import get_current_admin_user
 from app.models.user import User
+from app.models.audit_log import AuditLog
 from app.schemas.user import UserCreateAdmin, UserUpdateAdmin, UserInDBAdmin
 
 router = APIRouter()
@@ -166,47 +167,77 @@ def get_audit_logs(
     current_user: User = Depends(get_current_admin_user),
     db: Session = Depends(get_db)
 ):
-    """Get audit logs (admin only)"""
-    # In a real implementation, this would query an audit_logs table
-    # For now, return sample data
-    sample_logs = [
+    """
+    Get audit logs (admin only).
+
+    Was returning two hardcoded, fabricated log entries on every call
+    ("sample data", per the comment that used to sit here) - a real
+    AuditLog table/model (app/models/audit_log.py) already exists, but
+    nothing in this codebase ever writes to it (no login, search, or admin
+    action currently calls it), so this now honestly queries that real,
+    currently-empty table instead of inventing rows. Capability status:
+    the storage and query path are real; event capture is not wired up yet
+    - future work, not fabricated data in the meantime.
+    """
+    query = (
+        select(AuditLog)
+        .order_by(AuditLog.timestamp.desc())
+        .offset(offset)
+        .limit(limit)
+    )
+    rows = db.execute(query).scalars().all()
+    return [
         {
-            "id": 1,
-            "action": "USER_LOGIN",
-            "username": current_user.username,
-            "resource": "auth",
-            "result": "SUCCESS",
-            "timestamp": "2026-09-04T10:00:00"
-        },
-        {
-            "id": 2,
-            "action": "VEHICLE_SEARCH",
-            "username": current_user.username,
-            "resource": "vehicles",
-            "result": "SUCCESS",
-            "timestamp": "2026-09-04T10:05:00"
+            "id": row.id,
+            "action": row.action,
+            "username": row.username,
+            "resource": row.resource,
+            "result": row.result,
+            "timestamp": row.timestamp.isoformat() if row.timestamp else None,
         }
+        for row in rows
     ]
-    
-    return sample_logs[offset:offset+limit]
 
 @router.get("/system-health")
 def get_system_health(
     current_user: User = Depends(get_current_admin_user),
     db: Session = Depends(get_db)
 ):
-    """Get system health (admin only)"""
+    """
+    Get system health (admin only).
+
+    Was returning hardcoded resource percentages (45/62/78, always exactly
+    those numbers) and claiming a "redis: connected" service that does not
+    exist anywhere in this stack, on a fixed stale timestamp - fabricated
+    on every call, regardless of real system state. Now reports real CPU/
+    memory/disk via psutil and reuses the same real database/model checks
+    backend/app/api/v1/health.py's /health/deep endpoint already runs
+    (not reimplemented here) instead of literal "connected"/"operational"
+    strings.
+    """
+    from datetime import datetime, timezone
+    from app.api.v1.health import check_database, check_models
+
+    try:
+        import psutil
+        resources = {
+            "cpu_percent": psutil.cpu_percent(interval=0.1),
+            "memory_percent": psutil.virtual_memory().percent,
+            "disk_percent": psutil.disk_usage("/").percent,
+        }
+    except Exception as e:
+        resources = {"error": f"psutil unavailable: {e}"}
+
+    db_status = check_database()
+    model_status = check_models()
+    overall = "healthy" if db_status["status"] in ("healthy", "degraded") else "unhealthy"
+
     return {
-        "status": "healthy",
-        "resources": {
-            "cpu_percent": 45,
-            "memory_percent": 62,
-            "disk_percent": 78
-        },
+        "status": overall,
+        "resources": resources,
         "services": {
-            "database": "connected",
-            "redis": "connected",
-            "ai_engine": "operational"
+            "database": db_status["status"],
+            "ai_engine": model_status["status"],
         },
-        "timestamp": "2026-09-04T10:00:00"
+        "timestamp": datetime.now(timezone.utc).isoformat(),
     }

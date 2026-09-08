@@ -62,9 +62,19 @@ from config import RESULTS_DIR
 DB_PATH = str(RESULTS_DIR / "observations.db")
 VECTOR_DIM = 512  # matches the ResNet18 pooled-feature size recognition/appearance.py produces
 
-# base time for the whole demo scenario - a fixed "morning" so results are
-# readable/reproducible rather than depending on when you happen to run this
-BASE_TIME = datetime(2026, 8, 24, 9, 0, 0)
+# base time for the whole demo scenario - anchored a few hours before
+# whenever this script actually runs (not a hardcoded calendar date), so
+# every timestamp stays within the "last 24 hours" window several backend
+# endpoints filter on (backend/app/api/v1/congestion.py's
+# get_camera_traffic_metrics/process_camera_congestion default to hours=24,
+# same for congestion/analytics/{camera_id}). A fixed past date (this used
+# to be datetime(2026, 8, 24, 9, 0, 0)) ages out of that window the moment
+# "today" moves past it - Process All Cameras would then silently find 0
+# congested cameras against a full 84-observation demo dataset, not because
+# nothing is congested but because every observation is invisible to a
+# 24-hour lookback. Computed once at import time, so a single seeding run
+# is still fully reproducible/readable - only the anchor point moves.
+BASE_TIME = datetime.now() - timedelta(hours=3)
 
 VEHICLE_TYPES = ["car", "car", "car", "motorcycle", "truck", "bus"]
 
@@ -268,20 +278,23 @@ def seed(store, rng):
     return len(records)
 
 
-def main():
-    p = argparse.ArgumentParser()
-    p.add_argument("--reset", action="store_true",
-                    help="delete the existing demo database before seeding fresh data")
-    p.add_argument("--seed", type=int, default=42,
-                    help="random seed, for reproducible demo data across runs")
-    args = p.parse_args()
-
-    if args.reset and os.path.exists(DB_PATH):
+def run_seed(reset: bool = True, seed_value: int = 42) -> dict:
+    """
+    The actual seeding work, callable directly (not just from the CLI) -
+    used by both main() below and, when AUTO_SEED_DEMO_DATA=true,
+    backend/app/main.py's startup lifespan (Phase 14: a public deployment on
+    ephemeral disk - Render's free tier, for one - loses its SQLite file on
+    every restart/redeploy, so the app can re-seed itself on boot instead of
+    coming up with an empty, undemoable database and no shell access to fix
+    it). Returns a small summary dict instead of only printing, so a caller
+    can log/inspect the result.
+    """
+    if reset and os.path.exists(DB_PATH):
         os.remove(DB_PATH)
         print(f"removed existing {DB_PATH}")
 
-    random.seed(args.seed)
-    rng = np.random.RandomState(args.seed)
+    random.seed(seed_value)
+    rng = np.random.RandomState(seed_value)
 
     store = ObservationStore(db_path=DB_PATH)
     count = seed(store, rng)
@@ -294,22 +307,100 @@ def main():
         "TN38AB1234",
         description="demo scenario #3 - seeded blacklist entry",
         severity="HIGH",
+        source="DEMO_SEED",
     )
     # second blacklist entry so the Alerts page can show more than one match
     blacklist_store.add_plate(
         "DL8CAG4321",
         description="demo scenario #8 - watchlisted vehicle (suspect)",
         severity="MEDIUM",
+        source="DEMO_SEED",
     )
     blacklist_store.close()
 
     print(f"seeded {count} observation(s) into {DB_PATH}")
     print("seeded 2 blacklist entries (TN38AB1234 HIGH, DL8CAG4321 MEDIUM)")
+
+    # Bulletproof Demo Mode (Phase 11): congestion events are the one piece
+    # of state on this database that nothing computes automatically -
+    # GET /api/v1/alerts and GET /api/v1/gis/congestion recompute themselves
+    # from raw observations on every call, but the persisted
+    # ACTIVE/RESOLVED CongestionEvent rows the Congestion page's "Active
+    # Bottlenecks" panel (and CONGESTION_BOTTLENECK alerts) read only exist
+    # once someone clicks "Process All Cameras" - so a demo that resets and
+    # goes straight to the Alerts or Overview page without visiting the
+    # Congestion page first would show zero congestion alerts even if real
+    # congestion exists in the data just seeded. Reusing the exact same
+    # per-camera function POST /congestion/process/all calls (not a
+    # reimplementation) makes a single `--reset` run leave every page
+    # correct regardless of navigation order.
+    try:
+        import sys as _sys
+        backend_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "backend")
+        if backend_path not in _sys.path:
+            _sys.path.insert(0, backend_path)
+        # Import via the plain "app.X" path (not "backend.app.X") -
+        # deliberately matching the convention every other module in this
+        # backend uses. Phase 14 finding: backend/app/api/v1/health.py used
+        # to import via "backend.app.X", which registers a SECOND, parallel
+        # copy of the SQLAlchemy model classes under a different qualified
+        # name. SQLAlchemy's configure_mappers() sweeps every registered
+        # mapper in the process on the first ORM flush/commit ANYWHERE, so
+        # that second copy - fine on its own, since nothing queries it -
+        # crashed the very next real ORM write in the whole process with
+        # "expression 'Observation' failed to locate a name", because that
+        # copy's relationship() could never resolve. Fixed at the source in
+        # health.py; matching the same convention here too so run_seed()
+        # stays safe to call from inside the live app process (see
+        # AUTO_SEED_DEMO_DATA in backend/app/main.py's lifespan).
+        from app.api.v1.congestion import _process_one_camera
+        from database.congestion_store import CongestionStore
+
+        congestion_store = CongestionStore(db_path=DB_PATH)
+        thresholds = congestion_store.get_thresholds()
+        congestion_store.close()
+
+        congested_ids = set()
+        for camera_id in CAMERAS:
+            outcome = _process_one_camera(camera_id, thresholds)
+            if outcome and outcome.get("congested"):
+                congested_ids.add(camera_id)
+
+        congestion_store = CongestionStore(db_path=DB_PATH)
+        try:
+            congestion_store.resolve_events_not_in(congested_ids)
+        finally:
+            congestion_store.close()
+
+        print(f"processed congestion for {len(CAMERAS)} camera(s) - {len(congested_ids)} congested")
+        congested_count = len(congested_ids)
+    except Exception as e:
+        print(f"WARNING: could not pre-process congestion events ({e}). "
+              f"Click 'Process All Cameras' on the Congestion page before demoing "
+              f"congestion alerts/bottlenecks.")
+        congested_count = None
+
     print("\nNext:")
-    print("  python -m intelligence.alerts          # detect alerts from trajectories")
-    print("  python -m analytics.analytics          # traffic analytics")
-    print("  Then open the web app (FastAPI + React) or:")
-    print("  streamlit run dashboard/dashboard.py    # streamlit demo UI")
+    print("  Open the web app (FastAPI + React) - Overview, Camera Network,")
+    print("  Vehicle Intelligence, Traffic Analytics, and Alerts are all live")
+    print("  against this seeded data now. No further script needs to run.")
+
+    return {
+        "observations_seeded": count,
+        "blacklist_entries_seeded": 2,
+        "cameras_congestion_processed": len(CAMERAS),
+        "cameras_congested": congested_count,
+    }
+
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument("--reset", action="store_true",
+                    help="delete the existing demo database before seeding fresh data")
+    p.add_argument("--seed", type=int, default=42,
+                    help="random seed, for reproducible demo data across runs")
+    args = p.parse_args()
+    run_seed(reset=args.reset, seed_value=args.seed)
 
 
 if __name__ == "__main__":

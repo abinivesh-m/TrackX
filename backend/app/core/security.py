@@ -66,6 +66,78 @@ def verify_password(password: str, hashed: str) -> bool:
     except:
         return False
 
+
+# Alias used by auth/admin/seed code paths (kept in sync with hash_password)
+get_password_hash = hash_password
+
+
+def create_access_token(subject_or_data=None, data=None, expires_minutes: Optional[int] = None) -> str:
+    """
+    Create a signed JWT access token.
+
+    Accepts either a payload dict (``create_access_token(data={"sub": ...})``)
+    or a raw subject (``create_access_token(user_id)``). The token carries
+    ``sub`` and ``type: "access"`` claims used by the auth dependency.
+    """
+    subject = None
+    if isinstance(data, dict) and "sub" in data:
+        subject = data["sub"]
+    elif isinstance(subject_or_data, dict) and "sub" in subject_or_data:
+        subject = subject_or_data["sub"]
+    else:
+        subject = subject_or_data
+    if subject is None:
+        raise ValueError("create_access_token requires a subject (sub) claim")
+    from app.core.config import settings
+    from datetime import datetime, timedelta, timezone
+    import jwt as _jwt
+    expire_minutes = expires_minutes or settings.ACCESS_TOKEN_EXPIRE_MINUTES
+    payload = {
+        "sub": str(subject),
+        "type": "access",
+        "exp": datetime.now(timezone.utc) + timedelta(minutes=expire_minutes),
+        "iat": datetime.now(timezone.utc),
+    }
+    return _jwt.encode(payload, settings.SECRET_KEY, algorithm=settings.ALGORITHM)
+
+
+def create_refresh_token(subject_or_data=None, data=None) -> str:
+    """Create a signed JWT refresh token (longer-lived than access tokens)."""
+    subject = None
+    if isinstance(data, dict) and "sub" in data:
+        subject = data["sub"]
+    elif isinstance(subject_or_data, dict) and "sub" in subject_or_data:
+        subject = subject_or_data["sub"]
+    else:
+        subject = subject_or_data
+    if subject is None:
+        raise ValueError("create_refresh_token requires a subject (sub) claim")
+    from app.core.config import settings
+    from datetime import datetime, timedelta, timezone
+    import jwt as _jwt
+    payload = {
+        "sub": str(subject),
+        "type": "refresh",
+        "exp": datetime.now(timezone.utc) + timedelta(days=settings.REFRESH_TOKEN_EXPIRE_DAYS),
+        "iat": datetime.now(timezone.utc),
+    }
+    return _jwt.encode(payload, settings.SECRET_KEY, algorithm=settings.ALGORITHM)
+
+
+def decode_token(token: str) -> dict:
+    """Decode and validate a JWT. Raises HTTP 401 on invalid/expired tokens."""
+    from app.core.config import settings
+    import jwt as _jwt
+    try:
+        payload = _jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
+    except _jwt.PyJWTError:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid or expired token",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    return payload
+
 # SQL Injection prevention
 DANGEROUS_SQL_KEYWORDS = ['DROP', 'DELETE', 'TRUNCATE', 'INSERT', 'UPDATE', '--', ';', '/*', '*/']
 

@@ -235,6 +235,10 @@ def run_video_to_db(video_path, vehicle_detector, plate_detector, ocr,
     track_best_plate_bbox = {}
     track_best_plate_crop = {}  # Day 4: store best plate crop
     track_best_plate_crop_path = {}  # Day 4: store plate crop path
+    track_best_plate_confidence = {}  # plate DETECTOR confidence (p_det["confidence"]),
+                                       # distinct from ocr_confidence (OCR text-reading
+                                       # confidence) - the detector score was already being
+                                       # computed below and discarded; this just keeps it.
 
     # Day 4: Create plate crops directory
     plate_crops_dir = str(RESULTS_DIR / "plate_crops")
@@ -336,7 +340,8 @@ def run_video_to_db(video_path, vehicle_detector, plate_detector, ocr,
                         if track_id not in track_best_plate_bbox or ocr_conf > track_best_plate_bbox[track_id][1]:
                             track_best_plate_bbox[track_id] = (plate_bbox_frame, ocr_conf)
                             track_best_plate_crop[track_id] = plate_crop
-                            
+                            track_best_plate_confidence[track_id] = p_det["confidence"]
+
                             # Save plate crop to disk with unique filename
                             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
                             plate_crop_filename = f"{cam_id}_frame{frame_idx}_track{track_id}_{timestamp}.jpg"
@@ -348,7 +353,8 @@ def run_video_to_db(video_path, vehicle_detector, plate_detector, ocr,
                     if track_id not in track_best_plate_bbox:
                         track_best_plate_bbox[track_id] = (plate_bbox_frame, 0.0)
                         track_best_plate_crop[track_id] = plate_crop
-                        
+                        track_best_plate_confidence[track_id] = p_det["confidence"]
+
                         # Save plate crop to disk even without OCR
                         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
                         plate_crop_filename = f"{cam_id}_frame{frame_idx}_track{track_id}_{timestamp}.jpg"
@@ -409,6 +415,7 @@ def run_video_to_db(video_path, vehicle_detector, plate_detector, ocr,
         record["vehicle_bbox"] = track_best_bbox.get(track_id)
         plate_bbox_entry = track_best_plate_bbox.get(track_id)
         record["plate_bbox"] = plate_bbox_entry[0] if plate_bbox_entry else None
+        record["plate_confidence"] = track_best_plate_confidence.get(track_id)  # plate DETECTOR confidence, distinct from ocr_confidence
         record["plate_crop_path"] = track_best_plate_crop_path.get(track_id)  # Day 4
         record["direction"] = estimate_direction(track_bbox_history.get(track_id, []))
         record["data_source"] = "REAL_INFERENCE"  # SIH Requirement: Data source tagging
@@ -427,8 +434,12 @@ if __name__ == "__main__":
     p.add_argument("--video", required=True)
     p.add_argument("--vehicle_weights", default="yolov8n.pt",
                     help="pretrained COCO weights, no fine-tuning needed for vehicle detection")
-    p.add_argument("--plate_weights", default="detection/runs/detect/plate_train/weights/best.pt",
-                    help="your fine-tuned plate detector")
+    p.add_argument("--plate_weights", default=None,
+                    help="your fine-tuned plate detector; omit to auto-detect "
+                         "via demo.visual_pipeline.find_plate_weights() "
+                         "(checks models/best_plate_detector.pt, "
+                         "detection/runs/.../best.pt, models/best.onnx, in "
+                         "that order)")
     p.add_argument("--camera_id", required=True)
     p.add_argument("--lat", type=float, required=True)
     p.add_argument("--long", type=float, required=True)
@@ -437,11 +448,16 @@ if __name__ == "__main__":
     args = p.parse_args()
 
     # Use the same plate weight discovery logic as visual_pipeline.py
-    # to avoid silently loading a generic YOLO model as a plate detector
-    plate_weights_path = args.plate_weights
-    if plate_weights_path and not os.path.isfile(plate_weights_path):
-        print(f"[pipeline] WARNING: Specified plate weights not found: {plate_weights_path}")
-        plate_weights_path = None
+    # to avoid silently loading a generic YOLO model as a plate detector.
+    # If the caller passed --plate_weights explicitly, respect it (but
+    # validate it exists); otherwise auto-detect from the same candidate
+    # list visual_pipeline.py uses, so a repo with only models/best.onnx
+    # (no best_plate_detector.pt) still gets real plate detection instead
+    # of silently skipping it.
+    from demo.visual_pipeline import find_plate_weights
+    plate_weights_path = find_plate_weights(explicit_path=args.plate_weights)
+    if args.plate_weights and plate_weights_path is None:
+        print(f"[pipeline] WARNING: Specified plate weights not found: {args.plate_weights}")
     
     vehicle_detector = VehicleDetector(model_path=args.vehicle_weights)
     plate_detector = PlateDetector(weights=plate_weights_path) if plate_weights_path else None

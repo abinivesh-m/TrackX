@@ -1,6 +1,8 @@
 # backend/app/models/audit_log.py
 """
-Audit Log model - for government-grade compliance.
+Audit Log model. See app/services/audit_service.py's module docstring -
+this table is real but currently unpopulated (nothing calls
+create_audit_log() yet).
 """
 
 from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, func, JSON

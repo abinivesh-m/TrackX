@@ -1,33 +1,50 @@
 // frontend/src/pages/AnalyticsPage.tsx
 
 import React, { useState, useEffect } from 'react'
+import { toast } from 'react-toastify'
 import { api } from '@/services/api'
 import TrafficHeatmap from '@/components/maps/TrafficHeatmap'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area } from 'recharts'
-import { TrendingUp, Activity, MapPin, AlertTriangle } from 'lucide-react'
+import { TrendingUp, Activity, MapPin, AlertTriangle, WifiOff } from 'lucide-react'
 import type { AnalyticsSummary } from '@/types'
 
 const AnalyticsPage: React.FC = () => {
   const [analytics, setAnalytics] = useState<AnalyticsSummary | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+  // Tells "backend unreachable" apart from "genuinely nothing to show yet" -
+  // both used to render as the same "No analytics data available" message.
+  const [loadError, setLoadError] = useState<string | null>(null)
 
   useEffect(() => {
     const fetchAnalytics = async () => {
       try {
         const data = await api.getAnalyticsSummary()
         setAnalytics(data)
+        setLoadError(null)
       } catch (error) {
         console.error('Failed to fetch analytics:', error)
+        setLoadError('Could not reach the TrackX API.')
+        toast.error('Failed to load analytics data')
       } finally {
         setIsLoading(false)
       }
     }
-    
+
     fetchAnalytics()
   }, [])
 
   if (isLoading) {
     return <div className="flex justify-center items-center h-full">Loading...</div>
+  }
+
+  if (loadError) {
+    return (
+      <div className="flex flex-col items-center justify-center h-full text-center gap-2 text-red-300">
+        <WifiOff size={32} />
+        <p className="text-lg font-medium">{loadError}</p>
+        <p className="text-sm text-muted">Analytics could not be loaded. Try refreshing the page.</p>
+      </div>
+    )
   }
 
   if (!analytics) {
@@ -51,13 +68,12 @@ const AnalyticsPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      {/* Demo Mode Notice Banner */}
-      <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-3 flex items-center justify-between text-amber-300 text-sm">
+      <div className="bg-surface border border-border rounded-lg p-3 flex items-center justify-between text-sm text-muted">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-          <span><b>DEMO MODE (SIH-26127):</b> Real-time urban analytics aggregating multi-camera density, route flow trends, and bottleneck hotspots.</span>
+          <span className="w-2 h-2 rounded-full bg-green-400" />
+          <span>Urban analytics aggregating multi-camera density, route flow trends, and bottleneck hotspots, computed fresh from stored observations each time this page loads.</span>
         </div>
-        <span className="text-xs bg-amber-500/20 px-2 py-0.5 rounded font-mono">MACRO ANALYTICS</span>
+        <span className="text-xs bg-surface-light px-2 py-0.5 rounded font-mono border border-border">MACRO ANALYTICS</span>
       </div>
 
       <h1 className="text-2xl font-bold text-white">Traffic Analytics</h1>
@@ -91,7 +107,7 @@ const AnalyticsPage: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="card p-6 lg:col-span-2">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-bold text-white">Live Traffic Density Heatmap</h3>
+            <h3 className="text-lg font-bold text-white">Traffic Density Heatmap</h3>
             <span className="text-xs text-muted">Circle size and colour reflect camera traffic intensity</span>
           </div>
           <TrafficHeatmap points={analytics.heatmap_points} />

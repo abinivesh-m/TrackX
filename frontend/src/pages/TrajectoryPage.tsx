@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { api } from '@/services/api'
 import { Search, Route, Navigation, Clock, AlertTriangle, ShieldCheck, ArrowRight } from 'lucide-react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
 const TrajectoryPage: React.FC = () => {
-  const [plateQuery, setPlateQuery] = useState('')
+  const [searchParams] = useSearchParams()
+  const [plateQuery, setPlateQuery] = useState(searchParams.get('plate') || '')
   const [loading, setLoading] = useState(false)
   const [trajectoryData, setTrajectoryData] = useState<any>(null)
   const [recentTrips, setRecentTrips] = useState<any[]>([])
@@ -17,6 +19,14 @@ const TrajectoryPage: React.FC = () => {
 
   useEffect(() => {
     loadRecent()
+    // Deep-link support: /trajectory?plate=XYZ (used by Alerts' "View
+    // Trajectory" links and elsewhere) auto-runs the search on load instead
+    // of landing on an empty page the visitor has to re-type the plate into.
+    const plateFromUrl = searchParams.get('plate')
+    if (plateFromUrl) {
+      handleSearch(plateFromUrl)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const loadRecent = async () => {
@@ -115,12 +125,12 @@ const TrajectoryPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-3 flex items-center justify-between text-amber-300 text-sm">
+      <div className="bg-surface border border-border rounded-lg p-3 flex items-center justify-between text-sm text-muted">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-          <span><b>DEMO MODE (SIH-26127):</b> Multi-camera trajectory tracking powered by high-accuracy ANPR & graph correlation.</span>
+          <span className="w-2 h-2 rounded-full bg-green-400" />
+          <span>Multi-camera trajectory tracking powered by high-accuracy ANPR &amp; graph correlation.</span>
         </div>
-        <span className="text-xs bg-amber-500/20 px-2 py-0.5 rounded font-mono">BEL PROTOTYPE</span>
+        <span className="text-xs bg-surface-light px-2 py-0.5 rounded font-mono border border-border">BEL PROTOTYPE</span>
       </div>
 
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">

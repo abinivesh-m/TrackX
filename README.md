@@ -1,50 +1,90 @@
-# SIH26127 — TrackX: Vehicle Intelligence Engine
+# SIH26127 — TrackX: City-Wide AI Vehicle Tracking (PS 26127)
 
-**Status**: READY WITH LIMITATIONS - Complete vehicle tracking system with real data, comprehensive analytics, and professional dashboard. See [FINAL_VALIDATION_REPORT.md](docs/FINAL_VALIDATION_REPORT.md) for detailed validation results.
+**Status**: functional core platform (ANPR pipeline, multi-camera trajectory, traffic analytics,
+congestion/route-anomaly detection, blacklist alerts, GIS, auth/RBAC/audit) with two honest,
+currently-open gaps: OCR accuracy is below the >90% SIH target (see `docs/OCR_EVALUATION.md`), and
+the trained plate-detector/LPRNet weight files (`models/best_plate_detector.pt`,
+`models/lprnet_indian.pth`) are **not present in every checkout** — only `models/best.onnx` is
+guaranteed to be there, and the code now auto-detects and uses it when the `.pt`/`.pth` files are
+absent (see `demo/visual_pipeline.find_plate_weights()` / `backend/app/core/config._resolve_plate_weights()`).
+See `docs/CLAUDE_PHASE0_AUDIT.md` for the full, current-as-of-checkout audit — read that before
+trusting any older report at the repo root or under `docs/`, several of which describe an earlier
+Streamlit-based UI and model-weight state that no longer match this checkout.
+
+**This project has two working UIs that serve different purposes** — a **React + FastAPI**
+web app (`frontend/` + `backend/`) that is the current, actively-developed product surface with
+auth, RBAC, congestion/route-anomaly pages, and a persisted database, and the original **CLI /
+Python pipeline** (`pipeline.py`, `demo/visual_pipeline.py`, `intelligence/`, `analytics/`, `gis/`)
+that the FastAPI backend itself calls into for its real detection/trajectory/analytics logic. There
+is **no Streamlit dashboard in this repo anymore** — an earlier version of this README described
+`dashboard/dashboard.py` as the primary demo UI; that folder was removed when the project moved to
+the React+FastAPI stack, and running instructions further down have been corrected accordingly.
 
 ## Project Structure
 
 ```
 sih26127/
-├── requirements.txt
-├── pipeline.py              <- Day 1 entry point (detection + OCR + schema output)
+├── requirements.txt         <- root/CLI-pipeline Python deps
+├── pipeline.py               <- CLI entry point (detection + OCR + schema output / DB write)
 │
-├── detection/               <- YOLO plate + vehicle detection
+├── backend/                  <- FastAPI web API (the product's server)
+│   ├── app/
+│   │   ├── main.py           <- registers all /api/v1/* routers
+│   │   ├── api/v1/           <- auth, cameras, vehicles, analytics, alerts, observations,
+│   │   │                         admin, trajectory, gis, health, road_network,
+│   │   │                         congestion, route_anomaly
+│   │   ├── core/              (config, database, security, cache, logging, monitoring)
+│   │   ├── models/, schemas/, services/, websocket/
+│   ├── alembic/               <- DB migrations (Postgres/PostGIS in prod, SQLite in dev)
+│   └── tests/
+│
+├── frontend/                  <- React + TypeScript + Vite web UI (the product's client)
+│   └── src/
+│       ├── pages/              (Dashboard, Vehicles, Trajectory, GIS, Analytics, Congestion,
+│       │                        RouteAnomaly, Alerts, Cameras, Admin, Login)
+│       ├── services/api.ts     <- typed client for every /api/v1/* endpoint
+│       └── components/
+│
+├── detection/                <- YOLO plate + vehicle detection
 │   ├── detect_plates.py
 │   ├── vehicle_detector.py
 │   ├── train_yolo.py
-│   ├── validate_dataset.py
-│   └── data.yaml.example
+│   └── validate_dataset.py
 │
-├── recognition/             <- reading plate text + vehicle appearance
-│   ├── ocr_reader.py
-│   ├── plate_matcher.py     (fuzzy match + normalization)
-│   └── appearance.py        (vehicle re-id fingerprint)
+├── recognition/               <- reading plate text + vehicle appearance
+│   ├── ocr_reader.py           (LPRNet primary / PaddleOCR secondary, with fallback)
+│   ├── lprnet_ocr.py
+│   ├── plate_matcher.py        (fuzzy match + normalization)
+│   └── appearance.py           (vehicle re-id fingerprint)
 │
-├── network/                 <- camera locations + road graph
+├── network/                   <- camera locations + road graph (Haversine + hand-tuned ROAD_GRAPH)
 │   └── camera_network.py
 │
-├── intelligence/            <- the core "brain": identity fusion + trajectory
-│   ├── fusion.py            (Global Match Score)
-│   ├── trajectory.py        (reconstructs per-vehicle routes)
-│   └── alerts.py            (blacklist + anomaly detection)
+├── intelligence/               <- the core "brain": identity fusion + trajectory + anomalies
+│   ├── fusion.py                (Global Match Score)
+│   ├── trajectory.py            (reconstructs per-vehicle routes)
+│   ├── alerts.py                (blacklist + anomaly detection)
+│   ├── anomaly_scoring.py, spatio_temporal.py, route_hypothesis.py
 │
-├── database/
-│   └── observation_store.py (sqlite store for all camera observations)
+├── database/                   <- sqlite stores backing the CLI pipeline AND the FastAPI routes
+│   ├── observation_store.py     (all camera observations - what analytics/congestion/route-anomaly
+│   │                             endpoints actually read from)
+│   ├── alert_store.py, blacklist_store.py, camera_store.py, vehicle_registry.py
+│   ├── congestion_store.py      (persisted congestion events + thresholds)
+│   └── route_anomaly_store.py   (persisted route anomalies + investigation status)
 │
 ├── analytics/
-│   └── analytics.py         (traffic density, route frequency)
+│   └── analytics.py             (traffic density, route frequency, multi-factor congestion model)
 │
 ├── gis/
-│   └── gis_map.py           (interactive map for demo)
+│   └── gis_map.py               (Folium interactive map)
 │
-├── dashboard/
-│   └── dashboard.py         (streamlit demo UI - run from project root, see below)
+├── demo/                        <- offline/video-file demo flows (camera-folder simulation, seeding)
 │
-├── data/                    (raw/processed/sample footage - not committed)
-├── models/                  (trained weight files - not committed)
-├── outputs/                 (generated at runtime: db, crops, maps)
-└── tests/
+├── data/                        (raw/processed/sample footage - not committed, .gitignore'd)
+├── models/                      (trained weight files - .pt/.pth NOT committed, see status note above)
+├── outputs/                     (generated at runtime: db, crops, maps)
+└── tests/, integration_tests/
 ```
 
 Everything is a proper Python package now (`__init__.py` in each folder), so
@@ -194,24 +234,40 @@ Map opens at `outputs/results/city_map.html`.
 
 ---
 
-## Demo Dashboard
+## Web App (React + FastAPI) — this is what you show the judges
 
-`dashboard.py` lives inside `dashboard/`, but still needs to resolve
-package-qualified imports (`database.*`, `intelligence.*`, etc.) against the
-**project root**, not its own folder. It handles this itself (adds the
-project root to `sys.path` at the top of the file) — you just need to run
-the command from the project root, same as everything else:
+**There is no Streamlit dashboard in this repo anymore.** An earlier version of this section said
+to run `streamlit run dashboard/dashboard.py` — that folder was removed when the project moved to a
+real client/server app. Run the backend and frontend as two processes, both from the project root
+(the backend adds the project root to `sys.path` itself, same as the CLI pipeline does):
 
 ```bash
-streamlit run dashboard/dashboard.py
+# Terminal 1 - FastAPI backend (serves /api/v1/*, auto-creates a dev SQLite DB + admin user)
+cd backend
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8000
+# API docs at http://localhost:8000/docs
+# Dev login: admin@trackx.com / admin123 (see backend/app/core/config.py - CHANGE for anything
+# beyond a local demo; the app prints a security warning about this on every startup)
+
+# Terminal 2 - React frontend (Vite dev server)
+cd frontend
+npm install
+npm run dev
+# Opens on http://localhost:5173 by default; set VITE_API_URL if the backend isn't on
+# http://localhost:8000/api/v1
 ```
 
-Opens a web page with 5 tabs: search a plate and see its full trajectory with
-explainable evidence breakdown, city analytics (vehicles/camera, busiest
-camera, top routes, average speed, OD patterns, congestion), live alerts 
-(blacklist + route anomalies), **Live / Video Ingestion** (real AI processing),
-and **OCR Evaluation** (accuracy testing). This is what you show the judges — no
-backend/API needed, streamlit runs the code directly.
+Pages: Dashboard (live system overview), Vehicles (plate search + full trajectory with explainable
+evidence breakdown), Trajectory, GIS (interactive map), Analytics (density, OD patterns, average
+speed, congestion), Congestion (bottleneck detection with configurable thresholds), RouteAnomaly
+(suspicious-transition detection against the real road topology), Alerts (blacklist + anomaly feed),
+Cameras, and Admin (RBAC, audit log, blacklist management). All of these call real FastAPI endpoints
+backed by the same `database/`, `intelligence/`, `analytics/`, and `network/` modules the CLI
+pipeline uses — not mock data.
+
+The CLI pipeline and demo scripts below are still the right tool for offline processing, batch
+video ingestion, and local experimentation without standing up the web app.
 
 ---
 
@@ -348,18 +404,33 @@ reporting whether YOLO/PaddleOCR/the plate detector/the database are
 actually available in the current environment, computed live rather than
 hardcoded.
 
-**Model weights, stated plainly:** trained plate-detector weights ARE
-included with this repo (`models/best_plate_detector.pt`, plus an ONNX export
-`models/best.onnx` - see `models/README.md` for measured metrics). The
-training scripts (`detection/validate_dataset.py`, `detection/train_yolo.py`)
-remain the path to retrain/improve on your own footage - retraining needs a
-labeled dataset and the real ML stack (`ultralytics`/`torch`). Vehicle
-detection, tracking, OCR, and the full database/intelligence/dashboard bridge
-all work out of the box with a stock COCO YOLO for vehicles, and the shipped
-plate detector is used automatically from `models/best_plate_detector.pt` (or
-`detection/runs/detect/plate_train/weights/best.pt`, which is exactly where
-`train_yolo.py` writes a retrained model). Nothing fabricates a plate box or
-plate text if neither weight file is present - plate detection reports
+**Model weights, stated plainly:** `.pt`/`.pth` weight files are
+`.gitignore`'d (see `.gitignore` - large binaries don't belong in git) and
+are **not guaranteed to be present in a given checkout** - whether
+`models/best_plate_detector.pt` exists depends on whether it was shared out
+of band (drive link, release asset) into this specific copy of the repo.
+What IS guaranteed to be present is `models/best.onnx` (an ONNX export,
+committed as the one shipped artifact - see `models/README.md`), and the
+plate-detector resolution logic (`demo.visual_pipeline.find_plate_weights()`,
+mirrored in `backend/app/core/config.py`) now checks for it automatically
+after the `.pt` candidates, so plate detection works out of the box even in
+a checkout that only has the ONNX file. It's loaded via
+`ultralytics.YOLO(path_to_onnx)`, which runs it directly through ONNX
+Runtime - no `.pt` weights or retraining required for it to function.
+`models/lprnet_indian.pth` is a different situation: `models/README.md`
+itself documents this checkpoint as "Required for Production... requires
+training" - it was never a shipped artifact, unlike the plate detector.
+`recognition/lprnet_ocr.py` deliberately refuses to fall back to a
+random-weight model if this file is missing (that would poison every
+downstream tracker/alert with confident-but-wrong reads), so LPRNet stays
+disabled and `recognition/ocr_reader.py` falls through to PaddleOCR instead.
+The training scripts (`detection/validate_dataset.py`,
+`detection/train_yolo.py`) remain the path to retrain/improve the plate
+detector on your own footage - retraining needs a labeled dataset and the
+real ML stack (`ultralytics`/`torch`). Vehicle detection, tracking, OCR, and
+the full database/intelligence/web-app bridge all work out of the box with a
+stock COCO YOLO for vehicles. Nothing fabricates a plate box or plate text
+if no plate-detector weight file is present at all - plate detection reports
 `plate_status: "unavailable"` instead.
 
 **OCR resilience:** `recognition/ocr_reader.try_init_ocr()` wraps PaddleOCR

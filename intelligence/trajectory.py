@@ -129,7 +129,7 @@ def _generate_identity_candidates(observations):
     def _plate_of(obs):
         return obs.get("normalized_plate") or obs.get("plate_text") or ""
 
-    from recognition.plate_matcher import plate_similarity
+    from recognition.plate_matcher import plate_similarity, plate_similarity_fast_reject, normalize_plate
 
     plausible, suspect = [], []
     seen = set()
@@ -147,7 +147,16 @@ def _generate_identity_candidates(observations):
                         seen.add((i, j))
                         same_plate_pairs.append((i, j))
 
-    # 2. windowed fuzzy-plate candidates (confusable OCR reads, e.g. B/8)
+    # 2. windowed fuzzy-plate candidates (confusable OCR reads, e.g. B/8).
+    # Normalized once per observation (was: re-normalized on every one of the
+    # up to n*window_limit pair checks below). plate_similarity_fast_reject
+    # gives an EXACT accept/reject verdict in O(len) for the overwhelming
+    # majority of pairs (same-length plates, which is nearly all of them)
+    # without running the O(len^2) edit-distance DP - see its docstring for
+    # the proof. It only ever returns None (defer to the real, unmodified
+    # plate_similarity DP) for the rare cases it can't decide cheaply, so the
+    # resulting candidate set is identical to before, just faster to compute.
+    norm_plates = [normalize_plate(_plate_of(obs)) for obs in observations]
     window_limit = 200
     for i in range(n):
         for j in range(i + 1, min(n, i + window_limit)):
@@ -157,10 +166,13 @@ def _generate_identity_candidates(observations):
             gap = (parsed_ts[j] - parsed_ts[i]).total_seconds()
             if gap > MAX_CANDIDATE_GAP_SECONDS:
                 break
-            pa, pb = _plate_of(observations[i]), _plate_of(observations[j])
+            pa, pb = norm_plates[i], norm_plates[j]
             if not pa or not pb:
                 continue
-            if plate_similarity(pa, pb) < 0.85:
+            verdict = plate_similarity_fast_reject(pa, pb, threshold=0.85)
+            if verdict is False:
+                continue
+            if verdict is None and plate_similarity(pa, pb) < 0.85:
                 continue
             same_plate_pairs.append((i, j))
 

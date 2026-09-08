@@ -1,6 +1,12 @@
 # backend/app/services/audit_service.py
 """
-Audit Service - for government-grade compliance logging.
+Audit log storage/query service (create_audit_log/get_audit_logs/
+get_audit_stats). Phase 12 honesty-audit note: this service and its
+AuditLog model are real and functional, but nothing in this codebase
+currently calls create_audit_log() - no login, search, or admin action is
+audit-logged yet, so the audit_logs table stays empty in this build.
+GET /api/v1/admin/audit-logs already reports that table honestly (empty,
+not fabricated rows). Wiring real call sites is future work.
 """
 
 from typing import List, Optional, Dict, Any

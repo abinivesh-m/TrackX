@@ -15,7 +15,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
-    <div className="flex h-screen bg-background text-white">
+    <div className="flex h-screen bg-background text-white overflow-hidden">
       {/* Sidebar */}
       <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       
@@ -27,8 +27,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           onThemeToggle={toggleTheme}
         />
         
-        <main className="flex-1 overflow-y-auto p-6">
-          {children || <Outlet />}
+        <main className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8 scroll-smooth">
+          <div className="max-w-7xl mx-auto">
+            {children || <Outlet />}
+          </div>
         </main>
       </div>
     </div>

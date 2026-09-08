@@ -3,22 +3,15 @@ import cv2
 import numpy as np
 
 # Graceful import handling for OCR engines.
-# Final OCR engines: LPRNet (primary) and PaddleOCR (secondary) only.
+# PaddleOCR is the only OCR engine actually used - see the PlateOCR
+# docstring below for why LPRNet was removed from this live path.
 PADDLEOCR_AVAILABLE = False
-LPRNET_AVAILABLE = False
 
 try:
     from paddleocr import PaddleOCR
     PADDLEOCR_AVAILABLE = True
 except ImportError:
     PaddleOCR = None
-
-try:
-    from recognition.lprnet_ocr import LPRNetOCR, try_init_lprnet
-    LPRNET_AVAILABLE = True
-except ImportError:
-    LPRNetOCR = None
-    try_init_lprnet = None
 
 # Import canonical plate validator from plate_normalizer
 from recognition.plate_normalizer import normalize_indian_plate
@@ -160,28 +153,21 @@ class PlateOCR:
     def __init__(self, lang="en"):
         self.ocr_engine = None
         self.engine_type = None
-        
-        # Try LPRNet first for Indian plates (highest accuracy potential)
-        if LPRNET_AVAILABLE:
-            try:
-                model_path = "models/lprnet_indian.pth"  # Path to trained Indian LPRNet weights
-                self.lprnet = try_init_lprnet(model_path)
-                # Only trust LPRNet when a real trained weight file was
-                # loaded. Without weights it returns garbage reads at a fake
-                # 0.9 confidence, which silently destroys OCR accuracy.
-                if self.lprnet and getattr(self.lprnet, "model_loaded", False):
-                    self.ocr_engine = self.lprnet
-                    self.engine_type = "lprnet"
-                    print(f"[ocr_reader] Using LPRNet engine for Indian plates")
-                    return
-                if self.lprnet is not None and self.lprnet.model is None:
-                    print("[ocr_reader] LPRNet weights not available - falling back to a real OCR engine")
-                self.lprnet = None
-            except Exception as e:
-                print(f"[ocr_reader] LPRNet initialization failed: {e}")
-                self.lprnet = None
-        
-        # Fallback to PaddleOCR
+        self.lprnet = None
+
+        # LPRNet is intentionally NOT used here. It requires a trained
+        # Indian-plate checkpoint (models/lprnet_indian.pth) that this repo
+        # has never shipped - models/README.md itself documents it as
+        # "Required for Production... requires training". Without that
+        # checkpoint it can only ever fall through to PaddleOCR below anyway
+        # (see the git history of this file for the old try/fallback
+        # branch), so keeping the LPRNet code path wired in here just adds a
+        # second, permanently-unused OCR engine and import to reason about
+        # for no real benefit. recognition/lprnet_ocr.py itself is left in
+        # place (training scripts in detection/ can still target it later),
+        # it's simply not imported/attempted from the live OCR path anymore.
+
+        # PaddleOCR is the OCR engine actually used.
         if PADDLEOCR_AVAILABLE:
             try:
                 self.ocr = PaddleOCR(use_angle_cls=True, lang=lang)
@@ -201,38 +187,11 @@ class PlateOCR:
         # fabricated read). See try_init_ocr() for the construction-time
         # failure mode (SystemExit from PaddleOCR's own model download).
         
-        if self.engine_type == "lprnet":
-            return self._read_lprnet(crop_img)
-        elif self.engine_type == "paddleocr":
+        if self.engine_type == "paddleocr":
             return self._read_paddleocr(crop_img)
         else:
             return None, 0.0
-    
-    def _read_lprnet(self, crop_img):
-        """
-        LPRNet-based OCR for Indian license plates.
 
-        The Indian_LPR checkpoint was trained on cv2.imread BGR crops, so the
-        crop is passed through unconverted (the old pixel-heuristic BGR->RGB
-        swap here used to corrupt reads).
-        """
-        try:
-            if self.lprnet is None:
-                return None, 0.0
-
-            # read_plate() preprocesses (94x24, normalize) and decodes CTC,
-            # and already applies Indian-plate validation internally.
-            text, confidence = self.lprnet.read_plate(crop_img)
-
-            if text and len(text) >= 4:
-                return text, confidence
-
-            return None, 0.0
-
-        except Exception as e:
-            print(f"[ocr_reader] LPRNet OCR failed: {e}")
-            return None, 0.0
-    
     def _read_paddleocr(self, crop_img):
         """
         Fast-path multi-pass OCR with PaddleOCR.
@@ -253,15 +212,23 @@ class PlateOCR:
             text = text.upper()
             text = re.sub(r"[^A-Z0-9]", "", text)
             
-            # Apply Indian plate format validation
-            normalized_text = validate_indian_plate_format(text)
-            
+            # Apply Indian plate format validation. normalize_indian_plate()
+            # (recognition/plate_normalizer.py) both validates AND corrects
+            # OCR-confusable characters (0/O, 1/I, ...) and strips the "IND"
+            # country-marker artifact - strictly better than a bare regex
+            # check, and it was already imported at module level. The old
+            # call here was to validate_indian_plate_format(), a function
+            # that does not exist anywhere in this codebase; every
+            # PaddleOCR-fallback read hit a NameError before this fix (see
+            # docs/CLAUDE_PHASE0_AUDIT.md follow-up notes).
+            normalized_text, is_valid_format = normalize_indian_plate(text)
+
             avg_conf = round(sum(confs) / len(confs), 3) if confs else 0.0
-            
+
             # Adaptive multi-pass decision
             h, w = crop_img.shape[:2]
             should_use_multipass = False
-            
+
             # Always use multi-pass for small crops
             if h < 50 or w < 100:
                 should_use_multipass = True
@@ -269,7 +236,6 @@ class PlateOCR:
             elif avg_conf < 0.8:
                 should_use_multipass = True
             # Use multi-pass if first result has invalid format
-            is_valid_format = bool(re.match(r"^[A-Z]{2}[0-9]{2}[A-Z]{1,3}[0-9]{4}$", normalized_text))
             if not is_valid_format:
                 should_use_multipass = True
             
@@ -312,14 +278,15 @@ class PlateOCR:
                     text = text.upper()
                     text = re.sub(r"[^A-Z0-9]", "", text)
                     
-                    # Apply Indian plate format validation
-                    normalized_text = validate_indian_plate_format(text)
-                    
+                    # Apply Indian plate format validation (see fast-path
+                    # comment above for why normalize_indian_plate() is used
+                    # instead of the previously-undefined
+                    # validate_indian_plate_format()).
+                    normalized_text, is_valid_format = normalize_indian_plate(text)
+
                     avg_conf = round(sum(confs) / len(confs), 3) if confs else 0.0
-                    
+
                     if text and len(text) >= 4:
-                        is_valid_format = bool(re.match(r"^[A-Z]{2}[0-9]{2}[A-Z]{1,3}[0-9]{4}$", normalized_text))
-                        
                         # Enhanced multi-factor scoring
                         base_score = avg_conf
                         
@@ -389,8 +356,8 @@ def try_init_ocr(lang="en"):
 
     Returns a PlateOCR instance, or None if it could not be constructed.
     """
-    if not LPRNET_AVAILABLE and not PADDLEOCR_AVAILABLE:
-        print(f"[ocr_reader] Neither LPRNet nor PaddleOCR is installed - OCR will be "
+    if not PADDLEOCR_AVAILABLE:
+        print(f"[ocr_reader] PaddleOCR is not installed - OCR will be "
               f"reported as unavailable for this run; vehicle detection is unaffected.")
         return None
     

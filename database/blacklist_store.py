@@ -69,15 +69,26 @@ class BlacklistStore:
                     active INTEGER NOT NULL DEFAULT 1
                 )
             """)
+            existing = {row[1] for row in conn.execute("PRAGMA table_info(blacklist)")}
+            if "source" not in existing:
+                # Distinguishes entries seeded by demo/seed_demo_data.py
+                # ('DEMO_SEED') from entries an operator actually added via
+                # POST /api/v1/vehicles/watchlist ('OPERATOR', the default)
+                # - so the UI can label demo scenario plates as demo data
+                # and never present them as a real operational watchlist.
+                conn.execute("ALTER TABLE blacklist ADD COLUMN source TEXT NOT NULL DEFAULT 'OPERATOR'")
 
     def add_plate(self, plate: str, description: Optional[str] = None,
-                  severity: str = "MEDIUM"):
+                  severity: str = "MEDIUM", source: str = "OPERATOR"):
         """
         Idempotent: if this plate already has an ACTIVE blacklist entry,
         returns that entry's id instead of inserting a duplicate row.
         Re-blacklisting a plate that was previously deactivated DOES create
         a new row (deliberately - keeps the old entry as history rather than
         silently reviving/overwriting it).
+
+        source: 'OPERATOR' (default - a real user added this via the app)
+        or 'DEMO_SEED' (demo/seed_demo_data.py's scripted scenario data).
         """
         norm = normalize_plate(plate)
         existing = self.get_active_entry(plate)
@@ -86,9 +97,9 @@ class BlacklistStore:
 
         with self._connect() as conn:
             cur = conn.execute("""
-                INSERT INTO blacklist (plate, normalized_plate, description, severity, created_at, active)
-                VALUES (?, ?, ?, ?, ?, 1)
-            """, (plate, norm, description, severity, datetime.now().isoformat()))
+                INSERT INTO blacklist (plate, normalized_plate, description, severity, created_at, active, source)
+                VALUES (?, ?, ?, ?, ?, 1, ?)
+            """, (plate, norm, description, severity, datetime.now().isoformat(), source))
             return cur.lastrowid
 
     def get_active_entry(self, plate: str):

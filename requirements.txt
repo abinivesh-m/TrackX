@@ -17,3 +17,7 @@ geopy>=2.3.0
 # Additional for advanced features
 plotly>=5.0.0
 altair>=5.0.0
+# Real system resource metrics for GET /admin/system-health (Phase 12 honesty
+# audit - that endpoint used to return hardcoded 45/62/78 regardless of
+# actual system state)
+psutil>=5.9.0

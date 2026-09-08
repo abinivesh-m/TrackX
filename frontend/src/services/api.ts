@@ -13,6 +13,12 @@ class ApiClient {
     
     this.client = axios.create({
       baseURL: this.baseURL,
+      // Previously unset (axios default = no timeout at all), so a hung
+      // backend call - a slow query, a stuck model - left the UI waiting
+      // forever with no error state ever shown. 30s is generous for every
+      // real endpoint here except video upload, which explicitly overrides
+      // this per-call (see ingestVideo below).
+      timeout: 30 * 1000,
       headers: {
         'Content-Type': 'application/json',
       },
@@ -149,6 +155,10 @@ class ApiClient {
     return this.post(`/alerts/${alertId}/acknowledge`)
   }
 
+  getWatchlist() {
+    return this.get<any[]>('/alerts/watchlist')
+  }
+
   addToWatchlist(plate: string, severity: string, reason: string) {
     return this.post('/vehicles/watchlist', null, { params: { plate, severity, reason } })
   }
@@ -188,6 +198,124 @@ class ApiClient {
 
   getSystemHealth() {
     return this.get('/admin/system-health')
+  }
+
+  // Route Anomaly Detection
+  getRouteAnomalies(params?: { plate?: string; severity?: string; status?: string; limit?: number }) {
+    return this.get<any[]>('/route-anomaly/anomalies', { params })
+  }
+
+  getRouteAnomaly(anomalyId: string) {
+    return this.get<any>(`/route-anomaly/anomalies/${anomalyId}`)
+  }
+
+  analyzeVehicleRoute(plate: string, startTime?: string, endTime?: string) {
+    return this.post<any>(`/route-anomaly/analyze/${plate}`, null, { params: { start_time: startTime, end_time: endTime } })
+  }
+
+  analyzeCameraTransition(fromCamera: string, toCamera: string, travelTimeSeconds: number) {
+    return this.get<any>(`/route-anomaly/analyze/${fromCamera}/${toCamera}`, { params: { travel_time_seconds: travelTimeSeconds } })
+  }
+
+  getCameraTransitions(cameraId: string) {
+    return this.get<any>(`/route-anomaly/topology/transitions/${cameraId}`)
+  }
+
+  getAnomalyStatistics(startTime?: string, endTime?: string) {
+    return this.get<any>('/route-anomaly/statistics', { params: { start_time: startTime, end_time: endTime } })
+  }
+
+  updateAnomalyStatus(anomalyId: string, status: string, investigatedBy?: string, investigationNotes?: string, resolutionNotes?: string) {
+    return this.put<any>(`/route-anomaly/anomalies/${anomalyId}/status`, {
+      status,
+      investigated_by: investigatedBy,
+      investigation_notes: investigationNotes,
+      resolution_notes: resolutionNotes
+    })
+  }
+
+  // Congestion Detection
+  getCameraTrafficMetrics(cameraId: string, hours: number = 24) {
+    return this.get<any>(`/congestion/metrics/${cameraId}`, { params: { hours } })
+  }
+
+  getActiveCongestionEvents(cameraId?: string, limit: number = 50) {
+    return this.get<any[]>('/congestion/events/active', { params: { camera_id: cameraId, limit } })
+  }
+
+  getCongestionEventHistory(cameraId?: string, startTime?: string, endTime?: string, limit: number = 50) {
+    return this.get<any[]>('/congestion/events/history', { params: { camera_id: cameraId, start_time: startTime, end_time: endTime, limit } })
+  }
+
+  processCameraCongestion(cameraId: string, windowDurationMinutes: number = 5) {
+    return this.post<any>(`/congestion/process/${cameraId}`, null, { params: { window_duration_minutes: windowDurationMinutes } })
+  }
+
+  processAllCamerasCongestion(windowDurationMinutes: number = 5) {
+    return this.post<any>('/congestion/process/all', null, { params: { window_duration_minutes: windowDurationMinutes } })
+  }
+
+  getCongestionAnalytics(cameraId: string) {
+    return this.get<any>(`/congestion/analytics/${cameraId}`)
+  }
+
+  getActiveBottlenecks(limit: number = 20) {
+    return this.get<any>('/congestion/bottlenecks', { params: { limit } })
+  }
+
+  getTrafficThresholds() {
+    return this.get<any>('/congestion/thresholds')
+  }
+
+  updateTrafficThresholds(thresholds: any) {
+    return this.put<any>('/congestion/thresholds', thresholds)
+  }
+
+  // Video Demo ingest
+  ingestVideo(
+    file: File,
+    cameraId: string,
+    onUploadProgress?: (percent: number) => void
+  ) {
+    const form = new FormData()
+    form.append('file', file)
+    form.append('camera_id', cameraId)
+    return this.post<any>('/observations/ingest-video', form, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+      // Processing (detection + OCR) can genuinely take longer than the
+      // default timeout for a demo-length clip - this is synchronous
+      // real inference, not a quick CRUD call.
+      timeout: 5 * 60 * 1000,
+      onUploadProgress: (evt) => {
+        if (onUploadProgress && evt.total) {
+          onUploadProgress(Math.round((evt.loaded / evt.total) * 100))
+        }
+      },
+    })
+  }
+
+  // Camera-folder AI processing: runs the real detection/OCR pipeline over
+  // whatever images/videos already sit in a camera's local folder (see
+  // demo/camera_simulator.py + demo/visual_pipeline.py), rather than a
+  // user-uploaded file. Powers the "Process Camera Media" tab on the
+  // AI Processing page.
+  getCameraMedia(cameraId: string) {
+    return this.get<any>(`/observations/camera-media/${cameraId}`)
+  }
+
+  processCamera(cameraId: string, frameSpeed: number, maxFrames?: number | null) {
+    const form = new FormData()
+    form.append('camera_id', cameraId)
+    form.append('frame_speed', String(frameSpeed))
+    if (maxFrames !== undefined && maxFrames !== null && maxFrames > 0) {
+      form.append('max_frames', String(maxFrames))
+    }
+    return this.post<any>('/observations/process-camera', form, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+      // Same reasoning as ingestVideo - this is synchronous real inference
+      // over potentially several images/videos, not a quick CRUD call.
+      timeout: 5 * 60 * 1000,
+    })
   }
 }
 

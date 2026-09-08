@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import type { HeatmapPoint } from '@/types'
+import { MAP_TILE_URL, MAP_TILE_ATTRIBUTION } from '@/config/mapTiles'
 
 interface TrafficHeatmapProps {
   points: HeatmapPoint[]
@@ -17,8 +18,8 @@ const TrafficHeatmap = ({ points, height = 360 }: TrafficHeatmapProps) => {
     if (!containerRef.current) return
     if (!mapRef.current) {
       mapRef.current = L.map(containerRef.current, { center: [11.0168, 76.9558], zoom: 13 })
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+      L.tileLayer(MAP_TILE_URL, {
+        attribution: MAP_TILE_ATTRIBUTION,
       }).addTo(mapRef.current)
     }
 

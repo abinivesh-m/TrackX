@@ -54,7 +54,26 @@ def register(
     user_data: UserCreate,
     db: Session = Depends(get_db)
 ):
-    """Register new user"""
+    """
+    Register new user.
+
+    Phase 14 pre-deployment security fix: this endpoint is PUBLIC (no auth
+    required) and `UserCreate.role` accepted the literal string "admin" from
+    the request body, which was passed straight through to the new User row
+    unchecked. `get_current_admin_user()` (app/api/v1/deps.py) grants admin
+    access when EITHER `is_admin` is set OR `role == "admin"` - so anyone on
+    the public internet could self-register with `{"role": "admin"}` in the
+    body and get full admin access (user management, audit logs, system
+    health) with zero privilege check. Never triggered in earlier phases
+    because this app only ran privately/in a sandbox; going public in Phase
+    14 is exactly what turns this from a code smell into a real,
+    exploitable vulnerability - caught and fixed before deployment, not
+    after. Public self-registration can no longer grant "admin" (or set
+    is_admin) at all; the only path to an admin account is the existing
+    admin-only POST /admin/users endpoint (already correctly gated behind
+    get_current_admin_user), or the bootstrap superuser account created at
+    startup.
+    """
     # Check if user exists
     query = select(User).where(User.username == user_data.username)
     result = db.execute(query)
@@ -63,7 +82,7 @@ def register(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Username already registered"
         )
-    
+
     # Check if email exists
     query = select(User).where(User.email == user_data.email)
     result = db.execute(query)
@@ -72,7 +91,12 @@ def register(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Email already registered"
         )
-    
+
+    # Never trust client-supplied role for privilege purposes - "admin" is
+    # downgraded to the safe default. is_admin is never settable from this
+    # public endpoint at all (User model defaults it to False).
+    safe_role = user_data.role if user_data.role in ("operator", "analyst", "viewer") else "operator"
+
     # Create user
     hashed_password = get_password_hash(user_data.password)
     new_user = User(
@@ -80,11 +104,11 @@ def register(
         email=user_data.email,
         hashed_password=hashed_password,
         full_name=user_data.full_name,
-        role=user_data.role,
+        role=safe_role,
         organization=user_data.organization,
         department=user_data.department,
     )
-    
+
     db.add(new_user)
     db.commit()
     db.refresh(new_user)

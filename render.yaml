@@ -1,83 +1,46 @@
+# render.yaml - Render "Blueprint" for TrackX.
+#
+# Single web service, matching the "simplest reliable path" decision: the
+# FastAPI backend (backend/app/main.py) serves the built React frontend as
+# static files from the same process (see the SPA-fallback route added to
+# main.py), so there is only one deployed service, one URL, and no
+# frontend/backend CORS coordination to get right under time pressure.
+#
+# This file describes HOW to build and run the service; it does not itself
+# deploy anything or contain any secret. On Render, create a new Blueprint
+# from this repo and Render reads this file. See DEPLOYMENT.md for the full
+# walkthrough, the environment variables you must set with real values
+# before going live, and the ephemeral-disk limitation of Render's free
+# tier that AUTO_SEED_DEMO_DATA (below) exists to work around.
+
 services:
-  # Backend API Service
   - type: web
-    name: trackx-backend
-    env: docker
-    dockerfilePath: ./backend/Dockerfile
-    dockerContext: ./backend
+    name: trackx
+    runtime: python
     plan: free
+    buildCommand: >
+      pip install -r requirements.txt -r backend/requirements.txt &&
+      cd frontend && npm install && npm run build
+    startCommand: >
+      cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
-      - key: DATABASE_URL
-        fromDatabase:
-          name: trackx-postgres
-          property: connectionString
-      - key: REDIS_URL
-        fromService:
-          type: redis
-          name: trackx-redis
-          property: connectionString
-      - key: SECRET_KEY
-        generateValue: true
       - key: ENVIRONMENT
         value: production
-      - key: POSTGRES_SERVER
-        fromDatabase:
-          name: trackx-postgres
-          property: host
-      - key: POSTGRES_PORT
-        fromDatabase:
-          name: trackx-postgres
-          property: port
-      - key: POSTGRES_USER
-        fromDatabase:
-          name: trackx-postgres
-          property: user
-      - key: POSTGRES_PASSWORD
-        fromDatabase:
-          name: trackx-postgres
-          property: password
-      - key: POSTGRES_DB
-        fromDatabase:
-          name: trackx-postgres
-          property: database
-      - key: USE_SQLITE
-        value: false
-      - key: BACKEND_CORS_ORIGINS
-        value: '["*"]'
-    healthCheck:
-      http:
-        path: /api/v1/health/
-        initialDelaySeconds: 60
-        periodSeconds: 10
-        timeoutSeconds: 5
-        failureThreshold: 3
-
-  # Frontend Service
-  - type: web
-    name: trackx-frontend
-    env: docker
-    dockerfilePath: ./frontend/Dockerfile
-    dockerContext: ./frontend
-    plan: free
-    envVars:
-      - key: REACT_APP_API_URL
-        fromService:
-          type: web
-          name: trackx-backend
-          property: url
-    healthCheck:
-      http:
-        path: /
-        initialDelaySeconds: 30
-        periodSeconds: 10
-        timeoutSeconds: 5
-        failureThreshold: 3
-
-databases:
-  - name: trackx-postgres
-    databaseName: trackx
-    user: trackx
-    plan: free
-
-  - name: trackx-redis
-    plan: free
+      # SECRET_KEY, admin credentials, and any real database URL are NOT
+      # set here - Render's dashboard is where you enter real values for
+      # these (Environment tab, "Secret" values are never written to this
+      # file or committed to the repo). At minimum, set SECRET_KEY to a
+      # real random 64+ character string before going live; the app runs
+      # with a widely-known default otherwise (see backend/app/core/config.py).
+      - key: SECRET_KEY
+        sync: false
+      - key: FIRST_SUPERUSER
+        sync: false
+      - key: FIRST_SUPERUSER_PASSWORD
+        sync: false
+      # Render's free-tier disk is ephemeral - the SQLite demo database is
+      # lost on every restart/redeploy. This re-seeds it on startup so the
+      # deployed demo always comes up with working data. See
+      # demo/seed_demo_data.py's run_seed() and main.py's lifespan().
+      - key: AUTO_SEED_DEMO_DATA
+        value: "true"

@@ -2,14 +2,14 @@ from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session
 from typing import List, Dict, Any
 
-try:
-    from app.core.database import get_db
-    from app.api.v1.deps import get_current_user
-    from app.models.user import User
-except ImportError:
-    from backend.app.core.database import get_db
-    from backend.app.api.v1.deps import get_current_user
-    from backend.app.models.user import User
+# Phase 14: no longer falls back to "backend.app.X" imports on ImportError -
+# that fallback silently registered a second, parallel copy of every model
+# under a separate SQLAlchemy Base, which crashed the first real ORM write
+# anywhere in the process. See app/main.py's import block for the full
+# explanation. app.X always resolves given main.py's sys.path setup.
+from app.core.database import get_db
+from app.api.v1.deps import get_current_user
+from app.models.user import User
 from database.observation_store import ObservationStore
 from database.blacklist_store import BlacklistStore
 from network.camera_network import CAMERAS, ROAD_GRAPH

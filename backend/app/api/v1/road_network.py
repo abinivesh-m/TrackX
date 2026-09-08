@@ -4,9 +4,9 @@ from typing import List
 from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends, HTTPException, status
 
-from backend.app.api.deps import get_db
-from backend.app.models.road_network import RoadNetwork
-from backend.app.schemas.road_network import RoadNetworkCreate, RoadNetworkResponse
+from app.api.deps import get_db
+from app.models.road_network import RoadNetwork
+from app.schemas.road_network import RoadNetworkCreate, RoadNetworkResponse
 
 router = APIRouter(
     prefix="/admin/road-network",

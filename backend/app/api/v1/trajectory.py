@@ -4,14 +4,13 @@ from typing import List, Optional, Dict, Any
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 
-try:
-    from app.core.database import get_db
-    from app.api.v1.deps import get_current_user
-    from app.models.user import User
-except ImportError:
-    from backend.app.core.database import get_db
-    from backend.app.api.v1.deps import get_current_user
-    from backend.app.models.user import User
+# Phase 14: no longer falls back to "backend.app.X" imports (see
+# app/main.py's import block for why - that fallback duplicated model
+# registration under a second SQLAlchemy Base and crashed the first real
+# ORM write anywhere in the process).
+from app.core.database import get_db
+from app.api.v1.deps import get_current_user
+from app.models.user import User
 from database.observation_store import ObservationStore
 from network.camera_network import CAMERAS
 from intelligence.trajectory import build_trajectories

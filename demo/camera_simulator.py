@@ -24,7 +24,18 @@ import os
 SUPPORTED_IMAGE_EXT = {".jpg", ".jpeg", ".png"}
 SUPPORTED_VIDEO_EXT = {".mp4", ".avi", ".mov"}
 
-DEFAULT_CAMERA_ROOT = "data/cameras"
+# Absolute, not relative: the backend can be started with its working
+# directory set to backend/ (see render.yaml's startCommand) rather than the
+# repo root, and a relative "data/cameras" would then silently resolve to
+# backend/data/cameras and always report zero media. Anchoring on
+# config.PROJECT_ROOT keeps this correct regardless of the server's CWD,
+# while still being overridable (tests/CLI usage can still pass an explicit
+# root= argument to list_camera_media/get_camera_feed).
+try:
+    from config import PROJECT_ROOT
+    DEFAULT_CAMERA_ROOT = str(PROJECT_ROOT / "data" / "cameras")
+except ImportError:
+    DEFAULT_CAMERA_ROOT = "data/cameras"
 
 STANDARD_CAMERA_IDS = ("CAM_01", "CAM_02", "CAM_03", "CAM_04", "CAM_05", "CAM_06", "CAM_07")
 

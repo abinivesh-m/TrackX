@@ -68,6 +68,15 @@ _DAY4_COLUMNS = {
     "plate_crop_path": "TEXT",      # path to saved plate-only crop image
 }
 
+# Video-ingest demo flow (SIH26127): the plate DETECTOR's own confidence
+# (bbox detection score) was already computed by pipeline.run_video_to_db()
+# and discarded - only ocr_confidence (the OCR text-reading confidence) was
+# kept, which is a different number. Captured here as its own column rather
+# than overloading ocr_confidence.
+_PLATE_DETECTOR_COLUMNS = {
+    "plate_confidence": "REAL",     # plate detector bbox confidence, NOT ocr_confidence
+}
+
 
 class ObservationStore:
     def __init__(self, db_path=None):
@@ -102,7 +111,7 @@ class ObservationStore:
         already there (which sqlite would reject with 'duplicate column
         name')."""
         existing = {row[1] for row in self.conn.execute("PRAGMA table_info(observations)")}
-        for col, sqltype in {**_VISUAL_COLUMNS, **_DAY3_COLUMNS, **_DAY4_COLUMNS, **_DATA_SOURCE_COLUMNS}.items():
+        for col, sqltype in {**_VISUAL_COLUMNS, **_DAY3_COLUMNS, **_DAY4_COLUMNS, **_DATA_SOURCE_COLUMNS, **_PLATE_DETECTOR_COLUMNS}.items():
             if col not in existing:
                 self.conn.execute(f"ALTER TABLE observations ADD COLUMN {col} {sqltype}")
         self.conn.commit()
@@ -145,7 +154,8 @@ class ObservationStore:
         """
         extra_keys = ["vehicle_bbox", "plate_bbox", "vehicle_confidence",
                       "frame_index", "source", "direction", "plate_crop_path",
-                      "raw_plate_text", "ocr_confidence", "data_source"]
+                      "raw_plate_text", "ocr_confidence", "data_source",
+                      "plate_confidence"]
         extra_values = []
         for key in extra_keys:
             val = record.get(key)

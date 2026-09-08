@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { api } from '@/services/api'
-import { Map, Layers, Camera, AlertTriangle, ArrowRightLeft, Activity, RefreshCw } from 'lucide-react'
+import { Map, Layers, Camera, AlertTriangle, ArrowRightLeft, RefreshCw } from 'lucide-react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
@@ -177,16 +177,15 @@ const GISPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      {/* Demo Mode Notice */}
-      <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-3 flex items-center justify-between text-amber-300 text-sm">
+      <div className="bg-surface border border-border rounded-lg p-3 flex items-center justify-between text-sm text-muted">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-          <span><b>DEMO MODE (SIH-26127):</b> Geographic Information System (GIS) live traffic analytics & multi-layer correlation.</span>
+          <span className="w-2 h-2 rounded-full bg-green-400" />
+          <span>Geographic Information System (GIS) traffic analytics &amp; multi-layer correlation.</span>
         </div>
         <button
           onClick={loadGISData}
           disabled={loading}
-          className="text-xs bg-amber-500/20 hover:bg-amber-500/30 px-3 py-1 rounded font-medium flex items-center gap-1"
+          className="text-xs bg-surface-light hover:bg-border px-3 py-1 rounded font-medium flex items-center gap-1 border border-border"
         >
           <RefreshCw size={12} className={loading ? 'animate-spin' : ''} /> Refresh Data
         </button>
@@ -199,7 +198,7 @@ const GISPage: React.FC = () => {
             <Map className="text-blue-400" />
             GIS Command Map & Urban Traffic Topology
           </h1>
-          <p className="text-sm text-muted">City-wide real-time traffic density, congestion hotspots, camera positions, and OD flows.</p>
+          <p className="text-sm text-muted">City-wide traffic density, congestion hotspots, camera positions, and OD flows - computed fresh from stored observations each time this page loads.</p>
         </div>
 
         {/* Layer Toggles Bar */}
@@ -232,12 +231,18 @@ const GISPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Stats Summary */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {/* Stats Summary - each figure below reads directly from this page's
+          real GET /gis/* fetches (cameras/heatmap/congestion/flows state).
+          A "Network Health 98.4% / AI Fusion Engine Online" card and a
+          hardcoded "100% Operational Status" line used to sit here with no
+          backing data at all - fabricated precision with nothing real
+          behind it. Removed rather than replaced with another invented
+          number; camera coverage now just states the real node count. */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         <div className="card p-4">
           <span className="text-xs text-muted flex items-center gap-1.5"><Camera size={14} className="text-blue-400"/> Camera Coverage</span>
           <p className="text-2xl font-bold text-white mt-1">{cameras.length} Nodes</p>
-          <span className="text-xs text-green-400">100% Operational Status</span>
+          <span className="text-xs text-muted">From camera network topology</span>
         </div>
         <div className="card p-4">
           <span className="text-xs text-muted flex items-center gap-1.5"><AlertTriangle size={14} className="text-red-400"/> Congestion Hotspots</span>
@@ -249,11 +254,6 @@ const GISPage: React.FC = () => {
           <p className="text-2xl font-bold text-white mt-1">{flows.length} Routes</p>
           <span className="text-xs text-muted">Cross-camera vehicle journeys</span>
         </div>
-        <div className="card p-4">
-          <span className="text-xs text-muted flex items-center gap-1.5"><Activity size={14} className="text-purple-400"/> Network Health</span>
-          <p className="text-2xl font-bold text-white mt-1">98.4%</p>
-          <span className="text-xs text-blue-400">AI Fusion Engine Online</span>
-        </div>
       </div>
 
       {/* Main Leaflet GIS Map */}
@@ -261,7 +261,7 @@ const GISPage: React.FC = () => {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-sm font-bold text-white">Live GIS Network View</span>
+            <span className="text-sm font-bold text-white">GIS Network View</span>
           </div>
           <div className="flex items-center gap-4 text-xs text-muted">
             <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block"/> Camera</span>

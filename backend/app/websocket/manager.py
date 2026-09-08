@@ -1,6 +1,14 @@
 # backend/app/websocket/manager.py
 """
-WebSocket Connection Manager for real-time events.
+WebSocket connection manager - designed for real-time event push, but not
+currently wired to anything. Phase 12 honesty-audit note: nothing in this
+codebase imports this module (backend/app/main.py defines its own separate,
+simpler ConnectionManager and uses that instead), and no backend event
+(a new observation, alert, or congestion change) ever calls broadcast()/
+broadcast_event() on either manager. There is no live push functionality in
+this app today - every page in the frontend fetches once per page load/
+action, nothing subscribes over WebSocket. This is future-work scaffolding,
+not a working real-time capability.
 """
 
 from typing import Dict, List, Any, Optional
@@ -9,7 +17,7 @@ from datetime import datetime, timezone
 
 
 class ConnectionManager:
-    """Manages WebSocket connections for real-time updates."""
+    """Manages WebSocket connections. See module docstring - not currently used anywhere."""
     
     def __init__(self):
         self.active_connections: List[WebSocket] = []
