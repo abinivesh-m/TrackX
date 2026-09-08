@@ -68,16 +68,25 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {
         )}
       </AnimatePresence>
 
-      <motion.aside
-        initial={false}
-        animate={{
-          x: open ? 0 : -256,
-        }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      {/*
+        Plain <aside>, not <motion.aside>, on purpose: Framer Motion's
+        animate={{x: ...}} sets `transform` as an INLINE style, which beats
+        every stylesheet rule - including the `lg:translate-x-0` media-query
+        override below that's supposed to pin the sidebar open on desktop.
+        With the inline style, the sidebar was permanently transformed off
+        -screen (translateX(-256px)) at every viewport width, since
+        `sidebarOpen` (Layout.tsx) defaults to false even on desktop and
+        nothing there ever sets it true for wide screens - only the (now
+        overridden) CSS media query was supposed to handle that case. Using
+        plain Tailwind classes + a CSS transition here lets `lg:` actually
+        win at desktop widths again.
+      */}
+      <aside
         className={`
           fixed z-50 lg:relative
           h-full w-64 flex-shrink-0
           bg-surface border-r border-border
+          transition-transform duration-300 ease-in-out
           ${open ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         `}
       >
@@ -201,7 +210,7 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {
             <span className="font-medium">Logout</span>
           </motion.button>
         </motion.div>
-      </motion.aside>
+      </aside>
     </>
   )
 }
