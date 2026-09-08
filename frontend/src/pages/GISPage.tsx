@@ -3,6 +3,7 @@ import { api } from '@/services/api'
 import { Map, Layers, Camera, AlertTriangle, ArrowRightLeft, RefreshCw } from 'lucide-react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
+import { MAP_TILE_URL, MAP_TILE_ATTRIBUTION, MAP_TILE_MIN_ZOOM, MAP_TILE_MAX_ZOOM } from '@/config/mapTiles'
 
 const GISPage: React.FC = () => {
   const [cameras, setCameras] = useState<any[]>([])
@@ -58,8 +59,13 @@ const GISPage: React.FC = () => {
         zoom: 12,
       })
 
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+      // Was hardcoded to CARTO's dark tiles here, bypassing the shared
+      // mapTiles.ts config (which already defaults to keyless OSM) - see
+      // that file's header comment for why.
+      L.tileLayer(MAP_TILE_URL, {
+        attribution: MAP_TILE_ATTRIBUTION,
+        minZoom: MAP_TILE_MIN_ZOOM,
+        maxZoom: MAP_TILE_MAX_ZOOM,
       }).addTo(mapRef.current)
 
       cameraLayerRef.current = L.layerGroup().addTo(mapRef.current)

@@ -4,6 +4,7 @@ import { api } from '@/services/api'
 import { Search, Route, Navigation, Clock, AlertTriangle, ShieldCheck, ArrowRight } from 'lucide-react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
+import { MAP_TILE_URL, MAP_TILE_ATTRIBUTION, MAP_TILE_MIN_ZOOM, MAP_TILE_MAX_ZOOM } from '@/config/mapTiles'
 
 const TrajectoryPage: React.FC = () => {
   const [searchParams] = useSearchParams()
@@ -67,8 +68,15 @@ const TrajectoryPage: React.FC = () => {
         center: [18.5204, 73.8567],
         zoom: 12,
       })
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+      // Was hardcoded to CARTO's dark tiles here, bypassing the shared
+      // mapTiles.ts config (which already defaults to keyless OSM) - that's
+      // why this map showed CARTO's "API KEY REQUIRED" placeholder tiles in
+      // production while CameraMap (which does use the shared config)
+      // rendered fine. Use the shared config so all maps behave the same.
+      L.tileLayer(MAP_TILE_URL, {
+        attribution: MAP_TILE_ATTRIBUTION,
+        minZoom: MAP_TILE_MIN_ZOOM,
+        maxZoom: MAP_TILE_MAX_ZOOM,
       }).addTo(mapRef.current)
       layerGroupRef.current = L.layerGroup().addTo(mapRef.current)
     }
