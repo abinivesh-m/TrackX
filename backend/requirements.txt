@@ -13,6 +13,17 @@ alembic==1.12.1
 geoalchemy2==0.14.2
 
 # Authentication & Security
+# app/core/security.py does `import jwt` (the PyJWT package) directly to
+# sign/verify login tokens - that's a DIFFERENT package from python-jose
+# below (which nothing in this codebase actually imports; kept as-is to
+# avoid an unrelated cleanup during a live deploy fix). PyJWT was missing
+# from both requirements files entirely: it "worked" in dev only because
+# some other unrelated tool happened to have it installed already, masking
+# the gap. On Render's clean install this raised
+# "ModuleNotFoundError: No module named 'jwt'" inside create_access_token/
+# create_refresh_token, which FastAPI turned into a bare 500 on every
+# POST /auth/login - the exact bug seen on the live deploy.
+PyJWT==2.9.0
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
 python-multipart==0.0.6
