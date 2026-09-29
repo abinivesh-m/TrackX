@@ -278,23 +278,36 @@ def seed(store, rng):
     return len(records)
 
 
-def main():
-    p = argparse.ArgumentParser()
-    p.add_argument("--reset", action="store_true",
-                    help="delete the existing demo database before seeding fresh data")
-    p.add_argument("--seed", type=int, default=42,
-                    help="random seed, for reproducible demo data across runs")
-    args = p.parse_args()
+def run_seed(reset: bool = True, random_seed: int = 42) -> dict:
+    """Programmatic entry point for demo-data seeding - does exactly what
+    `python -m demo.seed_demo_data --reset` does from the CLI (the two
+    call the same code below, not two copies of it), but takes plain
+    keyword args instead of parsing sys.argv, so it's safe to call from
+    inside a running server process. Returns a summary dict instead of
+    printing, so the caller can log it.
 
-    if args.reset and os.path.exists(DB_PATH):
+    SIH26127 hotfix (2026-09-29): backend/app/main.py's lifespan() has
+    been calling `from demo.seed_demo_data import run_seed` ever since
+    AUTO_SEED_DEMO_DATA support was added, but this function never
+    actually existed in this file - every single AUTO_SEED_DEMO_DATA
+    attempt on every Render deploy tonight failed the same way
+    (confirmed in Render's own logs across six separate process starts:
+    "ImportError: cannot import name 'run_seed' from
+    'demo.seed_demo_data'"), silently leaving the live demo's database
+    empty (0 cameras, 0 observations) every time, with only a caught,
+    logged-and-swallowed exception to show for it. The parameter is named
+    `random_seed`, not `seed`, specifically so it doesn't shadow the
+    module-level seed(store, rng) function this calls below - naming it
+    `seed` would make `seed(store, rng)` try to call an int.
+    """
+    if reset and os.path.exists(DB_PATH):
         os.remove(DB_PATH)
-        print(f"removed existing {DB_PATH}")
 
-    random.seed(args.seed)
-    rng = np.random.RandomState(args.seed)
+    random.seed(random_seed)
+    rng = np.random.RandomState(random_seed)
 
     store = ObservationStore(db_path=DB_PATH)
-    count = seed(store, rng)
+    observation_count = seed(store, rng)
     store.close()
 
     # Blacklist is BlacklistStore-backed: register the demo blacklisted vehicle
@@ -315,9 +328,6 @@ def main():
     )
     blacklist_store.close()
 
-    print(f"seeded {count} observation(s) into {DB_PATH}")
-    print("seeded 2 blacklist entries (TN38AB1234 HIGH, DL8CAG4321 MEDIUM)")
-
     # Bulletproof Demo Mode (Phase 11): congestion events are the one piece
     # of state on this database that nothing computes automatically -
     # GET /api/v1/alerts and GET /api/v1/gis/congestion recompute themselves
@@ -331,6 +341,8 @@ def main():
     # per-camera function POST /congestion/process/all calls (not a
     # reimplementation) makes a single `--reset` run leave every page
     # correct regardless of navigation order.
+    congested_count = None
+    congestion_error = None
     try:
         import sys as _sys
         backend_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "backend")
@@ -355,11 +367,38 @@ def main():
         finally:
             congestion_store.close()
 
-        print(f"processed congestion for {len(CAMERAS)} camera(s) - {len(congested_ids)} congested")
+        congested_count = len(congested_ids)
     except Exception as e:
-        print(f"WARNING: could not pre-process congestion events ({e}). "
+        congestion_error = str(e)
+
+    return {
+        "observations": observation_count,
+        "blacklist_entries": 2,
+        "cameras_processed": len(CAMERAS),
+        "congested_cameras": congested_count,
+        "congestion_error": congestion_error,
+    }
+
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument("--reset", action="store_true",
+                    help="delete the existing demo database before seeding fresh data")
+    p.add_argument("--seed", type=int, default=42,
+                    help="random seed, for reproducible demo data across runs")
+    args = p.parse_args()
+
+    summary = run_seed(reset=args.reset, random_seed=args.seed)
+
+    print(f"seeded {summary['observations']} observation(s) into {DB_PATH}")
+    print(f"seeded {summary['blacklist_entries']} blacklist entries (TN38AB1234 HIGH, DL8CAG4321 MEDIUM)")
+    if summary["congestion_error"]:
+        print(f"WARNING: could not pre-process congestion events ({summary['congestion_error']}). "
               f"Click 'Process All Cameras' on the Congestion page before demoing "
               f"congestion alerts/bottlenecks.")
+    else:
+        print(f"processed congestion for {summary['cameras_processed']} camera(s) - "
+              f"{summary['congested_cameras']} congested")
 
     print("\nNext:")
     print("  Open the web app (FastAPI + React) - Overview, Camera Network,")
