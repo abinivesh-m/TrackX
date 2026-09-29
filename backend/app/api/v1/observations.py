@@ -146,7 +146,7 @@ def _get_ocr():
     return _ocr
 
 
-def get_model_status() -> dict:
+def get_model_status(trigger_load: bool = True) -> dict:
     """Real, current, per-component status for the three models the live
     pipeline actually uses - vehicle detector, plate detector, OCR - each
     backed by an ACTUAL attempted construction of the exact singleton
@@ -165,6 +165,22 @@ def get_model_status() -> dict:
     "healthy" while the real webcam demo's OCR was genuinely unavailable,
     producing the self-contradictory "healthy - unavailable" status an
     operator could actually see in the Admin Console.
+
+    trigger_load (SIH26127 OOM hotfix, 2026-09-29): default True preserves
+    the original behavior for every REAL detection call site (video
+    upload, webcam-stream's "ready" message) - an actual demo action
+    should load whatever models it needs. But this function was ALSO being
+    called, via check_models(), from the passive health-check endpoints
+    that DashboardPage.tsx's System Status panel hits on every routine
+    page view - meaning just opening the dashboard was enough to force
+    YOLO + all three PaddleOCR models into memory. On Render's free tier
+    (512MB total) that combination actually exceeded the limit and got the
+    whole process OOM-killed - confirmed via Render's own event log
+    ("Ran out of memory (used over 512MB)"), not a guess. Passing
+    trigger_load=False (used by backend/app/main.py's health_check() and
+    backend/app/api/v1/health.py's deep_health_check()/system_status())
+    makes those endpoints PEEK at whatever has already been loaded by a
+    real action, instead of forcing a fresh, crash-prone load themselves.
     """
     # SIH26127 "OCR + Webcam Detection Must Actually Work" (2026-09-10)
     # follow-up bug found while building the OCR smoke test: this used to
@@ -184,14 +200,41 @@ def get_model_status() -> dict:
     # always reflects whatever try_init_ocr() most recently set.
     import recognition.ocr_reader as _ocr_reader_module
 
-    vehicle_detector = _get_vehicle_detector()
-    plate_detector = _get_plate_detector()
-    ocr = _get_ocr() if plate_detector is not None else None
+    _not_yet_reason = (
+        "Not checked yet - this deployment's memory budget can't hold YOLO + "
+        "PaddleOCR at once just to answer a routine status check, so models "
+        "load on the first real detection/OCR action (video upload or webcam "
+        "start) instead of on every page view."
+    )
+
+    if trigger_load:
+        vehicle_detector = _get_vehicle_detector()
+        plate_detector = _get_plate_detector()
+        ocr = _get_ocr() if plate_detector is not None else None
+    else:
+        # Peek only - read whatever the singletons already are without
+        # attempting construction. If a real action already ran (or is
+        # running) in this process, this reflects that truthfully.
+        vehicle_detector = _vehicle_detector
+        plate_detector = _plate_detector
+        ocr = _ocr if _ocr_init_attempted else None
+
+    vehicle_reason = _vehicle_detector_init_error
+    if vehicle_reason is None and not _vehicle_detector_init_attempted:
+        vehicle_reason = _not_yet_reason
+
+    plate_reason = _plate_detector_init_error
+    if plate_reason is None and not _plate_detector_init_attempted:
+        plate_reason = _not_yet_reason
 
     ocr_reason = None
     if ocr is None:
-        if plate_detector is None:
+        if not _plate_detector_init_attempted:
+            ocr_reason = _not_yet_reason
+        elif plate_detector is None:
             ocr_reason = "OCR was never attempted because the plate detector is unavailable (see plate_detector reason)."
+        elif not _ocr_init_attempted:
+            ocr_reason = _not_yet_reason
         else:
             ocr_reason = (
                 _ocr_reader_module.LAST_OCR_INIT_ERROR
@@ -199,8 +242,8 @@ def get_model_status() -> dict:
             )
 
     return {
-        "vehicle_detector": {"available": vehicle_detector is not None, "reason": _vehicle_detector_init_error},
-        "plate_detector": {"available": plate_detector is not None, "reason": _plate_detector_init_error},
+        "vehicle_detector": {"available": vehicle_detector is not None, "reason": vehicle_reason},
+        "plate_detector": {"available": plate_detector is not None, "reason": plate_reason},
         "ocr": {"available": ocr is not None, "reason": ocr_reason},
     }
 

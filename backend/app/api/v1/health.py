@@ -35,8 +35,16 @@ def check_database() -> Dict[str, Any]:
         return {"status": "unhealthy", "error": str(e)}
 
 
-def check_models() -> Dict[str, Any]:
+def check_models(trigger_load: bool = True) -> Dict[str, Any]:
     """Check availability of ML models.
+
+    SIH26127 OOM hotfix (2026-09-29): trigger_load is passed straight
+    through to get_model_status() - see that function's docstring
+    (app/api/v1/observations.py) for why this exists. health_check() below
+    and deep_health_check()/system_status() pass trigger_load=False, since
+    those are hit passively by every dashboard page view and forcing a
+    fresh YOLO+PaddleOCR load on every one of those was what got this
+    deployment's Render instance OOM-killed.
 
     SIH26127 "Final Demo Hardening" audit (2026-09-10) - real, confirmed
     bug fixed here: this used to hardcode `yolo_vehicle`/`yolo_plate` as
@@ -54,7 +62,7 @@ def check_models() -> Dict[str, Any]:
     real reason a component failed exposed in `reasons`, never guessed."""
     try:
         from app.api.v1.observations import get_model_status
-        status = get_model_status()
+        status = get_model_status(trigger_load=trigger_load)
 
         models = {
             # LPRNet was removed from the live OCR path (see
@@ -108,9 +116,12 @@ def health_check() -> Dict[str, Any]:
 
 @router.get("/deep", status_code=status.HTTP_200_OK)
 def deep_health_check() -> Dict[str, Any]:
-    """Comprehensive system health check."""
+    """Comprehensive system health check.
+
+    trigger_load=False (SIH26127 OOM hotfix, 2026-09-29): this is a status
+    endpoint, not a detection action - see check_models()'s docstring."""
     db_status = check_database()
-    model_status = check_models()
+    model_status = check_models(trigger_load=False)
     
     overall_status = "healthy"
     if db_status["status"] == "unhealthy" or model_status["status"] == "unhealthy":
@@ -132,9 +143,12 @@ def deep_health_check() -> Dict[str, Any]:
 
 @router.get("/status", status_code=status.HTTP_200_OK)
 def system_status(db: Session = Depends(get_db)) -> Dict[str, Any]:
-    """Detailed system status with metrics."""
+    """Detailed system status with metrics.
+
+    trigger_load=False (SIH26127 OOM hotfix, 2026-09-29): this is a status
+    endpoint, not a detection action - see check_models()'s docstring."""
     db_status = check_database()
-    model_status = check_models()
+    model_status = check_models(trigger_load=False)
     
     try:
         # Camera.observations is a relationship("Observation", ...) resolved

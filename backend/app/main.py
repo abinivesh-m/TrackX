@@ -251,9 +251,19 @@ def health_check():
     is) makes FastAPI run this in its worker thread pool instead, so a
     slow model load only ties up one thread and the rest of the app stays
     responsive.
+
+    SIH26127 OOM hotfix (2026-09-29): also now calls check_models with
+    trigger_load=False - this endpoint fires on every routine dashboard
+    page view (see docstring above), and forcing a fresh construction of
+    YOLO + all three PaddleOCR models on every one of those views was
+    exactly what exceeded Render's free-tier 512MB limit and got this
+    instance OOM-killed (confirmed via Render's own event log). Real
+    detection actions (video upload, webcam start - see
+    app/api/v1/observations.py) still load models eagerly; a passive
+    status check no longer does.
     """
     db_status = health.check_database()
-    model_status = health.check_models()
+    model_status = health.check_models(trigger_load=False)
     models = model_status.get("models", {})
     reasons = model_status.get("reasons", {})
     ocr_engines = [name for name, available in

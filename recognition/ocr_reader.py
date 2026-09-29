@@ -182,8 +182,21 @@ class PlateOCR:
         # PaddleOCR is the OCR engine actually used.
         if PADDLEOCR_AVAILABLE:
             try:
+                # SIH26127 OOM hotfix (2026-09-29): use_angle_cls=True loads
+                # a THIRD PaddleOCR model (the rotation classifier) on top of
+                # the detection and recognition models it already needs -
+                # real extra download + real extra RAM, and it exists to fix
+                # upside-down/sideways text, which a vehicle-mounted ANPR
+                # camera's plate crops essentially never are (plates aren't
+                # photographed rotated 90-180 degrees in this dataset).
+                # Dropping it was one of the two changes that got this app's
+                # peak memory back under Render's free-tier 512MB limit
+                # after an actual OOM kill (see backend/app/main.py's
+                # get_model_status(trigger_load=...) for the other one) -
+                # this isn't a guess, it's cutting a model this pipeline
+                # doesn't need for its real inputs.
                 self.ocr = PaddleOCR(
-                    use_angle_cls=True, lang=lang,
+                    use_angle_cls=False, lang=lang,
                     det_db_unclip_ratio=PADDLEOCR_DET_DB_UNCLIP_RATIO,
                     use_gpu=_resolve_paddle_gpu(),
                 )
@@ -242,7 +255,10 @@ class PlateOCR:
             }
 
         # Fast path: Try original crop first
-        result = self.ocr.ocr(crop_img, cls=True)
+        # cls=False matches use_angle_cls=False at construction above - no
+        # angle-classifier model was loaded, so asking for one here would be
+        # inconsistent with what was actually built.
+        result = self.ocr.ocr(crop_img, cls=False)
 
         if result and result[0]:
             texts = []
@@ -292,7 +308,7 @@ class PlateOCR:
 
         for variant_name, variant_crop in variants:
             try:
-                result = self.ocr.ocr(variant_crop, cls=True)
+                result = self.ocr.ocr(variant_crop, cls=False)  # matches use_angle_cls=False above
 
                 if result and result[0]:
                     texts = []
