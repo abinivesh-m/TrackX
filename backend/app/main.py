@@ -228,7 +228,7 @@ async def root():
 
 @app.get("/health")
 @app.get("/api/v1/health")
-async def health_check():
+def health_check():
     """
     Health check endpoint. Every field here is a REAL check
     (backend/app/api/v1/health.py's check_database()/check_models(), the
@@ -237,6 +237,20 @@ async def health_check():
     "operational", "ocr_engine": "LPRNet + PaddleOCR") regardless of
     whether any of that was actually true. DashboardPage.tsx's System
     Status panel reads this endpoint directly.
+
+    SIH26127 hotfix (2026-09-29): this was `async def`, but check_models()
+    does REAL, synchronous, CPU-heavy work on the first call per process -
+    actually constructing the YOLO vehicle/plate detectors and PaddleOCR
+    singletons (see app/api/v1/observations.py's get_model_status()), which
+    can take a long time (or block on a first-run model download) on a
+    resource-constrained host. Calling that directly inside `async def`
+    blocked FastAPI's single-threaded event loop for the entire duration -
+    freezing EVERY other in-flight request on the whole app (dashboard,
+    alerts, analytics, everything), not just this endpoint. Plain `def`
+    (like every other endpoint in backend/app/api/v1/health.py already
+    is) makes FastAPI run this in its worker thread pool instead, so a
+    slow model load only ties up one thread and the rest of the app stays
+    responsive.
     """
     db_status = health.check_database()
     model_status = health.check_models()
