@@ -80,16 +80,18 @@ const TrajectoryMap: React.FC<TrajectoryMapProps> = ({ trajectory, height = 500,
       const isSelected = selectedHopIndex === i || selectedHopIndex === i - 1
 
       const line = L.polyline([from, to], {
-        color: isAnomalous ? '#ef4444' : '#3b82f6',
+        color: isAnomalous ? '#c8473d' : '#ec9d1e',
         weight: isSelected ? 5 : isAnomalous ? 4 : 3,
         opacity: isAnomalous ? 0.9 : 0.65,
         dashArray: isAnomalous ? undefined : '8, 8',
       })
 
       const segInfo = seg
-        ? `Distance: <b>${seg.distance_km != null ? seg.distance_km.toFixed(2) + ' km' : 'unknown'}</b><br/>
+        ? `Distance: <b>${seg.distance_km != null ? seg.distance_km.toFixed(2) + ' km' : 'unknown'}</b> ${seg.spatial_connected === false ? '(straight-line, no road link)' : '(road distance)'}<br/>
            Speed: <b>${seg.required_speed_kmph != null ? seg.required_speed_kmph.toFixed(1) + ' km/h' : 'unknown'}</b><br/>
-           Time: <b>${seg.elapsed_time_formatted || 'unknown'}</b>${isAnomalous ? `<br/><span style="color:#ef4444;font-weight:bold">⚠ ${seg.reason}</span>` : ''}`
+           Time: <b>${seg.elapsed_time_formatted || 'unknown'}</b><br/>
+           ${seg.route_direction ? `Bearing: <b>${seg.route_direction}</b> (${seg.route_bearing_deg}°)<br/>` : ''}
+           ${isAnomalous ? `<span style="color:#c8473d;font-weight:bold">⚠ ${seg.reason}</span>` : ''}`
         : 'Segment data unavailable'
 
       line.bindPopup(`<div style="color:#222;font-family:sans-serif;font-size:12px;min-width:200px;">
@@ -104,7 +106,7 @@ const TrajectoryMap: React.FC<TrajectoryMapProps> = ({ trajectory, height = 500,
       const isStart = idx === 0
       const isEnd = idx === hops.length - 1
       const hasAnomalyIntoHop = hop.segment_from_prev?.is_plausible === false
-      const color = isStart ? '#10b981' : isEnd ? '#ef4444' : hasAnomalyIntoHop ? '#f59e0b' : '#3b82f6'
+      const color = isStart ? '#3f9e5c' : isEnd ? '#c8473d' : hasAnomalyIntoHop ? '#cf8f22' : '#ec9d1e'
       const isSelected = selectedHopIndex === idx
 
       const icon = L.divIcon({
@@ -122,9 +124,12 @@ const TrajectoryMap: React.FC<TrajectoryMapProps> = ({ trajectory, height = 500,
         <div style="color:#222;font-family:sans-serif;font-size:12px;min-width:190px;">
           <strong>${isStart ? 'START — ' : isEnd ? 'END — ' : ''}${hop.camera_name}</strong> (${hop.camera_id})<br/>
           Time: ${formatTime(hop.timestamp)}<br/>
+          ${hop.local_track_id ? `Local Track ID: <span style="font-family:monospace">${hop.local_track_id}</span><br/>` : ''}
           ${hop.direction && hop.direction !== 'unknown' ? `Direction: ${hop.direction.replace(/_/g, ' ')}<br/>` : ''}
-          ${hop.confidence != null ? `Confidence: <span style="color:#16a34a">${(hop.confidence * 100).toFixed(0)}%</span><br/>` : ''}
-          ${hasAnomalyIntoHop ? `<span style="color:#ef4444;font-weight:bold">⚠ Anomalous arrival</span>` : ''}
+          ${hop.confidence != null ? `Confidence: <span style="color:#3f9e5c">${(hop.confidence * 100).toFixed(0)}%</span><br/>` : ''}
+          ${hop.plate_state ? `Plate state: ${hop.plate_state}<br/>` : ''}
+          ${hop.data_source === 'DEMO_SYNTHETIC' ? `<span style="color:#cf8f22;font-weight:bold">⚠ Synthetic demo scenario — not a live camera read</span><br/>` : ''}
+          ${hasAnomalyIntoHop ? `<span style="color:#c8473d;font-weight:bold">⚠ Anomalous arrival</span>` : ''}
         </div>
       `)
       if (onSelectHop) marker.on('click', () => onSelectHop(idx))
@@ -140,9 +145,9 @@ const TrajectoryMap: React.FC<TrajectoryMapProps> = ({ trajectory, height = 500,
 
   return (
     <div className="relative" style={{ height: `${height}px`, width: '100%', minHeight: '300px' }}>
-      <div ref={mapContainerRef} className="h-full w-full rounded-lg overflow-hidden" />
+      <div ref={mapContainerRef} className="h-full w-full rounded overflow-hidden" />
       {!hasPlottableHops && (
-        <div className="absolute inset-0 flex items-center justify-center bg-surface/90 rounded-lg text-sm text-muted text-center px-6">
+        <div className="absolute inset-0 flex items-center justify-center bg-surface/90 rounded text-sm text-muted text-center px-6">
           No camera coordinates available to plot this trajectory.
         </div>
       )}

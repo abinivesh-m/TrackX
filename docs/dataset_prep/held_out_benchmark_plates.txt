@@ -1,0 +1,30 @@
+# PERMANENT TRAINING-SET EXCLUSION LIST
+#
+# Source: docs/a1_baseline_table_2026-09-09.csv (the 37-sample TrackX
+# ground-truth benchmark) plus one corrected ground-truth value documented
+# in docs/PART_A_OCR_MODEL_OPTIMIZATION_2026-09-09.md (track154's listed GT
+# "UP14FS3664" was a data-entry error inherited from the crop-selection bug
+# fixed that session; the vehicle's real plate is UP16CD5633).
+#
+# Any leakage_guard_split.py run against a future real training corpus MUST
+# reject/exclude every plate text below by EXACT STRING MATCH (case-
+# normalized), regardless of which physical vehicle or image it comes from.
+# This list is deliberately over-inclusive (it holds out both the original
+# CSV value and its correction for track154) rather than under-inclusive.
+#
+# "(NONE - INDETERMINATE)" is a placeholder for an unreadable sample, not a
+# real plate string, and is excluded from this list for that reason.
+
+DL2CBB4791
+DL7CP8161
+KA02MM9091
+UP14DX8554
+UP14EA6286
+UP14FS3664
+UP14HF9686
+UP16BA8695
+UP16CD5633
+UP16CO5633
+UP16EJ0364
+UP16PT8030
+UP22AT3248

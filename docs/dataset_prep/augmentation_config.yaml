@@ -1,0 +1,88 @@
+# Augmentation configuration for a future TrackX Indian-plate OCR
+# fine-tuning run. STATUS: specification only — no training has been run
+# against this file. It is not read by pipeline.py or any production code.
+#
+# Ranges below are calibrated against REAL measured quality-metric
+# statistics from docs/a1_baseline_table_2026-09-09.csv (the existing
+# 37-sample benchmark's recorded blur/brightness/contrast/crop-quality
+# scores, n=40 rows). This uses only those already-computed SCALAR
+# METRICS to pick realistic augmentation ranges — it does NOT use the
+# benchmark's images, crops, or ground-truth plate text as training data,
+# and does not violate the held-out-benchmark rule in
+# held_out_benchmark_plates.txt.
+#
+# Real measured distribution (computed 2026-09-09 from the 40 recorded
+# rows covering the 37-sample benchmark):
+#   blur_score:         min=365.7   p25=501.1   median=628.0  p75=796.5   max=17200.8  mean=1193.8
+#   brightness_score:   min=80.5    p25=119.9   median=132.4  p75=144.3   max=171.8    mean=131.1
+#   contrast_score:     min=34.0    p25=63.0    median=67.0   p75=69.3   max=85.5     mean=63.9
+#   crop_quality_score: min=0.66    p25=0.81    median=0.85   p75=0.87   max=0.93     mean=0.83
+#
+# (blur_score is a Laplacian-variance sharpness metric — HIGHER is
+# sharper; the training corpus should therefore synthesize examples
+# BELOW the observed p25 to teach the model on genuinely blurrier crops
+# than most of the real benchmark, since blur is one of the two
+# highest-value augmentation targets identified in Part D of
+# docs/AWIROS_VERIFICATION_AND_TRAINING_DECISION_2026-09-09.md.)
+
+vocabulary:
+  file: indian_plate_vocab.txt
+  size: 36  # 0-9, A-Z — deliberately excludes lowercase and punctuation
+  ctc_blank_index: 0
+
+image:
+  height: 48
+  width: 320
+  color_mode: rgb
+  # matches the currently-integrated en_PP-OCRv4_rec input shape
+  # (rec_image_shape '3, 48, 320'), confirmed in Phase 3 Section 1.
+
+geometric:
+  rotation_deg: [-15, 15]
+  perspective_warp: true
+  perspective_max_shift_frac: 0.08
+  # targets the "angled plates" failure mode (Part D)
+
+photometric:
+  brightness_scale_range: [0.55, 1.35]
+  # widened below the real p25 (119.9) and above the real p75 (144.3) of
+  # brightness_score so training coverage exceeds what the 37-sample
+  # benchmark alone shows, per Part D's day/night/glare targets
+  contrast_scale_range: [0.6, 1.4]
+  gamma_range: [0.7, 1.5]
+  simulate_headlight_glare: true
+  simulate_shadow_bands: true
+
+blur:
+  gaussian_blur_kernel_range: [1, 7]
+  motion_blur_kernel_range: [3, 15]
+  motion_blur_angle_range: [0, 180]
+  # calibrated so synthesized blur_score falls at or below the real p25
+  # (~500) for at least half of augmented samples — real CCTV crops in
+  # the confusion-matrix analysis were concentrated in this range
+
+occlusion:
+  random_erase_frac_range: [0.0, 0.15]
+  # targets "dirty/damaged plates" and "partial occlusion" (Part D)
+
+noise:
+  gaussian_noise_std_range: [0, 12]
+  jpeg_compression_quality_range: [35, 95]
+  # targets "low resolution" / CCTV re-encoding artifacts (Part D)
+
+class_balance:
+  # Indian state-prefix and character balancing is NOT set here because
+  # it depends on the real acquired corpus's actual distribution, which
+  # is unknown until a licensed dataset is obtained (see Part C of
+  # docs/PHASE5_INDIAN_PLATE_DATASET_2026-09-09.md). Filling this in
+  # before real data exists would be a fabricated parameter, not a
+  # calibrated one.
+  state_prefix_oversampling: null
+  character_confusion_oversampling:
+    # explicitly targets the two highest-occurrence confusions measured
+    # in this investigation (Part D): 8<->B (6 occurrences) and
+    # D<->O (2-6 occurrences depending on which session's re-check).
+    # Left as a documented intent, not a numeric weight, until real
+    # per-character frequency counts exist for the acquired corpus.
+    pairs: ["8B", "DO", "27", "68", "MH"]
+    weighting: null

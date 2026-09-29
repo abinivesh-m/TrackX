@@ -29,20 +29,83 @@ from network.camera_network import ROAD_GRAPH, _get_edge
 from network.camera_network import ROAD_GRAPH, _get_edge
 
 
+def _vehicle_dedup_key(obs):
+    """
+    Returns a key that identifies one physical vehicle sighting, or None if
+    this observation row can't be deduplicated against any other (counted
+    on its own in that case).
+
+    SIH26127 "Final Data Integrity" audit (2026-09-11): not every real
+    producer of `observations` rows writes exactly one row per vehicle.
+    pipeline.py's run_video_to_db() (the CCTV-upload path) writes one row
+    per FINISHED ByteTrack track - already one row per vehicle. But
+    demo/visual_pipeline.py's process_video() (the "AI Processing"/"Camera
+    Media" page's video path) writes one row per SAMPLED FRAME per
+    vehicle - the same physical vehicle legitimately produces several rows
+    there. Counting raw rows as "vehicles" would silently inflate volume
+    by roughly the frame-sampling rate for that data source, which is
+    exactly the miscount the department-demo data-integrity audit flagged.
+
+    track_id alone is NOT a safe dedup key across the whole table: two
+    unrelated real vehicles from two different uploaded videos on the same
+    camera can both be assigned track_id=1 by ByteTrack (numbering resets
+    per run) - confirmed by inspecting this project's own real database
+    (CAM_01 track_id 4 and 5 each appear in two different uploaded video
+    files, four distinct real vehicles, not two). `source` (the video/image
+    file path, or e.g. "webcam") distinguishes separate pipeline runs, so
+    (camera_id, source, track_id) is the key that's actually safe: it
+    merges only rows that are BOTH the same camera AND the same run AND
+    the same track - never merges two different runs' track_id=1 into one
+    vehicle, and never splits one track's several per-frame rows into many.
+    """
+    track_id = obs.get("track_id")
+    if track_id is None:
+        return None
+    return (obs["camera_id"], obs.get("source"), track_id)
+
+
 def vehicles_per_camera(observations):
-    counts = defaultdict(int)
+    """Real, unique-vehicle counts per camera - see _vehicle_dedup_key()
+    for why this is not simply len(rows) per camera."""
+    seen = defaultdict(set)
+    untracked_counts = defaultdict(int)
     for obs in observations:
-        counts[obs["camera_id"]] += 1
+        cam = obs["camera_id"]
+        key = _vehicle_dedup_key(obs)
+        if key is not None:
+            seen[cam].add(key)
+        else:
+            untracked_counts[cam] += 1
+    counts = defaultdict(int)
+    for cam, keys in seen.items():
+        counts[cam] += len(keys)
+    for cam, n in untracked_counts.items():
+        counts[cam] += n
     return dict(counts)
 
 
 def hourly_density(observations):
-    """counts observations per camera per hour -> useful for congestion heatmap"""
-    density = defaultdict(lambda: defaultdict(int))
+    """counts UNIQUE vehicles (see _vehicle_dedup_key()) per camera per
+    hour -> useful for congestion heatmap. Bucketed strictly from each
+    row's own real timestamp - no interpolation or smoothing."""
+    seen = defaultdict(lambda: defaultdict(set))
+    untracked_counts = defaultdict(lambda: defaultdict(int))
     for obs in observations:
         ts = datetime.fromisoformat(obs["timestamp"])
         hour_bucket = ts.strftime("%Y-%m-%d %H:00")
-        density[obs["camera_id"]][hour_bucket] += 1
+        cam = obs["camera_id"]
+        key = _vehicle_dedup_key(obs)
+        if key is not None:
+            seen[cam][hour_bucket].add(key)
+        else:
+            untracked_counts[cam][hour_bucket] += 1
+    density = defaultdict(lambda: defaultdict(int))
+    for cam, buckets in seen.items():
+        for hour, keys in buckets.items():
+            density[cam][hour] += len(keys)
+    for cam, buckets in untracked_counts.items():
+        for hour, n in buckets.items():
+            density[cam][hour] += n
     return {cam: dict(buckets) for cam, buckets in density.items()}
 
 
@@ -380,6 +443,7 @@ def congestion_hotspots(observations, trajectories=None, threshold_percentile=75
     
     for camera_id in density_by_camera:
         density = density_by_camera[camera_id]
+        has_camera_specific_speed = camera_id in speed_by_camera
         speed = speed_by_camera.get(camera_id, avg_speed)
         
         # Factor 1: Density score (0-1, higher = more congested)
@@ -405,6 +469,7 @@ def congestion_hotspots(observations, trajectories=None, threshold_percentile=75
             0.2 * ratio_score          # 20% weight on efficiency
         )
         
+        level = _get_congestion_level(congestion_score)
         congestion_scores[camera_id] = round(congestion_score, 3)
         congestion_factors[camera_id] = {
             "density_score": round(density_score, 3),
@@ -412,7 +477,11 @@ def congestion_hotspots(observations, trajectories=None, threshold_percentile=75
             "efficiency_score": round(ratio_score, 3),
             "raw_density": density,
             "raw_speed": round(speed, 2),
-            "congestion_level": _get_congestion_level(congestion_score)
+            "speed_is_camera_specific": has_camera_specific_speed,
+            "congestion_level": level,
+            "reason": _congestion_reason(
+                density_score, speed_score, density, speed, level, has_camera_specific_speed
+            ),
         }
     
     # Determine congestion threshold based on score distribution
@@ -457,6 +526,44 @@ def _get_congestion_level(score: float) -> str:
         return "LOW"
     else:
         return "FREE_FLOW"
+
+
+def _congestion_reason(density_score, speed_score, raw_density, raw_speed, level,
+                        has_camera_specific_speed) -> str:
+    """
+    SIH26127 'Final Data Integrity' audit (2026-09-11): a plain-language
+    explanation built ONLY from the real, already-computed factors above -
+    no new data source, no invented justification. This exists so a judge
+    asking "why is this camera congested?" gets a real, evidence-based
+    answer (e.g. "HIGH congestion - driven by vehicle volume of 142 and
+    average speed of 18.4 km/h") instead of just a bare score.
+
+    Honestly flags when the speed figure quoted is a network-average
+    fallback rather than this camera's own measured speed (see
+    congestion_hotspots()'s has_camera_specific_speed - happens when there
+    isn't yet enough cross-camera trajectory data to compute this specific
+    camera's real average speed) - never presents a borrowed average as if
+    it were this camera's own measurement.
+    """
+    if level == "FREE_FLOW":
+        return (
+            f"Free-flowing - vehicle volume ({raw_density}) and average speed "
+            f"({raw_speed} km/h) are both within normal range for this window."
+        )
+
+    speed_note = (
+        "" if has_camera_specific_speed
+        else " (network-average speed used - not enough trajectory data yet for this camera's own measured speed)"
+    )
+
+    if density_score >= speed_score * 1.15:
+        driver = f"high vehicle volume ({raw_density} vehicles in this window)"
+    elif speed_score >= density_score * 1.15:
+        driver = f"reduced average speed ({raw_speed} km/h){speed_note}"
+    else:
+        driver = f"high vehicle volume ({raw_density} vehicles) combined with reduced average speed ({raw_speed} km/h){speed_note}"
+
+    return f"{level} congestion - driven by {driver}."
 
 
 if __name__ == "__main__":

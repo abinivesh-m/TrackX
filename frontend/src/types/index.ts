@@ -77,6 +77,12 @@ export interface TrajectorySegment {
   spatial_connected?: boolean
   reason: string
   confidence?: number
+  // Geographic bearing of travel between the two camera locations (0-360,
+  // 0=North) and its 8-point compass label - null when either camera is
+  // missing coordinates (never guessed). Distinct from each hop's own
+  // intra-frame "direction" field.
+  route_bearing_deg?: number | null
+  route_direction?: string | null
 }
 
 // One node on the GIS trajectory map - one per camera actually visited
@@ -93,6 +99,18 @@ export interface TrajectoryHop {
   vehicle_confidence?: number | null
   vehicle_type?: string | null
   plate_crop_url?: string | null
+  // Camera-local track ID (NOT a global vehicle ID - the same physical
+  // vehicle gets a different local_track_id at every camera; cross-camera
+  // identity is established by intelligence/fusion.py, not by this number
+  // matching across hops). plate_state is the OCR confidence tier for this
+  // specific hop's reading ("VERIFIED" | "TENTATIVE" | "LOW_CONFIDENCE" |
+  // "UNKNOWN"). data_source flags whether this hop came from the real
+  // detection/OCR pipeline ("REAL_INFERENCE") or a seeded demo scenario
+  // ("DEMO_SYNTHETIC") - shown so synthetic scenario data is never mistaken
+  // for a live camera read.
+  local_track_id?: string | null
+  plate_state?: string | null
+  data_source?: string | null
   segment_from_prev: TrajectorySegment | null
 }
 
@@ -155,6 +173,10 @@ export interface Alert {
   // REPEATED_CAMERA -> sighting_count/sighting_timestamps; CAMERA_OFFLINE ->
   // last_seen/threshold_hours/reason; CONGESTION_BOTTLENECK ->
   // congestion_score/bottleneck_score/avg_speed_kmh/duration_minutes.
+  // Every vehicle-scoped type also carries evidence.data_source
+  // ('DEMO_SYNTHETIC' | 'REAL_INFERENCE' | undefined) - see
+  // intelligence/alerts.py's _trajectory_data_source() and
+  // AlertsPage.tsx's SyntheticDataBadge.
   evidence?: Record<string, any>
   // false for CAMERA_OFFLINE / CONGESTION_BOTTLENECK - no vehicle to link
   // to Vehicle Intelligence or a trajectory search.
@@ -222,6 +244,12 @@ export interface RouteAnomaly {
   severity: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL'
   status: 'OPEN' | 'UNDER_INVESTIGATION' | 'RESOLVED' | 'FALSE_POSITIVE'
   anomaly_score: number
+  // SIH26127 "Final Data Integrity" audit (2026-09-11): "DEMO_SYNTHETIC" if
+  // either contributing observation was demo/seed_demo_data.py's seeded
+  // data, "REAL_INFERENCE" if both were real, null/undefined if unknown
+  // (e.g. an anomaly persisted before this column existed). Same field/
+  // values as observations.data_source (see VehiclesPage.tsx's hop badge).
+  data_source?: string | null
   details: {
     unexpected_transition: boolean
     impossible_travel_time: boolean
@@ -237,6 +265,31 @@ export interface RouteAnomaly {
   resolution_notes?: string
   created_at: string
   updated_at: string
+}
+
+// Real per-camera source status - see backend/app/api/v1/observations.py's
+// get_camera_source_status(). `configured` (TRACKX_RTSP_<id>_* env vars are
+// set) and `reachable` (a live probe connection actually succeeded, only
+// present when probe=true was passed) are reported separately and must
+// never be conflated - a camera can be configured but currently offline.
+export interface CameraSourceStatus {
+  camera_id: string
+  configured: boolean
+  reachable: boolean | null
+  probe_detail: string | null
+  source: 'rtsp' | 'simulated_video' | null
+  is_real_camera: boolean
+  display_name: string | null
+  source_label: string | null
+  scheme: 'rtsp' | 'rtsps' | null
+  needs_ffmpeg_bridge: boolean
+  transport: string | null
+  tls_verify: boolean | null
+  // TRACKX_RTSP_<id>_ROTATION - clockwise degrees applied to every decoded
+  // frame before detection. Only ever non-zero (and only ever actually
+  // applied - see network/ffmpeg_frame_source.py) when needs_ffmpeg_bridge
+  // is true; 0 elsewhere is a real "not applicable" state, not a guess.
+  rotation: number
 }
 
 export interface CameraTransition {
@@ -311,6 +364,12 @@ export interface CongestionEvent {
   duration_minutes: number
   affected_cameras: string[]
   resolution_notes?: string
+  // SIH26127 "Final Data Integrity" audit (2026-09-11): real, evidence-based
+  // explanation (analytics.congestion_hotspots()'s _congestion_reason(),
+  // built from this event's own density/speed factors) - "why is this
+  // congested", not just a score. Optional/nullable: events raised before
+  // this field existed have none.
+  reason?: string | null
   created_at: string
   updated_at: string
 }

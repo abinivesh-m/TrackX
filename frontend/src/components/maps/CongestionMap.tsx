@@ -11,19 +11,19 @@ import React, { useEffect, useRef } from 'react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import type { GisCongestionPoint } from '@/types'
-import { MAP_TILE_URL, MAP_TILE_ATTRIBUTION, MAP_TILE_MAX_ZOOM } from '@/config/mapTiles'
+import { MAP_TILE_URL, MAP_TILE_ATTRIBUTION, MAP_TILE_MAX_ZOOM, DEFAULT_MAP_CENTER } from '@/config/mapTiles'
 
 interface CongestionMapProps {
   points: GisCongestionPoint[]
   height?: number
 }
 
-const CENTER: [number, number] = [11.0168, 76.9558] // Coimbatore camera network center
+const CENTER: [number, number] = DEFAULT_MAP_CENTER
 
 function colorForLevel(level: string) {
-  if (level === 'CONGESTED') return '#ef4444'
-  if (level === 'MODERATE') return '#f59e0b'
-  return '#10b981'
+  if (level === 'CONGESTED') return '#c8473d'
+  if (level === 'MODERATE') return '#cf8f22'
+  return '#3f9e5c'
 }
 
 const CongestionMap: React.FC<CongestionMapProps> = ({ points, height = 460 }) => {
@@ -86,9 +86,9 @@ const CongestionMap: React.FC<CongestionMapProps> = ({ points, height = 460 }) =
 
   return (
     <div className="relative" style={{ height: `${height}px`, width: '100%', minHeight: '300px' }}>
-      <div ref={mapContainerRef} className="h-full w-full rounded-lg overflow-hidden" />
+      <div ref={mapContainerRef} className="h-full w-full rounded overflow-hidden" />
       {!hasData && (
-        <div className="absolute inset-0 flex items-center justify-center bg-surface/90 rounded-lg text-sm text-muted text-center px-6">
+        <div className="absolute inset-0 flex items-center justify-center bg-surface/90 rounded text-sm text-muted text-center px-6">
           No congestion readings yet for any camera.
         </div>
       )}

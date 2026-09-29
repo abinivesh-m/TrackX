@@ -94,7 +94,13 @@ class FakeOCR:
         self.text = text
         self.conf = conf
 
-    def read(self, crop_img):
+    def read(self, crop_img, return_debug=False):
+        if return_debug:
+            return self.text, self.conf, {
+                "preprocessing_mode": "original", "ocr_candidate_count": 1,
+                "quality": {"quality_score": 0.9, "blur_score": 500.0,
+                            "brightness": 120.0, "contrast": 70.0},
+            }
         return self.text, self.conf
 
 
@@ -112,11 +118,15 @@ def test_run_video_to_db_persists_records():
 
     db_path = _isolated_db_path("test_pipeline_persists.db")
     store = ObservationStore(db_path=db_path)
-    records = pipeline.run_video_to_db(
+    records, annotated_video_path = pipeline.run_video_to_db(
         "fake.mp4", FakeVehicleDetector(), FakePlateDetector(), FakeOCR(),
-        "CAM_TEST", 13.08, 80.27, store,
+        "CAM_TEST", 13.08, 80.27, store, write_annotated=False,
     )
     store.close()
+
+    # write_annotated=False -> no video-writing side effects for this
+    # pure-wiring test (fake.mp4 isn't a real video anyway)
+    assert annotated_video_path is None
 
     assert len(records) == 1
 
@@ -139,8 +149,103 @@ def test_run_video_to_db_persists_records():
     assert row["source"] == "fake.mp4"
     assert row["frame_index"] == 0
     assert row["vehicle_bbox"] == "[0, 0, 50, 50]"
-    assert row["plate_bbox"] == "[0, 0, 20, 20]"
+    # SIH26127 (2026-09-14): pipeline.py pads every plate bbox by
+    # PLATE_CROP_PAD_RATIO (via _pad_plate_bbox) before cropping, to
+    # recover leading/trailing characters the plate detector sometimes
+    # clips - see _pad_plate_bbox's docstring. This test's fake plate
+    # detector returns the unpadded [0, 0, 20, 20]; the persisted record
+    # is the PADDED bbox, computed here from the real production function
+    # (not a hardcoded literal) so this assertion can't go stale again if
+    # PLATE_CROP_PAD_RATIO / PLATE_CROP_PAD_MIN_PX are ever retuned.
+    expected_plate_bbox = pipeline._pad_plate_bbox([0, 0, 20, 20], 100, 100)
+    assert row["plate_bbox"] == str(expected_plate_bbox)
     assert row["direction"] in ("stationary_or_unclear", "unknown")
+
+
+def test_on_frame_callback_fires_once_per_frame_with_live_data():
+    """SIH26127 'real video streaming' priority: run_video_to_db's new
+    on_frame callback must fire exactly once per processed frame (not per
+    vehicle, not zero times), with the real per-frame vehicle boxes and a
+    live (partial) plate-text guess - and must not change the function's
+    return value or DB writes at all (purely additive)."""
+    pipeline.get_appearance_vector = lambda crop: [0.1, 0.2, 0.3]
+
+    db_path = _isolated_db_path("test_pipeline_on_frame.db")
+    store = ObservationStore(db_path=db_path)
+
+    seen_frames = []
+
+    def on_frame(frame_idx, frame, live_vehicles, elapsed):
+        seen_frames.append((frame_idx, live_vehicles, elapsed))
+        return True
+
+    records, _ = pipeline.run_video_to_db(
+        "fake.mp4", FakeVehicleDetector(n_frames=4), FakePlateDetector(), FakeOCR(),
+        "CAM_TEST", 13.08, 80.27, store, write_annotated=False,
+        on_frame=on_frame,
+    )
+    store.close()
+
+    # one callback per frame, in order, frame_idx 0..3
+    assert [f[0] for f in seen_frames] == [0, 1, 2, 3]
+    # the very first frame's live vehicle list already reflects this
+    # frame's real detection (bbox/track_id/vehicle_type), before that
+    # track's temporal OCR fusion has finished
+    first_live = seen_frames[0][1]
+    assert len(first_live) == 1
+    assert first_live[0]["track_id"] == 1
+    assert first_live[0]["vehicle_type"] == "car"
+    assert first_live[0]["bbox"] == [0, 0, 50, 50]
+    # elapsed is a real (non-negative) number, not a placeholder
+    assert all(isinstance(f[2], float) and f[2] >= 0 for f in seen_frames)
+    # purely additive: same final records as without a callback
+    assert len(records) == 1
+    assert records[0]["plate_text"] == "TN38AB1234"
+
+
+def test_on_frame_returning_false_stops_processing_early():
+    """A streaming client disconnecting (on_frame returns False) must stop
+    the frame loop early rather than continuing to burn CPU/GPU on a run
+    nobody is watching - but tracks seen so far still get finalized."""
+    pipeline.get_appearance_vector = lambda crop: [0.1, 0.2, 0.3]
+
+    db_path = _isolated_db_path("test_pipeline_on_frame_stop.db")
+    store = ObservationStore(db_path=db_path)
+
+    seen_frames = []
+
+    def on_frame(frame_idx, frame, live_vehicles, elapsed):
+        seen_frames.append(frame_idx)
+        return frame_idx < 1  # stop after frame 1 (i.e. after 2 frames)
+
+    records, _ = pipeline.run_video_to_db(
+        "fake.mp4", FakeVehicleDetector(n_frames=10), FakePlateDetector(), FakeOCR(),
+        "CAM_TEST", 13.08, 80.27, store, write_annotated=False,
+        on_frame=on_frame,
+    )
+    store.close()
+
+    # stopped right after frame_idx 1, never saw frames 2..9
+    assert seen_frames == [0, 1]
+    # the one track seen in those 2 frames is still recorded normally
+    assert len(records) == 1
+
+
+def test_on_frame_defaults_to_none_and_changes_nothing():
+    """Backward compatibility: every existing caller that doesn't pass
+    on_frame must behave byte-for-byte as before this feature."""
+    pipeline.get_appearance_vector = lambda crop: [0.1, 0.2, 0.3]
+
+    db_path = _isolated_db_path("test_pipeline_on_frame_default.db")
+    store = ObservationStore(db_path=db_path)
+    records, annotated_video_path = pipeline.run_video_to_db(
+        "fake.mp4", FakeVehicleDetector(), FakePlateDetector(), FakeOCR(),
+        "CAM_TEST", 13.08, 80.27, store, write_annotated=False,
+    )
+    store.close()
+    assert annotated_video_path is None
+    assert len(records) == 1
+    assert records[0]["plate_text"] == "TN38AB1234"
 
 
 def test_run_video_to_db_multiple_tracks_keep_separate_appearance_vectors():
@@ -167,14 +272,21 @@ def test_run_video_to_db_multiple_tracks_keep_separate_appearance_vectors():
     ocr_texts = iter(["TN01AA0001", "TN02BB0002"])
 
     class MultiTextOCR:
-        def read(self, crop_img):
-            return next(ocr_texts), 0.9
+        def read(self, crop_img, return_debug=False):
+            text = next(ocr_texts)
+            if return_debug:
+                return text, 0.9, {
+                    "preprocessing_mode": "original", "ocr_candidate_count": 1,
+                    "quality": {"quality_score": 0.9, "blur_score": 500.0,
+                                "brightness": 120.0, "contrast": 70.0},
+                }
+            return text, 0.9
 
     db_path = _isolated_db_path("test_pipeline_multi_track.db")
     store = ObservationStore(db_path=db_path)
-    records = pipeline.run_video_to_db(
+    records, _annotated_video_path = pipeline.run_video_to_db(
         "fake.mp4", FakeVehicleDetector(tracks=tracks), FakePlateDetector(),
-        MultiTextOCR(), "CAM_TEST", 13.08, 80.27, store,
+        MultiTextOCR(), "CAM_TEST", 13.08, 80.27, store, write_annotated=False,
     )
     store.close()
 
@@ -205,9 +317,9 @@ def test_direction_estimate_from_moving_bbox():
 
     db_path = _isolated_db_path("test_pipeline_direction.db")
     store = ObservationStore(db_path=db_path)
-    records = pipeline.run_video_to_db(
+    records, _annotated_video_path = pipeline.run_video_to_db(
         "fake.mp4", FakeVehicleDetector(n_frames=5), FakePlateDetector(), FakeOCR(),
-        "CAM_TEST", 13.08, 80.27, store,
+        "CAM_TEST", 13.08, 80.27, store, write_annotated=False,
     )
     store.close()
 

@@ -4,14 +4,42 @@ import React, { useEffect, useRef } from 'react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import type { Camera } from '@/types'
-import { MAP_TILE_URL, MAP_TILE_ATTRIBUTION, MAP_TILE_MAX_ZOOM } from '@/config/mapTiles'
+import { MAP_TILE_URL, MAP_TILE_ATTRIBUTION, MAP_TILE_MAX_ZOOM, DEFAULT_MAP_CENTER } from '@/config/mapTiles'
+
+// SIH26127 "physical vs media status" correction (2026-09-14): this map's
+// marker color/popup used to read camera.status directly - the SAME
+// observation-activity-derived field CamerasPage.tsx no longer uses as the
+// primary badge (see that file's comment). A camera whose demo media was
+// just processed could show a green "ONLINE" dot here even with no RTSP
+// configured at all - indistinguishable from CAM_01's real physical
+// connection. physicalStatusById (optional, keyed by camera_id) carries the
+// SAME real, config/probe-derived status CamerasPage now shows on its
+// cards; when the caller doesn't pass it (or hasn't loaded it yet for a
+// given camera), markers fall back to a neutral "checking" gray rather than
+// asserting a status that was never actually checked.
+type PhysicalStatus = 'LIVE' | 'OFFLINE' | 'NOT_CONFIGURED' | 'CHECKING'
+
+const PHYSICAL_COLORS: Record<PhysicalStatus, string> = {
+  LIVE: '#3f9e5c',
+  OFFLINE: '#c8473d',
+  NOT_CONFIGURED: '#7a8699',
+  CHECKING: '#7a8699',
+}
+
+const PHYSICAL_LABELS: Record<PhysicalStatus, string> = {
+  LIVE: 'LIVE CAMERA',
+  OFFLINE: 'Camera offline',
+  NOT_CONFIGURED: 'Camera not configured (demo/camera media)',
+  CHECKING: 'Checking…',
+}
 
 interface CameraMapProps {
   cameras: Camera[]
   height?: number
+  physicalStatusById?: Record<string, PhysicalStatus>
 }
 
-const CameraMap: React.FC<CameraMapProps> = ({ cameras, height = 500 }) => {
+const CameraMap: React.FC<CameraMapProps> = ({ cameras, height = 500, physicalStatusById }) => {
   const mapRef = useRef<L.Map | null>(null)
   const mapContainerRef = useRef<HTMLDivElement>(null)
   const markersRef = useRef<L.Marker[]>([])
@@ -23,7 +51,7 @@ const CameraMap: React.FC<CameraMapProps> = ({ cameras, height = 500 }) => {
     // Initialize map only once
     if (!mapRef.current && !isInitializedRef.current) {
       mapRef.current = L.map(mapContainerRef.current, {
-        center: [11.0168, 76.9558], // Coimbatore center
+        center: DEFAULT_MAP_CENTER, // Coimbatore, Tamil Nadu - see src/config/mapTiles.ts
         zoom: 13,
         preferCanvas: true, // Use canvas renderer for better performance
         renderer: L.canvas()
@@ -49,20 +77,22 @@ const CameraMap: React.FC<CameraMapProps> = ({ cameras, height = 500 }) => {
     
     cameras.forEach(camera => {
       if (camera.latitude != null && camera.longitude != null) {
+        const physical: PhysicalStatus = physicalStatusById?.[camera.camera_id] || 'CHECKING'
+        const color = PHYSICAL_COLORS[physical]
         const icon = L.divIcon({
           className: 'custom-camera-icon',
           html: `<div style="
-            background: ${camera.status === 'ONLINE' ? '#10b981' : camera.status === 'OFFLINE' ? '#ef4444' : '#f59e0b'};
+            background: ${color};
             width: 10px;
             height: 10px;
             border-radius: 50%;
             border: 2px solid white;
-            box-shadow: 0 0 8px ${camera.status === 'ONLINE' ? '#10b981' : camera.status === 'OFFLINE' ? '#ef4444' : '#f59e0b'};
+            box-shadow: 0 0 8px ${color};
           "></div>`,
           iconSize: [10, 10],
           iconAnchor: [5, 5]
         })
-        
+
         const marker = L.marker([camera.latitude, camera.longitude], { icon })
           .addTo(mapRef.current!)
           .bindPopup(`
@@ -70,8 +100,8 @@ const CameraMap: React.FC<CameraMapProps> = ({ cameras, height = 500 }) => {
               <strong>${camera.camera_id}</strong><br/>
               ${camera.name}<br/>
               ${camera.location}<br/>
-              Status: ${camera.status || 'Unknown'}<br/>
-              Observations: ${camera.observation_count || 0}
+              Feed: ${PHYSICAL_LABELS[physical]}<br/>
+              Observations logged: ${camera.observation_count || 0}
             </div>
           `)
         
@@ -88,13 +118,13 @@ const CameraMap: React.FC<CameraMapProps> = ({ cameras, height = 500 }) => {
     return () => {
       markersRef.current.forEach(marker => marker.remove())
     }
-  }, [cameras])
+  }, [cameras, physicalStatusById])
 
   return (
     <div 
       ref={mapContainerRef} 
       style={{ height: `${height}px`, width: '100%', minHeight: '300px' }}
-      className="rounded-lg overflow-hidden"
+      className="rounded overflow-hidden"
     />
   )
 }

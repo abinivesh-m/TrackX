@@ -76,21 +76,21 @@ const RouteAnomalyPage: React.FC = () => {
 
   const getSeverityColor = (severity: string) => {
     switch (severity) {
-      case 'CRITICAL': return 'bg-red-500/20 text-red-400 border-red-500/30'
-      case 'HIGH': return 'bg-orange-500/20 text-orange-400 border-orange-500/30'
-      case 'MEDIUM': return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'
-      case 'LOW': return 'bg-blue-500/20 text-blue-400 border-blue-500/30'
-      default: return 'bg-gray-500/20 text-gray-400 border-gray-500/30'
+      case 'CRITICAL': return 'bg-critical-500/20 text-critical-400 border-critical-500/30'
+      case 'HIGH': return 'bg-caution-500/20 text-caution-400 border-caution-500/30'
+      case 'MEDIUM': return 'bg-caution-500/20 text-caution-400 border-caution-500/30'
+      case 'LOW': return 'bg-signal-500/20 text-signal-400 border-signal-500/30'
+      default: return 'bg-graphite-700/40 text-muted border-border'
     }
   }
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'OPEN': return 'bg-red-500/20 text-red-400'
-      case 'UNDER_INVESTIGATION': return 'bg-yellow-500/20 text-yellow-400'
-      case 'RESOLVED': return 'bg-green-500/20 text-green-400'
-      case 'FALSE_POSITIVE': return 'bg-gray-500/20 text-gray-400'
-      default: return 'bg-gray-500/20 text-gray-400'
+      case 'OPEN': return 'bg-critical-500/20 text-critical-400'
+      case 'UNDER_INVESTIGATION': return 'bg-caution-500/20 text-caution-400'
+      case 'RESOLVED': return 'bg-clear-500/20 text-clear-400'
+      case 'FALSE_POSITIVE': return 'bg-graphite-700/40 text-muted'
+      default: return 'bg-graphite-700/40 text-muted'
     }
   }
 
@@ -109,17 +109,17 @@ const RouteAnomalyPage: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Demo Mode Notice Banner */}
-      <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/30 rounded-lg p-3 flex items-center justify-between text-purple-300 text-sm">
+      <div className="bg-surface border border-border rounded p-3 flex items-center justify-between text-muted text-sm">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
-          <span><b>VEHICLE INTELLIGENCE GRAPH:</b> On-demand suspicious route detection with multi-factor anomaly scoring.</span>
+          <span className="w-2 h-2 rounded-full bg-telemetry-400" />
+          <span>On-demand suspicious route detection with multi-factor anomaly scoring.</span>
         </div>
-        <span className="text-xs bg-purple-500/20 px-2 py-0.5 rounded font-mono border border-purple-500/30">ROUTE ANOMALY</span>
+        <span className="text-xs bg-surface-light px-2 py-0.5 rounded font-data border border-border">ROUTE ANOMALY</span>
       </div>
 
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-          <Shield className="text-purple-400" />
+          <Shield className="text-telemetry-400" />
           Route Anomaly Detection
         </h1>
         <div className="flex items-center gap-2">
@@ -138,12 +138,12 @@ const RouteAnomalyPage: React.FC = () => {
                 placeholder="Search by vehicle plate..."
                 value={searchPlate}
                 onChange={(e) => setSearchPlate(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 rounded-lg bg-surface-light border border-border focus:border-blue-500 focus:outline-none text-white"
+                className="w-full pl-10 pr-4 py-2 rounded bg-surface-light border border-border focus:border-signal-500 focus:outline-none text-white"
               />
             </div>
             <button
               type="submit"
-              className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium transition-colors"
+              className="px-4 py-2 rounded bg-signal-600 hover:bg-signal-500 text-white font-medium transition-colors"
             >
               Search
             </button>
@@ -153,7 +153,7 @@ const RouteAnomalyPage: React.FC = () => {
             <select
               value={filterSeverity}
               onChange={(e) => setFilterSeverity(e.target.value)}
-              className="px-4 py-2 rounded-lg bg-surface-light border border-border focus:border-blue-500 focus:outline-none text-white"
+              className="px-4 py-2 rounded bg-surface-light border border-border focus:border-signal-500 focus:outline-none text-white"
             >
               <option value="">All Severities</option>
               <option value="CRITICAL">Critical</option>
@@ -165,7 +165,7 @@ const RouteAnomalyPage: React.FC = () => {
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
-              className="px-4 py-2 rounded-lg bg-surface-light border border-border focus:border-blue-500 focus:outline-none text-white"
+              className="px-4 py-2 rounded bg-surface-light border border-border focus:border-signal-500 focus:outline-none text-white"
             >
               <option value="">All Status</option>
               <option value="OPEN">Open</option>
@@ -180,14 +180,14 @@ const RouteAnomalyPage: React.FC = () => {
       {/* Vehicle Analysis */}
       <div className="card p-6">
         <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-          <Navigation className="text-blue-400" />
+          <Navigation className="text-signal-400" />
           Analyze Vehicle Route
         </h3>
         <div className="flex gap-4">
           <input
             type="text"
             placeholder="Enter plate to analyze (e.g., TN38AB1234)"
-            className="flex-1 px-4 py-2 rounded-lg bg-surface-light border border-border focus:border-blue-500 focus:outline-none text-white"
+            className="flex-1 px-4 py-2 rounded bg-surface-light border border-border focus:border-signal-500 focus:outline-none text-white"
             onKeyPress={(e) => {
               if (e.key === 'Enter') {
                 handleAnalyzeVehicle((e.target as HTMLInputElement).value)
@@ -199,7 +199,7 @@ const RouteAnomalyPage: React.FC = () => {
               const input = document.querySelector('input[placeholder*="Enter plate to analyze"]') as HTMLInputElement
               if (input?.value) handleAnalyzeVehicle(input.value)
             }}
-            className="px-6 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-600 text-white font-bold hover:opacity-90 transition-opacity"
+            className="btn-primary"
           >
             Analyze Route
           </button>
@@ -222,19 +222,22 @@ const RouteAnomalyPage: React.FC = () => {
             {anomalies.map((anomaly) => (
               <div
                 key={anomaly.anomaly_id}
-                className="p-4 rounded-lg bg-surface-light border border-border hover:border-purple-500/30 transition-all cursor-pointer"
+                className="p-4 rounded bg-surface-light border border-border hover:border-telemetry-500/30 transition-all cursor-pointer"
                 onClick={() => setSelectedAnomaly(anomaly)}
               >
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
                       <span className="font-mono font-bold text-white">{anomaly.plate}</span>
-                      <span className={`text-xs px-2 py-1 rounded-full border ${getSeverityColor(anomaly.severity)}`}>
+                      <span className={`text-xs px-2 py-1 rounded-sm border ${getSeverityColor(anomaly.severity)}`}>
                         {anomaly.severity}
                       </span>
-                      <span className={`text-xs px-2 py-1 rounded-full ${getStatusColor(anomaly.status)}`}>
+                      <span className={`text-xs px-2 py-1 rounded-sm ${getStatusColor(anomaly.status)}`}>
                         {anomaly.status}
                       </span>
+                      {anomaly.data_source === 'DEMO_SYNTHETIC' && (
+                        <span className="badge badge-warning">SYNTHETIC DEMO SCENARIO — not a live camera read</span>
+                      )}
                     </div>
 
                     <div className="flex items-center gap-4 text-sm text-muted mb-2">
@@ -252,7 +255,7 @@ const RouteAnomalyPage: React.FC = () => {
                       <span className="text-muted">Anomaly Score:</span>
                       <span className="font-bold text-white">{anomaly.anomaly_score.toFixed(1)}/100</span>
                       <span className="text-muted">Type:</span>
-                      <span className="text-purple-400">{anomaly.anomaly_type}</span>
+                      <span className="text-telemetry-400">{anomaly.anomaly_type}</span>
                     </div>
 
                     {anomaly.details && (
@@ -269,19 +272,19 @@ const RouteAnomalyPage: React.FC = () => {
                           chaining + a fallback keeps it rendering instead.
                         */}
                         {anomaly.details.unexpected_transition && (
-                          <div className="flex items-center gap-1 text-red-400">
+                          <div className="flex items-center gap-1 text-critical-400">
                             <XCircle size={12} />
                             Unexpected camera transition
                           </div>
                         )}
                         {anomaly.details.impossible_travel_time && (
-                          <div className="flex items-center gap-1 text-red-400">
+                          <div className="flex items-center gap-1 text-critical-400">
                             <XCircle size={12} />
                             Impossible travel time ({anomaly.details.observed_travel_time?.toFixed(1) ?? '?'}s vs expected {anomaly.details.expected_min_time ?? '?'}-{anomaly.details.expected_max_time ?? '?'}s)
                           </div>
                         )}
                         {anomaly.details.unreasonable_speed && (
-                          <div className="flex items-center gap-1 text-orange-400">
+                          <div className="flex items-center gap-1 text-caution-400">
                             <AlertTriangle size={12} />
                             Unreasonable speed ({anomaly.details.observed_speed_kmph?.toFixed(1) ?? 'very high'} km/h)
                           </div>
@@ -298,7 +301,7 @@ const RouteAnomalyPage: React.FC = () => {
                             e.stopPropagation()
                             handleUpdateStatus(anomaly, 'UNDER_INVESTIGATION')
                           }}
-                          className="px-3 py-1 rounded bg-yellow-500/20 text-yellow-400 hover:bg-yellow-500/30 text-xs"
+                          className="px-3 py-1 rounded bg-caution-500/20 text-caution-400 hover:bg-caution-500/30 text-xs"
                         >
                           Investigate
                         </button>
@@ -307,7 +310,7 @@ const RouteAnomalyPage: React.FC = () => {
                             e.stopPropagation()
                             handleUpdateStatus(anomaly, 'FALSE_POSITIVE')
                           }}
-                          className="px-3 py-1 rounded bg-gray-500/20 text-gray-400 hover:bg-gray-500/30 text-xs"
+                          className="px-3 py-1 rounded bg-graphite-700/40 text-muted hover:bg-graphite-700/60 text-xs"
                         >
                           False Positive
                         </button>
@@ -319,7 +322,7 @@ const RouteAnomalyPage: React.FC = () => {
                           e.stopPropagation()
                           handleUpdateStatus(anomaly, 'RESOLVED')
                         }}
-                        className="px-3 py-1 rounded bg-green-500/20 text-green-400 hover:bg-green-500/30 text-xs"
+                        className="px-3 py-1 rounded bg-clear-500/20 text-clear-400 hover:bg-clear-500/30 text-xs"
                       >
                         Resolve
                       </button>
@@ -335,7 +338,7 @@ const RouteAnomalyPage: React.FC = () => {
       {/* Anomaly Detail Modal */}
       {selectedAnomaly && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-surface border border-border rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-surface border border-border rounded-sm max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6 border-b border-border">
               <div className="flex items-center justify-between">
                 <h2 className="text-xl font-bold text-white">Anomaly Details</h2>
@@ -380,7 +383,7 @@ const RouteAnomalyPage: React.FC = () => {
               </div>
 
               {selectedAnomaly.details && (
-                <div className="bg-surface-light p-4 rounded-lg">
+                <div className="bg-surface-light p-4 rounded">
                   <h3 className="font-bold text-white mb-3">Technical Details</h3>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
@@ -397,13 +400,13 @@ const RouteAnomalyPage: React.FC = () => {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted">Observed Speed</span>
-                      <span className={selectedAnomaly.details.unreasonable_speed ? 'text-red-400 font-bold' : 'text-white'}>
+                      <span className={selectedAnomaly.details.unreasonable_speed ? 'text-critical-400 font-bold' : 'text-white'}>
                         {selectedAnomaly.details.observed_speed_kmph?.toFixed(1) ?? 'very high'} km/h
                       </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted">Anomaly Score</span>
-                      <span className="text-purple-400 font-bold">{selectedAnomaly.anomaly_score.toFixed(1)}/100</span>
+                      <span className="text-telemetry-400 font-bold">{selectedAnomaly.anomaly_score.toFixed(1)}/100</span>
                     </div>
                   </div>
                 </div>

@@ -40,7 +40,7 @@ def get_analytics_summary(
     """Aggregate density, OD movement, speeds, congestion, and GIS heat points."""
     store = ObservationStore()
     try:
-        observations = store.all_observations()
+        observations = store.all_observations(real_only=True)
     finally:
         store.close()
 
@@ -94,6 +94,7 @@ def get_analytics_summary(
                 "congestion_score": score,
                 "average_speed": factors["raw_speed"],
                 "level": factors["congestion_level"],
+                "reason": factors.get("reason"),
             })
 
         heatmap_points = [
@@ -141,7 +142,7 @@ def get_analytics_speed(
 ):
     """Average vehicle speeds across camera corridors and overall network."""
     store = ObservationStore()
-    obs = store.all_observations()
+    obs = store.all_observations(real_only=True)
     store.close()
 
     trajectories = build_trajectories(obs)
@@ -156,7 +157,7 @@ def get_analytics_density(
 ):
     """Hourly traffic density trends across the camera network."""
     store = ObservationStore()
-    obs = store.all_observations()
+    obs = store.all_observations(real_only=True)
     store.close()
 
     density = hourly_density(obs)
@@ -178,7 +179,7 @@ def get_analytics_flow(
 ):
     """Cross-camera route flow and corridor volume."""
     store = ObservationStore()
-    obs = store.all_observations()
+    obs = store.all_observations(real_only=True)
     store.close()
 
     trajectories = build_trajectories(obs)
@@ -193,7 +194,7 @@ def get_analytics_od_matrix(
 ):
     """Origin-Destination pattern matrix between all camera pairs."""
     store = ObservationStore()
-    obs = store.all_observations()
+    obs = store.all_observations(real_only=True)
     store.close()
 
     trajectories = build_trajectories(obs)

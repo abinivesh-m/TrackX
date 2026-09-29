@@ -2,7 +2,7 @@
 
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
 import { authService } from './auth'
-import type { User, Camera, VehicleSearchResponse, Trajectory, AnalyticsSummary, Alert, Observation } from '@/types'
+import type { User, Camera, VehicleSearchResponse, Trajectory, AnalyticsSummary, Alert, Observation, CameraSourceStatus } from '@/types'
 
 class ApiClient {
   private client: AxiosInstance
@@ -99,6 +99,17 @@ class ApiClient {
     return this.get<Camera[]>('/cameras/health')
   }
 
+  // Real per-camera source status (configured/reachable/is_real_camera) -
+  // see backend/app/api/v1/observations.py's get_camera_source_status().
+  // `probe=true` also attempts a real, time-bounded connection - only pass
+  // it when the caller actually wants to wait on that (e.g. a manual
+  // "check connection" action), not for a page-load status fetch.
+  getCameraSourceStatus(cameraId: string, probe: boolean = false) {
+    return this.get<CameraSourceStatus>(`/observations/camera-source/${cameraId}`, {
+      params: probe ? { probe: true } : undefined,
+    })
+  }
+
   searchVehicle(params: { plate: string; camera_id?: string; start_time?: string; end_time?: string }) {
     return this.get<VehicleSearchResponse>('/vehicles/search', { params })
   }
@@ -168,7 +179,14 @@ class ApiClient {
   }
 
   getObservations(params?: { camera_id?: string; plate?: string; limit?: number }) {
-    return this.get<Observation[]>('/observations', { params })
+    // Trailing slash required: backend/app/main.py mounts this router at
+    // prefix="/api/v1/observations" and the handler is @router.get("/") -
+    // so the real route is ".../observations/", not ".../observations".
+    // Calling it without the slash 404s (confirmed via the live browser
+    // network log on 2026-09-14 - this was a real, pre-existing bug in
+    // this method, never caught before because CameraLivePage's new
+    // Latest Detections panel was the first real caller of it).
+    return this.get<Observation[]>('/observations/', { params })
   }
 
   getRecentObservations() {
@@ -284,8 +302,16 @@ class ApiClient {
       headers: { 'Content-Type': 'multipart/form-data' },
       // Processing (detection + OCR) can genuinely take longer than the
       // default timeout for a demo-length clip - this is synchronous
-      // real inference, not a quick CRUD call.
-      timeout: 5 * 60 * 1000,
+      // real inference, not a quick CRUD call. SIH26127 fix (2026-09-14):
+      // was 5 * 60 * 1000 - confirmed too short against a real run of
+      // processCamera() above hitting exactly this "timeout of 300000ms
+      // exceeded" failure while the server was still genuinely (not
+      // hung) working through real CPU inference. Same fix applied here
+      // for the same reason, even though this specific endpoint also has
+      // a server-side _MAX_VIDEO_DURATION_SECONDS cap (180s of video) -
+      // that bounds the SOURCE clip length, not how long real per-frame
+      // CPU inference over it can take.
+      timeout: 20 * 60 * 1000,
       onUploadProgress: (evt) => {
         if (onUploadProgress && evt.total) {
           onUploadProgress(Math.round((evt.loaded / evt.total) * 100))
@@ -312,9 +338,21 @@ class ApiClient {
     }
     return this.post<any>('/observations/process-camera', form, {
       headers: { 'Content-Type': 'multipart/form-data' },
-      // Same reasoning as ingestVideo - this is synchronous real inference
-      // over potentially several images/videos, not a quick CRUD call.
-      timeout: 5 * 60 * 1000,
+      // SIH26127 fix (2026-09-14): was 5 * 60 * 1000 (5 min) - confirmed
+      // too short against a REAL run: processing CAM_01's real
+      // anpr_test1.mp4 (with Max Frames = 0, i.e. the whole video, every
+      // 5th frame) genuinely exceeded 5 minutes of real CPU inference and
+      // the browser gave up with "timeout of 300000ms exceeded", even
+      // though the server was still correctly working (not hung - this is
+      // a different, unrelated situation from the live-stream stall fixed
+      // in network/ffmpeg_frame_source.py). This does NOT change how fast
+      // processing runs - only how long the browser waits before treating
+      // genuinely-still-working CPU inference as failed. 20 minutes is
+      // generous headroom for a full, unbounded video on CPU; a MUCH
+      // faster way to keep an actual demo run short is the Max Frames
+      // field in the UI (VideoDemoPage.tsx) - e.g. 150-300 - which bounds
+      // real work done, not just how long this waits for it.
+      timeout: 20 * 60 * 1000,
     })
   }
 }

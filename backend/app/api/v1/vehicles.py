@@ -16,7 +16,7 @@ from database.observation_store import ObservationStore
 from database.blacklist_store import BlacklistStore
 from intelligence.trajectory import build_trajectories
 from intelligence.spatio_temporal import calculate_spatial_temporal_plausibility
-from network.camera_network import CAMERAS
+from network.camera_network import CAMERAS, bearing_deg, compass_direction
 from recognition.plate_matcher import normalize_plate
 from app.api.v1.observations import _plate_crop_url
 
@@ -62,6 +62,17 @@ def _build_hops_and_segments(ordered_obs):
             "vehicle_confidence": o.get("vehicle_confidence"),
             "vehicle_type": o.get("vehicle_type"),
             "plate_crop_url": _plate_crop_url(o.get("plate_crop_path")),
+            # Local (camera-scoped) track ID and plate confidence state -
+            # SIH26127 multi-camera trajectory requirement: camera-local
+            # Track IDs are NOT globally identical across cameras (CAM_01
+            # Track 142 and CAM_02 Track 37 can be the same physical
+            # vehicle), so the UI must show each hop's own local track_id
+            # rather than implying one shared ID. Both columns already
+            # existed in the observation record and were computed by the
+            # real pipeline - this only surfaces them; nothing invented.
+            "local_track_id": o.get("track_id"),
+            "plate_state": o.get("plate_state"),
+            "data_source": o.get("data_source"),
             "segment_from_prev": None,  # filled in below for hops[1:]
         })
 
@@ -84,6 +95,20 @@ def _build_hops_and_segments(ordered_obs):
         seg["from_camera_name"] = a["camera_name"]
         seg["to_camera"] = b["camera_id"]
         seg["to_camera_name"] = b["camera_name"]
+
+        # Geographic route bearing between the two camera locations - see
+        # network/camera_network.py's bearing_deg()/compass_direction() for
+        # why this is separate from each hop's own intra-frame "direction"
+        # field. Only computed when both cameras have real coordinates;
+        # left None (never guessed) otherwise.
+        if a.get("lat") is not None and a.get("lng") is not None and \
+           b.get("lat") is not None and b.get("lng") is not None:
+            brg = bearing_deg(a["lat"], a["lng"], b["lat"], b["lng"])
+        else:
+            brg = None
+        seg["route_bearing_deg"] = round(brg, 1) if brg is not None else None
+        seg["route_direction"] = compass_direction(brg)
+
         hops[i]["segment_from_prev"] = seg
         segments.append(seg)
 

@@ -1,13 +1,24 @@
 // frontend/src/components/layout/Sidebar.tsx
+//
+// Console navigation rail. Rebuilt away from the generic "AI dashboard"
+// sidebar pattern: no gradient logo mark, no per-item stagger animation, no
+// pulsing active-state dot, no hover scale/rotate on icons. Active route is
+// marked the way an ops console marks a selected panel - a left accent bar
+// and a flat tint, nothing that moves.
+//
+// Plain <aside>, not <motion.aside>: Framer Motion's animate={{x: ...}} sets
+// `transform` as an INLINE style, which beats every stylesheet rule -
+// including the `lg:translate-x-0` media-query override below that pins the
+// sidebar open on desktop. Keep this plain-CSS-transition approach; do not
+// reintroduce motion.aside here.
 
 import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/contexts/AuthContext'
-import { motion, AnimatePresence } from 'framer-motion'
 import {
-  LayoutDashboard,
+  LayoutGrid,
   Search,
-  Camera,
+  Video,
   BarChart3,
   Bell,
   Settings,
@@ -15,10 +26,12 @@ import {
   X,
   Route,
   Map,
-  Shield,
+  ShieldAlert,
   Gauge,
   AlertOctagon,
-  ScanLine
+  ScanEye,
+  Camera as CameraIcon,
+  LucideIcon
 } from 'lucide-react'
 
 interface SidebarProps {
@@ -26,18 +39,55 @@ interface SidebarProps {
   onClose: () => void
 }
 
-const navItems = [
-  { path: '/dashboard', label: 'Operations', icon: LayoutDashboard, description: 'System overview' },
-  { path: '/cameras', label: 'Camera Network', icon: Camera, description: 'Status & coverage' },
-  { path: '/vehicles', label: 'Vehicle Intelligence', icon: Search, description: 'Search & track' },
-  { path: '/trajectory', label: 'Trajectory Search', icon: Route, description: 'Route analysis' },
-  { path: '/gis', label: 'GIS Map', icon: Map, description: 'City visualization' },
-  { path: '/analytics', label: 'Traffic Analytics', icon: BarChart3, description: 'Congestion & patterns' },
-  { path: '/congestion', label: 'Congestion', icon: Gauge, description: 'Bottleneck detection' },
-  { path: '/route-anomaly', label: 'Route Anomalies', icon: AlertOctagon, description: 'Unusual movement' },
-  { path: '/alerts', label: 'Alerts', icon: Bell, description: 'Security notifications' },
-  { path: '/ai-processing', label: 'AI Processing', icon: ScanLine, description: 'Run detection on camera media' },
-  { path: '/admin', label: 'System Admin', icon: Settings, adminOnly: true, description: 'Configuration' },
+// Grouped by pipeline stage (Camera -> Detection -> Matching -> Journey ->
+// Map -> Intelligence -> Alerts -> Admin) rather than an arbitrary flat
+// list, so the nav itself communicates how the system works.
+const navGroups: {
+  label: string
+  items: { path: string; label: string; icon: LucideIcon; adminOnly?: boolean }[]
+}[] = [
+  {
+    label: 'Console',
+    items: [
+      { path: '/dashboard', label: 'Operations', icon: LayoutGrid },
+    ],
+  },
+  {
+    label: 'Capture & Recognition',
+    items: [
+      { path: '/cameras', label: 'Camera Network', icon: Video },
+      { path: '/ai-processing', label: 'Detection Pipeline', icon: ScanEye },
+      { path: '/live-webcam', label: 'Live Webcam Demo', icon: CameraIcon },
+      { path: '/vehicles', label: 'Vehicle Search', icon: Search },
+    ],
+  },
+  {
+    label: 'Journey & Map',
+    items: [
+      { path: '/trajectory', label: 'Trajectory Search', icon: Route },
+      { path: '/gis', label: 'GIS Map', icon: Map },
+    ],
+  },
+  {
+    label: 'Traffic Intelligence',
+    items: [
+      { path: '/analytics', label: 'Traffic Analytics', icon: BarChart3 },
+      { path: '/congestion', label: 'Congestion', icon: Gauge },
+      { path: '/route-anomaly', label: 'Route Anomalies', icon: AlertOctagon },
+    ],
+  },
+  {
+    label: 'Enforcement',
+    items: [
+      { path: '/alerts', label: 'Alerts', icon: Bell },
+    ],
+  },
+  {
+    label: 'System',
+    items: [
+      { path: '/admin', label: 'System Admin', icon: Settings, adminOnly: true },
+    ],
+  },
 ]
 
 const Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {
@@ -49,167 +99,103 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {
     navigate('/login')
   }
 
-  const filteredNavItems = navItems.filter(item => 
-    !item.adminOnly || user?.is_admin || user?.role === 'admin'
-  )
+  const isAdmin = user?.is_admin || user?.role === 'admin'
 
   return (
     <>
       {/* Mobile overlay */}
-      <AnimatePresence>
-        {open && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
-            onClick={onClose}
-          />
-        )}
-      </AnimatePresence>
+      {open && (
+        <div
+          className="fixed inset-0 bg-black/60 z-40 lg:hidden"
+          onClick={onClose}
+        />
+      )}
 
-      {/*
-        Plain <aside>, not <motion.aside>, on purpose: Framer Motion's
-        animate={{x: ...}} sets `transform` as an INLINE style, which beats
-        every stylesheet rule - including the `lg:translate-x-0` media-query
-        override below that's supposed to pin the sidebar open on desktop.
-        With the inline style, the sidebar was permanently transformed off
-        -screen (translateX(-256px)) at every viewport width, since
-        `sidebarOpen` (Layout.tsx) defaults to false even on desktop and
-        nothing there ever sets it true for wide screens - only the (now
-        overridden) CSS media query was supposed to handle that case. Using
-        plain Tailwind classes + a CSS transition here lets `lg:` actually
-        win at desktop widths again.
-      */}
       <aside
         className={`
           fixed z-50 lg:relative
           h-full w-64 flex-shrink-0
           bg-surface border-r border-border
-          transition-transform duration-300 ease-in-out
+          flex flex-col
+          transition-transform duration-200 ease-out
           ${open ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         `}
       >
-        {/* Logo */}
-        <div className="p-6 border-b border-border">
-          <div className="flex items-center justify-between">
-            <motion.div 
-              className="flex items-center gap-3"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.1 }}
-            >
-              <motion.div 
-                className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20"
-                whileHover={{ scale: 1.05, rotate: 5 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span className="text-xl font-bold text-white">T</span>
-              </motion.div>
-              <div>
-                <h1 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  TrackX
-                </h1>
-                <p className="text-xs text-muted tracking-wider">CITY-WIDE VEHICLE INTELLIGENCE</p>
-              </div>
-            </motion.div>
-            <motion.button 
-              onClick={onClose}
-              className="lg:hidden text-muted hover:text-white"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <X size={20} />
-            </motion.button>
+        {/* Identity block */}
+        <div className="px-4 h-16 border-b border-border flex items-center justify-between flex-shrink-0">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-sm bg-graphite-750 border border-signal-500/40 flex items-center justify-center flex-shrink-0">
+              <span className="text-signal-400 font-data font-bold text-sm">TX</span>
+            </div>
+            <div className="leading-tight">
+              <h1 className="text-sm font-bold text-white tracking-tight">TrackX</h1>
+              <p className="text-[10px] text-muted tracking-widest font-data">ANPR OPS CONSOLE</p>
+            </div>
           </div>
+          <button
+            onClick={onClose}
+            className="lg:hidden text-muted hover:text-white p-1"
+          >
+            <X size={18} />
+          </button>
         </div>
 
-        {/* Navigation */}
-        <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
-          {filteredNavItems.map((item, index) => (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              onClick={onClose}
-              className="group relative block"
-            >
-              {({ isActive }) => (
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1 + index * 0.05 }}
-                className={`
-                  flex items-center gap-3 px-4 py-3 rounded-lg
-                  transition-all duration-200
-                  ${isActive 
-                    ? 'bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-blue-400 border border-blue-500/30' 
-                    : 'text-muted hover:text-white hover:bg-surface-light'}
-                `}
-                whileHover={{ scale: 1.02, x: 4 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <item.icon size={20} className={`
-                  transition-transform duration-200
-                  ${'group-hover:scale-110'}
-                `} />
-                <div className="flex-1">
-                  <span className="font-medium block">{item.label}</span>
-                  <span className="text-xs opacity-60 block">{item.description}</span>
+        {/* Navigation, grouped by pipeline stage */}
+        <nav className="flex-1 overflow-y-auto py-3">
+          {navGroups.map((group) => {
+            const visibleItems = group.items.filter((item) => !item.adminOnly || isAdmin)
+            if (visibleItems.length === 0) return null
+            return (
+              <div key={group.label} className="mb-4">
+                <div className="px-4 mb-1.5 label-caps">{group.label}</div>
+                <div className="px-2 space-y-0.5">
+                  {visibleItems.map((item) => (
+                    <NavLink
+                      key={item.path}
+                      to={item.path}
+                      onClick={onClose}
+                      className={({ isActive }) => `
+                        flex items-center gap-2.5 pl-3 pr-3 py-2 rounded-sm text-[13px] font-medium
+                        border-l-2 transition-colors duration-100
+                        ${isActive
+                          ? 'bg-signal-500/[0.08] border-signal-500 text-white'
+                          : 'border-transparent text-muted hover:text-white hover:bg-surface-light'}
+                      `}
+                    >
+                      <item.icon size={16} className="flex-shrink-0" />
+                      <span className="truncate">{item.label}</span>
+                    </NavLink>
+                  ))}
                 </div>
-                {isActive && (
-                  <motion.div
-                    className="absolute right-2 w-1.5 h-1.5 bg-blue-400 rounded-full"
-                    animate={{
-                      scale: [1, 1.2, 1],
-                    }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                      repeatType: "loop"
-                    }}
-                  />
-                )}
-              </motion.div>
-              )}
-            </NavLink>
-          ))}
+              </div>
+            )
+          })}
         </nav>
 
-        {/* User Info */}
-        <motion.div 
-          className="p-4 border-t border-border"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <motion.div 
-              className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg"
-              whileHover={{ scale: 1.05, rotate: 5 }}
-            >
-              <span className="font-bold text-white">
+        {/* Operator identity + logout */}
+        <div className="p-3 border-t border-border flex-shrink-0">
+          <div className="flex items-center gap-2.5 px-2 py-2 mb-1">
+            <div className="w-7 h-7 rounded-sm bg-graphite-750 border border-border flex items-center justify-center flex-shrink-0">
+              <span className="font-data text-xs font-bold text-muted">
                 {user?.username?.[0]?.toUpperCase() || 'U'}
               </span>
-            </motion.div>
-            <div>
-              <p className="font-medium text-sm">{user?.username}</p>
-              <p className="text-xs text-muted flex items-center gap-1">
-                <Shield size={10} />
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="text-xs font-semibold text-white truncate">{user?.username}</p>
+              <p className="text-[10px] text-muted flex items-center gap-1">
+                <ShieldAlert size={9} />
                 {user?.role}
               </p>
             </div>
           </div>
-          
-          <motion.button 
+          <button
             onClick={handleLogout}
-            className="flex items-center gap-3 px-4 py-2 rounded-lg text-red-400 hover:bg-red-500/10 transition-colors w-full"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            className="flex items-center gap-2.5 px-2 py-1.5 rounded-sm text-critical-400 hover:bg-critical-500/10 transition-colors w-full text-xs font-semibold"
           >
-            <LogOut size={18} />
-            <span className="font-medium">Logout</span>
-          </motion.button>
-        </motion.div>
+            <LogOut size={14} />
+            Sign out
+          </button>
+        </div>
       </aside>
     </>
   )

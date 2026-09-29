@@ -79,17 +79,40 @@ class RouteAnomalyStore:
             )
         """)
         self.conn.commit()
+        self._migrate()
+
+    def _migrate(self):
+        """SIH26127 "Final Data Integrity" audit (2026-09-11) finding:
+        route_anomalies had no data_source column at all, so an anomaly
+        detected over demo/seed_demo_data.py's DEMO_SYNTHETIC observations
+        (e.g. its deliberately-impossible-transition plate TN77IM9999) was
+        persisted and displayed on RouteAnomalyPage.tsx identically to a
+        genuine live-camera detection - unlike VehiclesPage.tsx/
+        TrajectoryMap.tsx, which already label DEMO_SYNTHETIC rows. Additive
+        migration, same PRAGMA table_info pattern as
+        database/congestion_store.py's `reason` column."""
+        existing_cols = {row["name"] for row in self.conn.execute("PRAGMA table_info(route_anomalies)")}
+        if "data_source" not in existing_cols:
+            self.conn.execute("ALTER TABLE route_anomalies ADD COLUMN data_source TEXT")
+            self.conn.commit()
 
     def add_anomaly(self, plate: str, from_camera: str, to_camera: str, timestamp: str,
                      anomaly_type: str, anomaly_score: float, reason: str,
                      unexpected_transition: bool = False, impossible_travel_time: bool = False,
                      unreasonable_speed: bool = False, observed_speed_kmph: Optional[float] = None,
                      expected_min_time: Optional[float] = None, distance_km: Optional[float] = None,
-                     severity: Optional[str] = None):
+                     severity: Optional[str] = None, data_source: Optional[str] = None):
         """
         Idempotent on (plate, from_camera, to_camera, timestamp) - re-running
         detection over the same observations won't pile up duplicate rows.
         Returns (anomaly_id, created).
+
+        data_source: "DEMO_SYNTHETIC" if either contributing observation was
+        seeded demo data, else "REAL_INFERENCE", else None if unknown -
+        callers should derive this from the observations that fed the
+        detector, never guess it here. Only ever pinned on the row when it
+        is first created (matching the idempotent-insert pattern above); an
+        existing row's data_source is not updated by a later re-scan.
         """
         severity = severity or _severity_for_score(anomaly_score)
         cur = self.conn.execute("""
@@ -105,12 +128,12 @@ class RouteAnomalyStore:
             INSERT INTO route_anomalies
             (plate, from_camera, to_camera, timestamp, anomaly_type, severity, status,
              anomaly_score, unexpected_transition, impossible_travel_time, unreasonable_speed,
-             observed_speed_kmph, expected_min_time, distance_km, reason, created_at, updated_at)
-            VALUES (?, ?, ?, ?, ?, ?, 'OPEN', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+             observed_speed_kmph, expected_min_time, distance_km, reason, data_source, created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, 'OPEN', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (plate, from_camera, to_camera, timestamp, anomaly_type, severity,
               round(anomaly_score, 1), int(unexpected_transition), int(impossible_travel_time),
               int(unreasonable_speed), observed_speed_kmph, expected_min_time, distance_km,
-              reason, now, now))
+              reason, data_source, now, now))
         self.conn.commit()
         return cur.lastrowid, True
 

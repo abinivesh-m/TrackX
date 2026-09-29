@@ -25,6 +25,29 @@ CAMERA_OFFLINE_HOURS = 24  # no observations in this window -> flagged offline/s
 _default_store = None
 
 
+def _trajectory_data_source(traj):
+    """
+    SIH26127 "Final Data Integrity" audit (2026-09-11) finding: SUSPICIOUS_ROUTE
+    and REPEATED_CAMERA alerts were persisted with no indication at all of
+    whether the trajectory that triggered them contained
+    demo/seed_demo_data.py's DEMO_SYNTHETIC observations (e.g. that script's
+    deliberately-seeded "impossible transition" plate TN77IM9999) - unlike
+    BLACKLISTED_VEHICLE alerts, which already carry evidence.watchlist_source
+    from the matched blacklist entry. AlertsPage.tsx had nothing to key a
+    warning badge on for these two alert types. Fixed by deriving this the
+    same way route_anomaly.py's _persist_impossible_transitions() does:
+    'DEMO_SYNTHETIC' if any contributing observation is synthetic,
+    'REAL_INFERENCE' if all are real, None if unlabeled/unknown - never
+    guessed as real.
+    """
+    sources = {o.get("data_source") for o in traj.get("observations", [])}
+    if "DEMO_SYNTHETIC" in sources:
+        return "DEMO_SYNTHETIC"
+    if sources == {"REAL_INFERENCE"}:
+        return "REAL_INFERENCE"
+    return None
+
+
 def _get_default_store():
     global _default_store
     if _default_store is None:
@@ -100,6 +123,10 @@ def scan_trajectories_for_alerts(trajectories, blacklist_store=None, all_observa
                     "observation_count": len(traj["observations"]),
                     "watchlist_reason": matched_entry.get("description"),
                     "watchlist_source": matched_entry.get("source", "OPERATOR"),
+                    # Same field as the other two alert types' evidence -
+                    # separate from watchlist_source (which labels the
+                    # blacklist ENTRY, not the observations that matched it).
+                    "data_source": _trajectory_data_source(traj),
                 }
                 alert = {
                     "type": "BLACKLIST_MATCH",
@@ -138,6 +165,7 @@ def scan_trajectories_for_alerts(trajectories, blacklist_store=None, all_observa
                 "camera_id": cams[0],
                 "sighting_count": len(cams),
                 "sighting_timestamps": sighting_times,
+                "data_source": _trajectory_data_source(traj),
             }
             alert = {
                 "type": "REPEATED_CAMERA_SIGHTING",
@@ -184,6 +212,7 @@ def scan_trajectories_for_alerts(trajectories, blacklist_store=None, all_observa
                     "reason": primary_reason,
                     "signal_breakdown": anomaly_data.get("signal_breakdown", {}),
                     "camera_sequence": camera_sequence,
+                    "data_source": _trajectory_data_source(traj),
                 }
                 alert = {
                     "type": "ROUTE_ANOMALY",

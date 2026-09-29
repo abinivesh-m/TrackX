@@ -77,6 +77,49 @@ _PLATE_DETECTOR_COLUMNS = {
     "plate_confidence": "REAL",     # plate detector bbox confidence, NOT ocr_confidence
 }
 
+# Pipeline-correctness pass (SIH26127): honest confidence tiering and the
+# real temporal span of each track, both computed by
+# pipeline._plate_status_for_track()/run_video_to_db() but previously only
+# ever returned to the API caller in-memory, never persisted - a query
+# straight against the DB (rather than through /ingest-video's response)
+# had no way to tell "low confidence, needs verification" apart from a
+# confidently recognized plate, or to answer "when was this track last
+# seen" at all.
+_DAY6_COLUMNS = {
+    "plate_status": "TEXT",         # "recognized" | "low_confidence" | "detected_not_read"
+                                     # | "no_plate_detected" | "unavailable"
+    "first_seen_frame": "INTEGER",
+    "last_seen_frame": "INTEGER",
+    "first_seen_timestamp": "TEXT",
+    "last_seen_timestamp": "TEXT",
+}
+
+# "Adaptive Multi-Frame ANPR Intelligence" pass (SIH26127): quality-aware
+# preprocessing and temporal-fusion evidence, computed by
+# recognition/plate_quality.py + recognition/ocr_reader.py's
+# preprocess_plate_crop()/vote_plate_text() and aggregated per-track by
+# pipeline.run_video_to_db() - previously computed internally and then
+# discarded on every call, never reaching the DB/API/UI. All real
+# measured numbers from the actual crop/readings, never invented.
+_ADAPTIVE_ANPR_COLUMNS = {
+    "plate_quality_score": "REAL",   # 0-1, see plate_quality.assess_plate_quality()
+    "blur_score": "REAL",            # Laplacian variance of the plate crop(s)
+    "brightness_score": "REAL",      # mean grayscale pixel value
+    "contrast_score": "REAL",        # grayscale pixel stddev
+    "preprocessing_mode": "TEXT",    # e.g. "original" | "upscaled_3x" | "low_light_clahe_gamma" | ...
+    "ocr_candidate_count": "INTEGER",  # total OCR variant attempts across this track's readings
+    "temporal_support": "INTEGER",   # number of OCR readings the final vote is based on
+    "final_fusion_score": "REAL",    # vote_plate_text()'s combined confidence (agreement + sample-size aware)
+    "plate_state": "TEXT",           # "UNKNOWN" | "LOW_CONFIDENCE" | "TENTATIVE" | "VERIFIED"
+    # Plate-assisted track continuity (pipeline.link_plate_continuity()) -
+    # additive, camera-local-track-id-preserving cross-gap identity
+    # linking. NULL unless this record was actually linked to another
+    # track in the same run.
+    "continuity_linked_track_id": "TEXT",
+    "continuity_confidence": "REAL",
+    "continuity_evidence": "TEXT",   # JSON: {gap_frames, plate_similarity, spatial_ratio, reason}
+}
+
 
 class ObservationStore:
     def __init__(self, db_path=None):
@@ -111,7 +154,7 @@ class ObservationStore:
         already there (which sqlite would reject with 'duplicate column
         name')."""
         existing = {row[1] for row in self.conn.execute("PRAGMA table_info(observations)")}
-        for col, sqltype in {**_VISUAL_COLUMNS, **_DAY3_COLUMNS, **_DAY4_COLUMNS, **_DATA_SOURCE_COLUMNS, **_PLATE_DETECTOR_COLUMNS}.items():
+        for col, sqltype in {**_VISUAL_COLUMNS, **_DAY3_COLUMNS, **_DAY4_COLUMNS, **_DATA_SOURCE_COLUMNS, **_PLATE_DETECTOR_COLUMNS, **_DAY6_COLUMNS, **_ADAPTIVE_ANPR_COLUMNS}.items():
             if col not in existing:
                 self.conn.execute(f"ALTER TABLE observations ADD COLUMN {col} {sqltype}")
         self.conn.commit()
@@ -155,11 +198,17 @@ class ObservationStore:
         extra_keys = ["vehicle_bbox", "plate_bbox", "vehicle_confidence",
                       "frame_index", "source", "direction", "plate_crop_path",
                       "raw_plate_text", "ocr_confidence", "data_source",
-                      "plate_confidence"]
+                      "plate_confidence", "plate_status", "first_seen_frame",
+                      "last_seen_frame", "first_seen_timestamp", "last_seen_timestamp",
+                      "plate_quality_score", "blur_score", "brightness_score",
+                      "contrast_score", "preprocessing_mode", "ocr_candidate_count",
+                      "temporal_support", "final_fusion_score", "plate_state",
+                      "continuity_linked_track_id", "continuity_confidence",
+                      "continuity_evidence"]
         extra_values = []
         for key in extra_keys:
             val = record.get(key)
-            if key in ("vehicle_bbox", "plate_bbox") and val is not None:
+            if key in ("vehicle_bbox", "plate_bbox", "continuity_evidence") and val is not None:
                 val = json.dumps(val)
             extra_values.append(val)
 
@@ -225,8 +274,8 @@ class ObservationStore:
         self.conn.execute(f"""
             INSERT INTO observations
             (plate_text, confidence, camera_id, timestamp, lat, long, appearance_vector,
-             track_id, vehicle_type, {", ".join(_VISUAL_COLUMNS.keys())}, plate_crop_path)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, {", ".join(["?"] * len(_VISUAL_COLUMNS))}, ?)
+             track_id, vehicle_type, {", ".join(_VISUAL_COLUMNS.keys())}, plate_crop_path, data_source)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, {", ".join(["?"] * len(_VISUAL_COLUMNS))}, ?, ?)
         """, (
             obs.get("normalized_plate_text"),
             obs.get("ocr_confidence") or 0.0,
@@ -250,6 +299,17 @@ class ObservationStore:
             obs.get("annotated_output"),
             obs.get("normalized_plate"),  # Now part of _VISUAL_COLUMNS
             obs.get("plate_crop_path"),  # Separate field, not in _VISUAL_COLUMNS
+            # data_source ("REAL_INFERENCE" from pipeline.run_video_to_db(),
+            # "DEMO_SYNTHETIC" from demo/seed_demo_data.py) was being silently
+            # dropped here - this INSERT never included the column even though
+            # every caller (including the seed script itself) sets it on the
+            # dict. That meant seeded synthetic demo rows were stored
+            # indistinguishable from real pipeline observations (data_source
+            # NULL either way) - a real honesty/demo-safety gap for a system
+            # whose core requirement is never presenting fabricated data as
+            # real. Fixed by actually persisting it (SIH26127 multi-camera
+            # trajectory audit).
+            obs.get("data_source"),
         ))
         self.conn.commit()
 
@@ -264,11 +324,30 @@ class ObservationStore:
             n += 1
         return n
 
-    def all_observations(self):
+    def all_observations(self, real_only: bool = False):
+        """
+        Args:
+            real_only: SIH26127 "Final Data Integrity" audit (2026-09-11)
+                finding - city-wide traffic surfaces (Congestion, Traffic
+                Analytics, GIS heatmap/congestion layers) were reading
+                EVERY row here unconditionally, silently mixing in
+                data_source='DEMO_SYNTHETIC' rows (demo/seed_demo_data.py's
+                seeded scenario, and demo/seed_alert_demo.py's - see that
+                file's own fix) into what those pages present as real
+                measured traffic volume/speed/congestion. Vehicle Search
+                and Trajectory Search intentionally still show synthetic
+                rows (already correctly labeled "SYNTHETIC DEMO SCENARIO -
+                not a live camera read" in the UI when found), so this
+                defaults to False (unchanged behavior) and only the
+                traffic-metrics endpoints pass real_only=True.
+        """
         cur = self.conn.execute("SELECT * FROM observations ORDER BY timestamp")
         cols = [d[0] for d in cur.description]
         rows = cur.fetchall()
-        return [dict(zip(cols, row)) for row in rows]
+        observations = [dict(zip(cols, row)) for row in rows]
+        if real_only:
+            observations = [o for o in observations if o.get("data_source") != "DEMO_SYNTHETIC"]
+        return observations
 
     def by_plate(self, plate_text):
         cur = self.conn.execute(

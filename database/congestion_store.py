@@ -63,6 +63,16 @@ class CongestionStore:
                 updated_at TEXT NOT NULL
             )
         """)
+        # SIH26127 "Final Data Integrity" audit (2026-09-11): additive,
+        # backward-compatible migration - a real, human-readable
+        # explanation (analytics.congestion_hotspots()'s _congestion_reason(),
+        # built from real density/speed factors) for why a bottleneck event
+        # was raised. NULL-able so any pre-existing event row (created
+        # before this column existed) is simply unexplained, not broken.
+        existing_cols = {row["name"] for row in self.conn.execute("PRAGMA table_info(congestion_events)")}
+        if "reason" not in existing_cols:
+            self.conn.execute("ALTER TABLE congestion_events ADD COLUMN reason TEXT")
+            self.conn.commit()
         self.conn.execute("""
             CREATE TABLE IF NOT EXISTS traffic_thresholds (
                 id INTEGER PRIMARY KEY CHECK (id = 1),
@@ -129,7 +139,8 @@ class CongestionStore:
                              avg_speed_kmh: float, vehicle_density: float,
                              flow_rate_vehicles_per_hour: float = 0.0,
                              is_bottleneck: bool = False, bottleneck_score: float = 0.0,
-                             affected_cameras: Optional[list] = None) -> dict:
+                             affected_cameras: Optional[list] = None,
+                             reason: Optional[str] = None) -> dict:
         """
         One camera has at most one ACTIVE event at a time: if it already has
         one, update it in place (this is a continuing congestion episode);
@@ -146,11 +157,11 @@ class CongestionStore:
                 UPDATE congestion_events
                 SET congestion_level = ?, congestion_score = ?, avg_speed_kmh = ?,
                     vehicle_density = ?, flow_rate_vehicles_per_hour = ?, is_bottleneck = ?,
-                    bottleneck_score = ?, affected_cameras = ?, updated_at = ?
+                    bottleneck_score = ?, affected_cameras = ?, reason = ?, updated_at = ?
                 WHERE id = ?
             """, (congestion_level, congestion_score, avg_speed_kmh, vehicle_density,
                   flow_rate_vehicles_per_hour, int(is_bottleneck), bottleneck_score,
-                  json.dumps(affected_cameras or []), now, existing["id"]))
+                  json.dumps(affected_cameras or []), reason, now, existing["id"]))
             self.conn.commit()
             row = self.conn.execute("SELECT * FROM congestion_events WHERE id = ?", (existing["id"],)).fetchone()
             return self._row_to_dict(row)
@@ -160,11 +171,11 @@ class CongestionStore:
             INSERT INTO congestion_events
             (event_id, camera_id, road_segment_id, event_start, status, congestion_level,
              congestion_score, avg_speed_kmh, vehicle_density, flow_rate_vehicles_per_hour,
-             is_bottleneck, bottleneck_score, affected_cameras, created_at, updated_at)
-            VALUES (?, ?, ?, ?, 'ACTIVE', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+             is_bottleneck, bottleneck_score, affected_cameras, reason, created_at, updated_at)
+            VALUES (?, ?, ?, ?, 'ACTIVE', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (event_id, camera_id, camera_id, now, congestion_level, congestion_score,
               avg_speed_kmh, vehicle_density, flow_rate_vehicles_per_hour, int(is_bottleneck),
-              bottleneck_score, json.dumps(affected_cameras or []), now, now))
+              bottleneck_score, json.dumps(affected_cameras or []), reason, now, now))
         self.conn.commit()
         row = self.conn.execute("SELECT * FROM congestion_events WHERE id = ?", (cur.lastrowid,)).fetchone()
         return self._row_to_dict(row)

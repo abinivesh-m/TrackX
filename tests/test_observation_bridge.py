@@ -139,6 +139,26 @@ class TestVisualObservationBridge(unittest.TestCase):
         self.assertEqual(row["plate_status"], "unavailable")
         self.assertIsNotNone(row["plate_status_reason"])
 
+    def test_data_source_is_persisted_not_silently_dropped(self):
+        """SIH26127 multi-camera trajectory audit finding: this INSERT used
+        to omit the data_source column entirely, so demo/seed_demo_data.py's
+        "DEMO_SYNTHETIC" tag (and pipeline.run_video_to_db()'s
+        "REAL_INFERENCE" tag, when routed through this bridge) were silently
+        discarded - every row read back as data_source=NULL regardless of
+        what the caller set, making seeded synthetic demo scenarios
+        indistinguishable from real camera reads anywhere downstream. This
+        is the regression test for that fix."""
+        obs = _visual_obs(plate_status="detected", data_source="DEMO_SYNTHETIC")
+        self.store.add_visual_observation(obs)
+        row = self.store.all_observations()[0]
+        self.assertEqual(row["data_source"], "DEMO_SYNTHETIC")
+
+        obs2 = _visual_obs(plate_status="detected", camera_id="CAM_02", data_source="REAL_INFERENCE")
+        self.store.add_visual_observation(obs2)
+        rows = self.store.all_observations()
+        real_row = next(r for r in rows if r["camera_id"] == "CAM_02")
+        self.assertEqual(real_row["data_source"], "REAL_INFERENCE")
+
     def test_lat_long_looked_up_from_camera_network_when_not_given(self):
         obs = _visual_obs(camera_id="CAM_02")
         self.store.add_visual_observation(obs)
@@ -167,7 +187,15 @@ class TestVisualObservationBridge(unittest.TestCase):
         )
         rows = self.store.all_observations()
         trajs = build_trajectories(rows)   # must not raise
-        alerts = scan_trajectories_for_alerts(trajs)  # must not raise
+        # SIH26127 "Final Data Integrity" audit (2026-09-11) finding:
+        # scan_trajectories_for_alerts() defaults to persist_to_db=True,
+        # which opens AlertStore() against the real/live database
+        # (config.DB_PATH_STR) - calling it without persist_to_db=False in a
+        # test silently wrote this test's TN99ZZ0000/CAM_01/CAM_02 fixture
+        # straight into the live demo's alerts table on every test run.
+        # Confirmed as the actual source of several "real-looking" alerts
+        # found contaminating the live database this audit.
+        alerts = scan_trajectories_for_alerts(trajs, persist_to_db=False)  # must not raise
         self.assertIsInstance(trajs, list)
         self.assertIsInstance(alerts, list)
 

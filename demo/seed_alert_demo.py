@@ -134,7 +134,17 @@ def create_demo_observations():
                 "long": camera_info["long"],
                 "source": "demo_synthetic",
                 "direction": "unknown",
-                "data_source": "SYNTHETIC_DEMO",
+                # SIH26127 "Final Data Integrity" audit (2026-09-11): this
+                # was "SYNTHETIC_DEMO" (reversed word order) - every other
+                # real reader of this field (demo/seed_demo_data.py, the
+                # frontend's "SYNTHETIC DEMO SCENARIO" warning banner in
+                # VehiclesPage.tsx/TrajectoryMap.tsx, and
+                # ObservationStore.all_observations(real_only=True)) checks
+                # for the exact string "DEMO_SYNTHETIC" - the mismatch
+                # meant this script's rows would silently bypass BOTH the
+                # UI's synthetic-data warning AND the real_only filter that
+                # keeps seeded rows out of Congestion/Analytics/GIS.
+                "data_source": "DEMO_SYNTHETIC",
                 "vehicle_type": "car",
                 "track_id": f"track_{obs['plate']}_{obs['camera']}",
                 "raw_plate_text": obs["plate"],

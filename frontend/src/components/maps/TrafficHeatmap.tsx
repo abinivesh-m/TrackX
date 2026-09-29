@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import type { HeatmapPoint } from '@/types'
-import { MAP_TILE_URL, MAP_TILE_ATTRIBUTION } from '@/config/mapTiles'
+import { MAP_TILE_URL, MAP_TILE_ATTRIBUTION, DEFAULT_MAP_CENTER } from '@/config/mapTiles'
 
 interface TrafficHeatmapProps {
   points: HeatmapPoint[]
@@ -17,7 +17,7 @@ const TrafficHeatmap = ({ points, height = 360 }: TrafficHeatmapProps) => {
   useEffect(() => {
     if (!containerRef.current) return
     if (!mapRef.current) {
-      mapRef.current = L.map(containerRef.current, { center: [11.0168, 76.9558], zoom: 13 })
+      mapRef.current = L.map(containerRef.current, { center: DEFAULT_MAP_CENTER, zoom: 13 })
       L.tileLayer(MAP_TILE_URL, {
         attribution: MAP_TILE_ATTRIBUTION,
       }).addTo(mapRef.current)
@@ -32,7 +32,7 @@ const TrafficHeatmap = ({ points, height = 360 }: TrafficHeatmapProps) => {
     points.forEach(point => {
       if (point.intensity <= 0) return
       const ratio = point.intensity / maxIntensity
-      const color = ratio > 0.66 ? '#ef4444' : ratio > 0.33 ? '#f59e0b' : '#10b981'
+      const color = ratio > 0.66 ? '#c8473d' : ratio > 0.33 ? '#cf8f22' : '#3f9e5c'
       const center: L.LatLngExpression = [point.latitude, point.longitude]
       bounds.push(center)
       L.circle(center, {
@@ -53,7 +53,7 @@ const TrafficHeatmap = ({ points, height = 360 }: TrafficHeatmapProps) => {
     }
   }, [points])
 
-  return <div ref={containerRef} style={{ height: `${height}px`, width: '100%' }} className="rounded-lg overflow-hidden" />
+  return <div ref={containerRef} style={{ height: `${height}px`, width: '100%' }} className="rounded overflow-hidden" />
 }
 
 export default TrafficHeatmap

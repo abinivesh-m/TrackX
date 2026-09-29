@@ -3,7 +3,7 @@ import { api } from '@/services/api'
 import { Map, Layers, Camera, AlertTriangle, ArrowRightLeft, RefreshCw } from 'lucide-react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
-import { MAP_TILE_URL, MAP_TILE_ATTRIBUTION, MAP_TILE_MIN_ZOOM, MAP_TILE_MAX_ZOOM } from '@/config/mapTiles'
+import { MAP_TILE_URL, MAP_TILE_ATTRIBUTION, MAP_TILE_MIN_ZOOM, MAP_TILE_MAX_ZOOM, DEFAULT_MAP_CENTER, DEFAULT_MAP_ZOOM } from '@/config/mapTiles'
 
 const GISPage: React.FC = () => {
   const [cameras, setCameras] = useState<any[]>([])
@@ -55,8 +55,8 @@ const GISPage: React.FC = () => {
 
     if (!mapRef.current) {
       mapRef.current = L.map(mapContainerRef.current, {
-        center: [18.5204, 73.8567],
-        zoom: 12,
+        center: DEFAULT_MAP_CENTER,
+        zoom: DEFAULT_MAP_ZOOM,
       })
 
       // Was hardcoded to CARTO's dark tiles here, bypassing the shared
@@ -84,7 +84,7 @@ const GISPage: React.FC = () => {
     cameras.forEach((cam) => {
       const icon = L.divIcon({
         className: 'custom-gis-cam',
-        html: '<div style="background: #3b82f6; width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 10px #3b82f6;"></div>',
+        html: '<div style="background: #ec9d1e; width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 10px #ec9d1e;"></div>',
         iconSize: [14, 14],
         iconAnchor: [7, 7]
       })
@@ -111,7 +111,7 @@ const GISPage: React.FC = () => {
     heatmap.points.forEach((pt: [number, number, number]) => {
       const [lat, lng, weight] = pt
       const radius = 250 + weight * 450
-      const color = weight > 0.7 ? '#ef4444' : weight > 0.4 ? '#f59e0b' : '#10b981'
+      const color = weight > 0.7 ? '#c8473d' : weight > 0.4 ? '#cf8f22' : '#3f9e5c'
 
       const circle = L.circle([lat, lng], {
         radius,
@@ -135,7 +135,7 @@ const GISPage: React.FC = () => {
 
     congestion.forEach((cong) => {
       const isHigh = cong.level === 'HIGH'
-      const color = isHigh ? '#ef4444' : '#f59e0b'
+      const color = isHigh ? '#c8473d' : '#cf8f22'
 
       const icon = L.divIcon({
         className: 'custom-gis-cong',
@@ -167,7 +167,7 @@ const GISPage: React.FC = () => {
         [flow.origin_lat, flow.origin_lng],
         [flow.dest_lat, flow.dest_lng]
       ], {
-        color: '#818cf8',
+        color: '#42c9d1',
         weight: Math.min(Math.max(flow.count * 1.5, 2), 6),
         opacity: 0.75,
         dashArray: '6, 6'
@@ -183,9 +183,9 @@ const GISPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-lg p-3 flex items-center justify-between text-sm text-muted">
+      <div className="bg-surface border border-border rounded p-3 flex items-center justify-between text-sm text-muted">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-green-400" />
+          <span className="w-2 h-2 rounded-full bg-clear-400" />
           <span>Geographic Information System (GIS) traffic analytics &amp; multi-layer correlation.</span>
         </div>
         <button
@@ -201,36 +201,36 @@ const GISPage: React.FC = () => {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-            <Map className="text-blue-400" />
+            <Map className="text-signal-400" />
             GIS Command Map & Urban Traffic Topology
           </h1>
           <p className="text-sm text-muted">City-wide traffic density, congestion hotspots, camera positions, and OD flows - computed fresh from stored observations each time this page loads.</p>
         </div>
 
         {/* Layer Toggles Bar */}
-        <div className="flex items-center gap-2 bg-surface p-1.5 rounded-lg border border-border text-xs">
+        <div className="flex items-center gap-2 bg-surface p-1.5 rounded border border-border text-xs">
           <span className="text-muted flex items-center gap-1 px-2 font-medium"><Layers size={14}/> Layers:</span>
           <button
             onClick={() => setShowCameras(!showCameras)}
-            className={`px-2.5 py-1 rounded transition-colors ${showCameras ? 'bg-blue-600 text-white' : 'text-muted hover:text-white'}`}
+            className={`px-2.5 py-1 rounded transition-colors ${showCameras ? 'bg-signal-600 text-white' : 'text-muted hover:text-white'}`}
           >
             Cameras ({cameras.length})
           </button>
           <button
             onClick={() => setShowHeatmap(!showHeatmap)}
-            className={`px-2.5 py-1 rounded transition-colors ${showHeatmap ? 'bg-green-600 text-white' : 'text-muted hover:text-white'}`}
+            className={`px-2.5 py-1 rounded transition-colors ${showHeatmap ? 'bg-clear-600 text-white' : 'text-muted hover:text-white'}`}
           >
             Density Heatmap
           </button>
           <button
             onClick={() => setShowCongestion(!showCongestion)}
-            className={`px-2.5 py-1 rounded transition-colors ${showCongestion ? 'bg-red-600 text-white' : 'text-muted hover:text-white'}`}
+            className={`px-2.5 py-1 rounded transition-colors ${showCongestion ? 'bg-critical-600 text-white' : 'text-muted hover:text-white'}`}
           >
             Bottlenecks ({congestion.length})
           </button>
           <button
             onClick={() => setShowFlows(!showFlows)}
-            className={`px-2.5 py-1 rounded transition-colors ${showFlows ? 'bg-indigo-600 text-white' : 'text-muted hover:text-white'}`}
+            className={`px-2.5 py-1 rounded transition-colors ${showFlows ? 'bg-telemetry-600 text-white' : 'text-muted hover:text-white'}`}
           >
             OD Flows ({flows.length})
           </button>
@@ -246,17 +246,17 @@ const GISPage: React.FC = () => {
           number; camera coverage now just states the real node count. */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         <div className="card p-4">
-          <span className="text-xs text-muted flex items-center gap-1.5"><Camera size={14} className="text-blue-400"/> Camera Coverage</span>
+          <span className="text-xs text-muted flex items-center gap-1.5"><Camera size={14} className="text-signal-400"/> Camera Coverage</span>
           <p className="text-2xl font-bold text-white mt-1">{cameras.length} Nodes</p>
           <span className="text-xs text-muted">From camera network topology</span>
         </div>
         <div className="card p-4">
-          <span className="text-xs text-muted flex items-center gap-1.5"><AlertTriangle size={14} className="text-red-400"/> Congestion Hotspots</span>
+          <span className="text-xs text-muted flex items-center gap-1.5"><AlertTriangle size={14} className="text-critical-400"/> Congestion Hotspots</span>
           <p className="text-2xl font-bold text-white mt-1">{congestion.length} Identified</p>
-          <span className="text-xs text-red-400">{congestion.filter(c => c.level === 'HIGH').length} High Priority</span>
+          <span className="text-xs text-critical-400">{congestion.filter(c => c.level === 'HIGH').length} High Priority</span>
         </div>
         <div className="card p-4">
-          <span className="text-xs text-muted flex items-center gap-1.5"><ArrowRightLeft size={14} className="text-indigo-400"/> Active OD Corridors</span>
+          <span className="text-xs text-muted flex items-center gap-1.5"><ArrowRightLeft size={14} className="text-telemetry-400"/> Active OD Corridors</span>
           <p className="text-2xl font-bold text-white mt-1">{flows.length} Routes</p>
           <span className="text-xs text-muted">Cross-camera vehicle journeys</span>
         </div>
@@ -266,17 +266,17 @@ const GISPage: React.FC = () => {
       <div className="card p-4">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-sm font-bold text-white">GIS Network View</span>
+            <span className="live-dot is-live" />
+            <span className="label-caps">GIS Network View</span>
           </div>
           <div className="flex items-center gap-4 text-xs text-muted">
-            <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block"/> Camera</span>
-            <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block"/> Normal Flow</span>
-            <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block"/> Bottleneck</span>
-            <span className="flex items-center gap-1"><span className="w-4 h-0.5 bg-indigo-400 inline-block"/> Flow Corridor</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-signal-500 inline-block"/> Camera</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-clear-500 inline-block"/> Normal Flow</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-critical-500 inline-block"/> Bottleneck</span>
+            <span className="flex items-center gap-1.5"><span className="w-4 h-0.5 bg-telemetry-400 inline-block"/> Flow Corridor</span>
           </div>
         </div>
-        <div ref={mapContainerRef} className="h-[520px] w-full rounded-lg" />
+        <div ref={mapContainerRef} className="h-[520px] w-full rounded-sm border border-border" />
       </div>
 
       {/* Congestion Hotspots & Flow Tables */}
@@ -284,7 +284,7 @@ const GISPage: React.FC = () => {
         {/* Hotspots */}
         <div className="card p-5">
           <h3 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
-            <AlertTriangle size={16} className="text-red-400" /> Congestion Bottleneck Priority List
+            <AlertTriangle size={16} className="text-critical-400" /> Congestion Bottleneck Priority List
           </h3>
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs text-muted">
@@ -301,7 +301,7 @@ const GISPage: React.FC = () => {
                   <tr key={i} className="hover:bg-surface-light/50">
                     <td className="px-3 py-2.5 font-medium text-white">{c.camera_name} <span className="text-muted">({c.camera_id})</span></td>
                     <td className="px-3 py-2.5">
-                      <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${c.level === 'HIGH' ? 'bg-red-500/20 text-red-400' : 'bg-amber-500/20 text-amber-400'}`}>
+                      <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${c.level === 'HIGH' ? 'bg-critical-500/20 text-critical-400' : 'bg-caution-500/20 text-caution-400'}`}>
                         {c.level}
                       </span>
                     </td>
@@ -317,7 +317,7 @@ const GISPage: React.FC = () => {
         {/* Origin Destination Flow */}
         <div className="card p-5">
           <h3 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
-            <ArrowRightLeft size={16} className="text-indigo-400" /> Top Origin &rarr; Destination Corridors
+            <ArrowRightLeft size={16} className="text-telemetry-400" /> Top Origin &rarr; Destination Corridors
           </h3>
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs text-muted">
@@ -332,7 +332,7 @@ const GISPage: React.FC = () => {
                 {flows.slice(0, 6).map((f, i) => (
                   <tr key={i} className="hover:bg-surface-light/50">
                     <td className="px-3 py-2.5 text-white font-medium">{f.origin_name} &rarr; {f.dest_name}</td>
-                    <td className="px-3 py-2.5 text-indigo-400 font-bold">{f.count} trips</td>
+                    <td className="px-3 py-2.5 text-telemetry-400 font-bold">{f.count} trips</td>
                     <td className="px-3 py-2.5 text-muted">Bilateral Corridor</td>
                   </tr>
                 ))}

@@ -31,26 +31,26 @@ function meta(alertType: string) {
 }
 
 const COLOR_CLASSES: Record<string, { bg: string; text: string; border: string }> = {
-  red: { bg: 'bg-red-500/20', text: 'text-red-400', border: 'border-red-500/30' },
-  orange: { bg: 'bg-orange-500/20', text: 'text-orange-400', border: 'border-orange-500/30' },
-  yellow: { bg: 'bg-yellow-500/20', text: 'text-yellow-400', border: 'border-yellow-500/30' },
-  gray: { bg: 'bg-gray-500/20', text: 'text-gray-400', border: 'border-gray-500/30' },
+  red: { bg: 'bg-critical-500/20', text: 'text-critical-400', border: 'border-critical-500/30' },
+  orange: { bg: 'bg-caution-500/20', text: 'text-caution-400', border: 'border-caution-500/30' },
+  yellow: { bg: 'bg-caution-500/20', text: 'text-caution-400', border: 'border-caution-500/30' },
+  gray: { bg: 'bg-graphite-700/40', text: 'text-muted', border: 'border-border' },
 }
 
 function severityBadge(severity: string) {
   switch (severity) {
-    case 'HIGH': return 'bg-red-500/20 text-red-400'
-    case 'MEDIUM': return 'bg-yellow-500/20 text-yellow-400'
-    default: return 'bg-green-500/20 text-green-400'
+    case 'HIGH': return 'bg-critical-500/20 text-critical-400'
+    case 'MEDIUM': return 'bg-caution-500/20 text-caution-400'
+    default: return 'bg-clear-500/20 text-clear-400'
   }
 }
 
 function statusBadge(status: string) {
   switch (status) {
-    case 'OPEN': return 'bg-red-500/20 text-red-400'
-    case 'ACKNOWLEDGED': return 'bg-yellow-500/20 text-yellow-400'
-    case 'RESOLVED': return 'bg-green-500/20 text-green-400'
-    default: return 'bg-gray-500/20 text-gray-400'
+    case 'OPEN': return 'bg-critical-500/20 text-critical-400'
+    case 'ACKNOWLEDGED': return 'bg-caution-500/20 text-caution-400'
+    case 'RESOLVED': return 'bg-clear-500/20 text-clear-400'
+    default: return 'bg-graphite-700/40 text-muted'
   }
 }
 
@@ -64,19 +64,44 @@ function EvidenceRow({ label, value }: { label: string; value: React.ReactNode }
   )
 }
 
+// SIH26127 "Final Data Integrity" audit (2026-09-11): SUSPICIOUS_ROUTE,
+// REPEATED_CAMERA, and BLACKLISTED_VEHICLE alerts can all be triggered by a
+// trajectory containing demo/seed_demo_data.py's DEMO_SYNTHETIC observations
+// (e.g. that script's deliberately-seeded plate TN77IM9999) - intelligence/
+// alerts.py now puts evidence.data_source on every alert type it persists
+// (see _trajectory_data_source() there). One shared badge, same wording as
+// VehiclesPage.tsx's hop.data_source badge, shown for any alert type.
+function SyntheticDataBadge({ evidence }: { evidence: Record<string, any> }) {
+  if (evidence?.data_source !== 'DEMO_SYNTHETIC') return null
+  return (
+    <div className="mt-2">
+      <span className="badge badge-warning">SYNTHETIC DEMO SCENARIO — not a live camera read</span>
+    </div>
+  )
+}
+
 function AlertEvidence({ alert }: { alert: Alert }) {
   const e = alert.evidence || {}
+  return (
+    <>
+      <SyntheticDataBadge evidence={e} />
+      <AlertEvidenceByType alert={alert} evidence={e} />
+    </>
+  )
+}
+
+function AlertEvidenceByType({ alert, evidence: e }: { alert: Alert; evidence: Record<string, any> }) {
   switch (alert.alert_type) {
     case 'BLACKLISTED_VEHICLE':
       return (
-        <div className="mt-3 bg-surface p-3 rounded-lg">
+        <div className="mt-3 bg-surface p-3 rounded">
           <EvidenceRow label="Matched against" value={e.matched_against} />
           <EvidenceRow label="Match similarity" value={e.similarity != null ? `${(e.similarity * 100).toFixed(0)}%` : undefined} />
           <EvidenceRow label="Cameras hit" value={Array.isArray(e.camera_hits) ? e.camera_hits.join(' → ') : undefined} />
           <EvidenceRow label="Watchlist reason" value={e.watchlist_reason} />
           {e.watchlist_source && (
             <div className="mt-2">
-              <span className={`text-[10px] px-2 py-0.5 rounded-full border ${e.watchlist_source === 'DEMO_SEED' ? 'bg-purple-500/20 text-purple-300 border-purple-500/30' : 'bg-blue-500/20 text-blue-300 border-blue-500/30'}`}>
+              <span className={`text-[10px] px-2 py-0.5 rounded-sm border ${e.watchlist_source === 'DEMO_SEED' ? 'bg-telemetry-500/20 text-telemetry-400 border-telemetry-500/30' : 'bg-signal-500/20 text-signal-300 border-signal-500/30'}`}>
                 {e.watchlist_source === 'DEMO_SEED' ? 'DEMO WATCHLIST — not a real record' : 'OPERATIONAL WATCHLIST'}
               </span>
             </div>
@@ -87,14 +112,14 @@ function AlertEvidence({ alert }: { alert: Alert }) {
       const breakdown = e.signal_breakdown || {}
       const activeSignals = Object.entries(breakdown).filter(([, v]) => typeof v === 'number' && v > 0)
       return (
-        <div className="mt-3 bg-surface p-3 rounded-lg">
+        <div className="mt-3 bg-surface p-3 rounded">
           <EvidenceRow label="Anomaly score" value={e.anomaly_score != null ? `${e.anomaly_score.toFixed(0)}/100` : undefined} />
           <EvidenceRow label="Camera sequence" value={Array.isArray(e.camera_sequence) ? e.camera_sequence.join(' → ') : undefined} />
           {activeSignals.length > 0 && (
             <div className="mt-2">
               <span className="text-xs text-muted">Contributing signals: </span>
               {activeSignals.map(([k, v]) => (
-                <span key={k} className="inline-block text-[10px] mr-1 mt-1 px-2 py-0.5 rounded bg-orange-500/10 text-orange-300">
+                <span key={k} className="inline-block text-[10px] mr-1 mt-1 px-2 py-0.5 rounded bg-caution-500/10 text-caution-400">
                   {k.replace(/_/g, ' ')} ({String(v)})
                 </span>
               ))}
@@ -105,20 +130,20 @@ function AlertEvidence({ alert }: { alert: Alert }) {
     }
     case 'REPEATED_CAMERA':
       return (
-        <div className="mt-3 bg-surface p-3 rounded-lg">
+        <div className="mt-3 bg-surface p-3 rounded">
           <EvidenceRow label="Camera" value={e.camera_id} />
           <EvidenceRow label="Sightings" value={e.sighting_count} />
         </div>
       )
     case 'CONGESTION_BOTTLENECK':
       return (
-        <div className="mt-3 bg-surface p-3 rounded-lg">
+        <div className="mt-3 bg-surface p-3 rounded">
           <EvidenceRow label="Congestion level" value={e.congestion_level} />
           <EvidenceRow label="Bottleneck score" value={e.bottleneck_score != null ? `${e.bottleneck_score.toFixed(1)}/100` : undefined} />
           <EvidenceRow label="Avg speed" value={e.avg_speed_kmh != null ? `${e.avg_speed_kmh.toFixed(1)} km/h` : undefined} />
           <EvidenceRow label="Duration" value={e.duration_minutes != null ? `${e.duration_minutes} min` : undefined} />
           <div className="mt-2">
-            <Link to="/congestion" className="text-xs text-orange-400 hover:underline inline-flex items-center gap-1">
+            <Link to="/congestion" className="text-xs text-caution-400 hover:underline inline-flex items-center gap-1">
               View on Congestion map <ArrowUpRight size={12} />
             </Link>
           </div>
@@ -126,7 +151,7 @@ function AlertEvidence({ alert }: { alert: Alert }) {
       )
     case 'CAMERA_OFFLINE':
       return (
-        <div className="mt-3 bg-surface p-3 rounded-lg">
+        <div className="mt-3 bg-surface p-3 rounded">
           <EvidenceRow label="Last seen" value={e.last_seen || 'Never'} />
           <EvidenceRow label="Offline threshold" value={e.threshold_hours != null ? `${e.threshold_hours}h` : undefined} />
         </div>
@@ -219,21 +244,21 @@ const AlertsPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-lg p-3 flex items-center justify-between text-sm text-muted">
+      <div className="bg-surface border border-border rounded p-3 flex items-center justify-between text-sm text-muted">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-green-400" />
+          <span className="w-2 h-2 rounded-full bg-clear-400" />
           <span>Alerts generated from watchlist matches, route anomalies, congestion bottlenecks, and camera activity.</span>
         </div>
         <span className="text-xs bg-surface-light px-2 py-0.5 rounded font-mono border border-border">AUTOMATED INCIDENTS</span>
       </div>
 
       {alertsError && (
-        <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-3 text-sm text-red-300">
+        <div className="bg-critical-500/10 border border-critical-500/30 rounded p-3 text-sm text-critical-400">
           TrackX services are temporarily unavailable. Alerts could not be loaded — try refreshing the page.
         </div>
       )}
       {watchlistError && (
-        <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-3 text-sm text-red-300">
+        <div className="bg-critical-500/10 border border-critical-500/30 rounded p-3 text-sm text-critical-400">
           The watchlist could not be loaded right now. Alerts above are unaffected — try refreshing to see the watchlist.
         </div>
       )}
@@ -243,7 +268,7 @@ const AlertsPage: React.FC = () => {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setShowWatchlist((v) => !v)}
-            className="px-4 py-2 rounded-lg text-sm font-medium bg-surface-light border border-border text-white hover:border-blue-500/50 flex items-center gap-2"
+            className="px-4 py-2 rounded text-sm font-medium bg-surface-light border border-border text-white hover:border-signal-500/50 flex items-center gap-2"
           >
             <ListChecks size={16} />
             Watchlist ({watchlist.length})
@@ -253,9 +278,9 @@ const AlertsPage: React.FC = () => {
               <button
                 key={status}
                 onClick={() => setFilter(status)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
                   filter === status
-                    ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+                    ? 'bg-signal-500/20 text-signal-400 border border-signal-500/30'
                     : 'bg-surface-light text-muted border border-border hover:text-white'
                 }`}
               >
@@ -269,7 +294,7 @@ const AlertsPage: React.FC = () => {
       {showWatchlist && (
         <div className="card p-6">
           <h3 className="text-lg font-bold text-white mb-1 flex items-center gap-2">
-            <ListChecks className="text-blue-400" />
+            <ListChecks className="text-signal-400" />
             Watchlist
           </h3>
           <p className="text-xs text-muted mb-4">
@@ -278,8 +303,8 @@ const AlertsPage: React.FC = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <div className="text-xs font-bold text-purple-300 mb-2 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-purple-400" />
+              <div className="text-xs font-bold text-telemetry-400 mb-2 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-telemetry-400" />
                 DEMO WATCHLIST ({demoWatchlist.length}) — scripted demo scenario data, not real records
               </div>
               {demoWatchlist.length === 0 ? (
@@ -287,10 +312,10 @@ const AlertsPage: React.FC = () => {
               ) : (
                 <div className="space-y-2">
                   {demoWatchlist.map((w) => (
-                    <div key={w.id} className="p-3 rounded-lg bg-purple-500/5 border border-purple-500/20 text-sm">
+                    <div key={w.id} className="p-3 rounded bg-telemetry-500/5 border border-telemetry-500/20 text-sm">
                       <div className="flex items-center justify-between">
                         <span className="font-mono text-white">{w.plate}</span>
-                        <span className={`text-[10px] px-2 py-0.5 rounded-full ${severityBadge(w.severity)}`}>{w.severity}</span>
+                        <span className={`text-[10px] px-2 py-0.5 rounded-sm ${severityBadge(w.severity)}`}>{w.severity}</span>
                       </div>
                       <p className="text-xs text-muted mt-1">{w.description}</p>
                     </div>
@@ -299,8 +324,8 @@ const AlertsPage: React.FC = () => {
               )}
             </div>
             <div>
-              <div className="text-xs font-bold text-blue-300 mb-2 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-blue-400" />
+              <div className="text-xs font-bold text-signal-300 mb-2 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-signal-400" />
                 OPERATIONAL WATCHLIST ({operationalWatchlist.length}) — added by an operator via Vehicle Intelligence
               </div>
               {operationalWatchlist.length === 0 ? (
@@ -308,10 +333,10 @@ const AlertsPage: React.FC = () => {
               ) : (
                 <div className="space-y-2">
                   {operationalWatchlist.map((w) => (
-                    <div key={w.id} className="p-3 rounded-lg bg-blue-500/5 border border-blue-500/20 text-sm">
+                    <div key={w.id} className="p-3 rounded bg-signal-500/5 border border-signal-500/20 text-sm">
                       <div className="flex items-center justify-between">
                         <span className="font-mono text-white">{w.plate}</span>
-                        <span className={`text-[10px] px-2 py-0.5 rounded-full ${severityBadge(w.severity)}`}>{w.severity}</span>
+                        <span className={`text-[10px] px-2 py-0.5 rounded-sm ${severityBadge(w.severity)}`}>{w.severity}</span>
                       </div>
                       <p className="text-xs text-muted mt-1">{w.description}</p>
                     </div>
@@ -325,15 +350,15 @@ const AlertsPage: React.FC = () => {
 
       <div className="grid grid-cols-3 gap-4">
         <div className="card p-6 text-center">
-          <p className="text-3xl font-bold text-red-400">{alerts.filter((a) => a.status === 'OPEN').length}</p>
+          <p className="text-3xl font-bold text-critical-400">{alerts.filter((a) => a.status === 'OPEN').length}</p>
           <p className="text-sm text-muted mt-1">Open Alerts</p>
         </div>
         <div className="card p-6 text-center">
-          <p className="text-3xl font-bold text-yellow-400">{alerts.filter((a) => a.status === 'ACKNOWLEDGED').length}</p>
+          <p className="text-3xl font-bold text-caution-400">{alerts.filter((a) => a.status === 'ACKNOWLEDGED').length}</p>
           <p className="text-sm text-muted mt-1">Acknowledged</p>
         </div>
         <div className="card p-6 text-center">
-          <p className="text-3xl font-bold text-green-400">{alerts.filter((a) => a.status === 'RESOLVED').length}</p>
+          <p className="text-3xl font-bold text-clear-400">{alerts.filter((a) => a.status === 'RESOLVED').length}</p>
           <p className="text-sm text-muted mt-1">Resolved</p>
         </div>
       </div>
@@ -350,9 +375,9 @@ const AlertsPage: React.FC = () => {
             const Icon = m.icon
             const colors = COLOR_CLASSES[m.color]
             return (
-              <div key={alert.alert_id} className="card p-6 hover:border-blue-500/50 transition-colors">
+              <div key={alert.alert_id} className="card p-6 hover:border-signal-500/50 transition-colors">
                 <div className="flex items-start gap-4">
-                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 ${colors.bg}`}>
+                  <div className={`w-12 h-12 rounded flex items-center justify-center flex-shrink-0 ${colors.bg}`}>
                     <Icon size={22} className={colors.text} />
                   </div>
 
@@ -360,8 +385,8 @@ const AlertsPage: React.FC = () => {
                     <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
                       <h3 className="font-bold text-white">{m.label}</h3>
                       <div className="flex gap-2">
-                        <span className={`text-xs px-2 py-1 rounded-full ${severityBadge(alert.severity)}`}>{alert.severity}</span>
-                        <span className={`text-xs px-2 py-1 rounded-full ${statusBadge(alert.status)}`}>{alert.status}</span>
+                        <span className={`text-xs px-2 py-1 rounded-sm ${severityBadge(alert.severity)}`}>{alert.severity}</span>
+                        <span className={`text-xs px-2 py-1 rounded-sm ${statusBadge(alert.status)}`}>{alert.status}</span>
                       </div>
                     </div>
 
@@ -382,13 +407,13 @@ const AlertsPage: React.FC = () => {
                       <div className="flex items-center gap-4 mt-3">
                         <Link
                           to={`/vehicles?plate=${encodeURIComponent(alert.plate_text)}`}
-                          className="text-xs text-blue-400 hover:underline flex items-center gap-1"
+                          className="text-xs text-signal-400 hover:underline flex items-center gap-1"
                         >
                           <Search size={12} /> View Vehicle Intelligence
                         </Link>
                         <Link
                           to={`/trajectory?plate=${encodeURIComponent(alert.plate_text)}`}
-                          className="text-xs text-blue-400 hover:underline flex items-center gap-1"
+                          className="text-xs text-signal-400 hover:underline flex items-center gap-1"
                         >
                           <Route size={12} /> View Trajectory
                         </Link>
@@ -401,13 +426,13 @@ const AlertsPage: React.FC = () => {
                       <>
                         <button
                           onClick={() => handleAcknowledge(alert.alert_id)}
-                          className="px-3 py-1 text-xs rounded-lg bg-surface-light border border-border text-yellow-400 hover:bg-yellow-500/10"
+                          className="px-3 py-1 text-xs rounded bg-surface-light border border-border text-caution-400 hover:bg-caution-500/10"
                         >
                           Acknowledge
                         </button>
                         <button
                           onClick={() => handleResolve(alert.alert_id)}
-                          className="px-3 py-1 text-xs rounded-lg bg-surface-light border border-border text-green-400 hover:bg-green-500/10"
+                          className="px-3 py-1 text-xs rounded bg-surface-light border border-border text-clear-400 hover:bg-clear-500/10"
                         >
                           Resolve
                         </button>
@@ -416,7 +441,7 @@ const AlertsPage: React.FC = () => {
                     {alert.status === 'ACKNOWLEDGED' && (
                       <button
                         onClick={() => handleResolve(alert.alert_id)}
-                        className="px-3 py-1 text-xs rounded-lg bg-surface-light border border-border text-green-400 hover:bg-green-500/10"
+                        className="px-3 py-1 text-xs rounded bg-surface-light border border-border text-clear-400 hover:bg-clear-500/10"
                       >
                         Resolve
                       </button>

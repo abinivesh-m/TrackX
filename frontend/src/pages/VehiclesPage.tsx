@@ -89,9 +89,9 @@ const VehiclesPage: React.FC = () => {
 
   const getRiskBadge = (risk?: string) => {
     switch (risk) {
-      case 'HIGH': return 'bg-red-500/20 text-red-400 border border-red-500/30'
-      case 'MEDIUM': return 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
-      default: return 'bg-green-500/20 text-green-400 border border-green-500/30'
+      case 'HIGH': return 'badge badge-danger'
+      case 'MEDIUM': return 'badge badge-warning'
+      default: return 'badge badge-success'
     }
   }
 
@@ -101,8 +101,8 @@ const VehiclesPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-lg p-3 flex items-center gap-2 text-sm text-muted">
-        <span className="w-2 h-2 rounded-full bg-green-400" />
+      <div className="bg-surface border border-border rounded p-3 flex items-center gap-2 text-sm text-muted">
+        <span className="w-2 h-2 rounded-full bg-clear-400" />
         <span>Search a plate to reconstruct its multi-camera trajectory from stored observations.</span>
       </div>
 
@@ -118,14 +118,14 @@ const VehiclesPage: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Enter license plate (e.g., TN38AB1234)"
-              className="w-full pl-10 pr-4 py-3 rounded-lg bg-surface-light border border-border focus:border-blue-500 focus:outline-none text-white uppercase"
+              className="w-full pl-10 pr-4 py-3 rounded bg-surface-light border border-border focus:border-signal-500 focus:outline-none text-white uppercase"
               autoFocus
             />
           </div>
           <button
             type="submit"
             disabled={isLoading}
-            className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold transition-colors disabled:opacity-50 flex items-center gap-2"
+            className="px-6 py-3 rounded bg-signal-600 hover:bg-signal-500 text-white font-bold transition-colors disabled:opacity-50 flex items-center gap-2"
           >
             {isLoading ? <Loader2 className="animate-spin" size={20} /> : <Search size={20} />}
             Search
@@ -149,11 +149,11 @@ const VehiclesPage: React.FC = () => {
         <>
           {/* Blacklist / risk banner */}
           {trajectory.is_blacklisted && (
-            <div className="card p-4 border-red-500/40 bg-red-500/10 flex items-start gap-3">
-              <ShieldAlert className="text-red-400 shrink-0 mt-0.5" size={20} />
+            <div className="card p-4 border-critical-500/40 bg-critical-500/10 flex items-start gap-3">
+              <ShieldAlert className="text-critical-400 shrink-0 mt-0.5" size={20} />
               <div>
-                <p className="text-sm font-semibold text-red-300">Operator watchlist match — requires operator review</p>
-                <p className="text-xs text-red-300/80 mt-0.5">
+                <p className="text-sm font-semibold text-critical-400">Operator watchlist match — requires operator review</p>
+                <p className="text-xs text-critical-400/80 mt-0.5">
                   Severity: {trajectory.blacklist_severity || 'N/A'}
                   {trajectory.blacklist_reason ? ` — ${trajectory.blacklist_reason}` : ''}
                 </p>
@@ -165,12 +165,12 @@ const VehiclesPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
             <div className="card p-5 lg:col-span-1">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-600/20 flex items-center justify-center">
-                  <Car size={22} className="text-blue-400" />
+                <div className="w-12 h-12 rounded-sm bg-signal-600/20 flex items-center justify-center">
+                  <Car size={22} className="text-signal-400" />
                 </div>
                 <div>
                   <h2 className="text-lg font-bold text-white font-mono">{trajectory.plate_text}</h2>
-                  <span className={`text-[11px] px-2 py-0.5 rounded-full ${getRiskBadge(trajectory.risk_level)}`}>
+                  <span className={getRiskBadge(trajectory.risk_level)}>
                     {trajectory.risk_level || 'LOW'}
                   </span>
                 </div>
@@ -202,12 +202,12 @@ const VehiclesPage: React.FC = () => {
           <div className="card p-5">
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <Navigation size={18} className="text-blue-400" /> Reconstructed Trajectory
+                <Navigation size={18} className="text-signal-400" /> Reconstructed Trajectory
               </h3>
               <div className="flex items-center gap-3 text-[11px] text-muted">
-                <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-green-500 inline-block" /> Start</span>
-                <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-red-500 inline-block" /> End</span>
-                <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-amber-500 inline-block" /> Anomalous arrival</span>
+                <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-clear-500 inline-block" /> Start</span>
+                <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-critical-500 inline-block" /> End</span>
+                <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-caution-500 inline-block" /> Anomalous arrival</span>
               </div>
             </div>
             <TrajectoryMap trajectory={trajectory} height={560} selectedHopIndex={selectedHopIndex} onSelectHop={setSelectedHopIndex} />
@@ -229,32 +229,33 @@ const VehiclesPage: React.FC = () => {
                     return (
                       <div key={idx}>
                         {seg && (
-                          <div className={`ml-4 pl-4 border-l-2 text-[11px] py-1.5 ${anomalous ? 'border-red-500/60 text-red-300' : 'border-border text-muted'}`}>
+                          <div className={`ml-4 pl-4 border-l-2 text-[11px] py-1.5 ${anomalous ? 'border-critical-500/60 text-critical-400' : 'border-border text-muted'}`}>
                             {anomalous ? <AlertTriangle size={11} className="inline mr-1" /> : null}
                             {seg.distance_km != null ? `${seg.distance_km.toFixed(2)} km` : 'distance unknown'} •{' '}
                             {seg.required_speed_kmph != null ? `${seg.required_speed_kmph.toFixed(1)} km/h` : ''} •{' '}
                             {seg.elapsed_time_formatted || ''}
+                            {seg.route_direction && <> • {seg.route_direction}</>}
                             {anomalous && <span className="block mt-0.5">{seg.reason}</span>}
                           </div>
                         )}
                         <button
                           onClick={() => setSelectedHopIndex(idx)}
-                          className={`w-full text-left flex items-center gap-3 p-3 rounded-lg border transition-colors ${
+                          className={`w-full text-left flex items-center gap-3 p-3 rounded border transition-colors ${
                             selectedHopIndex === idx
-                              ? 'border-blue-500/60 bg-blue-500/10'
-                              : 'border-border bg-surface-light hover:border-blue-500/30'
+                              ? 'border-signal-500/60 bg-signal-500/10'
+                              : 'border-border bg-surface-light hover:border-signal-500/30'
                           }`}
                         >
                           <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${
-                            isStart ? 'bg-green-500/20 text-green-400' : isEnd ? 'bg-red-500/20 text-red-400' : 'bg-blue-500/20 text-blue-400'
+                            isStart ? 'bg-clear-500/20 text-clear-400' : isEnd ? 'bg-critical-500/20 text-critical-400' : 'bg-signal-500/20 text-signal-400'
                           }`}>
                             {idx + 1}
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 flex-wrap">
                               <span className="font-semibold text-white text-sm">{hop.camera_name}</span>
-                              {isStart && <span className="text-[10px] text-green-400 uppercase">Start</span>}
-                              {isEnd && <span className="text-[10px] text-red-400 uppercase">End</span>}
+                              {isStart && <span className="text-[10px] text-clear-400 uppercase">Start</span>}
+                              {isEnd && <span className="text-[10px] text-critical-400 uppercase">End</span>}
                             </div>
                             <div className="text-[11px] text-muted mt-0.5 flex flex-wrap items-center gap-x-2">
                               <span className="flex items-center gap-1"><Clock size={10} />{formatDate(hop.timestamp)}</span>
@@ -263,6 +264,25 @@ const VehiclesPage: React.FC = () => {
                               )}
                               {hop.plate_confidence != null && <span>Plate conf: {(hop.plate_confidence * 100).toFixed(0)}%</span>}
                               {hop.vehicle_confidence != null && <span>Vehicle conf: {(hop.vehicle_confidence * 100).toFixed(0)}%</span>}
+                            </div>
+                            <div className="text-[11px] text-muted mt-0.5 flex flex-wrap items-center gap-x-2">
+                              {/* Local (camera-scoped) Track ID - deliberately NOT the same
+                                  number across hops. This is the SIH26127 multi-camera
+                                  identity requirement made visible: cross-camera continuity
+                                  comes from plate + timing + topology matching
+                                  (intelligence/fusion.py), never from this ID matching. */}
+                              {hop.local_track_id && (
+                                <span className="font-mono">Local Track ID: <span className="text-white">{hop.local_track_id}</span></span>
+                              )}
+                              {hop.plate_state && (
+                                <span className={
+                                  hop.plate_state === 'VERIFIED' ? 'text-clear-400' :
+                                  hop.plate_state === 'LOW_CONFIDENCE' ? 'text-critical-400' : 'text-caution-400'
+                                }>Plate state: {hop.plate_state}</span>
+                              )}
+                              {hop.data_source === 'DEMO_SYNTHETIC' && (
+                                <span className="badge badge-warning">SYNTHETIC DEMO SCENARIO — not a live camera read</span>
+                              )}
                             </div>
                           </div>
                           {hop.plate_crop_url ? (
@@ -282,7 +302,7 @@ const VehiclesPage: React.FC = () => {
             <div className="space-y-4">
               <div className="card p-5">
                 <h3 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
-                  <ShieldAlert size={16} className="text-amber-400" /> Intelligence Summary
+                  <ShieldAlert size={16} className="text-caution-400" /> Intelligence Summary
                 </h3>
                 <div className="space-y-2 text-xs">
                   <IntelRow
@@ -305,40 +325,40 @@ const VehiclesPage: React.FC = () => {
               </div>
 
               {routeAnomalies.length > 0 && (
-                <div className="card p-5 border-red-500/30 bg-red-500/5">
+                <div className="card p-5 border-critical-500/30 bg-critical-500/5">
                   <h3 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
-                    <AlertTriangle className="text-red-400" size={16} />
+                    <AlertTriangle className="text-critical-400" size={16} />
                     Recorded Route Anomalies ({routeAnomalies.length})
                   </h3>
                   <div className="space-y-3">
                     {routeAnomalies.map((anomaly) => (
-                      <div key={anomaly.anomaly_id} className="p-3 rounded-lg bg-surface-light border border-red-500/30 text-xs">
+                      <div key={anomaly.anomaly_id} className="p-3 rounded bg-surface-light border border-critical-500/30 text-xs">
                         <div className="flex items-center justify-between mb-1.5">
                           <span className="font-bold text-white">{anomaly.from_camera} → {anomaly.to_camera}</span>
-                          <span className={`px-2 py-0.5 rounded-full ${
-                            anomaly.severity === 'HIGH' || anomaly.severity === 'CRITICAL' ? 'bg-red-500/20 text-red-400' :
-                            anomaly.severity === 'MEDIUM' ? 'bg-amber-500/20 text-amber-400' : 'bg-blue-500/20 text-blue-400'
+                          <span className={`badge ${
+                            anomaly.severity === 'HIGH' || anomaly.severity === 'CRITICAL' ? 'badge-danger' :
+                            anomaly.severity === 'MEDIUM' ? 'badge-warning' : 'badge-info'
                           }`}>
                             {anomaly.severity}
                           </span>
                         </div>
                         <div className="text-muted space-y-1">
                           {anomaly.details?.unexpected_transition && (
-                            <div className="flex items-center gap-1 text-red-300"><XCircle size={12} /> Unexpected camera transition</div>
+                            <div className="flex items-center gap-1 text-critical-400"><XCircle size={12} /> Unexpected camera transition</div>
                           )}
                           {anomaly.details?.impossible_travel_time && (
-                            <div className="flex items-center gap-1 text-red-300"><AlertTriangle size={12} /> Impossible travel time</div>
+                            <div className="flex items-center gap-1 text-critical-400"><AlertTriangle size={12} /> Impossible travel time</div>
                           )}
                           {anomaly.details?.unreasonable_speed && (
-                            <div className="flex items-center gap-1 text-amber-300"><Navigation size={12} /> Unreasonable speed</div>
+                            <div className="flex items-center gap-1 text-caution-400"><Navigation size={12} /> Unreasonable speed</div>
                           )}
                         </div>
                         <div className="flex items-center justify-between mt-2 text-[11px] text-muted">
                           <span>{formatDate(anomaly.timestamp)}</span>
-                          <span className={`px-2 py-0.5 rounded-full ${
-                            anomaly.status === 'OPEN' ? 'bg-red-500/20 text-red-400' :
-                            anomaly.status === 'UNDER_INVESTIGATION' ? 'bg-amber-500/20 text-amber-400' :
-                            'bg-green-500/20 text-green-400'
+                          <span className={`badge ${
+                            anomaly.status === 'OPEN' ? 'badge-danger' :
+                            anomaly.status === 'UNDER_INVESTIGATION' ? 'badge-warning' :
+                            'badge-success'
                           }`}>
                             {anomaly.status.replace(/_/g, ' ')}
                           </span>
@@ -351,7 +371,7 @@ const VehiclesPage: React.FC = () => {
 
               <Link
                 to="/trajectory"
-                className="card p-4 flex items-center justify-between text-sm text-muted hover:text-white hover:border-blue-500/40 transition-colors"
+                className="card p-4 flex items-center justify-between text-sm text-muted hover:text-white hover:border-signal-500/40 transition-colors"
               >
                 <span className="flex items-center gap-2"><Video size={14} /> Open full Trajectory Search for more detail</span>
                 <span>→</span>
@@ -380,7 +400,7 @@ const StatCard: React.FC<{ icon: React.ReactNode; label: string; value: string; 
 )
 
 const IntelRow: React.FC<{ ok: boolean; okLabel: string; badLabel: string; neutral?: boolean }> = ({ ok, okLabel, badLabel, neutral }) => (
-  <div className={`flex items-start gap-2 p-2.5 rounded-lg ${neutral ? 'bg-surface-light text-muted' : ok ? 'bg-green-500/10 text-green-300' : 'bg-red-500/10 text-red-300'}`}>
+  <div className={`flex items-start gap-2 p-2.5 rounded ${neutral ? 'bg-surface-light text-muted' : ok ? 'bg-clear-500/10 text-clear-400' : 'bg-critical-500/10 text-critical-400'}`}>
     {neutral ? <MapPin size={14} className="mt-0.5 shrink-0" /> : ok ? <ShieldCheck size={14} className="mt-0.5 shrink-0" /> : <AlertTriangle size={14} className="mt-0.5 shrink-0" />}
     <span>{neutral ? okLabel : ok ? okLabel : badLabel}</span>
   </div>

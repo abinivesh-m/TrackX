@@ -50,6 +50,27 @@ def _persist_impossible_transitions(observations: list) -> int:
         for finding in findings:
             result = finding["result"]
             plate = finding.get("plate_a") or finding.get("plate_b") or "UNKNOWN"
+
+            # SIH26127 "Final Data Integrity" audit (2026-09-11): label
+            # anomalies derived (even partly) from demo/seed_demo_data.py's
+            # DEMO_SYNTHETIC rows the same way Vehicle Search/Trajectory
+            # already do, instead of persisting them indistinguishably from
+            # a genuine live-camera detection. detect_impossible_transitions()
+            # indexes back into the exact `observations` list passed in here,
+            # so the two contributing rows (and their real data_source, if
+            # any) are looked up directly rather than guessed.
+            obs_a = observations[finding["obs_a_index"]]
+            obs_b = observations[finding["obs_b_index"]]
+            sources = {obs_a.get("data_source"), obs_b.get("data_source")}
+            if "DEMO_SYNTHETIC" in sources:
+                data_source = "DEMO_SYNTHETIC"
+            elif sources == {"REAL_INFERENCE"}:
+                data_source = "REAL_INFERENCE"
+            else:
+                # Mixed/unlabeled (e.g. an older un-backfilled row) - don't
+                # assert real for data that hasn't been positively confirmed
+                # real, and don't assert synthetic when nothing said so.
+                data_source = None
             # anomaly_score: 0-100, higher = more anomalous. Distance/confidence
             # already computed by spatio_temporal; derive a simple, explainable
             # score from how far required speed exceeds the plausible max
@@ -79,6 +100,7 @@ def _persist_impossible_transitions(observations: list) -> int:
                 observed_speed_kmph=None if result.required_speed_kmph == float("inf") else round(result.required_speed_kmph, 1),
                 expected_min_time=result.expected_time_min_seconds,
                 distance_km=round(result.distance_km, 2),
+                data_source=data_source,
             )
             if was_created:
                 created += 1

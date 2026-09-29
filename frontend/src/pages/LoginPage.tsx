@@ -1,30 +1,33 @@
 // frontend/src/pages/LoginPage.tsx
+//
+// Operator sign-in. Flat, no gradient logo/text/button - styled as an
+// access panel to the ops console rather than a SaaS marketing login.
 
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { useAuth } from '@/contexts/AuthContext'
-import { Loader2, Lock, Mail, Eye, EyeOff } from 'lucide-react'
+import { Loader2, Lock, User, Eye, EyeOff } from 'lucide-react'
 
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  
+
   const { login } = useAuth()
   const navigate = useNavigate()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     if (!username || !password) {
       toast.error('Please enter username and password')
       return
     }
-    
+
     setIsLoading(true)
-    
+
     try {
       await login(username, password)
       toast.success('Login successful')
@@ -37,59 +40,56 @@ const LoginPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="w-full max-w-md p-8">
-        {/* Logo */}
-        <div className="text-center mb-8">
-          <div className="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-4">
-            <span className="text-4xl font-bold text-white">T</span>
+    <div className="min-h-screen flex items-center justify-center bg-background px-4">
+      <div className="w-full max-w-sm">
+        {/* Identity */}
+        <div className="text-center mb-6">
+          <div className="w-14 h-14 mx-auto rounded-sm bg-graphite-850 border border-signal-500/40 flex items-center justify-center mb-3">
+            <span className="text-2xl font-bold text-signal-400 font-data">TX</span>
           </div>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            TrackX
-          </h1>
-          <p className="text-muted mt-2">City-Wide Vehicle Intelligence</p>
-          <p className="text-xs text-muted mt-1">Bharat Electronics Limited</p>
+          <h1 className="text-xl font-bold text-white tracking-tight">TrackX</h1>
+          <p className="text-xs text-muted font-data tracking-widest mt-1">ANPR OPERATIONS CONSOLE</p>
         </div>
 
-        {/* Login Form */}
-        <div className="card p-8">
-          <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Access panel */}
+        <div className="card p-6">
+          <div className="label-caps mb-4 flex items-center justify-between">
+            <span>Operator Sign-In</span>
+            <span className="text-clear-400">SESSION SECURE</span>
+          </div>
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-muted mb-2">
-                Username
-              </label>
+              <label className="block text-xs font-medium text-muted mb-1.5">Username</label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} />
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={16} />
                 <input
                   type="text"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  placeholder="Enter username"
-                  className="w-full pl-10 pr-4 py-3 rounded-lg bg-surface-light border border-border focus:border-blue-500 focus:outline-none text-white"
+                  placeholder="Operator ID"
+                  className="input w-full pl-9"
                   autoFocus
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-muted mb-2">
-                Password
-              </label>
+              <label className="block text-xs font-medium text-muted mb-1.5">Password</label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={16} />
                 <input
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter password"
-                  className="w-full pl-10 pr-12 py-3 rounded-lg bg-surface-light border border-border focus:border-blue-500 focus:outline-none text-white"
+                  placeholder="••••••••"
+                  className="input w-full pl-9 pr-10"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-muted hover:text-white"
                 >
-                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                  {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
               </div>
             </div>
@@ -97,28 +97,28 @@ const LoginPage: React.FC = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-2"
+              className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-50"
             >
               {isLoading ? (
                 <>
-                  <Loader2 className="animate-spin" size={20} />
-                  Logging in...
+                  <Loader2 className="animate-spin" size={16} />
+                  Authenticating...
                 </>
               ) : (
-                'Login'
+                'Sign In'
               )}
             </button>
           </form>
 
-          <div className="mt-6 text-center">
-            <p className="text-xs text-muted">
-              For demo: admin@trackx.com / admin123
+          <div className="mt-5 pt-4 border-t border-border text-center">
+            <p className="text-[11px] text-muted font-data">
+              DEMO ACCESS · admin@trackx.com / admin123
             </p>
           </div>
         </div>
 
-        <p className="text-center text-xs text-muted mt-8">
-          © 2026 TrackX. All rights reserved.
+        <p className="text-center text-[11px] text-muted mt-6 font-data">
+          TRACKX · SIH 26127 · BHARAT ELECTRONICS LIMITED
         </p>
       </div>
     </div>

@@ -93,6 +93,48 @@ _NO_PLATE_FIELDS = {
     "data_source": "REAL_INFERENCE",  # SIH Requirement: Data source tagging
 }
 
+# SIH26127 crop-truncation fix (2026-09-15): pipeline.py already carries this
+# exact fix (PLATE_CROP_PAD_RATIO, see its docstring/docs/OCR_REAL_ACCURACY_
+# AUDIT.md finding 2) - real, verified evidence that the plate DETECTOR's own
+# bounding box is sometimes tighter than the actual plate, clipping the
+# leading 1-2 characters (usually the state code, e.g. "KA"/"MH") before OCR
+# ever sees them. It was fixed in pipeline.py but never ported to THIS module
+# (demo/visual_pipeline.py), which is the one backend/app/api/v1/observations.
+# py's "Detection Pipeline" endpoint actually calls - confirmed live on a real
+# run: build_plate_fields() below cropped the plate detector's raw box exactly
+# and OCR read "01MJ1234"/"12AB3456" (missing the real "KA"/"MH" prefix),
+# which normalize_indian_plate() then correctly rejected as
+# detected_invalid_format. Same fix, same rationale, ported here unchanged.
+# 0.12 (pipeline.py's original value) was measured insufficient against
+# this module's actual plate-detector boxes on a real, verified test: it
+# recovered only part of the clipped prefix ("A01MJ1234" instead of the
+# real "KA01MJ1234"). Tested 0.12/0.2/0.3/0.4/0.5/0.8/1.2 against the same
+# real crop; 0.3 is the smallest value that reliably recovers the full
+# plate text (both test plates exact-matched at 0.3 and stayed exact
+# through 1.2), so 0.3 is used here specifically - not blindly copied from
+# pipeline.py's 0.12.
+PLATE_CROP_PAD_RATIO = 0.3
+PLATE_CROP_PAD_MIN_PX = 3
+
+
+def _pad_plate_bbox(bbox, frame_w, frame_h,
+                     ratio=PLATE_CROP_PAD_RATIO, min_px=PLATE_CROP_PAD_MIN_PX):
+    """Expand a plate bbox (frame-space [x1, y1, x2, y2]) by a small ratio of
+    its own width/height on every side, clamped to the frame bounds. See
+    PLATE_CROP_PAD_RATIO comment above - identical to pipeline.py's helper of
+    the same name."""
+    x1, y1, x2, y2 = bbox
+    w = x2 - x1
+    h = y2 - y1
+    pad_x = max(min_px, round(w * ratio))
+    pad_y = max(min_px, round(h * ratio))
+    return [
+        max(0, x1 - pad_x),
+        max(0, y1 - pad_y),
+        min(frame_w, x2 + pad_x),
+        min(frame_h, y2 + pad_y),
+    ]
+
 
 def find_plate_weights(explicit_path=None):
     """Returns a path to a real plate-detector checkpoint, or None if none exists."""
@@ -199,8 +241,15 @@ def build_plate_fields(vehicle_crop, plate_detector, ocr, vehicle_bbox, camera_i
     px1, py1, px2, py2 = best["bbox"]
     plate_bbox_frame = [vx1 + px1, vy1 + py1, vx1 + px2, vy1 + py2]
 
-    # Crop from ORIGINAL frame using frame-space coordinates
-    plate_crop = plate_detector.crop_array(original_frame, plate_bbox_frame)
+    # Crop from ORIGINAL frame using frame-space coordinates, with a small
+    # proportional margin (see PLATE_CROP_PAD_RATIO above) so a plate
+    # detector box that's a few pixels too tight doesn't clip a real
+    # leading character before OCR sees it. plate_bbox_frame itself (the
+    # unpadded, reported bbox) is left unchanged - only the pixels handed
+    # to OCR are padded.
+    frame_h, frame_w = original_frame.shape[:2]
+    plate_crop_bbox = _pad_plate_bbox(plate_bbox_frame, frame_w, frame_h)
+    plate_crop = plate_detector.crop_array(original_frame, plate_crop_bbox)
     if plate_crop is None or plate_crop.size == 0:
         return {
             **_NO_PLATE_FIELDS,
@@ -247,6 +296,38 @@ def build_plate_fields(vehicle_crop, plate_detector, ocr, vehicle_bbox, camera_i
         }
 
     normalized, pattern_matched = normalize_indian_plate(raw_text)
+    # SIH26127 bug fix (2026-09-15, verified against a real CAM_01 run):
+    # pattern_matched was computed above but never checked before this
+    # function used to unconditionally return plate_status="detected" with
+    # normalized_plate_text=normalized - so ANY OCR text was presented as a
+    # successful plate read regardless of whether it actually matched a
+    # real Indian plate shape (SSDDL[LL]NNNN). Confirmed live: the plate
+    # detector locking onto CAM_01's own on-screen timestamp overlay
+    # ("15-09-2026 11:3...") and OCR reading it as "IS09Z0261" was being
+    # returned here as a normal "detected" recognition. raw_plate_text is
+    # still returned either way (never hidden - useful for debugging what
+    # OCR actually saw); only normalized_plate_text/plate_status, the
+    # fields callers treat as a trustworthy plate number, are gated now.
+    if not pattern_matched:
+        return {
+            "plate_bbox": plate_bbox_frame,
+            "raw_plate_text": raw_text,
+            "normalized_plate_text": None,
+            "normalized_plate": None,
+            "ocr_confidence": ocr_conf,
+            "plate_crop_path": plate_crop_path,
+            "plate_status": "detected_invalid_format",
+            "plate_status_reason": (
+                f"OCR read '{raw_text}' from the detected plate-shaped region, but "
+                f"it does not match a standard Indian plate format (SSDDL[LL]NNNN) "
+                f"even after conservative OCR-confusable correction. Most likely "
+                f"the plate detector locked onto non-plate text in the frame (a "
+                f"camera timestamp overlay, a sign, reflection, etc.) rather than "
+                f"a real plate. Not presented as a recognized read."
+            ),
+            "pattern_matched": False,
+            "data_source": "REAL_INFERENCE",
+        }
     return {
         "plate_bbox": plate_bbox_frame,  # Frame coordinates, not vehicle crop coordinates
         "raw_plate_text": raw_text,  # Keep original OCR output for debugging

@@ -36,11 +36,25 @@ def check_database() -> Dict[str, Any]:
 
 
 def check_models() -> Dict[str, Any]:
-    """Check availability of ML models."""
+    """Check availability of ML models.
+
+    SIH26127 "Final Demo Hardening" audit (2026-09-10) - real, confirmed
+    bug fixed here: this used to hardcode `yolo_vehicle`/`yolo_plate` as
+    `True` ("Usually available" - never actually checked) and treat "the
+    paddleocr package is importable" as equivalent to "OCR actually
+    works". Since `status` below was `"healthy" if any(models.values())`,
+    the hardcoded `True` flags alone made this ALWAYS report "healthy"
+    regardless of real state - while the actual live webcam/upload
+    pipeline's OCR could genuinely be unavailable, producing the visibly
+    self-contradictory "healthy - unavailable" status an operator could
+    see in the Admin Console. Every field below is now the real result of
+    an actual attempted construction of the exact singleton objects the
+    live pipeline uses (see
+    backend/app/api/v1/observations.py's get_model_status()), with the
+    real reason a component failed exposed in `reasons`, never guessed."""
     try:
-        from recognition.ocr_reader import PlateOCR, PADDLEOCR_AVAILABLE
-        from detection.vehicle_detector import VehicleDetector
-        from detection.detect_plates import PlateDetector
+        from app.api.v1.observations import get_model_status
+        status = get_model_status()
 
         models = {
             # LPRNet was removed from the live OCR path (see
@@ -48,14 +62,29 @@ def check_models() -> Dict[str, Any]:
             # in this repo and could only ever fall through to PaddleOCR
             # anyway, so it's reported as not in use rather than checked.
             "lprnet": False,
-            "paddleocr": PADDLEOCR_AVAILABLE,
-            "yolo_vehicle": True,  # Usually available
-            "yolo_plate": True,     # Usually available
+            "paddleocr": status["ocr"]["available"],
+            "yolo_vehicle": status["vehicle_detector"]["available"],
+            "yolo_plate": status["plate_detector"]["available"],
         }
-        
+        reasons = {
+            name: status[key]["reason"]
+            for name, key in (("yolo_vehicle", "vehicle_detector"),
+                               ("yolo_plate", "plate_detector"),
+                               ("paddleocr", "ocr"))
+            if status[key]["reason"]
+        }
+
+        if all(models[k] for k in ("yolo_vehicle", "yolo_plate", "paddleocr")):
+            overall = "healthy"
+        elif any(models.values()):
+            overall = "degraded"
+        else:
+            overall = "unavailable"
+
         return {
-            "status": "healthy" if any(models.values()) else "unavailable",
-            "models": models
+            "status": overall,
+            "models": models,
+            "reasons": reasons,
         }
     except Exception as e:
         return {"status": "unhealthy", "error": str(e)}

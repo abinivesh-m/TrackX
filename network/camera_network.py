@@ -268,6 +268,47 @@ def haversine_km(lat1, lon1, lat2, lon2):
     return R * c
 
 
+# SIH26127 multi-camera trajectory audit: no inter-camera bearing/direction
+# calculation existed anywhere in the codebase - the only "direction" field
+# on an observation (pipeline.py's estimate_direction()) is an INTRA-frame
+# estimate from one camera's own bbox history (e.g. "vehicle moved toward
+# the top-right of THIS camera's view"), not the geographic bearing of the
+# vehicle's route between two different camera locations. The spec
+# explicitly requires the latter ("calculate approximate movement
+# direction/bearing between consecutive observations where camera
+# coordinates allow it; never fabricate direction") - added here rather
+# than conflated with the existing per-observation field.
+def bearing_deg(lat1, lon1, lat2, lon2):
+    """Initial compass bearing (0-360, 0=North, 90=East) from point 1 to
+    point 2, standard great-circle forward-azimuth formula. Returns None
+    if the two points are (numerically) the same location - a bearing
+    isn't meaningful for zero displacement."""
+    if lat1 == lat2 and lon1 == lon2:
+        return None
+    phi1 = math.radians(lat1)
+    phi2 = math.radians(lat2)
+    dlon = math.radians(lon2 - lon1)
+    x = math.sin(dlon) * math.cos(phi2)
+    y = math.cos(phi1) * math.sin(phi2) - math.sin(phi1) * math.cos(phi2) * math.cos(dlon)
+    theta = math.atan2(x, y)
+    return (math.degrees(theta) + 360) % 360
+
+
+_COMPASS_POINTS = [
+    "North", "North-East", "East", "South-East",
+    "South", "South-West", "West", "North-West",
+]
+
+
+def compass_direction(bearing):
+    """Maps a 0-360 bearing onto one of 8 compass points. None in, None out
+    - never guesses a direction with no coordinates to compute it from."""
+    if bearing is None:
+        return None
+    index = round(bearing / 45) % 8
+    return _COMPASS_POINTS[index]
+
+
 def is_spatially_connected(cam_a, cam_b):
     """
     signal 1: does a road connection even exist between these cameras?

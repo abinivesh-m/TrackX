@@ -23,23 +23,23 @@ import { toast } from 'react-toastify'
 import CongestionMap from '@/components/maps/CongestionMap'
 
 const LEVEL_STYLES: Record<string, string> = {
-  SEVERE: 'bg-red-500/20 text-red-400 border-red-500/30',
-  HIGH: 'bg-orange-500/20 text-orange-400 border-orange-500/30',
-  CONGESTED: 'bg-red-500/20 text-red-400 border-red-500/30',
-  MEDIUM: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
-  MODERATE: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
-  LOW: 'bg-green-500/20 text-green-400 border-green-500/30',
+  SEVERE: 'bg-critical-500/20 text-critical-400 border-critical-500/30',
+  HIGH: 'bg-caution-500/20 text-caution-400 border-caution-500/30',
+  CONGESTED: 'bg-critical-500/20 text-critical-400 border-critical-500/30',
+  MEDIUM: 'bg-caution-500/20 text-caution-400 border-caution-500/30',
+  MODERATE: 'bg-caution-500/20 text-caution-400 border-caution-500/30',
+  LOW: 'bg-clear-500/20 text-clear-400 border-clear-500/30',
 }
 
 function levelStyle(level: string) {
-  return LEVEL_STYLES[level] || 'bg-gray-500/20 text-gray-400 border-gray-500/30'
+  return LEVEL_STYLES[level] || 'bg-graphite-700/40 text-muted border-border'
 }
 
 function scoreColor(score: number) {
-  if (score >= 80) return 'text-red-400'
-  if (score >= 60) return 'text-orange-400'
-  if (score >= 40) return 'text-yellow-400'
-  return 'text-green-400'
+  if (score >= 80) return 'text-critical-400'
+  if (score >= 60) return 'text-caution-400'
+  if (score >= 40) return 'text-caution-400'
+  return 'text-clear-400'
 }
 
 function formatDate(dateString?: string) {
@@ -155,9 +155,9 @@ const CongestionPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="bg-surface border border-border rounded-lg p-3 flex items-center justify-between text-sm text-muted">
+      <div className="bg-surface border border-border rounded p-3 flex items-center justify-between text-sm text-muted">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-green-400" />
+          <span className="w-2 h-2 rounded-full bg-clear-400" />
           <span>Congestion and bottleneck detection computed live from stored ANPR observations.</span>
         </div>
         <span className="text-xs bg-surface-light px-2 py-0.5 rounded font-mono border border-border">
@@ -166,7 +166,7 @@ const CongestionPage: React.FC = () => {
       </div>
 
       {Object.keys(loadErrors).length > 0 && (
-        <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-3 text-sm text-red-300">
+        <div className="bg-critical-500/10 border border-critical-500/30 rounded p-3 text-sm text-critical-400">
           Some traffic analytics data could not be loaded ({Object.keys(loadErrors).join(', ')}) — the rest of
           this page reflects real, successfully-loaded data. Try refreshing to retry the failed part.
         </div>
@@ -174,13 +174,13 @@ const CongestionPage: React.FC = () => {
 
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-          <Activity className="text-orange-400" />
+          <Activity className="text-caution-400" />
           Traffic Analytics & Congestion
         </h1>
         <button
           onClick={processAllCameras}
           disabled={isProcessing}
-          className="px-4 py-2 rounded-lg bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center gap-2"
+          className="btn-primary disabled:opacity-50 flex items-center gap-2"
         >
           {isProcessing ? (
             <>
@@ -200,28 +200,28 @@ const CongestionPage: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
         <div className="card p-6">
           <div className="flex items-center gap-3 mb-2">
-            <MapPin size={20} className="text-blue-400" />
+            <MapPin size={20} className="text-signal-400" />
             <span className="text-sm text-muted">Cameras Reporting</span>
           </div>
           <p className="text-3xl font-bold text-white">{congestionMap.length}</p>
         </div>
         <div className="card p-6">
           <div className="flex items-center gap-3 mb-2">
-            <AlertTriangle size={20} className="text-red-400" />
+            <AlertTriangle size={20} className="text-critical-400" />
             <span className="text-sm text-muted">Active Bottlenecks</span>
           </div>
           <p className="text-3xl font-bold text-white">{bottlenecks.length}</p>
         </div>
         <div className="card p-6">
           <div className="flex items-center gap-3 mb-2">
-            <Activity size={20} className="text-orange-400" />
+            <Activity size={20} className="text-caution-400" />
             <span className="text-sm text-muted">Active Events</span>
           </div>
           <p className="text-3xl font-bold text-white">{activeEvents.length}</p>
         </div>
         <div className="card p-6">
           <div className="flex items-center gap-3 mb-2">
-            <Gauge size={20} className="text-yellow-400" />
+            <Gauge size={20} className="text-caution-400" />
             <span className="text-sm text-muted">Avg Congestion Score</span>
           </div>
           <p className="text-3xl font-bold text-white">
@@ -231,7 +231,7 @@ const CongestionPage: React.FC = () => {
         </div>
         <div className="card p-6">
           <div className="flex items-center gap-3 mb-2">
-            <TrendingUp size={20} className="text-green-400" />
+            <TrendingUp size={20} className="text-clear-400" />
             <span className="text-sm text-muted">Total Vehicles Observed</span>
           </div>
           <p className="text-3xl font-bold text-white">{summary?.total_vehicles ?? '—'}</p>
@@ -241,7 +241,7 @@ const CongestionPage: React.FC = () => {
       {/* Congestion Map */}
       <div className="card p-6">
         <h3 className="text-lg font-bold text-white mb-1 flex items-center gap-2">
-          <MapPin className="text-blue-400" />
+          <MapPin className="text-signal-400" />
           City Congestion Map
         </h3>
         <p className="text-xs text-muted mb-4">Live per-camera congestion level, from real observation density and speed.</p>
@@ -251,16 +251,16 @@ const CongestionPage: React.FC = () => {
           <CongestionMap points={congestionMap} height={460} />
         )}
         <div className="flex items-center gap-6 mt-4 text-xs text-muted">
-          <div className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-red-500" /> Congested</div>
-          <div className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-amber-500" /> Moderate</div>
-          <div className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-emerald-500" /> Normal / not reporting congestion</div>
+          <div className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-critical-500" /> Congested</div>
+          <div className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-caution-500" /> Moderate</div>
+          <div className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-clear-500" /> Normal / not reporting congestion</div>
         </div>
       </div>
 
       {/* Traffic Trend */}
       <div className="card p-6">
         <h3 className="text-lg font-bold text-white mb-1 flex items-center gap-2">
-          <TrendingUp className="text-green-400" />
+          <TrendingUp className="text-clear-400" />
           Traffic Volume Trend
         </h3>
         <p className="text-xs text-muted mb-4">Real vehicle counts per hour, aggregated across all cameras.</p>
@@ -271,15 +271,15 @@ const CongestionPage: React.FC = () => {
             <AreaChart data={trendData}>
               <defs>
                 <linearGradient id="trendFill" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#f97316" stopOpacity={0.5} />
-                  <stop offset="95%" stopColor="#f97316" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#ec9d1e" stopOpacity={0.5} />
+                  <stop offset="95%" stopColor="#ec9d1e" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="#2a2f3a" />
-              <XAxis dataKey="hour" stroke="#8b93a7" fontSize={11} />
-              <YAxis stroke="#8b93a7" fontSize={11} allowDecimals={false} />
-              <Tooltip contentStyle={{ background: '#151922', border: '1px solid #2a2f3a', borderRadius: 8, fontSize: 12 }} />
-              <Area type="monotone" dataKey="vehicles" stroke="#f97316" fill="url(#trendFill)" strokeWidth={2} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#232733" />
+              <XAxis dataKey="hour" stroke="#6b7385" fontSize={11} />
+              <YAxis stroke="#6b7385" fontSize={11} allowDecimals={false} />
+              <Tooltip contentStyle={{ background: '#171a21', border: '1px solid #232733', borderRadius: 3, fontSize: 12 }} />
+              <Area type="monotone" dataKey="vehicles" stroke="#ec9d1e" fill="url(#trendFill)" strokeWidth={2} />
             </AreaChart>
           </ResponsiveContainer>
         )}
@@ -290,10 +290,10 @@ const CongestionPage: React.FC = () => {
         <div className="card p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-bold text-white flex items-center gap-2">
-              <AlertTriangle className="text-red-400" />
+              <AlertTriangle className="text-critical-400" />
               Active Bottlenecks
             </h3>
-            <span className="text-sm text-red-400">{bottlenecks.length} detected</span>
+            <span className="text-sm text-critical-400">{bottlenecks.length} detected</span>
           </div>
           {isLoading ? (
             <div className="text-center py-8 text-muted">Loading…</div>
@@ -306,10 +306,10 @@ const CongestionPage: React.FC = () => {
           ) : (
             <div className="space-y-3 max-h-[420px] overflow-y-auto pr-1">
               {bottlenecks.map((b) => (
-                <div key={b.event_id} className="p-4 rounded-lg bg-surface-light border border-red-500/30">
+                <div key={b.event_id} className="p-4 rounded bg-surface-light border border-critical-500/30">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="font-bold text-white">{b.camera_id}</span>
-                    <span className={`text-xs px-2 py-1 rounded-full border ${levelStyle(b.congestion_level)}`}>{b.congestion_level}</span>
+                    <span className={`text-xs px-2 py-1 rounded-sm border ${levelStyle(b.congestion_level)}`}>{b.congestion_level}</span>
                   </div>
                   <div className="flex items-center gap-4 text-sm text-muted mb-2 flex-wrap">
                     <span className="flex items-center gap-1"><Clock size={14} />{b.duration_minutes} min</span>
@@ -320,6 +320,9 @@ const CongestionPage: React.FC = () => {
                     <span className="text-muted">Bottleneck Score:</span>
                     <span className={`font-bold ${scoreColor(b.bottleneck_score)}`}>{b.bottleneck_score.toFixed(1)}/100</span>
                   </div>
+                  {b.reason && (
+                    <p className="text-xs text-muted mt-2 pt-2 border-t border-border/50">{b.reason}</p>
+                  )}
                 </div>
               ))}
             </div>
@@ -329,7 +332,7 @@ const CongestionPage: React.FC = () => {
         {/* OD Flow */}
         <div className="card p-6">
           <h3 className="text-lg font-bold text-white mb-1 flex items-center gap-2">
-            <ArrowRight className="text-blue-400" />
+            <ArrowRight className="text-signal-400" />
             Top Origin → Destination Flows
           </h3>
           <p className="text-xs text-muted mb-4">Real routes reconstructed from multi-camera trajectories.</p>
@@ -338,13 +341,13 @@ const CongestionPage: React.FC = () => {
           ) : (
             <div className="space-y-2 max-h-[420px] overflow-y-auto pr-1">
               {odFlow.map((f, idx) => (
-                <div key={idx} className="flex items-center justify-between p-3 rounded-lg bg-surface-light border border-border text-sm">
+                <div key={idx} className="flex items-center justify-between p-3 rounded bg-surface-light border border-border text-sm">
                   <div className="flex items-center gap-2 text-white">
                     <span>{f.origin_name}</span>
                     <ArrowRight size={14} className="text-muted" />
                     <span>{f.dest_name}</span>
                   </div>
-                  <span className="text-orange-400 font-bold">{f.count} trip{f.count === 1 ? '' : 's'}</span>
+                  <span className="text-caution-400 font-bold">{f.count} trip{f.count === 1 ? '' : 's'}</span>
                 </div>
               ))}
             </div>
@@ -356,19 +359,19 @@ const CongestionPage: React.FC = () => {
       <div className="card p-6">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-bold text-white flex items-center gap-2">
-            <Activity className="text-orange-400" />
+            <Activity className="text-caution-400" />
             Congestion Events
           </h3>
           <div className="flex items-center gap-2 text-sm">
             <button
               onClick={() => setEventTab('active')}
-              className={`px-3 py-1 rounded-lg border ${eventTab === 'active' ? 'bg-orange-500/20 text-orange-300 border-orange-500/40' : 'text-muted border-border'}`}
+              className={`px-3 py-1 rounded border ${eventTab === 'active' ? 'bg-caution-500/20 text-caution-400 border-caution-500/40' : 'text-muted border-border'}`}
             >
               Active ({activeEvents.length})
             </button>
             <button
               onClick={() => setEventTab('resolved')}
-              className={`px-3 py-1 rounded-lg border ${eventTab === 'resolved' ? 'bg-green-500/20 text-green-300 border-green-500/40' : 'text-muted border-border'}`}
+              className={`px-3 py-1 rounded border ${eventTab === 'resolved' ? 'bg-clear-500/20 text-clear-400 border-clear-500/40' : 'text-muted border-border'}`}
             >
               Resolved ({historyEvents.length})
             </button>
@@ -382,14 +385,14 @@ const CongestionPage: React.FC = () => {
         ) : (
           <div className="space-y-3">
             {(eventTab === 'active' ? activeEvents : historyEvents).map((event) => (
-              <div key={event.event_id} className="p-4 rounded-lg bg-surface-light border border-border">
+              <div key={event.event_id} className="p-4 rounded bg-surface-light border border-border">
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
                       <span className="font-bold text-white">{event.camera_id}</span>
-                      <span className={`text-xs px-2 py-1 rounded-full border ${levelStyle(event.congestion_level)}`}>{event.congestion_level}</span>
+                      <span className={`text-xs px-2 py-1 rounded-sm border ${levelStyle(event.congestion_level)}`}>{event.congestion_level}</span>
                       {event.is_bottleneck && (
-                        <span className="text-xs px-2 py-1 rounded-full bg-red-500/20 text-red-400">BOTTLENECK</span>
+                        <span className="text-xs px-2 py-1 rounded-sm bg-critical-500/20 text-critical-400">BOTTLENECK</span>
                       )}
                     </div>
                     <div className="flex items-center gap-4 text-sm text-muted flex-wrap">
@@ -397,8 +400,9 @@ const CongestionPage: React.FC = () => {
                       <span className="flex items-center gap-1"><Gauge size={14} />{event.avg_speed_kmh.toFixed(1)} km/h</span>
                       <span className="flex items-center gap-1"><Activity size={14} />{event.flow_rate_vehicles_per_hour.toFixed(0)} veh/h</span>
                     </div>
+                    {event.reason && <p className="text-xs text-muted mt-2">{event.reason}</p>}
                   </div>
-                  <span className={`text-xs px-2 py-1 rounded-full flex items-center gap-1 ${event.status === 'ACTIVE' ? 'bg-orange-500/20 text-orange-400' : 'bg-green-500/20 text-green-400'}`}>
+                  <span className={`text-xs px-2 py-1 rounded-sm flex items-center gap-1 ${event.status === 'ACTIVE' ? 'bg-caution-500/20 text-caution-400' : 'bg-clear-500/20 text-clear-400'}`}>
                     {event.status === 'RESOLVED' && <CheckCircle2 size={12} />}
                     {event.status}
                   </span>
@@ -413,21 +417,21 @@ const CongestionPage: React.FC = () => {
       {thresholds && (
         <div className="card p-6">
           <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-            <Settings className="text-blue-400" />
+            <Settings className="text-signal-400" />
             Detection Thresholds
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-surface-light p-4 rounded-lg">
+            <div className="bg-surface-light p-4 rounded">
               <span className="text-xs text-muted">Speed Threshold</span>
               <p className="text-xl font-bold text-white mt-1">{thresholds.speed_threshold_kmh} km/h</p>
               <p className="text-xs text-muted mt-1">Below this = congestion</p>
             </div>
-            <div className="bg-surface-light p-4 rounded-lg">
+            <div className="bg-surface-light p-4 rounded">
               <span className="text-xs text-muted">Density Threshold</span>
               <p className="text-xl font-bold text-white mt-1">{thresholds.density_threshold_vehicles_per_km} veh/km</p>
               <p className="text-xs text-muted mt-1">Above this = congestion</p>
             </div>
-            <div className="bg-surface-light p-4 rounded-lg">
+            <div className="bg-surface-light p-4 rounded">
               <span className="text-xs text-muted">Bottleneck Reduction</span>
               <p className="text-xl font-bold text-white mt-1">{thresholds.bottleneck_speed_reduction_percent}%</p>
               <p className="text-xs text-muted mt-1">Speed drop to trigger</p>

@@ -23,13 +23,20 @@ from analytics.analytics import (
 
 router = APIRouter()
 
+# SIH26127 "Final Data Integrity" audit (2026-09-11): every endpoint below
+# loads real_only=True observations - GIS camera markers/heatmap/congestion/
+# flow layers must reflect actual CCTV-pipeline traffic, never
+# demo/seed_demo_data.py's or demo/seed_alert_demo.py's seeded
+# DEMO_SYNTHETIC scenario rows (see ObservationStore.all_observations()).
+
+
 @router.get('/cameras')
 def get_gis_cameras(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     store = ObservationStore()
-    obs = store.all_observations()
+    obs = store.all_observations(real_only=True)
     store.close()
 
     counts = vehicles_per_camera(obs)
@@ -38,8 +45,8 @@ def get_gis_cameras(
         res.append({
             'camera_id': cid,
             'name': cinfo.get('name', cid),
-            'lat': cinfo.get('lat', 18.5204),
-            'lng': cinfo.get('long', 73.8567),
+            'lat': cinfo.get('lat', 11.0168),
+            'lng': cinfo.get('long', 76.9558),
             'road': cinfo.get('road', 'Main Corridor'),
             'direction': cinfo.get('direction', 'Northbound'),
             'observation_count': counts.get(cid, 0),
@@ -54,7 +61,7 @@ def get_gis_heatmap(
     db: Session = Depends(get_db)
 ):
     store = ObservationStore()
-    obs = store.all_observations()
+    obs = store.all_observations(real_only=True)
     store.close()
 
     counts = vehicles_per_camera(obs)
@@ -79,7 +86,7 @@ def get_gis_congestion(
     db: Session = Depends(get_db)
 ):
     store = ObservationStore()
-    obs = store.all_observations()
+    obs = store.all_observations(real_only=True)
     store.close()
     trajectories = build_trajectories(obs)
 
@@ -95,8 +102,8 @@ def get_gis_congestion(
         res.append({
             'camera_id': cid,
             'camera_name': cinfo.get('name', cid),
-            'lat': cinfo.get('lat', 18.5204),
-            'lng': cinfo.get('long', 73.8567),
+            'lat': cinfo.get('lat', 11.0168),
+            'lng': cinfo.get('long', 76.9558),
             'level': level,
             'score': round(float(scores.get(cid, 0.0)), 3),
             'vehicle_count': int(analysis.get("density_by_camera", {}).get(cid, 0)),
@@ -112,7 +119,7 @@ def get_gis_od_flow(
     db: Session = Depends(get_db)
 ):
     store = ObservationStore()
-    obs = store.all_observations()
+    obs = store.all_observations(real_only=True)
     store.close()
     trajectories = build_trajectories(obs)
 

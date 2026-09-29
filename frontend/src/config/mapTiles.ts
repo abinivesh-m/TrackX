@@ -32,3 +32,22 @@ export const MAP_TILE_ATTRIBUTION: string =
 
 export const MAP_TILE_MAX_ZOOM = 19
 export const MAP_TILE_MIN_ZOOM = 3
+
+// SIH26127 "Critical GIS Location Fix" (2026-09-11): TrackX's camera
+// network (network/camera_network.py's CAMERAS dict) is real Coimbatore,
+// Tamil Nadu, India geography (~11.0N, 77.0E) - CameraMap.tsx,
+// TrafficHeatmap.tsx and CongestionMap.tsx already centered correctly on
+// it. GISPage.tsx and TrajectoryPage.tsx, which build their Leaflet maps
+// inline instead of through those shared components, each independently
+// hardcoded a DIFFERENT, WRONG literal: [18.5204, 73.8567] - Pune,
+// Maharashtra, ~800km away - as their initial map center. Camera markers
+// (real Coimbatore coordinates from the API) were still placed correctly;
+// they just rendered far outside the visible viewport of a map sitting in
+// Pune, which is exactly the bug the screenshot showed (Coimbatore camera
+// names, Pune map).
+//
+// This is now the ONE place that value is defined - every map in the app
+// should import it rather than hardcoding its own copy (see the pages/
+// components updated alongside this comment).
+export const DEFAULT_MAP_CENTER: [number, number] = [11.0168, 76.9558] // Coimbatore, Tamil Nadu
+export const DEFAULT_MAP_ZOOM = 12

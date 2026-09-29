@@ -52,9 +52,14 @@ def _native(value):
 
 
 def _load_observations(camera_id: str | None = None, hours: float | None = None):
+    # SIH26127 "Final Data Integrity" audit (2026-09-11): real_only=True -
+    # congestion must be derived from actual observations, never from
+    # demo/seed_demo_data.py's or demo/seed_alert_demo.py's seeded
+    # DEMO_SYNTHETIC scenario rows. See ObservationStore.all_observations()
+    # for the full finding.
     store = ObservationStore()
     try:
-        observations = store.all_observations()
+        observations = store.all_observations(real_only=True)
     finally:
         store.close()
     if camera_id:
@@ -107,6 +112,8 @@ def get_camera_traffic_metrics(
             "congestion_score": 0,
             "is_congested": False,
             "is_bottleneck": False,
+            "reason": "Insufficient observations in this time window to calculate congestion.",
+            "speed_is_camera_specific": None,
             "window_start": (datetime.now() - timedelta(hours=hours)).isoformat(),
             "window_end": datetime.now().isoformat(),
         }
@@ -135,6 +142,12 @@ def get_camera_traffic_metrics(
         "congestion_score": round(congestion_score * 100, 1),
         "is_congested": bool(is_congested),
         "is_bottleneck": bool(is_bottleneck),
+        # SIH26127 "Final Data Integrity" audit (2026-09-11): a real,
+        # evidence-based explanation built from the same factors above
+        # (analytics.congestion_hotspots()'s _congestion_reason()) - "why
+        # is this camera congested", not just a bare score.
+        "reason": factors.get("reason"),
+        "speed_is_camera_specific": factors.get("speed_is_camera_specific"),
         "window_start": (datetime.now() - timedelta(hours=hours)).isoformat(),
         "window_end": datetime.now().isoformat(),
     }
@@ -196,6 +209,7 @@ def _process_one_camera(camera_id: str, thresholds: dict) -> dict | None:
             flow_rate_vehicles_per_hour=round(len(observations) / 24, 2),
             is_bottleneck=is_bottleneck,
             bottleneck_score=round(congestion_score * 100, 1) if is_bottleneck else 0,
+            reason=factors.get("reason"),
         )
     finally:
         store.close()
@@ -277,6 +291,7 @@ def get_congestion_analytics(
         "current_congestion_level": factors.get("congestion_level", "LOW"),
         "avg_speed_kmph": _native(factors.get("raw_speed", 0)),
         "vehicle_density": _native(factors.get("raw_density", 0)),
+        "reason": factors.get("reason", "Insufficient observations in this time window to calculate congestion."),
         "active_events": active_events,
     }
 

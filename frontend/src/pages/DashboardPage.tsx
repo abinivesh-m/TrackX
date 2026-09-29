@@ -6,10 +6,12 @@
 // ONLINE/NO_DATA per camera, not the hardcoded-ONLINE /cameras list), and
 // System Status from GET /health (now backed by real DB/model checks -
 // see backend/app/main.py - instead of hardcoded "operational" literals).
+//
+// Restyled as a control-room overview panel: flat KPI tiles, no gradient
+// icon glows, no staggered entrance animation, no rounded-pill badges.
 
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
 import { toast } from 'react-toastify'
 import { api } from '@/services/api'
@@ -76,14 +78,9 @@ const DashboardPage: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="flex flex-col justify-center items-center h-full text-white space-y-4">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-        >
-          <Activity size={48} className="text-blue-400" />
-        </motion.div>
-        <p className="text-lg text-muted">Loading Operations Center…</p>
+      <div className="flex flex-col justify-center items-center h-full text-white space-y-3">
+        <div className="spinner" />
+        <p className="text-sm text-muted font-data">LOADING OPERATIONS CENTER...</p>
       </div>
     )
   }
@@ -95,84 +92,71 @@ const DashboardPage: React.FC = () => {
     .sort((a, b) => a.hour.localeCompare(b.hour))
     .map((h) => ({ hour: h.hour.slice(-5), vehicles: h.count })) || []
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.06, delayChildren: 0.05 } }
-  }
-  const itemVariants = {
-    hidden: { opacity: 0, y: 16 },
-    visible: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 140, damping: 18 } }
-  }
-
   return (
-    <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-6">
+    <div className="space-y-5">
       {loadError && (
-        <motion.div
-          variants={itemVariants}
-          className="bg-red-500/10 border border-red-500/30 rounded-lg p-3 flex items-center gap-2 text-red-300 text-sm"
-        >
+        <div className="bg-critical-500/10 border border-critical-500/30 rounded-sm p-3 flex items-center gap-2 text-critical-400 text-sm">
           <WifiOff size={16} />
           <span>{loadError}</span>
-        </motion.div>
+        </div>
       )}
-      <motion.div
-        variants={itemVariants}
-        className="bg-surface border border-border rounded-lg p-3 flex items-center justify-between text-sm text-muted"
-      >
+
+      <div className="bg-surface border border-border rounded-sm p-3 flex items-center justify-between text-sm text-muted">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-green-400" />
+          <span className="live-dot is-live" />
           <span>Operating on recorded multi-camera feeds with genuine Indian plates for evaluation.</span>
         </div>
-        <span className="text-xs bg-surface-light px-2 py-0.5 rounded font-mono border border-border">SIH 26127</span>
-      </motion.div>
+        <span className="text-xs bg-surface-light px-2 py-0.5 rounded-sm font-data border border-border">SIH 26127</span>
+      </div>
 
-      <motion.h1 variants={itemVariants} className="text-3xl font-bold text-white flex items-center gap-3">
-        <Shield className="text-blue-400" />
-        Operations Center
-      </motion.h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-xl font-bold text-white flex items-center gap-2.5">
+          <Shield className="text-signal-400" size={22} />
+          Operations Center
+        </h1>
+        <span className="label-caps">Pipeline: Camera &rarr; Detection &rarr; OCR &rarr; Matching &rarr; Map &rarr; Intelligence</span>
+      </div>
 
       {/* KPI Row */}
-      <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
-        <StatCard icon={Video} label="Active Cameras" value={`${onlineCameras}/${cameras.length}`} iconColor="bg-green-500/20 text-green-400" />
-        <StatCard icon={Car} label="Vehicles Detected" value={analytics?.total_observations?.toLocaleString() || '0'} iconColor="bg-blue-500/20 text-blue-400" />
-        <StatCard icon={Activity} label="Unique Vehicles" value={analytics?.total_vehicles?.toLocaleString() || '0'} iconColor="bg-purple-500/20 text-purple-400" />
-        <StatCard icon={Gauge} label="Avg Speed" value={analytics?.average_speed != null ? `${analytics.average_speed.toFixed(1)} km/h` : '—'} iconColor="bg-cyan-500/20 text-cyan-400" />
-        <StatCard icon={TrendingUp} label="Congestion Bottlenecks" value={bottlenecks.length.toString()} iconColor="bg-orange-500/20 text-orange-400" />
-        <StatCard icon={AlertTriangle} label="Active Alerts" value={openAlerts.toString()} iconColor="bg-red-500/20 text-red-400" />
-      </motion.div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3">
+        <StatCard icon={Video} label="Active Cameras" value={`${onlineCameras}/${cameras.length}`} iconColor="bg-clear-500/15 text-clear-400" />
+        <StatCard icon={Car} label="Vehicles Detected" value={analytics?.total_observations?.toLocaleString() || '0'} iconColor="bg-signal-500/15 text-signal-400" />
+        <StatCard icon={Activity} label="Unique Vehicles" value={analytics?.total_vehicles?.toLocaleString() || '0'} iconColor="bg-telemetry-500/15 text-telemetry-400" />
+        <StatCard icon={Gauge} label="Avg Speed" value={analytics?.average_speed != null ? `${analytics.average_speed.toFixed(1)} km/h` : '—'} iconColor="bg-telemetry-500/15 text-telemetry-400" />
+        <StatCard icon={TrendingUp} label="Congestion Bottlenecks" value={bottlenecks.length.toString()} iconColor="bg-caution-500/15 text-caution-400" />
+        <StatCard icon={AlertTriangle} label="Active Alerts" value={openAlerts.toString()} iconColor="bg-critical-500/15 text-critical-400" />
+      </div>
 
       {/* Main Content */}
-      <motion.div variants={itemVariants} className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-        <div className="xl:col-span-2 space-y-6">
-          <div className="card p-6">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-bold text-white flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-blue-500/20 border border-blue-500/30">
-                  <Camera className="text-blue-400" size={22} />
-                </div>
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-5">
+        <div className="xl:col-span-2 space-y-5">
+          <div className="card p-0 overflow-hidden">
+            <div className="flex items-center justify-between px-4 py-3 border-b border-border">
+              <h2 className="label-caps flex items-center gap-2">
+                <Camera size={13} />
                 City Camera Network
               </h2>
-              <span className={`text-xs flex items-center gap-2 px-4 py-1.5 rounded-full font-semibold border ${
+              <span className={`text-[11px] flex items-center gap-1.5 px-2.5 py-1 rounded-sm font-semibold font-data border ${
                 onlineCameras === cameras.length
-                  ? 'text-green-400 bg-green-500/10 border-green-500/30'
-                  : 'text-yellow-400 bg-yellow-500/10 border-yellow-500/30'
+                  ? 'text-clear-400 bg-clear-500/10 border-clear-500/30'
+                  : 'text-caution-400 bg-caution-500/10 border-caution-500/30'
               }`}>
-                <span className={`w-2 h-2 rounded-full ${onlineCameras === cameras.length ? 'bg-green-500' : 'bg-yellow-500'}`} />
-                {onlineCameras} of {cameras.length} reporting
+                <span className={`w-1.5 h-1.5 rounded-full ${onlineCameras === cameras.length ? 'bg-clear-500' : 'bg-caution-500'}`} />
+                {onlineCameras} / {cameras.length} REPORTING
               </span>
             </div>
-            <div className="h-[460px] rounded-xl overflow-hidden border border-border">
+            <div className="h-[440px]">
               <CameraMap cameras={cameras} />
             </div>
           </div>
 
           {/* Traffic Volume Trend */}
-          <div className="card p-6">
-            <h3 className="text-lg font-bold text-white mb-1 flex items-center gap-2">
-              <TrendingUp className="text-green-400" size={18} />
+          <div className="card p-4">
+            <h3 className="label-caps mb-0.5 flex items-center gap-2">
+              <TrendingUp size={13} />
               Traffic Volume Trend
             </h3>
-            <p className="text-xs text-muted mb-4">Vehicle observations per hour, city-wide.</p>
+            <p className="text-xs text-muted mb-3">Vehicle observations per hour, city-wide.</p>
             {trendData.length === 0 ? (
               <div className="text-center py-10 text-muted text-sm">No hourly observation data yet.</div>
             ) : (
@@ -180,15 +164,15 @@ const DashboardPage: React.FC = () => {
                 <AreaChart data={trendData}>
                   <defs>
                     <linearGradient id="dashTrendFill" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.5} />
-                      <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
+                      <stop offset="5%" stopColor="#ec9d1e" stopOpacity={0.35} />
+                      <stop offset="95%" stopColor="#ec9d1e" stopOpacity={0} />
                     </linearGradient>
                   </defs>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#2a2f3a" />
-                  <XAxis dataKey="hour" stroke="#8b93a7" fontSize={11} />
-                  <YAxis stroke="#8b93a7" fontSize={11} allowDecimals={false} />
-                  <Tooltip contentStyle={{ background: '#151922', border: '1px solid #2a2f3a', borderRadius: 8, fontSize: 12 }} />
-                  <Area type="monotone" dataKey="vehicles" stroke="#3b82f6" fill="url(#dashTrendFill)" strokeWidth={2} />
+                  <CartesianGrid strokeDasharray="2 4" stroke="#232733" />
+                  <XAxis dataKey="hour" stroke="#6b7385" fontSize={11} />
+                  <YAxis stroke="#6b7385" fontSize={11} allowDecimals={false} />
+                  <Tooltip contentStyle={{ background: '#171a21', border: '1px solid #232733', borderRadius: 3, fontSize: 12 }} />
+                  <Area type="monotone" dataKey="vehicles" stroke="#ec9d1e" fill="url(#dashTrendFill)" strokeWidth={1.5} />
                 </AreaChart>
               </ResponsiveContainer>
             )}
@@ -196,19 +180,17 @@ const DashboardPage: React.FC = () => {
         </div>
 
         {/* Side Panel */}
-        <div className="space-y-6">
+        <div className="space-y-5">
           {/* System Status - every value below comes from GET /health, which
               actually checks the database and model availability
               (backend/app/api/v1/health.py's check_database()/check_models())
               rather than returning hardcoded "operational" strings. */}
-          <div className="card p-6">
-            <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-              <div className="p-2 rounded-lg bg-green-500/20 border border-green-500/30">
-                <Shield className="text-green-400" size={18} />
-              </div>
+          <div className="card p-4">
+            <h3 className="label-caps mb-3 flex items-center gap-2">
+              <Shield size={13} />
               System Status
             </h3>
-            <div className="space-y-1">
+            <div className="space-y-0.5">
               {[
                 {
                   label: 'Database',
@@ -226,10 +208,10 @@ const DashboardPage: React.FC = () => {
                   ok: true,
                 },
               ].map((status) => (
-                <div key={status.label} className="flex items-center justify-between p-3 rounded-xl hover:bg-surface-light transition-all">
-                  <span className="text-muted text-sm font-medium">{status.label}</span>
-                  <span className={`text-sm flex items-center gap-2 font-semibold ${status.ok ? 'text-green-400' : 'text-yellow-400'}`}>
-                    <span className={`w-2.5 h-2.5 rounded-full ${status.ok ? 'bg-green-500' : 'bg-yellow-500'}`} />
+                <div key={status.label} className="flex items-center justify-between py-2 border-b border-border last:border-b-0">
+                  <span className="text-muted text-xs">{status.label}</span>
+                  <span className={`text-xs flex items-center gap-1.5 font-semibold font-data ${status.ok ? 'text-clear-400' : 'text-caution-400'}`}>
+                    <span className={`w-1.5 h-1.5 rounded-full ${status.ok ? 'bg-clear-500' : 'bg-caution-500'}`} />
                     {status.value}
                   </span>
                 </div>
@@ -238,22 +220,22 @@ const DashboardPage: React.FC = () => {
           </div>
 
           {/* Camera Network status breakdown */}
-          <div className="card p-6">
-            <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-              <Video className="text-blue-400" size={18} />
+          <div className="card p-4">
+            <h3 className="label-caps mb-3 flex items-center gap-2">
+              <Video size={13} />
               Camera Network
             </h3>
-            <div className="space-y-2">
-              <div className="flex items-center justify-between text-sm">
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between text-xs">
                 <span className="text-muted">Online (recent observations)</span>
-                <span className="text-green-400 font-semibold">{onlineCameras}</span>
+                <span className="text-clear-400 font-semibold font-data">{onlineCameras}</span>
               </div>
-              <div className="flex items-center justify-between text-sm">
+              <div className="flex items-center justify-between text-xs">
                 <span className="text-muted">No data yet</span>
-                <span className="text-yellow-400 font-semibold">{cameras.length - onlineCameras}</span>
+                <span className="text-caution-400 font-semibold font-data">{cameras.length - onlineCameras}</span>
               </div>
-              <Link to="/cameras" className="text-xs text-blue-400 hover:underline inline-block mt-2">
-                View Camera Network →
+              <Link to="/cameras" className="text-xs text-signal-400 hover:text-signal-300 inline-block mt-1.5">
+                View Camera Network &rarr;
               </Link>
             </div>
           </div>
@@ -262,51 +244,45 @@ const DashboardPage: React.FC = () => {
           <RecentActivity observations={recentObservations} />
 
           {/* Alerts Preview */}
-          <div className="card p-6">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                <AlertTriangle className="text-red-400" size={18} />
+          <div className="card p-4">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="label-caps flex items-center gap-2">
+                <AlertTriangle size={13} />
                 Recent Alerts
               </h3>
-              <Link to="/alerts" className="text-xs text-blue-400 hover:text-blue-300 transition-colors">View All</Link>
+              <Link to="/alerts" className="text-xs text-signal-400 hover:text-signal-300">View All</Link>
             </div>
-            <div className="space-y-3">
-              <AnimatePresence>
-                {alerts.length === 0 ? (
-                  <div className="text-xs text-muted text-center py-4">No active security alerts</div>
-                ) : (
-                  alerts.slice(0, 3).map((alert, index) => (
-                    <motion.div
-                      key={alert.alert_id}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: 20 }}
-                      transition={{ delay: index * 0.05 }}
-                      className="p-3 rounded-lg bg-surface-light border border-border hover:border-blue-500/30 transition-all"
-                    >
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-medium text-white">{alert.alert_type.replace(/_/g, ' ')}</span>
-                        <span className={`text-xs px-2 py-0.5 rounded-full ${
-                          alert.severity === 'HIGH'
-                            ? 'bg-red-500/20 text-red-400'
-                            : alert.severity === 'MEDIUM'
-                            ? 'bg-yellow-500/20 text-yellow-400'
-                            : 'bg-green-500/20 text-green-400'
-                        }`}>
-                          {alert.severity}
-                        </span>
-                      </div>
-                      <p className="text-sm text-white font-mono">{alert.plate_text || alert.camera_id}</p>
-                      <p className="text-xs text-muted mt-1">{alert.description}</p>
-                    </motion.div>
-                  ))
-                )}
-              </AnimatePresence>
+            <div className="space-y-2">
+              {alerts.length === 0 ? (
+                <div className="text-xs text-muted text-center py-4">No active security alerts</div>
+              ) : (
+                alerts.slice(0, 3).map((alert) => (
+                  <div
+                    key={alert.alert_id}
+                    className="p-2.5 rounded-sm bg-surface-light border border-border"
+                  >
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-xs font-medium text-white">{alert.alert_type.replace(/_/g, ' ')}</span>
+                      <span className={`badge ${
+                        alert.severity === 'HIGH'
+                          ? 'badge-danger'
+                          : alert.severity === 'MEDIUM'
+                          ? 'badge-warning'
+                          : 'badge-info'
+                      }`}>
+                        {alert.severity}
+                      </span>
+                    </div>
+                    <p className="text-xs text-white font-data">{alert.plate_text || alert.camera_id}</p>
+                    <p className="text-[11px] text-muted mt-0.5">{alert.description}</p>
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   )
 }
 

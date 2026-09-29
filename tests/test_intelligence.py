@@ -10,6 +10,16 @@ No db, no OCR/CNN deps - pure Python/numpy against real camera ids from
 network.camera_network (needed so spatial/temporal feasibility checks have
 a real road-graph edge to evaluate).
 
+SIH26127 "Final Data Integrity" audit (2026-09-11) finding: every call to
+scan_trajectories_for_alerts() in this file must pass persist_to_db=False.
+That function defaults to persist_to_db=True, which opens a real
+AlertStore() against the live database (config.DB_PATH_STR) - without the
+explicit False, this file's TN38AB1234 (CAM_02/CAM_03) and TN99ZZ0000
+(CAM_03) test fixtures were silently written into the live demo's alerts
+table on every single test run, confirmed as the actual source of several
+"real-looking" alerts found contaminating the live database this audit
+(see tests/test_live_db_no_contaminating_test_artifacts.py).
+
 Run with: python -m pytest tests/test_intelligence.py -v
 """
 
@@ -136,7 +146,7 @@ def test_blacklisted_vehicle_generates_alert_via_full_scan():
         _obs("TN38AB1234", "CAM_03", BASE_TIME + timedelta(seconds=210), vec=_vec(seed=10, noise=0.02)),
     ]
     trajs = build_trajectories(obs)
-    alerts = scan_trajectories_for_alerts(trajs, blacklist_store=store, all_observations=obs)
+    alerts = scan_trajectories_for_alerts(trajs, blacklist_store=store, all_observations=obs, persist_to_db=False)
 
     blacklist_alerts = [a for a in alerts if a["type"] == "BLACKLIST_MATCH"]
     assert len(blacklist_alerts) == 1
@@ -156,7 +166,7 @@ def test_non_blacklisted_vehicle_generates_no_blacklist_alert():
         _obs("KA05XY7777", "CAM_02", BASE_TIME + timedelta(seconds=170), vec=_vec(seed=11, noise=0.02)),
     ]
     trajs = build_trajectories(obs)
-    alerts = scan_trajectories_for_alerts(trajs, blacklist_store=store, all_observations=obs)
+    alerts = scan_trajectories_for_alerts(trajs, blacklist_store=store, all_observations=obs, persist_to_db=False)
 
     blacklist_alerts = [a for a in alerts if a["type"] == "BLACKLIST_MATCH"]
     assert len(blacklist_alerts) == 0
@@ -181,7 +191,7 @@ def test_repeated_camera_alert_fires_for_same_camera_loitering():
         _obs(plate, "CAM_03", BASE_TIME + timedelta(seconds=200), vec=vec),
     ]
     trajs = build_trajectories(obs)
-    alerts = scan_trajectories_for_alerts(trajs, all_observations=obs)
+    alerts = scan_trajectories_for_alerts(trajs, all_observations=obs, persist_to_db=False)
 
     repeated = [a for a in alerts if a["type"] == "REPEATED_CAMERA_SIGHTING"]
     assert len(repeated) == 1

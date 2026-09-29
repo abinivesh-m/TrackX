@@ -20,7 +20,26 @@ import re
 
 # characters that PaddleOCR (or any plate OCR) commonly confuses on
 # low-quality plate crops - used to slightly discount edit-distance
-# penalties when the substitution is one of these known look-alikes
+# penalties when the substitution is one of these known look-alikes, and
+# reused by recognition/ocr_reader.py's per-character temporal voting as
+# the gate on which single-character swaps it's allowed to apply (SIH26127
+# OCR-correctness pass: 6<->8 and M<->H added after being the two actual
+# documented character-level errors seen on real CCTV footage - KA02MN1826
+# read as KA02MN1828 (6->8) and KA02MH7256 read as KA02HH7256 (M->H) -
+# neither pair is coverable by plate_normalizer.py's letter-zone/digit-zone
+# correction since both are same-type (digit-vs-digit, letter-vs-letter)
+# confusions, not digit-in-a-letter-zone or vice versa.
+#
+# D<->O added after a real, manually-verified ground-truth audit
+# (docs/OCR_REAL_ACCURACY_AUDIT.md) found it as the single most common
+# character-level error in that sample: UP14DX8554 read as UP14OX8554 on
+# two independent tracks, and DL2CBB4791 read as OL2C884791 - both the
+# literal same D->O substitution. NOTE (honesty caveat, see that doc):
+# this only helps a track whose OWN per-frame readings actually disagree
+# on that position (positional voting has no signal to arbitrate on if
+# every single reading for a track made the same mistake); it is a real,
+# justified fix, not a proven cure for the specific failing tracks in that
+# audit, since their disagreement rate at that position was not checked.
 CONFUSABLE_PAIRS = {
     frozenset(("O", "0")),
     frozenset(("I", "1")),
@@ -29,6 +48,9 @@ CONFUSABLE_PAIRS = {
     frozenset(("Z", "2")),
     frozenset(("G", "6")),
     frozenset(("D", "0")),
+    frozenset(("6", "8")),
+    frozenset(("M", "H")),
+    frozenset(("D", "O")),
 }
 
 

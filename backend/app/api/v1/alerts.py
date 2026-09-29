@@ -14,7 +14,31 @@ from database.observation_store import ObservationStore
 from intelligence.alerts import scan_trajectories_for_alerts, detect_camera_offline_alerts
 from intelligence.trajectory import build_trajectories
 
+import time
+
 router = APIRouter()
+
+# SIH26127 real performance bug (2026-09-15): _refresh_detected_alerts()
+# re-scans EVERY stored observation and rebuilds full cross-observation
+# trajectories (build_trajectories() - pairwise candidate matching, real
+# cost that grows with observation count) from scratch on every single
+# call, with zero caching - and both get_alerts() and get_alert_stats()
+# each call it independently, so one page load fires 2-4 of these full
+# scans back to back. With CAM_01 alone now past ~1800 real observations
+# (this project's own real-camera test volume), that full rescan is slow
+# enough that near-simultaneous requests pile up behind each other on this
+# single-worker backend until the browser's own request timeout aborts the
+# slowest one - confirmed live: GET /api/v1/alerts?limit=100 never
+# returning while ?limit=5 on the same page load did, purely because of
+# request ordering, not the limit value itself (the refresh cost is paid
+# BEFORE the limit is ever applied). This throttle does not change
+# matching/detection logic at all - it only skips repeating the identical
+# full rescan if one already ran within the last few seconds, which is
+# harmless staleness for an operator dashboard refreshing every few
+# seconds anyway, and collapses the redundant back-to-back rescans down to
+# one.
+_ALERT_REFRESH_MIN_INTERVAL_SECONDS = 5.0
+_last_alert_refresh_at = 0.0
 
 # Alert types with no real vehicle to search/link - the frontend uses this
 # to skip the "View Vehicle Intelligence" / "View Trajectory" actions and
@@ -103,11 +127,22 @@ def _parse_alert_id(alert_id: str) -> int:
     return int(value)
 
 
-def _refresh_detected_alerts() -> None:
+def _refresh_detected_alerts(force: bool = False) -> None:
     """Detect newly eligible alerts while AlertStore prevents duplicates.
     Covers all four alert families: blacklist/route-anomaly/repeated-camera
     (vehicle trajectory scan), camera-offline (observation staleness), and
-    congestion bottlenecks (promoted from the persisted congestion events)."""
+    congestion bottlenecks (promoted from the persisted congestion events).
+
+    Throttled (see _ALERT_REFRESH_MIN_INTERVAL_SECONDS above) - skips the
+    full rescan if one already completed within the throttle window, so
+    several near-simultaneous callers (a single page load's alerts+stats
+    requests) share one real refresh instead of each paying its full cost."""
+    global _last_alert_refresh_at
+    now = time.monotonic()
+    if not force and (now - _last_alert_refresh_at) < _ALERT_REFRESH_MIN_INTERVAL_SECONDS:
+        return
+    _last_alert_refresh_at = now
+
     observation_store = ObservationStore()
     try:
         all_observations = observation_store.all_observations()
