@@ -69,9 +69,19 @@ class CongestionStore:
         # built from real density/speed factors) for why a bottleneck event
         # was raised. NULL-able so any pre-existing event row (created
         # before this column existed) is simply unexplained, not broken.
+        # SIH26127 hotfix (2026-10-01): this check-then-ALTER isn't atomic
+        # across connections - see observation_store.py's _migrate()
+        # docstring. Two near-simultaneous requests can both pass the
+        # "not in existing" check on a fresh db before either ALTERs, so the
+        # second one's ALTER throws "duplicate column name". Swallow only
+        # that specific, harmless race.
         existing_cols = {row["name"] for row in self.conn.execute("PRAGMA table_info(congestion_events)")}
         if "reason" not in existing_cols:
-            self.conn.execute("ALTER TABLE congestion_events ADD COLUMN reason TEXT")
+            try:
+                self.conn.execute("ALTER TABLE congestion_events ADD COLUMN reason TEXT")
+            except sqlite3.OperationalError as e:
+                if "duplicate column name" not in str(e).lower():
+                    raise
             self.conn.commit()
         self.conn.execute("""
             CREATE TABLE IF NOT EXISTS traffic_thresholds (

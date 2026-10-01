@@ -90,10 +90,21 @@ class RouteAnomalyStore:
         genuine live-camera detection - unlike VehiclesPage.tsx/
         TrajectoryMap.tsx, which already label DEMO_SYNTHETIC rows. Additive
         migration, same PRAGMA table_info pattern as
-        database/congestion_store.py's `reason` column."""
+        database/congestion_store.py's `reason` column.
+
+        SIH26127 hotfix (2026-10-01): that check-then-ALTER isn't atomic
+        across connections - see observation_store.py's _migrate()
+        docstring. Two near-simultaneous requests can both pass the
+        "not in existing" check on a fresh db before either ALTERs, so the
+        second one's ALTER throws "duplicate column name". Swallow only
+        that specific, harmless race."""
         existing_cols = {row["name"] for row in self.conn.execute("PRAGMA table_info(route_anomalies)")}
         if "data_source" not in existing_cols:
-            self.conn.execute("ALTER TABLE route_anomalies ADD COLUMN data_source TEXT")
+            try:
+                self.conn.execute("ALTER TABLE route_anomalies ADD COLUMN data_source TEXT")
+            except sqlite3.OperationalError as e:
+                if "duplicate column name" not in str(e).lower():
+                    raise
             self.conn.commit()
 
     def add_anomaly(self, plate: str, from_camera: str, to_camera: str, timestamp: str,

@@ -47,12 +47,29 @@ class AlertStore:
                 resolution_notes TEXT
             )
         """)
+        # SIH26127 hotfix (2026-10-01): this PRAGMA-check-then-ALTER is NOT
+        # atomic across connections - see database/observation_store.py's
+        # _migrate() docstring for the full explanation (two near-simultaneous
+        # requests each constructing their own AlertStore() on a fresh db can
+        # both pass the "not in existing" check before either ALTERs, and the
+        # second ALTER then throws "duplicate column name"). Every ALTER
+        # below is now wrapped so that specific race is swallowed as
+        # harmless (the end state is identical either way) while any other
+        # OperationalError still surfaces.
         existing = {row[1] for row in self.conn.execute("PRAGMA table_info(alerts)")}
+
+        def _add_column(ddl: str):
+            try:
+                self.conn.execute(ddl)
+            except sqlite3.OperationalError as e:
+                if "duplicate column name" not in str(e).lower():
+                    raise
+
         if "updated_at" not in existing:
-            self.conn.execute("ALTER TABLE alerts ADD COLUMN updated_at TEXT")
+            _add_column("ALTER TABLE alerts ADD COLUMN updated_at TEXT")
             self.conn.execute("UPDATE alerts SET updated_at = created_at WHERE updated_at IS NULL")
         if "resolution_notes" not in existing:
-            self.conn.execute("ALTER TABLE alerts ADD COLUMN resolution_notes TEXT")
+            _add_column("ALTER TABLE alerts ADD COLUMN resolution_notes TEXT")
         if "evidence" not in existing:
             # Structured, per-alert-type proof (matched plate + similarity,
             # camera sequence, anomaly signal breakdown, congestion/offline
@@ -60,7 +77,7 @@ class AlertStore:
             # JSON text since the fields differ per alert_type; NULL for any
             # alert persisted before this column existed. See
             # intelligence/alerts.py for what each alert_type puts here.
-            self.conn.execute("ALTER TABLE alerts ADD COLUMN evidence TEXT")
+            _add_column("ALTER TABLE alerts ADD COLUMN evidence TEXT")
         self.conn.commit()
 
     def add_alert(self, plate: str, alert_type: str, timestamp: str,

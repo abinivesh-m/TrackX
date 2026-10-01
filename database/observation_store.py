@@ -152,11 +152,32 @@ class ObservationStore:
         table. Safe to call every time __init__ runs - checks PRAGMA
         table_info first, so it never tries to re-add a column that's
         already there (which sqlite would reject with 'duplicate column
-        name')."""
+        name').
+
+        SIH26127 hotfix (2026-10-01): the PRAGMA-check-then-ALTER above is
+        NOT atomic across connections. Almost every page view fires several
+        API calls in parallel (health/status, alerts/stats, trajectory/recent,
+        ...), and each endpoint constructs its own ObservationStore() - a
+        separate sqlite3 connection - on its own FastAPI worker thread. On a
+        brand-new db (fresh ephemeral disk after a deploy/restart), two of
+        those threads can both run the PRAGMA check before either has run its
+        ALTER, both see e.g. frame_index missing, and the second thread's
+        ALTER then fails with "duplicate column name: frame_index" - a real,
+        reproducible race, not a one-off fluke. This was happening on every
+        deploy and being silently swallowed by a bare `except Exception` in
+        alerts.py's _refresh_detected_alerts(), so trajectory/alert data
+        could silently fail to load depending on request timing. Fix: treat
+        "duplicate column name" specifically as "another thread/process
+        already added it" (harmless, the end state is identical) and only
+        re-raise genuinely unexpected errors."""
         existing = {row[1] for row in self.conn.execute("PRAGMA table_info(observations)")}
         for col, sqltype in {**_VISUAL_COLUMNS, **_DAY3_COLUMNS, **_DAY4_COLUMNS, **_DATA_SOURCE_COLUMNS, **_PLATE_DETECTOR_COLUMNS, **_DAY6_COLUMNS, **_ADAPTIVE_ANPR_COLUMNS}.items():
             if col not in existing:
-                self.conn.execute(f"ALTER TABLE observations ADD COLUMN {col} {sqltype}")
+                try:
+                    self.conn.execute(f"ALTER TABLE observations ADD COLUMN {col} {sqltype}")
+                except sqlite3.OperationalError as e:
+                    if "duplicate column name" not in str(e).lower():
+                        raise
         self.conn.commit()
         self._ensure_indexes()
 

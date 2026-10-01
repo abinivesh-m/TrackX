@@ -76,7 +76,18 @@ class BlacklistStore:
                 # POST /api/v1/vehicles/watchlist ('OPERATOR', the default)
                 # - so the UI can label demo scenario plates as demo data
                 # and never present them as a real operational watchlist.
-                conn.execute("ALTER TABLE blacklist ADD COLUMN source TEXT NOT NULL DEFAULT 'OPERATOR'")
+                #
+                # SIH26127 hotfix (2026-10-01): this check-then-ALTER isn't
+                # atomic across connections - see observation_store.py's
+                # _migrate() docstring. Two near-simultaneous requests can
+                # both pass the "not in existing" check on a fresh db before
+                # either ALTERs, so the second one's ALTER throws "duplicate
+                # column name". Swallow only that specific, harmless race.
+                try:
+                    conn.execute("ALTER TABLE blacklist ADD COLUMN source TEXT NOT NULL DEFAULT 'OPERATOR'")
+                except sqlite3.OperationalError as e:
+                    if "duplicate column name" not in str(e).lower():
+                        raise
 
     def add_plate(self, plate: str, description: Optional[str] = None,
                   severity: str = "MEDIUM", source: str = "OPERATOR"):
