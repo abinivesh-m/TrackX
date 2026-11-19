@@ -89,7 +89,7 @@ class TestHealthModelStatusIsReal:
         from app.api.v1 import health as health_module
         from app.api.v1 import observations as obs_module
 
-        def fake_status():
+        def fake_status(trigger_load=True):
             return {
                 "vehicle_detector": {"available": True, "reason": None},
                 "plate_detector": {"available": True, "reason": None},
@@ -111,7 +111,7 @@ class TestHealthModelStatusIsReal:
         from app.api.v1 import health as health_module
         from app.api.v1 import observations as obs_module
 
-        monkeypatch.setattr(obs_module, "get_model_status", lambda: {
+        monkeypatch.setattr(obs_module, "get_model_status", lambda trigger_load=True: {
             "vehicle_detector": {"available": True, "reason": None},
             "plate_detector": {"available": True, "reason": None},
             "ocr": {"available": True, "reason": None},
@@ -126,7 +126,7 @@ class TestHealthModelStatusIsReal:
         concatenated into a self-contradictory "healthy - unavailable"."""
         from app.api.v1 import observations as obs_module
 
-        monkeypatch.setattr(obs_module, "get_model_status", lambda: {
+        monkeypatch.setattr(obs_module, "get_model_status", lambda trigger_load=True: {
             "vehicle_detector": {"available": True, "reason": None},
             "plate_detector": {"available": False, "reason": "no weights file found (test)"},
             "ocr": {"available": False, "reason": "plate detector unavailable (test)"},
