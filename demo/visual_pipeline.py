@@ -295,6 +295,32 @@ def build_plate_fields(vehicle_crop, plate_detector, ocr, vehicle_bbox, camera_i
             "plate_status_reason": "OCR engine ran but produced no text",
         }
 
+    # SIH26127 watermark sanity filter (audit root cause #5): a plate
+    # detection landing on an on-screen caption/watermark (e.g. "Number
+    # Plate", or a timestamp overlay) yields digitless OCR text. Real
+    # Indian plates always carry 4 digits, so a read with no digits is
+    # almost never a real plate - treat it as a failed read instead of a
+    # (confidently wrong) detection. raw_plate_text is still surfaced for
+    # debugging via the ocr_failed path's caller; here we keep it None to
+    # avoid presenting it as a plate.
+    if not any(ch.isdigit() for ch in raw_text):
+        return {
+            **_NO_PLATE_FIELDS,
+            "plate_bbox": plate_bbox_frame,
+            "plate_crop_path": plate_crop_path,
+            "raw_plate_text": raw_text,
+            "normalized_plate_text": None,
+            "normalized_plate": None,
+            "ocr_confidence": ocr_conf,
+            "plate_status": "ocr_failed",
+            "plate_status_reason": (
+                "OCR produced text with no digits (likely a caption/watermark/"
+                "timestamp overlay, not a real plate) - rejected by sanity filter"
+            ),
+            "pattern_matched": False,
+            "data_source": "REAL_INFERENCE",
+        }
+
     normalized, pattern_matched = normalize_indian_plate(raw_text)
     # SIH26127 bug fix (2026-09-15, verified against a real CAM_01 run):
     # pattern_matched was computed above but never checked before this

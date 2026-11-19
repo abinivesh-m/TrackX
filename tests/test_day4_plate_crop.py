@@ -215,9 +215,12 @@ class TestPlateCropCreation(unittest.TestCase):
         self.assertLess(crop.shape[0], original_frame.shape[0])
         self.assertLess(crop.shape[1], original_frame.shape[1])
         
-        # Crop should match plate bbox dimensions (45x20)
-        self.assertEqual(crop.shape[0], 20)  # height
-        self.assertEqual(crop.shape[1], 45)  # width
+        # Crop is the plate bbox PLUS a proportional margin (PLATE_CROP_PAD_RATIO)
+        # so a slightly-too-tight detector box cannot clip a real leading char.
+        # So the crop must be AT LEAST the plate bbox (45x20) and still smaller
+        # than the original frame.
+        self.assertGreaterEqual(crop.shape[0], 20)  # height >= plate bbox height
+        self.assertGreaterEqual(crop.shape[1], 45)  # width  >= plate bbox width
 
     def test_plate_bbox_coordinates_converted_to_frame_space(self):
         """Test that plate bbox coordinates are converted from vehicle crop to frame space"""

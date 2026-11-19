@@ -25,7 +25,11 @@ OCR_EARLY_STOP_MIN_READINGS = 7
 OCR_EARLY_STOP_CONFIDENCE = 0.90
 
 
-PLATE_CROP_PAD_RATIO = 0.12
+# SIH26127 OCR improvement pass: loosened from 0.12 to 0.30 so a plate
+# detector box that's a few pixels too tight can no longer clip a real
+# leading character before OCR sees it (audit root cause #2 - truncated
+# crops). Matches demo/visual_pipeline.py's PLATE_CROP_PAD_RATIO.
+PLATE_CROP_PAD_RATIO = 0.30
 PLATE_CROP_PAD_MIN_PX = 3
 
 
@@ -461,7 +465,13 @@ def run_on_video(video_path, vehicle_detector, plate_detector, ocr,
                 if plate_crop.size == 0:
                     continue
                 text, ocr_conf = ocr.read(plate_crop)
-                if text:
+                # SIH26127 watermark sanity filter (audit root cause #5):
+                # a plate detection that lands on an on-screen caption/watermark
+                # (e.g. "Number Plate") yields all-letters text with no digits.
+                # Real Indian plates always carry 4 digits, so a digitless read
+                # is almost never a real plate - drop it instead of polluting
+                # the track's OCR history (and the VERIFIED state).
+                if text and any(ch.isdigit() for ch in text):
                     track_ocr_readings[track_id].append((text, ocr_conf))
 
     # build one final record per track, using voted plate text + best appearance crop
@@ -721,7 +731,9 @@ def run_video_to_db(video_path, vehicle_detector, plate_detector, ocr,
                             "bbox": plate_bbox_frame, "raw_text": text,
                             "ocr_conf": ocr_conf, "has_ocr": True,
                         }
-                        if text:
+                        # SIH26127 watermark sanity filter (audit root cause #5):
+                        # drop digitless reads (captions/watermarks), same as run_on_video.
+                        if text and any(ch.isdigit() for ch in text):
                             track_ocr_readings[track_id].append((text, ocr_conf))
                             track_plate_positions[track_id].append(
                                 _plate_relative_position(plate_bbox_frame, v_det["bbox"])

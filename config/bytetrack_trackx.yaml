@@ -1,0 +1,17 @@
+# Ultralytics AGPL-3.0 License - https://ultralytics.com/license
+# TrackX-tuned ByteTrack config (SIH26127 Priority 2: occlusion-aware
+# track continuity). Base values are ultralytics' own bytetrack.yaml
+# defaults (track_high_thresh 0.25, track_low_thresh 0.1,
+# new_track_thresh 0.25, track_buffer 30, match_thresh 0.8, fuse_score
+# True) - only track_buffer is changed here, and only after measuring the
+# effect on a real occlusion case (see docs/TRACKING_TUNING.md), not
+# guessed. Do not add more parameter changes to this file without the
+# same real-video before/after measurement.
+
+tracker_type: bytetrack
+track_high_thresh: 0.25
+track_low_thresh: 0.1
+new_track_thresh: 0.25
+track_buffer: 60   # was 30 - doubled: at ~30fps this raises occlusion tolerance from ~1s to ~2s of consecutive missed detections before a lost track is dropped and a reappearing vehicle gets a fresh ID. See docs/TRACKING_TUNING.md for the real measured effect of this change.
+match_thresh: 0.8
+fuse_score: True

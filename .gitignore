@@ -41,9 +41,14 @@ backend/app/media/
 **/plate_crops/
 
 # Model weights (large binaries - track via release assets / Git LFS instead
-# of the repo history if they need to be versioned)
+# of the repo history if they need to be versioned). ultralytics auto-
+# downloads yolov8n.pt on first run, so it must NOT be committed.
 *.pt
-!yolov8n.pt
+*.pth
+
+# Tooling artifacts
+.freebuff/
+next-app/
 
 # OS / editor noise
 .DS_Store
