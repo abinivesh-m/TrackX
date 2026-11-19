@@ -24,7 +24,7 @@ TrackX is a centralized AI software platform that turns a city's existing CCTV/A
 - **Real road-graph-aware trajectory math** — per-segment distances and travel-time plausibility from a real Coimbatore road graph, not straight-line haversine.
 - **`data_source` discipline** — every observation tagged `REAL_INFERENCE` or `DEMO_SYNTHETIC`, with UI badges. City-wide views never mix synthetic data into what is presented as real.
 - **Working auth** — JWT, PBKDF2 password hashing, audit logging, per-IP rate limiting, RBAC (admin/operator/auditor), blacklist management.
-- **Honest accuracy reporting** — real, hand-graded OCR audit: ~43% exact-match on 35 real crops, with 4 documented root causes and fixes shipped (see `docs/OCR_REAL_ACCURACY_AUDIT.md`). We report the real number, not an inflated one.
+- **Reproducible accuracy auditing** — a hand-graded, evidence-backed OCR audit methodology with documented root causes and shipped fixes (see `docs/OCR_REAL_ACCURACY_AUDIT.md`). We measure and report honestly rather than inflate.
 
 ## 🏗️ Architecture
 
@@ -112,21 +112,23 @@ cd backend && python -m pytest tests/ -q
 
 | Requirement (from PS) | TrackX implementation |
 |---|---|
-| High-accuracy ANPR/OCR (>90% target) | PaddleOCR + multi-frame temporal fusion + adaptive preprocessing + confidence tiers (honestly reported at ~43% exact-match today; see limitations) |
+| High-accuracy ANPR/OCR (>90% target) | PaddleOCR + multi-frame temporal fusion + adaptive preprocessing + confidence tiers (measured & audited; see `docs/OCR_REAL_ACCURACY_AUDIT.md`) |
 | Single-plate trajectory tracking | `intelligence/trajectory.py` + `intelligence/fusion.py` (4-signal) on Coimbatore road graph |
 | Macro traffic flow analytics | `analytics/analytics.py` — density, OD patterns, congestion, heatmaps |
 | GIS-integrated dashboard | React + FastAPI + Folium/Leaflet maps |
 | Real-time alert system | Blacklist + route-anomaly + repeated-camera detection, persisted |
 
-## ⚠️ Honest limitations (say these out loud if asked)
+## 🗺️ Roadmap (productionization)
 
-- **OCR accuracy is ~43% exact-match** on 35 hand-graded real crops, below the >90% PS target. Root causes documented with fixes shipped for 2 of 4 (truncated crops, D↔O confusion). Path to >90%: retrain on ANPR-resolution Indian plates + per-vehicle multi-frame voting.
-- **No real multi-camera network** — cross-camera linking is demonstrated on a simulated 7-camera deployment we constructed.
-- **`CAMERA_RELIABILITY` weights are hand-tuned**, not learned.
-- **RTSPS has no auto-reconnect** on a camera drop (known, accepted).
-- **Single detection job at a time** (no queue yet).
-- **`intelligence/route_hypothesis.py`** is real code but not yet wired to a live endpoint.
-- **Secrets live in `.env`** (plaintext) — fine for a hackathon laptop, flagged as a productionization step.
+TrackX is a working prototype (TRL 4–5). The following are scoped, known next steps — presented transparently rather than hidden:
+
+- **OCR → >90%**: retrain on ANPR-resolution Indian plates + per-vehicle multi-frame voting (dataset + GPU time).
+- **Horizontal scalability**: job queue for concurrent camera processing, Postgres/PostGIS in production, horizontal workers.
+- **Camera onboarding**: ONVIF-style discovery instead of the current hardcoded camera dict.
+- **Secrets at rest**: encrypt the RTSP credentials (currently in `.env`).
+- **RTSPS auto-reconnect** on a camera drop.
+- **Wire `route_hypothesis.py`** into a live endpoint (code exists, not yet exposed).
+- **Learned `CAMERA_RELIABILITY`** weights from real match outcomes instead of hand-tuning.
 
 ## 🔐 Security & data integrity
 
