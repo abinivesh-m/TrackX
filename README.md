@@ -174,12 +174,23 @@ TrackX is a working prototype (TRL 4–5). The following are scoped, known next 
 - **OCR → >90%**: retrain on ANPR-resolution Indian plates + per-vehicle multi-frame voting.
 - **Horizontal scalability**: job queue for concurrent camera processing, Postgres/PostGIS in production, horizontal workers.
 - **Camera onboarding**: ONVIF-style discovery instead of the current hardcoded camera dict.
+- ~~Data retention & privacy policy~~ ✅ Done — see `docs/DATA_RETENTION_AND_PRIVACY.md`
 - **Secrets at rest**: encrypt the RTSP credentials (currently in `.env`).
 - **RTSPS auto-reconnect** on a camera drop.
 - ~~Wire `route_hypothesis.py` into a live endpoint~~ ✅ Done — `GET /api/v1/trajectory/route-hypothesis?plate=...`
 - **Learned `CAMERA_RELIABILITY`** weights from real match outcomes instead of hand-tuning.
 
 ---
+
+## 🔒 Privacy & data governance
+
+TrackX is a surveillance-capable system and is treated as one. See [`docs/DATA_RETENTION_AND_PRIVACY.md`](docs/DATA_RETENTION_AND_PRIVACY.md) for the full policy draft:
+
+- **RBAC** (operator / supervisor / auditor / admin) with an audit log for every plate/trajectory query.
+- **Retention periods** per data class (plate crops 30d, observations 90d, alerts 1y, audit log 2y, aggregated analytics indefinite).
+- **`data_source` tagging** (`REAL_INFERENCE` / `DEMO_SYNTHETIC`) with UI badges — synthetic data is never presented as real.
+- **Purpose limitation, data minimization, right to erasure** on verified request.
+- Honest gaps documented (plaintext `.env` secrets, manual retention cleanup, no automated anonymization yet).
 
 ## 🔐 Security & data integrity
 
