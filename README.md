@@ -76,7 +76,7 @@ City CCTV (RTSPS) / recorded video
 └──────────────────────────────────────────────────────────────────┘
 ```
 
-> 📌 **Diagram placeholder:** drop your Figma-exported architecture image at `docs/architecture.png` and it will render above automatically.
+> 📌 **Editable version:** open the [Figma FigJam diagram](https://www.figma.com/board/SlZQSF5xCt4jyVZPuwWdEB) to tweak colors/layout and export a PNG if you prefer a raster version.
 
 ---
 
