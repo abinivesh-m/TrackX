@@ -45,9 +45,9 @@ Most city ANPR systems process cameras in **isolated silos** — they detect a p
 
 ## 🏗️ Architecture
 
-<!-- Replace with your Figma-exported diagram: docs/architecture.png -->
+<!-- Architecture diagram: docs/architecture.svg (editable, also exportable to PNG via Figma) -->
 <p align="center">
-  <img src="docs/architecture.png" alt="TrackX architecture diagram" width="820"/>
+  <img src="docs/architecture.svg" alt="TrackX architecture diagram" width="100%"/>
 </p>
 
 ```
