@@ -3,10 +3,11 @@
 // Operator sign-in. Flat, no gradient logo/text/button - styled as an
 // access panel to the ops console rather than a SaaS marketing login.
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { useAuth } from '@/contexts/AuthContext'
+import { api } from '@/services/api'
 import { Loader2, Lock, User, Eye, EyeOff } from 'lucide-react'
 
 const LoginPage: React.FC = () => {
@@ -14,9 +15,31 @@ const LoginPage: React.FC = () => {
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  // Populated from GET /auth/demo-access. This used to be the hardcoded
+  // string "DEMO ACCESS · admin@trackx.com / admin123", which the deployed
+  // app kept advertising after FIRST_SUPERUSER_PASSWORD had been changed -
+  // so following the on-screen hint always produced a 401. Asking the
+  // backend means the hint can only appear when that account really exists
+  // and accepts that password; when no demo account is configured the
+  // panel is simply absent.
+  const [demoAccess, setDemoAccess] = useState<{ username: string; password: string } | null>(null)
 
   const { login } = useAuth()
   const navigate = useNavigate()
+
+  useEffect(() => {
+    let cancelled = false
+    api.get<{ enabled: boolean; username?: string; password?: string }>('/auth/demo-access')
+      .then((data) => {
+        if (!cancelled && data?.enabled && data.username && data.password) {
+          setDemoAccess({ username: data.username, password: data.password })
+        }
+      })
+      // A backend that doesn't expose the endpoint (older deploy) must not
+      // break the login page - simply show no hint.
+      .catch(() => undefined)
+    return () => { cancelled = true }
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -110,11 +133,21 @@ const LoginPage: React.FC = () => {
             </button>
           </form>
 
-          <div className="mt-5 pt-4 border-t border-border text-center">
-            <p className="text-[11px] text-muted font-data">
-              DEMO ACCESS · admin@trackx.com / admin123
-            </p>
-          </div>
+          {demoAccess && (
+            <div className="mt-5 pt-4 border-t border-border text-center">
+              <button
+                type="button"
+                onClick={() => {
+                  setUsername(demoAccess.username)
+                  setPassword(demoAccess.password)
+                }}
+                title="Click to fill these credentials"
+                className="text-[11px] text-muted hover:text-signal-400 font-data"
+              >
+                DEMO ACCESS · {demoAccess.username} / {demoAccess.password}
+              </button>
+            </div>
+          )}
         </div>
 
         <p className="text-center text-[11px] text-muted mt-6 font-data">

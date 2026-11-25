@@ -27,12 +27,16 @@ export interface Camera {
   is_active: boolean
   last_seen?: string | null
   observation_count?: number
-  // ONLINE: observation activity within the last 24h. OFFLINE: has produced
-  // observations before, none recently. NOT_CONFIGURED: this camera has
-  // never produced a single observation - see backend/app/api/v1/cameras.py
-  // _camera_status(), same threshold intelligence/alerts.py's
-  // CAMERA_OFFLINE alert uses so this page and that alert always agree.
-  status?: 'ONLINE' | 'OFFLINE' | 'NOT_CONFIGURED' | 'DEGRADED' | 'NO_DATA'
+  // Latest observation from ANY camera in the store - lets the UI say how
+  // old a recorded session is instead of silently implying "now".
+  session_latest?: string | null
+  // ONLINE: observation activity within the last 24h. OFFLINE: this camera
+  // has data but none recently, while another camera in the same network is
+  // still reporting. RECORDED: nothing in the store is current at all, so
+  // the console is showing a recorded session (not a dead live feed).
+  // NOT_CONFIGURED: this camera has never produced a single observation -
+  // see backend/app/api/v1/cameras.py _camera_status().
+  status?: 'ONLINE' | 'OFFLINE' | 'RECORDED' | 'NOT_CONFIGURED' | 'DEGRADED' | 'NO_DATA'
 }
 
 export interface Observation {

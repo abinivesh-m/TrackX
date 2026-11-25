@@ -7,10 +7,16 @@ deployed services and coordinating CORS between them under time pressure.
 `render.yaml` in the repo root describes the build/start commands as a
 Render "Blueprint" - it contains no secrets.
 
-**No deployment has been performed by Claude.** Nothing here has been
-deployed or connected to any Render/Railway account - this is preparation
-only. Deploying requires an account and (if you want a persistent public
-URL) a payment method on Render's side, which only you can provide.
+A deployment **is live** at **https://trackx-scoj.onrender.com** (Render free
+tier, single web service described by `render.yaml`). The frontend login page
+reflects the backend's real demo credentials via
+`GET /api/v1/auth/demo-access`; the dashboard serves a replayed recorded
+session seeded at startup (`AUTO_SEED_RECORDED_SESSION=true`).
+
+Env vars to keep set in the Render dashboard (see `render.yaml`): `SECRET_KEY`,
+`FIRST_SUPERUSER` / `FIRST_SUPERUSER_PASSWORD`, `AUTO_SEED_RECORDED_SESSION`,
+`DEMO_OPERATOR_USERNAME` / `DEMO_OPERATOR_PASSWORD`. `AUTO_SEED_DEMO_DATA`
+should stay `false` where a recorded session is replayed.
 
 ## Steps
 

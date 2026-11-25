@@ -19,6 +19,12 @@ import { MAP_TILE_URL, MAP_TILE_ATTRIBUTION, MAP_TILE_MAX_ZOOM, DEFAULT_MAP_CENT
 // asserting a status that was never actually checked.
 type PhysicalStatus = 'LIVE' | 'OFFLINE' | 'NOT_CONFIGURED' | 'CHECKING'
 
+// Second, deliberately separate lens: what the observation store says about
+// this camera's DATA (as opposed to its physical/RTSP state). The dashboard
+// shows this one - it is an observation console, and "no RTSP configured"
+// says nothing about whether a recorded session is being displayed.
+type DataStatus = 'ONLINE' | 'RECORDED' | 'OFFLINE' | 'NOT_CONFIGURED'
+
 const PHYSICAL_COLORS: Record<PhysicalStatus, string> = {
   LIVE: '#3f9e5c',
   OFFLINE: '#c8473d',
@@ -33,13 +39,29 @@ const PHYSICAL_LABELS: Record<PhysicalStatus, string> = {
   CHECKING: 'Checking…',
 }
 
+const DATA_COLORS: Record<DataStatus, string> = {
+  ONLINE: '#3f9e5c',
+  RECORDED: '#3f8fa8',
+  OFFLINE: '#c8473d',
+  NOT_CONFIGURED: '#7a8699',
+}
+
+const DATA_LABELS: Record<DataStatus, string> = {
+  ONLINE: 'Live observations',
+  RECORDED: 'Recorded session data',
+  OFFLINE: 'No recent observations',
+  NOT_CONFIGURED: 'No observations recorded',
+}
+
 interface CameraMapProps {
   cameras: Camera[]
   height?: number
   physicalStatusById?: Record<string, PhysicalStatus>
+  /** When set, markers show observation status instead of physical status. */
+  dataStatusById?: Record<string, DataStatus>
 }
 
-const CameraMap: React.FC<CameraMapProps> = ({ cameras, height = 500, physicalStatusById }) => {
+const CameraMap: React.FC<CameraMapProps> = ({ cameras, height = 500, physicalStatusById, dataStatusById }) => {
   const mapRef = useRef<L.Map | null>(null)
   const mapContainerRef = useRef<HTMLDivElement>(null)
   const markersRef = useRef<L.Marker[]>([])
@@ -78,7 +100,10 @@ const CameraMap: React.FC<CameraMapProps> = ({ cameras, height = 500, physicalSt
     cameras.forEach(camera => {
       if (camera.latitude != null && camera.longitude != null) {
         const physical: PhysicalStatus = physicalStatusById?.[camera.camera_id] || 'CHECKING'
-        const color = PHYSICAL_COLORS[physical]
+        const data: DataStatus = dataStatusById?.[camera.camera_id] || 'NOT_CONFIGURED'
+        const usingData = !!dataStatusById
+        const color = usingData ? DATA_COLORS[data] : PHYSICAL_COLORS[physical]
+        const feedLabel = usingData ? DATA_LABELS[data] : PHYSICAL_LABELS[physical]
         const icon = L.divIcon({
           className: 'custom-camera-icon',
           html: `<div style="
@@ -100,7 +125,7 @@ const CameraMap: React.FC<CameraMapProps> = ({ cameras, height = 500, physicalSt
               <strong>${camera.camera_id}</strong><br/>
               ${camera.name}<br/>
               ${camera.location}<br/>
-              Feed: ${PHYSICAL_LABELS[physical]}<br/>
+              Feed: ${feedLabel}<br/>
               Observations logged: ${camera.observation_count || 0}
             </div>
           `)
@@ -118,7 +143,7 @@ const CameraMap: React.FC<CameraMapProps> = ({ cameras, height = 500, physicalSt
     return () => {
       markersRef.current.forEach(marker => marker.remove())
     }
-  }, [cameras, physicalStatusById])
+  }, [cameras, physicalStatusById, dataStatusById])
 
   return (
     <div 

@@ -134,7 +134,7 @@ Has a genuinely working `SyntheticDataBadge` and a DEMO/OPERATIONAL watchlist sp
 | CAM_02's photo (as of this morning) | Real — swapped from an AI-generated test image to an actual traffic photo |
 | YOLO detection, OCR, tracking | Real, on whatever image/video is fed in |
 | OCR accuracy number to quote | ~40–43% exact-match, hand-graded (not the OCR model's own confidence score) |
-| `route_hypothesis.py` | Real code, not wired to any endpoint — don't claim it live |
+| `route_hypothesis.py` | Wired at GET /api/v1/trajectory/route-hypothesis (2026-11) - live |
 | Trajectory/fusion multi-camera matching | Real, 4-signal weighted scoring |
 | RTSPS auto-reconnect | Does not exist — known, accepted limitation |
 

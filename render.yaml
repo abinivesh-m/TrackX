@@ -38,9 +38,24 @@ services:
         sync: false
       - key: FIRST_SUPERUSER_PASSWORD
         sync: false
-      # Render's free-tier disk is ephemeral - the SQLite demo database is
-      # lost on every restart/redeploy. This re-seeds it on startup so the
-      # deployed demo always comes up with working data. See
-      # demo/seed_demo_data.py's run_seed() and main.py's lifespan().
-      - key: AUTO_SEED_DEMO_DATA
+      # Render's free-tier disk is ephemeral - the SQLite observation store
+      # is lost on every restart/redeploy. AUTO_SEED_RECORDED_SESSION replays
+      # demo/recorded_session.json.gz (real pipeline output over the seven
+      # recorded feeds) into an empty store on startup, so the deployed
+      # console comes up with genuine multi-camera traffic instead of zeros.
+      # See demo/recorded_session.py and main.py's lifespan().
+      - key: AUTO_SEED_RECORDED_SESSION
         value: "true"
+      # The older synthetic scenario. Off where a recorded session exists -
+      # traffic metrics filter DEMO_SYNTHETIC out, so it would add nothing a
+      # judge could see.
+      - key: AUTO_SEED_DEMO_DATA
+        value: "false"
+      # Public, non-admin evaluation login. GET /api/v1/auth/demo-access
+      # serves these values to the login page, so the "DEMO ACCESS" hint can
+      # never advertise credentials the backend doesn't accept. This account
+      # is an operator (no admin rights) and exists to be handed out.
+      - key: DEMO_OPERATOR_USERNAME
+        value: demo.judge
+      - key: DEMO_OPERATOR_PASSWORD
+        value: "TrackX@Judge2026"

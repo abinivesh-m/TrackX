@@ -95,8 +95,9 @@ python -m demo.visual_pipeline --camera CAM_01
 python -m pytest tests backend/tests integration_tests -q
 ```
 
-251 tests pass as of this session's last run (a handful are skipped, not
-failed - that's expected, see the skip reasons if curious).
+155 tests pass as of the last run (2 skipped - that's expected, see the
+skip reasons if curious). The backend/webcam tests that need a real
+ultralytics install are skipped on hosts without it.
 
 ```bash
 cd frontend

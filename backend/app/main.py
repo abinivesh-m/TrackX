@@ -103,9 +103,58 @@ async def lifespan(app: FastAPI):
             ))
             db.commit()
             logger.info("Created admin account from FIRST_SUPERUSER/FIRST_SUPERUSER_PASSWORD.")
+
+        # Judge demo operator - see Settings.DEMO_OPERATOR_PASSWORD. Kept in
+        # sync on every startup (including a password reset) so that
+        # GET /auth/demo-access can never hand out credentials that this
+        # account doesn't actually accept. Non-admin by construction: this
+        # account exists to let an evaluator see the console, not to
+        # administer it.
+        if settings.DEMO_OPERATOR_PASSWORD:
+            demo = db.query(User).filter(
+                User.username == settings.DEMO_OPERATOR_USERNAME
+            ).first()
+            if demo is None:
+                db.add(User(
+                    username=settings.DEMO_OPERATOR_USERNAME,
+                    email=settings.DEMO_OPERATOR_EMAIL,
+                    hashed_password=get_password_hash(settings.DEMO_OPERATOR_PASSWORD),
+                    full_name="TrackX Demo Operator",
+                    role="operator",
+                    is_admin=False,
+                    is_active=True,
+                ))
+                logger.info("Created demo operator account from DEMO_OPERATOR_PASSWORD.")
+            else:
+                demo.hashed_password = get_password_hash(settings.DEMO_OPERATOR_PASSWORD)
+                demo.role = "operator"
+                demo.is_admin = False
+                demo.is_active = True
+                logger.info("Synced demo operator password from DEMO_OPERATOR_PASSWORD.")
+            db.commit()
     finally:
         db.close()
     logger.info("Database initialized")
+
+    # Recorded-session replay (preferred over the synthetic seed below).
+    # Render's free tier gives the service an ephemeral disk, so a redeploy
+    # starts with an empty observations database and an empty dashboard.
+    # This replays demo/recorded_session.json.gz - real pipeline output over
+    # the seven recorded feeds - so the deployed console shows genuine
+    # multi-camera traffic instead of zeros. It only seeds when the store is
+    # empty; a real capture session is never overwritten.
+    recorded_session_seeded = False
+    if os.getenv("AUTO_SEED_RECORDED_SESSION", "").lower() in ("1", "true", "yes"):
+        try:
+            from demo.recorded_session import run_seed as seed_recorded_session
+            summary = seed_recorded_session()
+            recorded_session_seeded = not summary.get("skipped", False)
+            logger.info("AUTO_SEED_RECORDED_SESSION: %s", summary)
+        except Exception:
+            logger.exception(
+                "AUTO_SEED_RECORDED_SESSION: replay failed - app will still "
+                "start, but the console may have no traffic data"
+            )
 
     # Phase 14 deployment: Render's (and most free-tier hosts') disk is
     # ephemeral - every restart/redeploy loses the SQLite observations DB
@@ -114,8 +163,13 @@ async def lifespan(app: FastAPI):
     # demo/seed_demo_data.py's CLI (--reset) already does, so a fresh
     # deploy comes up with working demo data instead of an empty database.
     # Off by default - never runs in a normal local dev checkout unless
-    # this env var is explicitly set.
-    if os.getenv("AUTO_SEED_DEMO_DATA", "").lower() in ("1", "true", "yes"):
+    # this env var is explicitly set. Skipped when a recorded session was
+    # replayed above: the synthetic scenario exists for the same purpose,
+    # and mixing it in would only add fabricated rows to a console that
+    # already has real ones (traffic metrics filter DEMO_SYNTHETIC out, so
+    # it would not even be visible there).
+    if (not recorded_session_seeded
+            and os.getenv("AUTO_SEED_DEMO_DATA", "").lower() in ("1", "true", "yes")):
         try:
             from demo.seed_demo_data import run_seed
             summary = run_seed(reset=True)

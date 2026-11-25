@@ -8,12 +8,38 @@ from sqlalchemy.orm import Session
 from sqlalchemy import or_, select
 
 from app.core.database import get_db
+from app.core.config import settings
 from app.core.security import verify_password, get_password_hash, create_access_token, create_refresh_token
 from app.schemas.auth import Token, RefreshTokenRequest, UserCreate, UserInDB, PasswordChange
 from app.api.v1.deps import get_current_user
 from app.models.user import User
 
 router = APIRouter()
+
+@router.get("/demo-access")
+def demo_access():
+    """Credentials for the judge demo operator, or nothing at all.
+
+    The frontend login page renders its "DEMO ACCESS" hint from this
+    response instead of hardcoding a username/password pair. That hint used
+    to be a literal string in LoginPage.tsx, which meant the deployed site
+    promised "admin@trackx.com / admin123" even though the live
+    FIRST_SUPERUSER_PASSWORD had been changed - a judge logging in with the
+    advertised credentials always got a 401.
+
+    Returning credentials from the API is deliberate: this is a public,
+    non-admin (role="operator") evaluation account, created at startup from
+    DEMO_OPERATOR_PASSWORD. When that var is unset this returns
+    {"enabled": false} and the login page shows no hint at all, so the UI
+    can never advertise a login that does not work.
+    """
+    if not settings.DEMO_OPERATOR_PASSWORD:
+        return {"enabled": False}
+    return {
+        "enabled": True,
+        "username": settings.DEMO_OPERATOR_USERNAME,
+        "password": settings.DEMO_OPERATOR_PASSWORD,
+    }
 
 @router.post("/login", response_model=Token)
 def login(

@@ -258,7 +258,7 @@ class ObservationStore:
         for r, av in zip(records, appearance_vectors):
             self.add(r, av)
 
-    def add_visual_observation(self, obs, appearance_vector=None, lat=None, long=None):
+    def add_visual_observation(self, obs, appearance_vector=None, lat=None, long=None, commit=True):
         """
         Maps ONE flat vehicle observation from demo/visual_pipeline.py's
         schema (see that module's docstring) onto this table and inserts it -
@@ -332,7 +332,8 @@ class ObservationStore:
             # trajectory audit).
             obs.get("data_source"),
         ))
-        self.conn.commit()
+        if commit:
+            self.conn.commit()
 
     def add_visual_observations(self, observations):
         """Bulk version of add_visual_observation(); appearance_vector is

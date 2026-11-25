@@ -87,10 +87,27 @@ const DashboardPage: React.FC = () => {
 
   const openAlerts = alertStats?.open_alerts ?? alerts.filter(a => a.status === 'OPEN').length
   const onlineCameras = cameras.filter(c => c.status === 'ONLINE').length
+  // RECORDED means no camera in the store is current - see
+  // backend/app/api/v1/cameras.py _camera_status(). It is still data this
+  // console can show, so it counts as reporting; the badge and the
+  // breakdown panel below say plainly which of the two it is.
+  const recordedCameras = cameras.filter(c => c.status === 'RECORDED').length
+  const reportingCameras = onlineCameras + recordedCameras
+  const sessionLatest = cameras.find(c => c.session_latest)?.session_latest || null
+  // Observation-status view for the map: live / recorded / offline / none.
+  const dataStatusById = cameras.reduce<Record<string, 'ONLINE' | 'RECORDED' | 'OFFLINE' | 'NOT_CONFIGURED'>>((acc, c) => {
+    acc[c.camera_id] = (c.status === 'ONLINE' || c.status === 'RECORDED' || c.status === 'OFFLINE')
+      ? c.status
+      : 'NOT_CONFIGURED'
+    return acc
+  }, {})
   const trendData = analytics?.hourly_density?.hourly_totals
     ?.slice()
     .sort((a, b) => a.hour.localeCompare(b.hour))
-    .map((h) => ({ hour: h.hour.slice(-5), vehicles: h.count })) || []
+    // A recorded session spans many days, so show the most recent 24 hourly
+    // buckets rather than every hour since the session began.
+    .slice(-24)
+    .map((h) => ({ hour: h.hour.length > 13 ? h.hour.slice(11, 16) : h.hour, vehicles: h.count })) || []
 
   return (
     <div className="space-y-5">
@@ -119,7 +136,7 @@ const DashboardPage: React.FC = () => {
 
       {/* KPI Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3">
-        <StatCard icon={Video} label="Active Cameras" value={`${onlineCameras}/${cameras.length}`} iconColor="bg-clear-500/15 text-clear-400" />
+        <StatCard icon={Video} label="Cameras Reporting" value={`${reportingCameras}/${cameras.length}`} iconColor="bg-clear-500/15 text-clear-400" />
         <StatCard icon={Car} label="Vehicles Detected" value={analytics?.total_observations?.toLocaleString() || '0'} iconColor="bg-signal-500/15 text-signal-400" />
         <StatCard icon={Activity} label="Unique Vehicles" value={analytics?.total_vehicles?.toLocaleString() || '0'} iconColor="bg-telemetry-500/15 text-telemetry-400" />
         <StatCard icon={Gauge} label="Avg Speed" value={analytics?.average_speed != null ? `${analytics.average_speed.toFixed(1)} km/h` : '—'} iconColor="bg-telemetry-500/15 text-telemetry-400" />
@@ -137,16 +154,17 @@ const DashboardPage: React.FC = () => {
                 City Camera Network
               </h2>
               <span className={`text-[11px] flex items-center gap-1.5 px-2.5 py-1 rounded-sm font-semibold font-data border ${
-                onlineCameras === cameras.length
+                reportingCameras === cameras.length
                   ? 'text-clear-400 bg-clear-500/10 border-clear-500/30'
                   : 'text-caution-400 bg-caution-500/10 border-caution-500/30'
               }`}>
-                <span className={`w-1.5 h-1.5 rounded-full ${onlineCameras === cameras.length ? 'bg-clear-500' : 'bg-caution-500'}`} />
-                {onlineCameras} / {cameras.length} REPORTING
+                <span className={`w-1.5 h-1.5 rounded-full ${reportingCameras === cameras.length ? 'bg-clear-500' : 'bg-caution-500'}`} />
+                {reportingCameras} / {cameras.length} REPORTING
+                {recordedCameras > 0 && onlineCameras === 0 ? ' · RECORDED' : ''}
               </span>
             </div>
             <div className="h-[440px]">
-              <CameraMap cameras={cameras} />
+              <CameraMap cameras={cameras} dataStatusById={dataStatusById} />
             </div>
           </div>
 
@@ -231,9 +249,21 @@ const DashboardPage: React.FC = () => {
                 <span className="text-clear-400 font-semibold font-data">{onlineCameras}</span>
               </div>
               <div className="flex items-center justify-between text-xs">
-                <span className="text-muted">No data yet</span>
-                <span className="text-caution-400 font-semibold font-data">{cameras.length - onlineCameras}</span>
+                <span className="text-muted">Recorded session</span>
+                <span className="text-telemetry-400 font-semibold font-data">{recordedCameras}</span>
               </div>
+              <div className="flex items-center justify-between text-xs">
+                <span className="text-muted">Offline / no data yet</span>
+                <span className="text-caution-400 font-semibold font-data">
+                  {cameras.length - reportingCameras}
+                </span>
+              </div>
+              {sessionLatest && (
+                <div className="flex items-center justify-between text-xs pt-1 border-t border-border">
+                  <span className="text-muted">Session data ends</span>
+                  <span className="text-white font-data">{new Date(sessionLatest).toLocaleString()}</span>
+                </div>
+              )}
               <Link to="/cameras" className="text-xs text-signal-400 hover:text-signal-300 inline-block mt-1.5">
                 View Camera Network &rarr;
               </Link>

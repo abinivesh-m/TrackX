@@ -218,6 +218,26 @@ class Settings(BaseSettings):
     FIRST_SUPERUSER: str = "admin@trackx.com"
     FIRST_SUPERUSER_PASSWORD: str = "admin123"
 
+    # Judge-facing demo operator account.
+    #
+    # The login page used to advertise "admin@trackx.com / admin123" as
+    # hardcoded JSX text. That string is baked into the frontend bundle at
+    # build time and knows nothing about the deployment's real
+    # FIRST_SUPERUSER_PASSWORD, so on the live Render instance the page
+    # advertised a password that had been changed - every judge who followed
+    # the hint got "Incorrect username or password". Worse, the account it
+    # named is the superuser.
+    #
+    # Instead, an explicitly non-admin operator account can be created at
+    # startup from these vars, and GET /api/v1/auth/demo-access returns the
+    # same values so the login page can only ever display a hint that is
+    # actually true for the running backend. An empty password disables
+    # both the account and the hint - the page then shows no credentials at
+    # all rather than a guess.
+    DEMO_OPERATOR_USERNAME: str = "demo.judge"
+    DEMO_OPERATOR_EMAIL: str = "demo.judge@trackx.com"
+    DEMO_OPERATOR_PASSWORD: str = ""
+
     @field_validator("BACKEND_CORS_ORIGINS", mode='before')
     @classmethod
     def assemble_cors_origins(cls, v):

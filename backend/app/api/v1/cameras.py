@@ -17,17 +17,27 @@ from intelligence.alerts import CAMERA_OFFLINE_HOURS
 router = APIRouter()
 
 
-def _camera_status(last_seen: str | None) -> str:
+def _camera_status(last_seen: str | None, network_latest: str | None = None) -> str:
     """
-    Real three-way status, not a fabricated ONLINE default:
+    Real four-way status, not a fabricated ONLINE default:
       - NOT_CONFIGURED: this camera has never produced a single observation
         (present in the network topology, no data source has ever fed it -
         nothing to call "online" or "offline" about yet).
-      - OFFLINE: it HAS produced observations before, but none in the last
-        CAMERA_OFFLINE_HOURS - same threshold and reasoning as
-        intelligence/alerts.py's CAMERA_OFFLINE alert, reused here rather
-        than duplicated so this page and that alert always agree.
-      - ONLINE: observation activity within that window.
+      - ONLINE: observation activity within the last CAMERA_OFFLINE_HOURS.
+      - OFFLINE: this camera has data, but none within CAMERA_OFFLINE_HOURS,
+        WHILE some other camera in the same network is still reporting - i.e.
+        the session is live and this feed has dropped.
+      - RECORDED: not a single camera has reported within the window. The
+        console is therefore looking at a recorded session (the shipped demo
+        dataset, or a real capture run that has ended), not at a live
+        deployment with one dead camera. Reporting this as OFFLINE for all
+        seven cameras would be technically true per camera but would read as
+        "the whole system is down" when what is actually happening is that
+        the data is historical.
+
+    Returns the status plus, for RECORDED/OFFLINE, the session's own latest
+    observation timestamp so callers can say how old the recording is
+    instead of leaving a judge to guess.
     """
     if not last_seen:
         return "NOT_CONFIGURED"
@@ -35,9 +45,16 @@ def _camera_status(last_seen: str | None) -> str:
         last_seen_dt = datetime.fromisoformat(last_seen)
     except (ValueError, TypeError):
         return "NOT_CONFIGURED"
-    if datetime.now() - last_seen_dt > timedelta(hours=CAMERA_OFFLINE_HOURS):
+    recent_cutoff = datetime.now() - timedelta(hours=CAMERA_OFFLINE_HOURS)
+    if last_seen_dt >= recent_cutoff:
+        return "ONLINE"
+    try:
+        network_latest_dt = datetime.fromisoformat(network_latest) if network_latest else None
+    except (ValueError, TypeError):
+        network_latest_dt = None
+    if network_latest_dt and network_latest_dt >= recent_cutoff:
         return "OFFLINE"
-    return "ONLINE"
+    return "RECORDED"
 
 
 def _camera_health_map() -> dict:
@@ -65,8 +82,13 @@ def _camera_health_map() -> dict:
     a Camera Media run against an AI-generated test photo) still counted
     as "ONLINE" here, inflating the Dashboard's "Active Cameras X/7" KPI
     with a camera that had never actually seen real footage. Now a camera
-    only counts as ONLINE if it produced a REAL_INFERENCE observation
-    within the last CAMERA_OFFLINE_HOURS.
+    2026-11-25: added the RECORDED state and `session_latest`. With the
+    shipped recorded session (demo/recorded_session.json.gz) every camera's
+    last observation is older than CAMERA_OFFLINE_HOURS, so all seven used to
+    report OFFLINE and the dashboard read "0/7 Active Cameras" on a console
+    that was in fact displaying a complete, healthy recorded session. A
+    camera is now RECORDED only when NO camera in the store is current -
+    one dropped feed inside a live session still reports OFFLINE.
     """
     store = ObservationStore()
     try:
@@ -77,15 +99,28 @@ def _camera_health_map() -> dict:
     for observation in observations:
         if observation.get("camera_id") in by_camera:
             by_camera[observation["camera_id"]].append(observation)
+
+    # Latest observation from ANY camera in the store. Distinguishes "this
+    # feed has dropped while the rest of the city is still reporting"
+    # (OFFLINE) from "nothing in the store is current at all" (RECORDED) -
+    # see _camera_status.
+    network_latest = None
+    for camera_observations in by_camera.values():
+        for observation in camera_observations:
+            ts = observation.get("timestamp")
+            if ts and (network_latest is None or ts > network_latest):
+                network_latest = ts
+
     health = {}
     for cam_id in CAMERAS:
         camera_observations = by_camera[cam_id]
         timestamps = [obs.get("timestamp") for obs in camera_observations if obs.get("timestamp")]
         last_seen = max(timestamps) if timestamps else None
         health[cam_id] = {
-            "status": _camera_status(last_seen),
+            "status": _camera_status(last_seen, network_latest),
             "observation_count": len(camera_observations),
             "last_seen": last_seen,
+            "session_latest": network_latest,
         }
     return health
 
@@ -105,6 +140,7 @@ def _camera_payload(cam_id: str, config: dict, health: dict) -> dict:
         "status": health["status"],
         "observation_count": health["observation_count"],
         "last_seen": health["last_seen"],
+        "session_latest": health.get("session_latest"),
     }
 
 

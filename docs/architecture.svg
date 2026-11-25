@@ -71,25 +71,25 @@
   </g>
   <rect x="40" y="90" width="5" height="88" rx="2.5" fill="#3b82f6"/>
   <text x="62" y="112" font-size="10.5" font-weight="700" fill="#60a5fa" letter-spacing="2.5">LAYER 1  ·  INPUT</text>
-  <text x="62" y="126" font-size="9" fill="#64748b">Real-time &amp; recorded camera feeds</text>
+  <text x="62" y="126" font-size="9" fill="#64748b">Live &amp; recorded feeds</text>
 
   <g filter="url(#cardShadow)">
-    <rect x="170" y="108" width="260" height="52" rx="10" fill="url(#blueCard)" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect x="210" y="108" width="270" height="52" rx="10" fill="url(#blueCard)" stroke="#3b82f6" stroke-width="1.5"/>
   </g>
-  <text x="200" y="130" font-size="12" font-weight="600" fill="#e2e8f0">📹 City CCTV / ANPR Cameras</text>
-  <text x="200" y="148" font-size="9.5" fill="#93c5fd">RTSPS live streams (7 nodes)</text>
+  <text x="240" y="130" font-size="12" font-weight="600" fill="#e2e8f0">📹 City CCTV / ANPR Cameras</text>
+  <text x="240" y="148" font-size="9.5" fill="#93c5fd">RTSPS live streams (7 nodes)</text>
 
   <g filter="url(#cardShadow)">
-    <rect x="460" y="108" width="220" height="52" rx="10" fill="url(#blueCard)" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect x="510" y="108" width="220" height="52" rx="10" fill="url(#blueCard)" stroke="#3b82f6" stroke-width="1.5"/>
   </g>
-  <text x="490" y="130" font-size="12" font-weight="600" fill="#e2e8f0">🎬 Recorded Video</text>
-  <text x="490" y="148" font-size="9.5" fill="#93c5fd">MP4 / AVI footage</text>
+  <text x="540" y="130" font-size="12" font-weight="600" fill="#e2e8f0">🎬 Recorded Video</text>
+  <text x="540" y="148" font-size="9.5" fill="#93c5fd">MP4 / AVI footage</text>
 
   <g filter="url(#cardShadow)">
-    <rect x="710" y="108" width="300" height="52" rx="10" fill="url(#blueCard)" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect x="760" y="108" width="290" height="52" rx="10" fill="url(#blueCard)" stroke="#3b82f6" stroke-width="1.5"/>
   </g>
-  <text x="740" y="130" font-size="12" font-weight="600" fill="#e2e8f0">⚙️ Stream Manager</text>
-  <text x="740" y="148" font-size="9.5" fill="#93c5fd">FFmpeg bridge · frame extraction</text>
+  <text x="790" y="130" font-size="12" font-weight="600" fill="#e2e8f0">⚙️ Stream Manager</text>
+  <text x="790" y="148" font-size="9.5" fill="#93c5fd">FFmpeg bridge · frame extraction</text>
 
   <!-- Arrow L1→L2 -->
   <line x1="640" y1="180" x2="640" y2="208" stroke="#60a5fa" stroke-width="2.5" marker-end="url(#arrow)" filter="url(#glow)"/>
@@ -144,38 +144,38 @@
   <text x="62" y="398" font-size="9" fill="#64748b">Identity fusion · trajectory reconstruction · analytics · alerts</text>
 
   <g filter="url(#cardShadow)">
-    <rect x="70" y="412" width="250" height="52" rx="10" fill="url(#greenCard)" stroke="#22c55e" stroke-width="1.5"/>
+    <rect x="70" y="410" width="250" height="62" rx="10" fill="url(#greenCard)" stroke="#22c55e" stroke-width="1.5"/>
   </g>
-  <text x="100" y="434" font-size="12" font-weight="600" fill="#e2e8f0">Identity Fusion</text>
-  <text x="100" y="452" font-size="9.5" fill="#86efac">plate 45% + appearance 25%</text>
-  <text x="100" y="465" font-size="9.5" fill="#86efac">time 15% + space 15%</text>
+  <text x="100" y="431" font-size="12" font-weight="600" fill="#e2e8f0">Identity Fusion</text>
+  <text x="100" y="449" font-size="9.5" fill="#86efac">plate 45% + appearance 25%</text>
+  <text x="100" y="464" font-size="9.5" fill="#86efac">time 15% + space 15%</text>
 
   <line x1="320" y1="438" x2="350" y2="438" stroke="#4ade80" stroke-width="2" marker-end="url(#arrowG)"/>
 
   <g filter="url(#cardShadow)">
-    <rect x="350" y="412" width="260" height="52" rx="10" fill="url(#greenCard)" stroke="#22c55e" stroke-width="1.5"/>
+    <rect x="350" y="410" width="260" height="62" rx="10" fill="url(#greenCard)" stroke="#22c55e" stroke-width="1.5"/>
   </g>
-  <text x="380" y="434" font-size="12" font-weight="600" fill="#e2e8f0">Trajectory Reconstruction</text>
-  <text x="380" y="452" font-size="9.5" fill="#86efac">Coimbatore road graph</text>
-  <text x="380" y="465" font-size="9.5" fill="#86efac">travel-time plausibility</text>
+  <text x="380" y="431" font-size="12" font-weight="600" fill="#e2e8f0">Trajectory Reconstruction</text>
+  <text x="380" y="449" font-size="9.5" fill="#86efac">Coimbatore road graph</text>
+  <text x="380" y="464" font-size="9.5" fill="#86efac">travel-time plausibility</text>
 
   <line x1="610" y1="438" x2="640" y2="438" stroke="#4ade80" stroke-width="2" marker-end="url(#arrowG)"/>
 
   <g filter="url(#cardShadow)">
-    <rect x="640" y="412" width="250" height="52" rx="10" fill="url(#greenCard)" stroke="#22c55e" stroke-width="1.5"/>
+    <rect x="640" y="410" width="250" height="62" rx="10" fill="url(#greenCard)" stroke="#22c55e" stroke-width="1.5"/>
   </g>
-  <text x="670" y="434" font-size="12" font-weight="600" fill="#e2e8f0">Traffic Analytics</text>
-  <text x="670" y="452" font-size="9.5" fill="#86efac">density · OD patterns</text>
-  <text x="670" y="465" font-size="9.5" fill="#86efac">congestion · heatmaps</text>
+  <text x="670" y="431" font-size="12" font-weight="600" fill="#e2e8f0">Traffic Analytics</text>
+  <text x="670" y="449" font-size="9.5" fill="#86efac">density · OD patterns</text>
+  <text x="670" y="464" font-size="9.5" fill="#86efac">congestion · heatmaps</text>
 
   <line x1="890" y1="438" x2="920" y2="438" stroke="#4ade80" stroke-width="2" marker-end="url(#arrowG)"/>
 
   <g filter="url(#cardShadow)">
-    <rect x="920" y="412" width="260" height="52" rx="10" fill="url(#greenCard)" stroke="#22c55e" stroke-width="1.5"/>
+    <rect x="920" y="410" width="260" height="62" rx="10" fill="url(#greenCard)" stroke="#22c55e" stroke-width="1.5"/>
   </g>
-  <text x="950" y="434" font-size="12" font-weight="600" fill="#e2e8f0">Alert System</text>
-  <text x="950" y="452" font-size="9.5" fill="#86efac">blacklist · route anomalies</text>
-  <text x="950" y="465" font-size="9.5" fill="#86efac">real-time flagging</text>
+  <text x="950" y="431" font-size="12" font-weight="600" fill="#e2e8f0">Alert System</text>
+  <text x="950" y="449" font-size="9.5" fill="#86efac">blacklist · route anomalies</text>
+  <text x="950" y="464" font-size="9.5" fill="#86efac">real-time flagging</text>
 
   <!-- Arrow L3→L4 -->
   <line x1="640" y1="480" x2="640" y2="506" stroke="#4ade80" stroke-width="2.5" marker-end="url(#arrowG)" filter="url(#glow)"/>
