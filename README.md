@@ -176,7 +176,7 @@ TrackX is a working prototype (TRL 4–5). The following are scoped, known next 
 - **Camera onboarding**: ONVIF-style discovery instead of the current hardcoded camera dict.
 - **Secrets at rest**: encrypt the RTSP credentials (currently in `.env`).
 - **RTSPS auto-reconnect** on a camera drop.
-- **Wire `route_hypothesis.py`** into a live endpoint (code exists, not yet exposed).
+- ~~Wire `route_hypothesis.py` into a live endpoint~~ ✅ Done — `GET /api/v1/trajectory/route-hypothesis?plate=...`
 - **Learned `CAMERA_RELIABILITY`** weights from real match outcomes instead of hand-tuning.
 
 ---

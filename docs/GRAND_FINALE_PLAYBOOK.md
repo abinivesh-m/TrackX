@@ -96,7 +96,7 @@ Plus an **alert system** for blacklisted vehicles and suspicious route anomalies
 ## 7. What NOT to do
 
 - Don't claim >90% OCR. It's measured at ~43%. Say the real number + root causes.
-- Don't claim `route_hypothesis.py` is live until it's wired to an endpoint.
+- `route_hypothesis.py` is now wired to `GET /api/v1/trajectory/route-hypothesis?plate=...` (done).
 - Don't claim `CAMERA_RELIABILITY` is learned — it's hand-tuned.
 - Don't claim auto-reconnect exists — it doesn't.
 - Don't claim Redis/Postgres are in use in dev — they're production targets.
