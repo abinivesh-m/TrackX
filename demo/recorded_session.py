@@ -92,10 +92,21 @@ def run_seed(reset=False, anchor_end=None, path=None):
     store = ObservationStore()
     try:
         existing = store.conn.execute("SELECT COUNT(*) FROM observations").fetchone()[0]
+        real_rows = store.conn.execute(
+            "SELECT COUNT(*) FROM observations WHERE data_source = 'REAL_INFERENCE'"
+        ).fetchone()[0]
+        # A store that already holds genuine REAL_INFERENCE observations is
+        # treated as a real capture session and is never overwritten, even
+        # when reset was not explicitly requested. A store that holds only
+        # legacy (data_source NULL) or synthetic rows is a stale/partial
+        # state and is rebuilt from the recorded session so the console
+        # shows one consistent, provenanced dataset instead of a mix.
+        if existing and not reset and real_rows == 0:
+            reset = True
         if existing and not reset:
             return {
                 "seeded": 0,
-                "reason": "observation store already has %d rows" % existing,
+                "reason": "observation store already has %d real rows" % real_rows,
                 "skipped": True,
             }
         if reset:
