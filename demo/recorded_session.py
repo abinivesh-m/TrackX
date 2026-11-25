@@ -71,7 +71,24 @@ def run_seed(reset=False, anchor_end=None, path=None):
     observations table is empty, so a real capture session is never
     overwritten by demo data.
     """
-    payload = load_dataset(path)
+    payload = None
+    try:
+        payload = load_dataset(path)
+    except (OSError, ValueError, json.JSONDecodeError) as exc:
+        logger = None
+        try:
+            import logging
+            logging.getLogger("trackx.recorded_session").exception(
+                "Could not load recorded session dataset %s: %s", path or DATASET_PATH, exc
+            )
+        except Exception:
+            pass
+        return {
+            "seeded": 0,
+            "skipped": True,
+            "reason": "dataset could not be loaded: %s" % exc,
+        }
+
     store = ObservationStore()
     try:
         existing = store.conn.execute("SELECT COUNT(*) FROM observations").fetchone()[0]
